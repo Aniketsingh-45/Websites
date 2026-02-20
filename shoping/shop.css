@@ -1,0 +1,242 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+body {
+            overflow-x: hidden;
+        }
+
+nav{
+    height: 100px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    border: 2px solid #ccc;
+     justify-content: space-between;
+    padding: 10px 5%;
+    
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav img{
+    width: 150px;
+    border-radius: 50px;
+    height: 140px;
+    position: relative;
+    bottom: 30px;
+    left: 80px;
+ 
+ 
+}
+.search{
+    border:1px solid #000;
+    width: 290px;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    align-content: center;
+    margin-left: 150px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.search::placeholder{
+    text-align: right;
+    margin-right: 8px;
+    font-weight: bold;
+    font-size: medium;
+
+}
+.searchIcon{
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    position: relative;
+    margin-top: 53px;
+    left: -308px;
+    overflow: hidden;
+    cursor: pointer;
+    
+    
+
+
+}
+.sale{
+    width: 130px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: large;
+    font-family: cursive;
+    color: rgb(88, 85, 85);
+    cursor: pointer;
+    
+
+}
+.sales{
+    font-size: large;
+    width: 150px;
+    margin-top: 20px;
+    margin-left: -30px;
+    font-family: cursive;
+    color: rgb(88, 85, 85);
+    cursor: pointer;
+    
+}
+.lines{
+    height: 80px;
+    width: 3px;
+    margin-top: 0px;
+    background-color: gray;
+}
+.pro{
+    width: 40px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 40px;
+
+}
+.prof{
+    width: 40px;
+    margin-left: -64px;
+    font-family: cursive;
+    font-size: larger;
+    font-weight: bold;
+    margin-right: 50px;
+}
+.menu{
+    border: 2px solid gray;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.menu li{
+    list-style: none;
+    margin-left: 30px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    }
+.menu li:hover{
+       color: #e91e63;
+}
+.offer img{
+width: 100%;
+ max-height: 400px;
+animation: slideIn 1s ease-in-out;
+    
+}
+@keyframes slideIn {
+            0% { transform: translateY(-20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+.offer{
+    width: 100%;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    margin-top: 1px;
+    
+}
+.box{
+    margin-top: -4px;
+    height: 70px;
+    
+    background: rgb(250, 233, 236);
+    align-content: center;
+    justify-items: center;
+
+}
+.boxes{
+    display: flex;
+    border: 1px solid pink;
+    height: 50px;
+    width: 90%;
+    background: whitesmoke;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+
+}
+.ret{
+    width: 20px;
+}
+.d{
+    margin-right: 60px;
+    font-size: large;
+    margin-left: 5px;
+     font-family: "Poppins", sans-serif;
+     cursor: pointer;
+    
+}
+.boy{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.boy img{
+    display: flex;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+   
+}
+.imgg{
+    display: flex;
+    gap: 50px;
+     height: 150px;
+    margin-top: -100px;
+    cursor: pointer;
+}
+.imgg img:hover {
+            transform: scale(1.1);
+        }
+.dress{
+    margin-top: 160px;
+    margin-left: -160px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+
+  }
+  .gold{
+    color: #FFD700;position: relative;
+  }
+  .gold img{
+    width: 100%;
+    border-style: none;
+    height: 60vh;
+  }
+  .shop{
+    border-radius: 8px;
+    border: 1px solid rgb(255, 209, 130);
+    background: rgb(63, 31, 17);
+    color: rgb(255, 209, 130);
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.2s;
+    left: 190px;
+    position: absolute;
+    top: 360px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+
+  }
+  .shop:hover {
+            background: #5c3221;
+        }
+  a{
+    text-decoration: none;
+  }
+
+
+

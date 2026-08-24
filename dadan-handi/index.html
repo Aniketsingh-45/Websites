@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="wood">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dadan Handi Meat — Best Champaran Mutton in Patna</title>
+    <meta name="description" content="Patna's Legendary Champaran Handi Mutton — Since 2016." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div id="page-loader" class="page-loader">
+      <div class="loader-content">
+        <div class="flame-icon">🔥</div>
+        <h2>Heating up the Handi...</h2>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container"></div>
+    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">Dadan Handi Meat</a>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+        <nav class="nav-links" id="nav-links">
+          <a href="#about" style="--delay: 1">Our Story</a>
+          <a href="#menu" style="--delay: 2">Menu</a>
+          <a href="#why-us" style="--delay: 3">Why Us</a>
+          <a href="#gallery" style="--delay: 4">Gallery</a>
+          <a href="#reviews" style="--delay: 5">Reviews</a>
+          <a href="#contact" style="--delay: 6">Location</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="btn btn-icon theme-toggle" title="Toggle Theme">
+            <span class="theme-icon">🎨</span>
+          </button>
+          <a href="tel:+918986496574" class="btn btn-primary magnetic-btn action-btn">Call Now</a>
+        </div>
+      </div>
+      <div class="scroll-progress-bar"></div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="hero">
+        <div class="hero-bg parallax-bg">
+          <div class="hero-embers"></div>
+          <!-- Steam SVG Overlay -->
+          <svg class="steam-overlay" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="steam-path p1" d="M30,100 C20,60 40,40 30,0" />
+            <path class="steam-path p2" d="M50,100 C60,60 40,40 50,0" />
+            <path class="steam-path p3" d="M70,100 C80,60 60,40 70,0" />
+          </svg>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="stagger-text">Sher dilwale ghas phus nahi khate,</span><br/>
+            <span class="stagger-text">sirf mutton khate hai</span>
+          </h1>
+          <p class="hero-subtitle stagger-text">Patna's Legendary Champaran Handi Mutton — Since 2016</p>
+          <div class="hero-buttons stagger-text">
+            <a href="tel:+918986496574" class="btn btn-primary btn-large magnetic-btn action-btn">Call to Order</a>
+            <a href="https://wa.me/918986496574" target="_blank" class="btn btn-whatsapp btn-large magnetic-btn action-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp Order
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section about-section bg-light">
+        <div class="container reveal stagger-children">
+          <div class="about-grid">
+            <div class="about-content">
+              <div class="badges">
+                <span class="badge badge-accent wobble-hover"><span class="counter" data-target="10">0</span>+ Years in Business</span>
+                <span class="badge badge-rating wobble-hover">⭐ 3.8 (<span class="counter" data-target="3000">0</span>+ Reviews)</span>
+              </div>
+              <h2 class="section-title">The Magic of Wood Fire & Clay</h2>
+              <p>Dadan Handi Meat is famous for authentic Champaran-style mutton, a traditional Bihar cooking method passed down through generations.</p>
+              <p>The meat is marinated in a rich blend of mustard oil, ghee, garlic, onions, and ginger, then sealed inside an earthen clay pot (handi) with a dough of kneaded flour, and slow-cooked for hours over a wood fire.</p>
+              <p>This traditional sealing method locks in every drop of aroma and juice, producing incredibly tender, smoky, flavorful meat.</p>
+            </div>
+            <div class="about-image sizzle-hover">
+              <img src="/mutton_handi.png" alt="Authentic Handi Mutton" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section id="menu" class="section menu-section">
+        <div class="container">
+          <div class="text-center reveal">
+            <h2 class="section-title text-light-title">Our Famous Menu</h2>
+            <p class="section-subtitle">Cooked fresh everyday. When it's gone, it's gone!</p>
+          </div>
+
+          <div class="highlight-banner reveal">
+            <div class="banner-content">
+              <h3>⭐ Special Offer: Unlimited Roti & Rice!</h3>
+              <p>Enjoy unlimited Tawa Roti & Steamed Rice with our Handi Mutton — starting at just ₹200–220</p>
+            </div>
+          </div>
+
+          <div class="menu-categories">
+            <!-- Mutton -->
+            <div class="menu-category reveal stagger-children">
+              <h3 class="category-title">🐐 Mutton</h3>
+              <div class="menu-grid">
+                <div class="menu-card magnetic-btn-subtle">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <h4>Mutton Handi (200g) + 6 Roti</h4>
+                      <span class="price">₹280</span>
+                    </div>
+                    <p>Signature slow-cooked handi mutton in authentic Champaran style.</p>
+                  </div>
+                </div>
+                <div class="menu-card magnetic-btn-subtle">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <h4>Mutton Istu (Stew) - 3 pcs + 6 Roti</h4>
+                      <span class="price">₹250</span>
+                    </div>
+                    <p>Rich, spiced mutton stew prepared with whole spices.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chicken -->
+            <div class="menu-category reveal stagger-children">
+              <h3 class="category-title">🍗 Chicken</h3>
+              <div class="menu-grid">
+                <div class="menu-card magnetic-btn-subtle">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <h4>Chicken Handi</h4>
+                      <span class="price">₹150</span>
+                    </div>
+                    <p>Creamy gravy, traditional spices, cooked in a clay handi.</p>
+                  </div>
+                </div>
+                <div class="menu-card magnetic-btn-subtle">
+                  <div class="card-content">
+                    <div class="card-header">
+                      <h4>Ahuna Chicken</h4>
+                      <span class="price">₹200</span>
+                    </div>
+                    <p>Dry-roasted style, extra spicy chicken.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section id="why-us" class="section bg-warm">
+        <div class="container">
+          <div class="text-center reveal">
+            <h2 class="section-title">Why Dadan Handi?</h2>
+          </div>
+          <div class="features-grid stagger-children reveal">
+            <div class="feature-card">
+              <div class="feature-icon bounce-on-view">🔥</div>
+              <h3>Wood-Fire Cooked</h3>
+              <p>Slow-cooked over traditional wood fire for an authentic smoky flavor.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon bounce-on-view">🏺</div>
+              <h3>Authentic Recipe</h3>
+              <p>Sealed with dough in earthen pots to lock in juices.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon bounce-on-view">⭐</div>
+              <h3>10+ Years Trusted</h3>
+              <p>Serving Patna proudly since 2016.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="section gallery-section bg-light">
+        <div class="container">
+          <div class="text-center reveal">
+            <h2 class="section-title">Feast Your Eyes</h2>
+          </div>
+          <div class="gallery-grid stagger-children reveal">
+            <div class="gallery-item lightbox-trigger">
+              <img src="/hero_bg.png" alt="Handi cooking on wood fire" loading="lazy" />
+              <div class="zoom-icon">🔍</div>
+            </div>
+            <div class="gallery-item lightbox-trigger">
+              <img src="/mutton_handi.png" alt="Mutton Handi close up" loading="lazy" />
+              <div class="zoom-icon">🔍</div>
+            </div>
+            <div class="gallery-item lightbox-trigger">
+              <img src="/chicken_handi.png" alt="Chicken Handi" loading="lazy" />
+              <div class="zoom-icon">🔍</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="reviews" class="section testimonials-section">
+        <div class="container reveal">
+          <div class="text-center">
+            <h2 class="section-title text-light-title">What Our Customers Say</h2>
+          </div>
+          <div class="testimonial-carousel" id="testimonial-carousel">
+            <div class="testimonial-card active">
+              <div class="stars fill-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Awesome, I stay in Bengaluru and whenever I come to Patna, I have Dadan Handi mutton — better than mummy's cooking!"</p>
+              <div class="reviewer-wrapper">
+                <div class="avatar pop-in">V</div>
+                <p class="reviewer">Verified Customer</p>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars fill-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"A very nice place to eat mutton handi at a reasonable cost. The taste is to die for, a paradise for mutton lovers."</p>
+              <div class="reviewer-wrapper">
+                <div class="avatar pop-in">R</div>
+                <p class="reviewer">Rajesh K.</p>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="stars fill-stars">⭐⭐⭐⭐⭐</div>
+              <p class="review-text">"Ahuna Mutton, Ahuna Chicken and Mutton Stew — all cooked perfectly. Spicier but delicious."</p>
+              <div class="reviewer-wrapper">
+                <div class="avatar pop-in">S</div>
+                <p class="reviewer">Sneha A.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <h3 class="footer-title">Dadan Handi Meat</h3>
+        <p>&copy; 2024 Dadan Handi Meat. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- FAB -->
+    <div class="fab-container">
+      <a href="tel:+918986496574" class="fab fab-call action-btn bounce-periodic" aria-label="Call Now">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

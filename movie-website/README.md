@@ -1,14 +1,15 @@
-# 🎬 Aniket Ka Movie
+# 🎬 Aniket Ka Movie - Glassmorphism Edition
 
-An elegant, dark-themed, and fully responsive movie listing and download web portal. Crafted using clean, semantic HTML5 and vanilla CSS3 to deliver a premium cinematic user interface.
+An elegant, dark-themed, and fully responsive movie listing and download web portal. Crafted using clean, semantic HTML5 and vanilla CSS3 to deliver a **premium cinematic glassmorphism user interface**.
 
 ---
 
 ## ✨ Features
 
-* **Premium Dark Mode UI**: A visually stunning backdrop featuring deep dark colors (`#09090b`) matched with a textured background pattern for a clean, immersive look.
-* **Modern CSS Grid Layout**: A clean, uniform 4-column display for movie poster cards on desktop screens, which adapts fluidly on smaller devices.
-* **Quick Filter Buttons**: Interactive tags to filter content instantly across categories: **Bollywood**, **Hollywood**, **South (Hindi Dubbed)**, **Dual Audio**, and **Web Series**.
+* **Premium Glassmorphism UI**: A visually stunning backdrop featuring a cinematic background wallpaper matched with translucent, frosted glass containers (`backdrop-filter`) for a highly modern and immersive look.
+* **Modern CSS Grid Layout**: A clean, uniform fluid grid display for movie poster cards that adapts effortlessly from large 4K displays down to mobile screens.
+* **Beautiful Micro-Interactions**: Hover over movie cards to watch them lift smoothly with an enhanced neon glow. The download buttons feature a vibrant, animated gradient hover effect.
+* **Quick Filter Buttons**: Frosted glass tag buttons to filter content instantly across categories: **Bollywood**, **Hollywood**, **South (Hindi Dubbed)**, **Dual Audio**, and **Web Series**.
 * **Global Navigation Hub**: Includes quick navigation options:
   - 🏠 HOME
   - 🎬 MOVIES
@@ -17,26 +18,24 @@ An elegant, dark-themed, and fully responsive movie listing and download web por
   - ☠️ QUALITY
   - 📺 TV SHOWS
   - 🌐 WEB SERIES
-* **Interactive Search Utility**: Styled search bar with a transparent entry interface and custom-designed query search icon.
+* **Interactive Search Utility**: Sleek, transparent search bar that expands its glow upon focus, giving users an elegant querying interface.
 * **Trailer & Download Links**:
-  - Select movies (e.g., *SardarJi 3*) feature direct poster links to YouTube trailers.
+  - Select movies feature direct poster links to YouTube trailers.
   - Every card features a vibrant call-to-action button linking directly to high-speed downloads.
-* **Advanced Pagination**: Sleek, bottom-aligned page numbering (`1`, `2`, `3`, `4`, `5`, and `Next Page`) for simple navigation control.
-* **Tailored Mobile Responsiveness**: Optimizations via media queries for screens under `400px` that stack the header vertically, wrap categories into grid slots, and format the movie catalog into a comfortable 2-column grid.
 
 ---
 
 ## 🎨 Theme & Styling Details
 
-The visual system is designed around a modern slate and zinc palette with high-contrast accent gradients:
+The visual system is designed around a modern frosted glass palette with high-contrast accent gradients:
 
 | Attribute | Value & Implementation |
 | :--- | :--- |
-| **Primary Background** | Slate/Black `#09090b` with subtle textured backdrop |
-| **Component Cards** | Dark zinc `#27272a` body shifting to `#5a5a5a` on hover |
-| **Typography** | `Segoe UI`, `Tahoma`, and `Geneva` for interface text; modern `Franklin Gothic Medium` for movie headings |
-| **Action Gradients** | Call-to-action buttons feature a vivid neon gradient (`#ff0000` to `#ff00ff`) transitioning smoothly to deep red on hover |
-| **Shadow Highlights** | White outline shadows (`box-shadow: 0 0 10px #fff`) to highlight focused cards and content containers |
+| **Primary Background** | High-quality cinematic image overlayed with a dark radial gradient |
+| **Glass Containers** | `rgba(25, 25, 30, 0.5)` with `backdrop-filter: blur(16px)` |
+| **Typography** | `Outfit`, Google's sleek sans-serif font for all interface text |
+| **Action Gradients** | Call-to-action buttons feature a vivid neon gradient (`#ff0f7b` to `#f89b29`) with dynamic hover lighting |
+| **Shadow Highlights** | Deep, smooth drop shadows (`box-shadow: 0 10px 30px rgba(0,0,0,0.3)`) to separate glass layers from the background |
 
 ---
 
@@ -46,7 +45,7 @@ The visual system is designed around a modern slate and zinc palette with high-c
 movie/
 ├── logo.png       # The main branding header logo
 ├── movie.html     # Semantic structure of the portal (Search, Grid, Pagination)
-├── movie.css      # Core style sheet, animations, hover effects, and responsive breakpoints
+├── movie.css      # Core style sheet containing all Glassmorphism rules & animations
 └── README.md      # Documentation (This file)
 ```
 
@@ -60,7 +59,7 @@ Simply double-click the `movie.html` file in your directory to open it in any mo
 ### Option 2: Live Server (VS Code Extension)
 1. Open the project folder in **Visual Studio Code**.
 2. Install the **Live Server** extension.
-3. Click **Go Live** in the status bar at the bottom right to run it locally on `http://127.0.0.1:5500/movie.html`.
+3. Click **Go Live** in the status bar at the bottom right to run it locally.
 
 ### Option 3: Local HTTP Server (Python)
 If you have Python installed, launch a local server by running the following command in your terminal:
@@ -69,18 +68,11 @@ python -m http.server 8000
 ```
 Then, open [http://localhost:8000/movie.html](http://localhost:8000/movie.html) in your browser.
 
-### Option 4: Local Server (Node.js)
-Using npm, run the static server package directly:
-```bash
-npx serve .
-```
-Then, access the URL provided in the console (usually `http://localhost:3000`).
-
 ---
 
 ## 🍿 Curated Movie Library
 
-The portal displays 19 high-demand titles with full high-resolution covers:
+The portal displays high-demand titles with full high-resolution covers:
 1. **SardarJi 3 (2025)** (Includes YouTube Trailer)
 2. **Anand (1971)**
 3. **Maa (2025)**

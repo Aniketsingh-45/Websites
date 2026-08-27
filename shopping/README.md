@@ -1,8 +1,8 @@
 # 🛍️ Looto — Modern E-Commerce Landing Page
 
-A lightweight, responsive, and modern front-end e-commerce landing page clone of popular online shopping platforms (inspired by Meesho). It features a sleek navigation interface, categorized shopping sections, animated banner slides, trust policy badges, and interactive category grids with smooth hover magnification.
+A lightweight, responsive, and modern front-end e-commerce landing page clone of popular online shopping platforms (inspired by Meesho). It features a sleek navigation interface, a fully functional shopping cart sidebar, categorized shopping sections, animated banner slides, trust policy badges, and interactive category grids with smooth hover magnification.
 
-Built entirely using native Web technologies: **HTML5** and **Vanilla CSS3**—zero dependencies, zero external libraries, and extremely fast page load times.
+Built using core Web technologies: **HTML5**, **CSS3**, and **Vanilla JavaScript** for a fast and interactive shopping experience.
 
 ---
 
@@ -21,8 +21,9 @@ Built entirely using native Web technologies: **HTML5** and **Vanilla CSS3**—z
 
 The project has a clean and simple structure:
 
-*   [shoping.html](file:///d:/My%20Apps/project/shoping/shoping.html): The main markup document defining the skeleton, menus, grid structures, and inline SVGs.
-*   [shop.css](file:///d:/My%20Apps/project/shoping/shop.css): Contains layout styling, keyframe animations, font-face imports (`Poppins`), scaling hover effects, and flex layouts.
+*   [`index.html`](./index.html): The main markup document containing the site structure, navigation, product grid, cart sidebar, and footer.
+*   [`shop.css`](./shop.css): Contains the core layout styling, flexbox/grid systems, animations, responsive design rules, and UI polish.
+*   [`shop.js`](./shop.js): Handles interactivity such as toast notifications, dynamic product rendering, and cart state management.
 *   `logo.png`: The store branding logo image.
 *   `cont.png`: The main hero sales/deals promo banner image.
 
@@ -30,9 +31,10 @@ The project has a clean and simple structure:
 
 ## 💻 Tech Stack & Design Decisions
 
-*   **Structure**: Semantic HTML5 layout employing tags like `<nav>`, `<li>` menus, flexbox columns, and SVG vector paths.
-*   **Typography**: Integrated Google Fonts including `Poppins`, `Alumni Sans SC`, `Dancing Script`, and `Source Code Pro` for clean, readable text.
-*   **Layout Engine**: Built using pure Flexbox (`display: flex`) for simple alignment, distribution of workspace menus, and a responsive navigation header.
+*   **Structure**: Semantic HTML5 layout employing flexbox and grid containers.
+*   **Styling**: Vanilla CSS3 with responsive design breakpoints and interactive hover states.
+*   **Interactivity**: Vanilla JavaScript for dynamic cart updates, UI state management, and notifications.
+*   **Typography & Icons**: Google Fonts (`Poppins`) and Font Awesome (`6.4.0`) for clean readable text and standard web icons.
 *   **Micro-Animations**:
     *   **On-Load Slide**: The promo banner shifts downward and fades in gracefully using keyframe styling:
         ```css
@@ -52,7 +54,7 @@ The project has a clean and simple structure:
 
 ## 🚀 How to Run
 
-1.  Clone or download this project directory onto your machine.
-2.  Navigate to the directory: `d:\My Apps\project\shoping`.
-3.  Open the [shoping.html](file:///d:/My%20Apps/project/shoping/shoping.html) file directly in any modern web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, Brave, etc.) by double-clicking it.
+1.  Clone or download this repository onto your machine.
+2.  Navigate to the `shopping` directory.
+3.  Open the [`index.html`](./index.html) file directly in any modern web browser (Google Chrome, Mozilla Firefox, Microsoft Edge, Safari, etc.) by double-clicking it.
 4.  No development servers, build configurations, or node packages are required!

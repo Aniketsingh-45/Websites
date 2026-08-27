@@ -16,6 +16,8 @@ Below is an overview of the projects contained in this workspace, organized by c
 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | HTML5, CSS3, Vanilla JS, Vite | Modern Landing Page | A fully responsive, modern web page designed for the Dadan Handi restaurant. |
 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | HTML5, CSS3, Vanilla JS | Rich Media Website | Interactive cafe website featuring video backdrops, custom emoji fixes, and extensive menu showcases. |
 | **🏥 Clinic** | [`/clinic`](./clinic) | HTML5, CSS3, Vanilla JS | Clinic Landing Page | Clean, functional, and minimal landing page layout tailored for a medical clinic. |
+| **🎬 Movie Website** | [`/movie-website`](./movie-website) | HTML5, CSS3 | Movie Directory UI | A modern UI for a movie listing platform with search and categories. |
+| **🛍️ Looto Shopping** | [`/shopping`](./shopping) | HTML5, CSS3, Vanilla JS | E-Commerce Website | A feature-rich modern shopping e-commerce interface with cart functionality. |
 
 ---
 
@@ -41,7 +43,7 @@ These projects use Vite for asset compilation and building.
    npm run dev
    ```
 
-### 2. 🌐 Static Web Pages (`cafe` & `clinic`)
+### 2. 🌐 Static Web Pages (`cafe`, `clinic`, `movie-website` & `shopping`)
 These are traditional static websites composed of pure HTML, CSS, and JS. They do not require any dependency installation.
 
 * **Option A**: Simply double-click the main HTML file (e.g., `cafe.html` or `index.html`) to open it directly in a web browser.

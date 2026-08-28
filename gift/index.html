@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! Kiara ❤️✨</title>
+    <meta name="description" content="A beautiful birthday surprise for someone special">
+    
+    <!-- Favicon and Social Media Images -->
+    <link rel="icon" type="image/jpeg" href="kiara_1.jpg">
+    <meta property="og:image" content="kiara_1.jpg">
+    <meta property="og:title" content="Happy Birthday! Kiara ❤️✨">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="Surili Akhiyon Wale Instrumental.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Animated Background Elements -->
+    <div class="hearts-bg" id="heartsBg"></div>
+    <div class="particles-bg" id="particlesBg"></div>
+    <div class="sparkles-bg" id="sparklesBg"></div>
+
+    <!-- Global SVG Decorations Layer -->
+    <div class="global-svg-layer" id="globalSvgLayer" aria-hidden="true">
+        <!-- Animated star burst top-left -->
+        <svg class="svg-deco svg-deco-star-tl" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="30,2 36,22 58,22 41,35 47,57 30,44 13,57 19,35 2,22 24,22" fill="rgba(255,215,0,0.35)" stroke="rgba(255,215,0,0.5)" stroke-width="1"/>
+        </svg>
+        <!-- Animated diamond top-right -->
+        <svg class="svg-deco svg-deco-diamond-tr" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,2 38,20 20,38 2,20" fill="rgba(255,107,157,0.3)" stroke="rgba(255,107,157,0.6)" stroke-width="1.5"/>
+        </svg>
+        <!-- Floating heart bottom-left -->
+        <svg class="svg-deco svg-deco-heart-bl" viewBox="0 0 50 45" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25,40 C10,28 2,20 2,12 C2,5 8,2 14,2 C18,2 22,4 25,8 C28,4 32,2 36,2 C42,2 48,5 48,12 C48,20 40,28 25,40Z" fill="rgba(255,45,85,0.3)" stroke="rgba(255,45,85,0.5)" stroke-width="1"/>
+        </svg>
+        <!-- Spiral bottom-right -->
+        <svg class="svg-deco svg-deco-spiral-br" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="25" fill="none" stroke="rgba(206,147,216,0.3)" stroke-width="2" stroke-dasharray="8 4"/>
+            <circle cx="30" cy="30" r="15" fill="none" stroke="rgba(206,147,216,0.4)" stroke-width="2" stroke-dasharray="5 3"/>
+            <circle cx="30" cy="30" r="5" fill="rgba(206,147,216,0.4)"/>
+        </svg>
+    </div>
+
+    <!-- ============ SCREEN 1: PASSCODE ============ -->
+    <section id="screen-passcode" class="screen active-screen">
+        <!-- SVG Decorations for Screen 1 -->
+        <div class="screen-svg-layer" aria-hidden="true">
+            <!-- Top center flourish -->
+            <svg class="svg-s1 svg-s1-top-center" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,15 Q30,2 60,15 Q90,28 110,15" fill="none" stroke="rgba(255,215,0,0.4)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="10" cy="15" r="4" fill="rgba(255,215,0,0.5)"/>
+                <circle cx="60" cy="15" r="5" fill="rgba(255,215,0,0.6)"/>
+                <circle cx="110" cy="15" r="4" fill="rgba(255,215,0,0.5)"/>
+            </svg>
+            <!-- Stars corners -->
+            <svg class="svg-s1 svg-s1-star-tl" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="15,1 18,11 29,11 20,17 23,28 15,22 7,28 10,17 1,11 12,11" fill="rgba(255,215,0,0.5)"/>
+            </svg>
+            <svg class="svg-s1 svg-s1-star-tr" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="12,1 15,9 23,9 17,14 19,22 12,17 5,22 7,14 1,9 9,9" fill="rgba(255,180,180,0.5)"/>
+            </svg>
+            <!-- Bottom wavy line -->
+            <svg class="svg-s1 svg-s1-wave-bottom" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,10 Q25,2 50,10 Q75,18 100,10 Q125,2 150,10 Q175,18 200,10" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Confetti dots -->
+            <svg class="svg-s1 svg-s1-confetti" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="30" r="4" fill="rgba(255,215,0,0.5)" transform="rotate(15,20,30)"/>
+                <rect x="60" y="10" width="8" height="8" fill="rgba(255,107,157,0.5)" transform="rotate(30,64,14)"/>
+                <circle cx="110" cy="50" r="3" fill="rgba(200,150,255,0.5)"/>
+                <rect x="130" y="80" width="6" height="6" fill="rgba(255,215,0,0.4)" transform="rotate(45,133,83)"/>
+                <circle cx="40" cy="120" r="5" fill="rgba(255,107,157,0.4)"/>
+                <rect x="80" y="130" width="7" height="7" fill="rgba(150,220,255,0.4)" transform="rotate(20,83,133)"/>
+            </svg>
+        </div>
+
+        <!-- Floating animated emojis exclusively on 1st screen -->
+        <div class="floating-emojis">
+            <!-- 30 smoothly falling emojis across the screen -->
+            <span class="float-emoji" style="--delay:0s; --x:5%; --size:24px; --duration:14s;">❤️</span>
+            <span class="float-emoji" style="--delay:2s; --x:15%; --size:30px; --duration:18s;">👀</span>
+            <span class="float-emoji" style="--delay:4s; --x:25%; --size:20px; --duration:15s;">💕</span>
+            <span class="float-emoji" style="--delay:1s; --x:35%; --size:35px; --duration:20s;">😍</span>
+            <span class="float-emoji" style="--delay:5s; --x:45%; --size:22px; --duration:16s;">🤩</span>
+            <span class="float-emoji" style="--delay:3s; --x:55%; --size:28px; --duration:17s;">😻</span>
+            <span class="float-emoji" style="--delay:6s; --x:65%; --size:26px; --duration:19s;">🙈</span>
+            <span class="float-emoji" style="--delay:0.5s; --x:75%; --size:32px; --duration:15s;">❤️</span>
+            <span class="float-emoji" style="--delay:3.5s; --x:85%; --size:20px; --duration:21s;">💕</span>
+            <span class="float-emoji" style="--delay:5.5s; --x:95%; --size:25px; --duration:16s;">😍</span>
+            
+            <span class="float-emoji" style="--delay:7s; --x:8%; --size:28px; --duration:17s;">🤩</span>
+            <span class="float-emoji" style="--delay:9s; --x:18%; --size:22px; --duration:15s;">😻</span>
+            <span class="float-emoji" style="--delay:8s; --x:28%; --size:34px; --duration:20s;">🙈</span>
+            <span class="float-emoji" style="--delay:6.5s; --x:38%; --size:20px; --duration:14s;">❤️</span>
+            <span class="float-emoji" style="--delay:10s; --x:48%; --size:26px; --duration:18s;">👀</span>
+            <span class="float-emoji" style="--delay:7.5s; --x:58%; --size:30px; --duration:16s;">💕</span>
+            <span class="float-emoji" style="--delay:11s; --x:68%; --size:24px; --duration:19s;">😍</span>
+            <span class="float-emoji" style="--delay:8.5s; --x:78%; --size:28px; --duration:15s;">🤩</span>
+            <span class="float-emoji" style="--delay:10.5s; --x:88%; --size:22px; --duration:17s;">😻</span>
+            <span class="float-emoji" style="--delay:9.5s; --x:98%; --size:32px; --duration:21s;">🙈</span>
+            
+            <span class="float-emoji" style="--delay:12s; --x:12%; --size:26px; --duration:16s;">❤️</span>
+            <span class="float-emoji" style="--delay:14s; --x:22%; --size:30px; --duration:18s;">👀</span>
+            <span class="float-emoji" style="--delay:13s; --x:32%; --size:20px; --duration:14s;">💕</span>
+            <span class="float-emoji" style="--delay:15s; --x:42%; --size:35px; --duration:20s;">😍</span>
+            <span class="float-emoji" style="--delay:12.5s; --x:52%; --size:22px; --duration:15s;">🤩</span>
+            <span class="float-emoji" style="--delay:16s; --x:62%; --size:28px; --duration:19s;">😻</span>
+            <span class="float-emoji" style="--delay:13.5s; --x:72%; --size:26px; --duration:17s;">🙈</span>
+            <span class="float-emoji" style="--delay:17s; --x:82%; --size:32px; --duration:21s;">❤️</span>
+            <span class="float-emoji" style="--delay:14.5s; --x:92%; --size:20px; --duration:15s;">💕</span>
+            <span class="float-emoji" style="--delay:16.5s; --x:3%; --size:25px; --duration:18s;">😍</span>
+        </div>
+
+        <div class="passcode-card" id="polaroidCard">
+            <div class="card-glow-border"></div>
+            
+            <!-- Left side: Photo with decorations -->
+            <div class="card-left">
+                <div class="photo-section">
+                    <!-- Blue bow decoration -->
+                    <div class="bow-decoration">
+                        <div class="bow-loop bow-left"></div>
+                        <div class="bow-knot"></div>
+                        <div class="bow-loop bow-right"></div>
+                        <div class="bow-tail bow-tail-left"></div>
+                        <div class="bow-tail bow-tail-right"></div>
+                    </div>
+                    
+                    <!-- Polaroid style photo -->
+                    <div class="polaroid-frame">
+                        <div class="polaroid-photo">
+                            <img src="kiara_1.jpg" alt="Our Memory" class="polaroid-img" id="mainPhoto">
+                            <div class="photo-shimmer"></div>
+                        </div>
+                        <div class="polaroid-bottom">
+                            <span class="polaroid-caption">Kiara ❤️✨</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tape decoration -->
+                    <div class="tape tape-left"></div>
+                    <div class="tape tape-right"></div>
+                </div>
+
+                <!-- Cute Bear Mascot -->
+                <div class="bear-mascot">
+                    <div class="bear-body">
+                        <div class="bear-ear bear-ear-left"></div>
+                        <div class="bear-ear bear-ear-right"></div>
+                        <div class="bear-head">
+                            <div class="bear-face">
+                                <div class="bear-eye bear-eye-left"></div>
+                                <div class="bear-eye bear-eye-right"></div>
+                                <div class="bear-nose"></div>
+                                <div class="bear-mouth"></div>
+                                <div class="bear-blush bear-blush-left"></div>
+                                <div class="bear-blush bear-blush-right"></div>
+                            </div>
+                        </div>
+                        <div class="bear-torso">
+                            <div class="bear-tie">
+                                <div class="tie-knot"></div>
+                                <div class="tie-body"></div>
+                            </div>
+                        </div>
+                        <div class="bear-hat">
+                            <div class="hat-brim"></div>
+                            <div class="hat-top"></div>
+                            <div class="hat-band"></div>
+                        </div>
+                    </div>
+                    <div class="bear-heart">💕</div>
+                </div>
+            </div>
+
+            <!-- Right side: Passcode -->
+            <div class="card-right">
+                <h3 class="passcode-title">
+                    <span class="title-icon">🔒</span>
+                    Enter a passcode
+                </h3>
+                
+                <div class="pin-display" id="pinDisplay">
+                    <span class="pin-box"></span>
+                    <span class="pin-box"></span>
+                    <span class="pin-box"></span>
+                </div>
+                
+                <div class="keypad" id="keypad">
+                    <button onclick="pressKey('1')" class="key-btn" data-num="1">1</button>
+                    <button onclick="pressKey('2')" class="key-btn" data-num="2">2</button>
+                    <button onclick="pressKey('3')" class="key-btn" data-num="3">3</button>
+                    <button onclick="pressKey('4')" class="key-btn" data-num="4">4</button>
+                    <button onclick="pressKey('5')" class="key-btn" data-num="5">5</button>
+                    <button onclick="pressKey('6')" class="key-btn" data-num="6">6</button>
+                    <button onclick="pressKey('7')" class="key-btn" data-num="7">7</button>
+                    <button onclick="pressKey('8')" class="key-btn" data-num="8">8</button>
+                    <button onclick="pressKey('9')" class="key-btn" data-num="9">9</button>
+                    <button onclick="clearPin()" class="key-btn clear-btn">✕</button>
+                    <button onclick="pressKey('0')" class="key-btn" data-num="0">0</button>
+                    <button onclick="checkPin()" class="key-btn enter-btn">♥</button>
+                </div>
+                
+                <p class="hint-text">✨ Enter the magic passcode! ✨</p>
+            </div>
+
+            <!-- Floating sparkles inside the card -->
+            <div class="card-sparkle sparkle-1">✦</div>
+            <div class="card-sparkle sparkle-2">✦</div>
+            <div class="card-sparkle sparkle-3">⋆</div>
+            <div class="card-sparkle sparkle-4">✧</div>
+        </div>
+    </section>
+
+    <!-- ============ SCREEN 2: CELEBRATION REVEAL ============ -->
+    <section id="screen-heart" class="screen">
+        <!-- SVG Decorations for Screen 2 -->
+        <div class="screen-svg-layer" aria-hidden="true">
+            <!-- Party streamer left -->
+            <svg class="svg-s2 svg-s2-streamer-l" viewBox="0 0 30 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15,0 Q0,50 15,100 Q30,150 15,200" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="15" cy="0" r="5" fill="rgba(255,215,0,0.7)"/>
+                <circle cx="15" cy="50" r="4" fill="rgba(255,107,157,0.7)"/>
+                <circle cx="15" cy="100" r="5" fill="rgba(200,150,255,0.7)"/>
+                <circle cx="15" cy="150" r="4" fill="rgba(255,215,0,0.7)"/>
+                <circle cx="15" cy="200" r="5" fill="rgba(255,107,157,0.7)"/>
+            </svg>
+            <!-- Party streamer right -->
+            <svg class="svg-s2 svg-s2-streamer-r" viewBox="0 0 30 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15,0 Q30,50 15,100 Q0,150 15,200" fill="none" stroke="rgba(255,107,157,0.5)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="15" cy="0" r="5" fill="rgba(255,107,157,0.7)"/>
+                <circle cx="15" cy="50" r="4" fill="rgba(255,215,0,0.7)"/>
+                <circle cx="15" cy="100" r="5" fill="rgba(255,107,157,0.7)"/>
+                <circle cx="15" cy="150" r="4" fill="rgba(200,150,255,0.7)"/>
+                <circle cx="15" cy="200" r="5" fill="rgba(255,215,0,0.7)"/>
+            </svg>
+            <!-- Crown top center -->
+            <svg class="svg-s2 svg-s2-crown" viewBox="0 0 80 50" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="5,45 20,10 40,30 60,10 75,45" fill="rgba(255,215,0,0.55)" stroke="rgba(255,215,0,0.8)" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="5" cy="45" r="4" fill="rgba(255,215,0,0.8)"/>
+                <circle cx="75" cy="45" r="4" fill="rgba(255,215,0,0.8)"/>
+                <circle cx="40" cy="30" r="5" fill="rgba(255,180,100,0.9)"/>
+            </svg>
+            <!-- Scattered mini stars -->
+            <svg class="svg-s2 svg-s2-stars" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="20,10 22,16 29,16 24,20 26,27 20,23 14,27 16,20 11,16 18,16" fill="rgba(255,215,0,0.6)"/>
+                <polygon points="260,30 262,37 269,37 264,41 266,48 260,44 254,48 256,41 251,37 258,37" fill="rgba(255,107,157,0.6)"/>
+                <polygon points="140,170 142,177 149,177 144,181 146,188 140,184 134,188 136,181 131,177 138,177" fill="rgba(200,150,255,0.6)"/>
+                <polygon points="280,160 282,165 288,165 284,169 286,174 280,171 274,174 276,169 272,165 278,165" fill="rgba(255,215,0,0.6)"/>
+            </svg>
+        </div>
+
+        <div class="celebration-page">
+            <!-- Scattered animated stickers -->
+            <div class="sticker sticker-star-1">⭐</div>
+            <div class="sticker sticker-star-2">🌟</div>
+            <div class="sticker sticker-star-3">✨</div>
+            <div class="sticker sticker-star-4">💫</div>
+            <div class="sticker sticker-heart-1">💖</div>
+            <div class="sticker sticker-heart-2">💕</div>
+            <div class="sticker sticker-sparkle-1">🎊</div>
+            <div class="sticker sticker-sparkle-2">🎉</div>
+            <div class="sticker sticker-flower-1">🌸</div>
+            <div class="sticker sticker-flower-2">🌺</div>
+            <div class="sticker sticker-balloon-1">🎈</div>
+            <div class="sticker sticker-balloon-2">🎀</div>
+
+            <!-- Big bold title -->
+            <h1 class="celebration-title" id="celebTitle">
+                <span class="celeb-word" style="--d:0">H</span><span class="celeb-word" style="--d:1">A</span><span class="celeb-word" style="--d:2">P</span><span class="celeb-word" style="--d:3">P</span><span class="celeb-word" style="--d:4">Y</span>
+                <span class="celeb-space"></span>
+                <span class="celeb-word" style="--d:5">B</span><span class="celeb-word" style="--d:6">I</span><span class="celeb-word" style="--d:7">R</span><span class="celeb-word" style="--d:8">T</span><span class="celeb-word" style="--d:9">H</span><span class="celeb-word" style="--d:10">D</span><span class="celeb-word" style="--d:11">A</span><span class="celeb-word" style="--d:12">Y</span><span class="celeb-word celeb-emoji" style="--d:13">🎂</span>
+            </h1>
+
+            <!-- Blob-framed photo -->
+            <div class="blob-photo-wrapper">
+                <div class="blob-glow"></div>
+                <div class="blob-frame">
+                    <img src="kiara_2.jpg" alt="Kiara" class="blob-photo">
+                </div>
+                <div class="blob-shimmer"></div>
+            </div>
+
+            <!-- Click Here button -->
+           <button class="click-here-btn" id="continueToMessage" onclick="goToScreen('screen-gift-prompt')">
+                <span class="click-here-emoji">🎁</span>
+                <span class="click-here-text">Open Your Gift!</span>
+                <span class="click-here-arrow">→</span>
+            </button>
+
+            <!-- Bottom tagline -->
+            <h2 class="celebration-tagline">
+                <span class="tagline-sparkle">✨</span>
+                Today is your day, Kiara!
+                <span class="tagline-sparkle">✨</span>
+            </h2>
+        </div>
+
+        <div class="burst-hearts" id="burstHearts"></div>
+    </section>
+
+    <!-- ============ SCREEN 2.5: GIFT PROMPT ============-->
+    <section id="screen-gift-prompt" class="screen">
+        <!-- SVG background decorations -->
+        <div class="gift-svg-bg" aria-hidden="true">
+            <!-- Orbiting rings -->
+            <svg class="gift-svg-ring ring-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,215,0,0.2)" stroke-width="2" stroke-dasharray="12 8"/>
+            </svg>
+            <svg class="gift-svg-ring ring-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,107,157,0.2)" stroke-width="2" stroke-dasharray="8 12"/>
+            </svg>
+            <!-- Stars scattered in bg -->
+            <svg class="gift-svg-stars-bg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="30,20 33,30 44,30 36,37 39,47 30,41 21,47 24,37 16,30 27,30" fill="rgba(255,215,0,0.3)"/>
+                <polygon points="370,40 373,50 384,50 376,57 379,67 370,61 361,67 364,57 356,50 367,50" fill="rgba(255,107,157,0.3)"/>
+                <polygon points="80,250 83,260 94,260 86,267 89,277 80,271 71,277 74,267 66,260 77,260" fill="rgba(200,150,255,0.3)"/>
+                <polygon points="320,230 323,240 334,240 326,247 329,257 320,251 311,257 314,247 306,240 317,240" fill="rgba(255,215,0,0.3)"/>
+                <circle cx="200" cy="30" r="4" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="50" cy="150" r="3" fill="rgba(255,215,0,0.3)"/>
+                <circle cx="350" cy="150" r="3" fill="rgba(255,107,157,0.3)"/>
+            </svg>
+        </div>
+
+        <!-- Floating stickers for gift screen -->
+        <div class="gift-stickers" aria-hidden="true">
+            <span class="gift-sticker gs-1">🌟</span>
+            <span class="gift-sticker gs-2">💫</span>
+            <span class="gift-sticker gs-3">✨</span>
+            <span class="gift-sticker gs-4">🎀</span>
+            <span class="gift-sticker gs-5">💝</span>
+            <span class="gift-sticker gs-6">🌸</span>
+            <span class="gift-sticker gs-7">🎊</span>
+            <span class="gift-sticker gs-8">⭐</span>
+        </div>
+
+        <div class="gift-prompt-container">
+            <div class="prompt-left-panel">
+                <!-- Enhanced 3D Gift Box SVG -->
+                <div class="gift-box-3d-wrapper">
+                    <!-- Sparkle rings around gift -->
+                    <div class="gift-sparkle-ring"></div>
+                    <div class="gift-sparkle-ring ring-delayed"></div>
+
+                    <!-- SVG Gift Box - interactive 3D style -->
+                    <svg class="gift-svg-box" id="giftSvgBox" viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" onclick="animateGiftClick()">
+                        <!-- Box shadow -->
+                        <ellipse cx="80" cy="172" rx="55" ry="8" fill="rgba(0,0,0,0.3)"/>
+                        <!-- Box body -->
+                        <rect x="20" y="90" width="120" height="80" rx="6" fill="url(#boxGrad)" filter="url(#boxShadow)"/>
+                        <!-- Box lid -->
+                        <rect x="15" y="75" width="130" height="22" rx="5" fill="url(#lidGrad)"/>
+                        <!-- Ribbon vertical on body -->
+                        <rect x="72" y="90" width="16" height="80" fill="url(#ribbonGrad)" rx="3"/>
+                        <!-- Ribbon horizontal on body -->
+                        <rect x="20" y="118" width="120" height="14" fill="url(#ribbonGrad)" rx="3"/>
+                        <!-- Ribbon on lid -->
+                        <rect x="72" y="75" width="16" height="22" fill="url(#ribbonGrad)"/>
+                        <rect x="15" y="82" width="130" height="10" fill="url(#ribbonGrad)"/>
+                        <!-- Bow left loop -->
+                        <ellipse cx="58" cy="68" rx="22" ry="13" fill="url(#bowGrad)" transform="rotate(-20,58,68)" opacity="0.95"/>
+                        <!-- Bow right loop -->
+                        <ellipse cx="102" cy="68" rx="22" ry="13" fill="url(#bowGrad)" transform="rotate(20,102,68)" opacity="0.95"/>
+                        <!-- Bow knot center -->
+                        <circle cx="80" cy="72" r="10" fill="url(#bowKnotGrad)"/>
+                        <!-- Bow tails -->
+                        <path d="M72,82 Q65,95 58,100" stroke="url(#ribbonGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        <path d="M88,82 Q95,95 102,100" stroke="url(#ribbonGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        <!-- Shine on box -->
+                        <rect x="25" y="95" width="30" height="5" rx="2" fill="rgba(255,255,255,0.25)"/>
+                        <rect x="25" y="105" width="20" height="3" rx="1" fill="rgba(255,255,255,0.15)"/>
+                        <!-- Stars decoration on box -->
+                        <text x="30" y="155" font-size="14" fill="rgba(255,255,255,0.6)">✦</text>
+                        <text x="110" y="120" font-size="11" fill="rgba(255,255,255,0.5)">✦</text>
+                        <!-- Gradient defs -->
+                        <defs>
+                            <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff6b9d"/>
+                                <stop offset="50%" style="stop-color:#c51162"/>
+                                <stop offset="100%" style="stop-color:#880e4f"/>
+                            </linearGradient>
+                            <linearGradient id="lidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff8a80"/>
+                                <stop offset="100%" style="stop-color:#d32f2f"/>
+                            </linearGradient>
+                            <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffd700"/>
+                                <stop offset="100%" style="stop-color:#ff8c00"/>
+                            </linearGradient>
+                            <linearGradient id="bowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffd700"/>
+                                <stop offset="50%" style="stop-color:#ffb300"/>
+                                <stop offset="100%" style="stop-color:#ff8c00"/>
+                            </linearGradient>
+                            <radialGradient id="bowKnotGrad" cx="40%" cy="40%">
+                                <stop offset="0%" style="stop-color:#fff3e0"/>
+                                <stop offset="100%" style="stop-color:#ff8c00"/>
+                            </radialGradient>
+                            <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="rgba(0,0,0,0.4)"/>
+                            </filter>
+                        </defs>
+                    </svg>
+
+                    <!-- Floating sparkles around gift -->
+                    <div class="gift-float-sparkle gfs-1">✨</div>
+                    <div class="gift-float-sparkle gfs-2">⭐</div>
+                    <div class="gift-float-sparkle gfs-3">💫</div>
+                    <div class="gift-float-sparkle gfs-4">🌟</div>
+                </div>
+            </div>
+            
+            <div class="prompt-right-panel">
+                <!-- SVG decorative divider -->
+                <svg class="prompt-svg-divider" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0" y1="10" x2="70" y2="10" stroke="rgba(255,215,0,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                    <polygon points="100,2 105,10 100,18 95,10" fill="rgba(255,215,0,0.8)"/>
+                    <line x1="130" y1="10" x2="200" y2="10" stroke="rgba(255,215,0,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+
+                <h1 class="gift-prompt-title">Happy birthday, Kiara! ❤️</h1>
+                <p class="gift-prompt-subtitle">do you wanna open your gift?</p>
+
+                <!-- Interactive click hint -->
+                <p class="gift-click-hint">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline;vertical-align:middle;margin-right:5px">
+                        <path d="M12 2 L15 9 L22 9 L17 14 L19 21 L12 17 L5 21 L7 14 L2 9 L9 9 Z" fill="rgba(255,215,0,0.7)"/>
+                    </svg>
+                    Tap the gift to shake it! 🎁
+                </p>
+                
+                <div class="decision-buttons">
+                    <button class="btn-yes" id="btnYes" onclick="goToScreen('screen-cake')">
+                        <span class="btn-icon">✅</span> YES!
+                    </button>
+                    <button class="btn-no" id="btnNo" onmouseover="moveNoButton()" onclick="moveNoButton()">
+                        <span class="btn-icon">❌</span> NO
+                    </button>
+                </div>
+
+                <!-- Bottom SVG decoration -->
+                <svg class="prompt-svg-hearts-row" viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+                    <text x="10" y="22" font-size="18" fill="rgba(255,107,157,0.6)">♥</text>
+                    <text x="45" y="22" font-size="14" fill="rgba(255,215,0,0.5)">♦</text>
+                    <text x="75" y="22" font-size="18" fill="rgba(255,107,157,0.6)">♥</text>
+                    <text x="110" y="22" font-size="14" fill="rgba(255,215,0,0.5)">♦</text>
+                    <text x="140" y="22" font-size="18" fill="rgba(255,107,157,0.6)">♥</text>
+                    <text x="175" y="22" font-size="14" fill="rgba(255,215,0,0.5)">♦</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+      <!-- ============ SCREEN 3: BIRTHDAY CAKE ============ -->
+    <section id="screen-cake" class="screen">
+        <!-- SVG Decorations for Screen 4 -->
+        <div class="screen-svg-layer" aria-hidden="true">
+            <!-- Firework burst SVGs -->
+            <svg class="svg-s4 svg-s4-burst-1" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                <line x1="40" y1="5" x2="40" y2="20" stroke="rgba(255,215,0,0.6)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="40" y1="60" x2="40" y2="75" stroke="rgba(255,215,0,0.6)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="5" y1="40" x2="20" y2="40" stroke="rgba(255,215,0,0.6)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="60" y1="40" x2="75" y2="40" stroke="rgba(255,215,0,0.6)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="15" y1="15" x2="25" y2="25" stroke="rgba(255,215,0,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="55" y1="55" x2="65" y2="65" stroke="rgba(255,215,0,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="65" y1="15" x2="55" y2="25" stroke="rgba(255,215,0,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="25" y1="55" x2="15" y2="65" stroke="rgba(255,215,0,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="40" cy="40" r="8" fill="rgba(255,215,0,0.5)"/>
+            </svg>
+            <svg class="svg-s4 svg-s4-burst-2" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="3" x2="30" y2="15" stroke="rgba(255,107,157,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="30" y1="45" x2="30" y2="57" stroke="rgba(255,107,157,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="3" y1="30" x2="15" y2="30" stroke="rgba(255,107,157,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="45" y1="30" x2="57" y2="30" stroke="rgba(255,107,157,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="10" x2="18" y2="18" stroke="rgba(255,107,157,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="42" y1="42" x2="50" y2="50" stroke="rgba(255,107,157,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="50" y1="10" x2="42" y2="18" stroke="rgba(255,107,157,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="18" y1="42" x2="10" y2="50" stroke="rgba(255,107,157,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="30" cy="30" r="7" fill="rgba(255,107,157,0.5)"/>
+            </svg>
+            <!-- Balloons SVG -->
+            <svg class="svg-s4 svg-s4-balloon-l" viewBox="0 0 40 80" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="20" cy="28" rx="18" ry="26" fill="rgba(255,107,157,0.4)" stroke="rgba(255,107,157,0.6)" stroke-width="1.5"/>
+                <path d="M20,54 Q18,65 22,75" stroke="rgba(255,107,157,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M16,8 Q20,2 24,8" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            <svg class="svg-s4 svg-s4-balloon-r" viewBox="0 0 40 80" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="20" cy="28" rx="18" ry="26" fill="rgba(200,150,255,0.4)" stroke="rgba(200,150,255,0.6)" stroke-width="1.5"/>
+                <path d="M20,54 Q22,65 18,75" stroke="rgba(200,150,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M16,8 Q20,2 24,8" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            <!-- Sticker row for cake screen -->
+            <div class="s4-sticker-row" aria-hidden="true">
+                <span class="s4-sticker">🎂</span>
+                <span class="s4-sticker">🕯️</span>
+                <span class="s4-sticker">🎉</span>
+                <span class="s4-sticker">🎊</span>
+                <span class="s4-sticker">🌟</span>
+            </div>
+        </div>
+
+        <div class="cake-scene">
+            <h1 class="cake-title" id="cakeTitle">Make a Wish! 🌟</h1>
+            
+            <div class="cake-wrapper">
+                <div class="cake" id="birthdayCake">
+                    <!-- Candle flames -->
+                    <div class="candles">
+                        <div class="candle"><div class="flame" id="flame1"><div class="flame-inner"></div></div></div>
+                        <div class="candle"><div class="flame" id="flame2"><div class="flame-inner"></div></div></div>
+                        <div class="candle"><div class="flame" id="flame3"><div class="flame-inner"></div></div></div>
+                        <div class="candle"><div class="flame" id="flame4"><div class="flame-inner"></div></div></div>
+                        <div class="candle"><div class="flame" id="flame5"><div class="flame-inner"></div></div></div>
+                    </div>
+                    <!-- Cake layers -->
+                    <div class="cake-top">
+                        <div class="cake-drip"></div>
+                        <div class="cake-drip drip-2"></div>
+                        <div class="cake-drip drip-3"></div>
+                        <div class="cake-drip drip-4"></div>
+                        <div class="cake-drip drip-5"></div>
+                    </div>
+                    <div class="cake-layer layer-1">
+                        <div class="cake-decoration">
+                            <span>✿</span><span>♥</span><span>✿</span><span>♥</span><span>✿</span><span>♥</span><span>✿</span>
+                        </div>
+                    </div>
+                    <div class="cake-layer layer-2">
+                        <div class="cake-decoration">
+                            <span>★</span><span>✦</span><span>★</span><span>✦</span><span>★</span><span>✦</span><span>★</span>
+                        </div>
+                    </div>
+                    <div class="cake-layer layer-3">
+                        <div class="cake-decoration">
+                            <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+                        </div>
+                    </div>
+                    <div class="cake-plate"></div>
+                </div>
+            </div>
+            
+            <button class="blow-btn" id="blowBtn" onclick="blowCandles()">
+                <span class="blow-text">🌬️ Blow the Candles!</span>
+            </button>
+            
+            <div class="wish-text hidden" id="wishText">
+                <h2>🎉 Happy Birthday Kiara! 🎉</h2>
+                <p>May all your dreams come true! 💫</p>
+                <div class="age-display">
+                    <span class="age-number" id="ageNumber">🎂</span>
+                </div>
+            </div>
+            
+            <button class="continue-btn final-btn hidden" id="finalBtn" onclick="goToScreen('screen-choice')">
+                <span>🎁 Open Your Surprises!</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============ SCREEN 3.5: CHOICE SCREEN ============ -->
+    <section id="screen-choice" class="screen">
+        <!-- Floating stickers -->
+        <div class="choice-stickers" aria-hidden="true">
+            <span class="ch-sticker chs-1">🌸</span>
+            <span class="ch-sticker chs-2">💫</span>
+            <span class="ch-sticker chs-3">✨</span>
+            <span class="ch-sticker chs-4">🌟</span>
+            <span class="ch-sticker chs-5">💖</span>
+            <span class="ch-sticker chs-6">🎀</span>
+            <span class="ch-sticker chs-7">🦋</span>
+            <span class="ch-sticker chs-8">🌹</span>
+        </div>
+
+        <!-- SVG ribbon top -->
+        <svg class="choice-ribbon-svg" viewBox="0 0 400 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0,15 Q50,2 100,15 Q150,28 200,15 Q250,2 300,15 Q350,28 400,15" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="0" cy="15" r="5" fill="rgba(255,215,0,0.7)"/>
+            <circle cx="100" cy="15" r="4" fill="rgba(255,107,157,0.7)"/>
+            <circle cx="200" cy="15" r="5" fill="rgba(255,215,0,0.7)"/>
+            <circle cx="300" cy="15" r="4" fill="rgba(255,107,157,0.7)"/>
+            <circle cx="400" cy="15" r="5" fill="rgba(255,215,0,0.7)"/>
+        </svg>
+
+        <div class="choice-container">
+            <div class="choice-header">
+                <div class="choice-cats">
+                    <span class="choice-cat-emoji">🐱</span>
+                    <span class="choice-cat-emoji">🐱</span>
+                </div>
+                <h1 class="choice-title">These are for you!</h1>
+                <p class="choice-subtitle">choose one to open 💝</p>
+            </div>
+
+            <div class="choice-cards">
+                <!-- Camera: Memory Lane -->
+                <div class="choice-card" id="choiceCamera" onclick="openChoice('gallery')" tabindex="0" aria-label="Open Memory Lane - Photo Gallery">
+                    <div class="choice-card-glow"></div>
+                    <div class="choice-card-icon">
+                        <img src="icon_camera.png" alt="Camera" class="choice-icon-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="choice-icon-fallback" style="display:none">📸</span>
+                    </div>
+                    <div class="choice-card-sparkles">
+                        <span class="cc-spark cs1">✦</span>
+                        <span class="cc-spark cs2">✧</span>
+                        <span class="cc-spark cs3">⋆</span>
+                    </div>
+                    <p class="choice-card-label">Memory Lane</p>
+                </div>
+
+                <!-- Bottle: Secret Letter -->
+                <div class="choice-card" id="choiceBottle" onclick="openChoice('letter')" tabindex="0" aria-label="Open Secret Letter">
+                    <div class="choice-card-glow glow-pink"></div>
+                    <div class="choice-card-icon">
+                        <img src="icon_bottle.png" alt="Bottle" class="choice-icon-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="choice-icon-fallback" style="display:none">🍾</span>
+                    </div>
+                    <div class="choice-card-sparkles">
+                        <span class="cc-spark cs1">✦</span>
+                        <span class="cc-spark cs2">✧</span>
+                        <span class="cc-spark cs3">⋆</span>
+                    </div>
+                    <p class="choice-card-label">Secret Letter</p>
+                </div>
+
+                <!-- Star: Super Surprise (FINALE) -->
+                <div class="choice-card" id="choiceStar" onclick="openChoice('finale')" tabindex="0" aria-label="Open Super Surprise">
+                    <div class="choice-card-glow glow-gold"></div>
+                    <div class="choice-card-icon">
+                        <img src="icon_star.png" alt="Star" class="choice-icon-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <span class="choice-icon-fallback" style="display:none">⭐</span>
+                    </div>
+                    <div class="choice-card-sparkles">
+                        <span class="cc-spark cs1">✦</span>
+                        <span class="cc-spark cs2">✧</span>
+                        <span class="cc-spark cs3">⋆</span>
+                    </div>
+                    <p class="choice-card-label">Super Surprise ✨</p>
+                </div>
+            </div>
+
+            <!-- hint text -->
+            <p class="choice-hint">💕 Open me last! 💕</p>
+        </div>
+
+        <!-- SVG ribbon bottom -->
+        <svg class="choice-ribbon-svg choice-ribbon-bottom" viewBox="0 0 400 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0,15 Q50,28 100,15 Q150,2 200,15 Q250,28 300,15 Q350,2 400,15" fill="none" stroke="rgba(255,107,157,0.5)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="0" cy="15" r="5" fill="rgba(255,107,157,0.7)"/>
+            <circle cx="200" cy="15" r="5" fill="rgba(255,215,0,0.7)"/>
+            <circle cx="400" cy="15" r="5" fill="rgba(255,107,157,0.7)"/>
+        </svg>
+    </section>
+
+    <!-- ============ SCREEN 3.6: MEMORY LANE (Scrapbook Collage) ============ -->
+    <section id="screen-gallery" class="screen">
+
+        <!-- Scrollable scrapbook collage board -->
+        <div class="scrapbook-board" id="scrapboardScrollable">
+
+            <!-- Tape decorations (CSS-only) -->
+            <div class="tape tape-pink t1"></div>
+            <div class="tape tape-blue t2"></div>
+            <div class="tape tape-yellow t3"></div>
+            <div class="tape tape-pink t4"></div>
+            <div class="tape tape-yellow t5"></div>
+            <div class="tape tape-blue t6"></div>
+            <div class="tape tape-pink t7"></div>
+
+            <!-- ROW 1 — Top row of photos -->
+
+            <div class="scrap-item beautiful-frame p1">
+                <img src="kiara_3.jpg" alt="Memory" class="scrap-img">
+                <!-- ── Sticky note 1 ── -->
+                <div class="sticky-note sn1">
+                    <p>Stunning<br>as<br>always! 😄</p>
+                </div>
+            </div>
+
+            <div class="scrap-item beautiful-frame p2">
+                <img src="kiara_4.jpg" alt="Memory" class="scrap-img">
+                
+            </div>
+
+            <div class="scrap-item beautiful-frame p3-new">
+                <img src="kiara_1.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <!-- ROW 2 — Middle photos -->
+
+            <div class="scrap-item beautiful-frame p4-circle">
+                <img src="kiara_2.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <div class="scrap-item beautiful-frame p5-centre">
+                <img src="kiara_3.jpg" alt="Memory" class="scrap-img">
+                <!-- ── Sticky note 2 ── -->
+                <div class="sticky-note sn2">
+                    <p>Absolute<br>Queen 💕</p>
+                </div>
+            </div>
+
+            <div class="scrap-item beautiful-frame p6-right">
+                <img src="kiara_4.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <!-- ROW 3 — Bottom half -->
+
+            <div class="scrap-item beautiful-frame p7">
+                <img src="kiara_1.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <div class="scrap-item beautiful-frame p8">
+                <img src="kiara_2.jpg" alt="Memory" class="scrap-img">
+                <!-- ── Sticky note 3 ── -->
+                <div class="sticky-note sn3">
+                    <p>Star of<br>the show ✨</p>
+                </div>
+            </div>
+
+            <div class="scrap-item beautiful-frame p9-circle">
+                <img src="kiara_3.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <!-- ROW 4 — More photos -->
+
+            <div class="scrap-item beautiful-frame p10">
+                <img src="kiara_4.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <div class="scrap-item beautiful-frame p11">
+                <img src="kiara_1.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <div class="scrap-item beautiful-frame p12">
+                <img src="kiara_2.jpg" alt="Kiara" class="scrap-img">
+                <!-- ── Sticky note 4 ── -->
+                <div class="sticky-note sn4">
+                    <p>Biggest<br>fan! 💌</p>
+                </div>
+            </div>
+
+            <div class="scrap-item beautiful-frame p13">
+                <img src="kiara_3.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <div class="scrap-item beautiful-frame p14">
+                <img src="kiara_4.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+            <div class="scrap-item beautiful-frame p15">
+                <img src="kiara_1.jpg" alt="Memory" class="scrap-img">
+            </div>
+
+
+            <!-- ── SVG Star sticker ── -->
+            <div class="scrap-sticker sticker-star ss1">
+                <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="55" height="55">
+                    <polygon points="30,4 36,22 55,22 40,34 46,52 30,41 14,52 20,34 5,22 24,22" fill="#fff" stroke="#ccc" stroke-width="1.5"/>
+                    <text x="30" y="38" text-anchor="middle" font-size="16">⭐</text>
+                </svg>
+            </div>
+
+            <!-- ── SVG Flower sticker ── -->
+            <div class="scrap-sticker sticker-flower ss2">
+                <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" width="65" height="65">
+                    <ellipse cx="35" cy="15" rx="8" ry="13" fill="#f8e4b0" transform="rotate(0,35,35)"/>
+                    <ellipse cx="35" cy="15" rx="8" ry="13" fill="#f8e4b0" transform="rotate(60,35,35)"/>
+                    <ellipse cx="35" cy="15" rx="8" ry="13" fill="#f8e4b0" transform="rotate(120,35,35)"/>
+                    <ellipse cx="35" cy="15" rx="8" ry="13" fill="#f9edd8" transform="rotate(180,35,35)"/>
+                    <ellipse cx="35" cy="15" rx="8" ry="13" fill="#f9edd8" transform="rotate(240,35,35)"/>
+                    <ellipse cx="35" cy="15" rx="8" ry="13" fill="#f9edd8" transform="rotate(300,35,35)"/>
+                    <circle cx="35" cy="35" r="10" fill="#fbbf24"/>
+                </svg>
+            </div>
+
+            <!-- ── Heart sticker ── -->
+            <div class="scrap-sticker ss3">💗</div>
+
+            <!-- ── Star sticker 2 ── -->
+            <div class="scrap-sticker ss4">⭐</div>
+
+            <!-- ── Butterfly sticker ── -->
+            <div class="scrap-sticker ss5">🦋</div>
+
+            <!-- ── Flower sticker ── -->
+            <div class="scrap-sticker ss6">🌹</div>
+
+            <!-- ── Washi tape strip at top ── -->
+            <div class="washi-strip ws-top"></div>
+
+        </div>
+
+        <!-- Back button -->
+        <button class="scrapbook-back-btn" onclick="goToScreen('screen-choice')">
+            ← Back
+        </button>
+
+    </section>
+
+    <!-- ============ SCREEN 3.7: MYSTERY SURPRISE ============ -->
+    <section id="screen-mystery" class="screen">
+        <div class="mystery-stickers" aria-hidden="true">
+            <span class="mys-sticker ms1">⭐</span>
+            <span class="mys-sticker ms2">💫</span>
+            <span class="mys-sticker ms3">✨</span>
+            <span class="mys-sticker ms4">🌟</span>
+        </div>
+        <div class="mystery-container">
+            <div class="mystery-star-hero">
+                <img src="icon_star.png" alt="Star" class="mystery-star-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span style="display:none;font-size:6rem">⭐</span>
+                <div class="mystery-star-rings">
+                    <div class="msr-ring r1"></div>
+                    <div class="msr-ring r2"></div>
+                    <div class="msr-ring r3"></div>
+                </div>
+            </div>
+            <h1 class="mystery-title">You're My Star! ⭐</h1>
+            <div class="mystery-message">
+                <p class="mystery-line" style="--ml:0">Kiara, in a world full of ordinary moments...</p>
+                <p class="mystery-line" style="--ml:1">You make every second extraordinary. 🌟</p>
+                <p class="mystery-line" style="--ml:2">You shine brighter than any star in the sky ✨</p>
+                <p class="mystery-line" style="--ml:3">and I'm the luckiest person to have you. 💖</p>
+                <p class="mystery-line" style="--ml:4">Happy Birthday, my shining star! 🎂</p>
+            </div>
+            <button class="continue-btn mystery-done-btn" onclick="goToScreen('screen-choice')">
+                <span>💝 Go Back</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============ SCREEN 4: bithday LETTER ============ -->
+
+    <section id="screen-message" class="screen">
+        <!-- SVG Decorations for Screen 3 -->
+        <div class="screen-svg-layer" aria-hidden="true">
+            <!-- Floating hearts SVG -->
+            <svg class="svg-s3 svg-s3-hearts" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40,80 C30,65 10,65 10,80 C10,95 40,115 40,115 C40,115 70,95 70,80 C70,65 50,65 40,80Z" fill="rgba(255,107,157,0.25)" class="svg-heart-pulse"/>
+                <path d="M250,40 C245,32 233,32 233,40 C233,48 250,58 250,58 C250,58 267,48 267,40 C267,32 255,32 250,40Z" fill="rgba(255,215,0,0.35)" class="svg-heart-pulse-2"/>
+                <path d="M280,200 C275,192 263,192 263,200 C263,208 280,218 280,218 C280,218 297,208 297,200 C297,192 285,192 280,200Z" fill="rgba(200,150,255,0.3)" class="svg-heart-pulse"/>
+            </svg>
+            <!-- Corner flowers -->
+            <svg class="svg-s3 svg-s3-flower-tl" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="8" fill="rgba(255,215,0,0.5)"/>
+                <ellipse cx="30" cy="12" rx="7" ry="12" fill="rgba(255,107,157,0.4)" transform="rotate(0,30,30)"/>
+                <ellipse cx="30" cy="12" rx="7" ry="12" fill="rgba(255,180,180,0.4)" transform="rotate(60,30,30)"/>
+                <ellipse cx="30" cy="12" rx="7" ry="12" fill="rgba(255,215,0,0.4)" transform="rotate(120,30,30)"/>
+                <ellipse cx="30" cy="12" rx="7" ry="12" fill="rgba(200,150,255,0.4)" transform="rotate(180,30,30)"/>
+                <ellipse cx="30" cy="12" rx="7" ry="12" fill="rgba(255,107,157,0.4)" transform="rotate(240,30,30)"/>
+                <ellipse cx="30" cy="12" rx="7" ry="12" fill="rgba(255,180,180,0.4)" transform="rotate(300,30,30)"/>
+            </svg>
+            <!-- Corner flower bottom-right -->
+            <svg class="svg-s3 svg-s3-flower-br" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="7" fill="rgba(255,215,0,0.5)"/>
+                <ellipse cx="25" cy="10" rx="6" ry="10" fill="rgba(255,107,157,0.35)" transform="rotate(0,25,25)"/>
+                <ellipse cx="25" cy="10" rx="6" ry="10" fill="rgba(200,150,255,0.35)" transform="rotate(72,25,25)"/>
+                <ellipse cx="25" cy="10" rx="6" ry="10" fill="rgba(255,180,100,0.35)" transform="rotate(144,25,25)"/>
+                <ellipse cx="25" cy="10" rx="6" ry="10" fill="rgba(150,220,255,0.35)" transform="rotate(216,25,25)"/>
+                <ellipse cx="25" cy="10" rx="6" ry="10" fill="rgba(255,107,157,0.35)" transform="rotate(288,25,25)"/>
+            </svg>
+        </div>
+        
+        <!-- Sticker row -->
+        <div class="s3-sticker-row" aria-hidden="true">
+            <span class="s3-sticker">💌</span>
+            <span class="s3-sticker">💕</span>
+            <span class="s3-sticker">🌸</span>
+            <span class="s3-sticker">💫</span>
+            <span class="s3-sticker">✨</span>
+        </div>
+
+        <div class="letter-container">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="letter" id="letter">
+                        <div class="letter-content">
+                            <h2 class="letter-greeting">Dear Kiara,</h2>
+                            <div class="letter-text" id="letterText">
+                                <p class="type-line" style="--line-delay: 0">On this beautiful day, I want you to know...</p>
+                                <p class="type-line" style="--line-delay: 1">You are the most amazing person I've ever known. 🌟</p>
+                                <p class="type-line" style="--line-delay: 2">Every moment with you feels like magic. ✨</p>
+                                <p class="type-line" style="--line-delay: 3">Your smile lights up my entire world. 🌸</p>
+                                <p class="type-line" style="--line-delay: 4">Today is YOUR day, and I want it to be unforgettable! 🎂</p>
+                                <p class="type-line" style="--line-delay: 5">Happy Birthday to the most wonderful soul! 💖</p>
+                            </div>
+                            <div class="letter-signature">
+                                <p>With all my blessings,</p>
+                                <p class="signature-name">With love ❤️</p>
+                                <!-- Solo portrait in letter -->
+                                <div class="letter-photo-wrap">
+                                    <img src="kiara_2.jpg" alt="Kiara" class="letter-portrait-img" onerror="this.style.display='none'">
+                                    <div class="letter-photo-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="continue-btn glow-btn" onclick="goToScreen('screen-choice')">
+                <span>← Back to Gifts</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============ SCREEN 4.5: VIDEO MEMORY ============ -->
+    <section id="screen-video" class="screen">
+        <!-- SVG Decorations for Video Screen -->
+        <div class="screen-svg-layer" aria-hidden="true">
+            <!-- Wavy background shapes -->
+            <svg class="svg-vid svg-vid-waves" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,150 Q100,50 200,150 T400,150 L400,300 L0,300 Z" fill="rgba(255,182,193,0.15)" />
+                <path d="M0,200 Q100,100 200,200 T400,200 L400,300 L0,300 Z" fill="rgba(255,107,157,0.1)" />
+            </svg>
+            <!-- Floating stars & hearts -->
+            <svg class="svg-vid svg-vid-floaters" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,20 55,35 70,35 58,45 62,60 50,50 38,60 42,45 30,35 45,35" fill="rgba(255,215,0,0.4)" class="svg-float-anim" style="animation-delay: 0s;"/>
+                <polygon points="300,150 305,165 320,165 308,175 312,190 300,180 288,190 292,175 280,165 295,165" fill="rgba(150,220,255,0.4)" class="svg-float-anim" style="animation-delay: 1s;"/>
+                <path d="M150,40 A10,10 0 0,1 170,40 A10,10 0 0,1 190,40 Q190,60 170,75 Q150,60 150,40 Z" fill="rgba(255,107,157,0.4)" class="svg-float-anim" style="animation-delay: 2s;"/>
+            </svg>
+        </div>
+
+        <div class="video-container">
+            <h2 class="video-title">A Special Memory 🎬</h2>
+            
+            <!-- Video Player Frame -->
+            <div class="video-frame beautiful-frame">
+                <video id="surprise-video" controls loop playsinline preload="metadata" class="custom-video" onplay="document.getElementById('bgMusic').pause()">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-holding-a-sparkler-at-a-party-close-up-40433-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Stickers attached to video frame -->
+                <div class="video-sticker vs1">🍿</div>
+                <div class="video-sticker vs2">💖</div>
+                <div class="video-sticker vs3">✨</div>
+            </div>
+
+            <p class="video-subtitle">Watch the magic unfold...</p>
+
+            <!-- Download Video Button -->
+            <a href="https://assets.mixkit.co/videos/preview/mixkit-holding-a-sparkler-at-a-party-close-up-40433-large.mp4" download="Birthday_Surprise_Video.mp4" class="download-video-btn" id="downloadBtn">
+                <span class="download-icon">⬇️</span>
+                <span>Download Video</span>
+            </a>
+
+            <button class="next-finale-btn" onclick="goToFinale()">
+                <span>To The Grand Finale! 🎉</span>
+                <div class="btn-glow"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============ SCREEN 5: GRAND FINALE ============ -->
+    <section id="screen-finale" class="screen">
+        <!-- SVG Decorations for Screen 5 -->
+        <div class="screen-svg-layer" aria-hidden="true">
+            <!-- Rainbow arc top -->
+            <svg class="svg-s5 svg-s5-rainbow" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,70 Q150,-20 290,70" fill="none" stroke="rgba(255,107,157,0.25)" stroke-width="8" stroke-linecap="round"/>
+                <path d="M25,70 Q150,0 275,70" fill="none" stroke="rgba(255,180,0,0.25)" stroke-width="8" stroke-linecap="round"/>
+                <path d="M40,70 Q150,15 260,70" fill="none" stroke="rgba(150,220,255,0.25)" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <!-- Scattered diamonds -->
+            <svg class="svg-s5 svg-s5-diamonds" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="30,30 45,15 60,30 45,45" fill="rgba(255,215,0,0.35)" class="svg-diamond-spin"/>
+                <polygon points="300,50 315,35 330,50 315,65" fill="rgba(255,107,157,0.35)" class="svg-diamond-spin"/>
+                <polygon points="15,200 30,185 45,200 30,215" fill="rgba(200,150,255,0.35)" class="svg-diamond-spin"/>
+                <polygon points="305,190 320,175 335,190 320,205" fill="rgba(255,215,0,0.35)" class="svg-diamond-spin"/>
+                <polygon points="170,20 180,10 190,20 180,30" fill="rgba(150,220,255,0.4)" class="svg-diamond-spin"/>
+            </svg>
+            <!-- Sticker row for finale -->
+            <div class="s5-sticker-row" aria-hidden="true">
+                <span class="s5-sticker">👑</span>
+                <span class="s5-sticker">💖</span>
+                <span class="s5-sticker">🌹</span>
+                <span class="s5-sticker">✨</span>
+                <span class="s5-sticker">🎉</span>
+            </div>
+        </div>
+
+        <div class="finale-container">
+            <div class="fireworks-canvas" id="fireworksCanvas"></div>
+            
+            <div class="finale-content">
+                <h1 class="finale-title">
+                    <span class="word" style="--i:0">Happy</span>
+                    <span class="word" style="--i:1">Birthday</span>
+                    <span class="word" style="--i:2">Queen!</span>
+                </h1>
+                
+                <div class="photo-gallery">
+                    <div class="gallery-frame main-frame">
+                        <video autoplay loop muted playsinline poster="kiara_3.jpg" class="gallery-video">
+                            <source src="kiara_video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="frame-glow"></div>
+                        <div class="crown-emoji" style="position: absolute; top: -30px; right: -30px;">👑</div>
+                    </div>
+                </div>
+                
+                <div class="final-message">
+                    <p class="final-line">You deserve all the happiness in the world 🌍</p>
+                    <p class="final-line">Thank you for being YOU 💖</p>
+                    <p class="final-line">Here's to another amazing year! 🥂</p>
+                </div>
+                
+                <div class="love-meter">
+                    <div class="meter-label">Happiness Level:</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="meterFill"></div>
+                    </div>
+                    <div class="meter-value">∞ INFINITY ∞</div>
+                </div>
+
+                <button class="replay-btn" onclick="location.reload()">
+                    <span>💝 Replay the Surprise 💝</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

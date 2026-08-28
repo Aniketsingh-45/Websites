@@ -18,6 +18,7 @@ Below is an overview of the projects contained in this workspace, organized by c
 | **🏥 Clinic** | [`/clinic`](./clinic) | HTML5, CSS3, Vanilla JS | Clinic Landing Page | Clean, functional, and minimal landing page layout tailored for a medical clinic. |
 | **🎬 Movie Website** | [`/movie-website`](./movie-website) | HTML5, CSS3 | Movie Directory UI | A modern UI for a movie listing platform with search and categories. |
 | **🛍️ Looto Shopping** | [`/shopping`](./shopping) | HTML5, CSS3, Vanilla JS | E-Commerce Website | A feature-rich modern shopping e-commerce interface with cart functionality. |
+| **🎁 Birthday Surprise** | [`/gift`](./gift) | HTML5, CSS3, Vanilla JS | Interactive Gift | A beautiful, interactive birthday surprise website featuring music, animations, and a passcode entry. |
 
 ---
 

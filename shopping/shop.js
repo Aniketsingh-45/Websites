@@ -6,83 +6,83 @@
 const products = [
     {
         id: 1,
-        title: "Women's Printed Cotton Kurta",
-        price: 599.00,
-        originalPrice: 1299.00,
-        rating: 4.5,
-        reviews: 1280,
-        image: "https://images.unsplash.com/photo-1583391733958-650fac5ebf7f?auto=format&fit=crop&q=80&w=400&h=500",
+        title: "Royal Banarasi Pure Silk Saree",
+        price: 3599.00,
+        originalPrice: 7999.00,
+        rating: 4.9,
+        reviews: 3280,
+        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=400&h=500",
         badge: "Best Seller"
     },
     {
         id: 2,
-        title: "Men's Classic White Sneakers",
-        price: 999.00,
-        originalPrice: 1999.00,
+        title: "Men's Royal Embroidered Sherwani",
+        price: 4999.00,
+        originalPrice: 8999.00,
         rating: 4.8,
-        reviews: 2450,
-        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: "New"
+        reviews: 1450,
+        image: "https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Royal Pick"
     },
     {
         id: 3,
-        title: "Premium Leather Crossbody Bag",
-        price: 1299.00,
-        originalPrice: 2499.00,
-        rating: 4.9,
-        reviews: 890,
-        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: ""
-    },
-    {
-        id: 4,
-        title: "Rose Gold Chronograph Watch",
+        title: "24K Gold Kundan Bridal Choker Set",
         price: 2499.00,
         originalPrice: 4999.00,
-        rating: 4.7,
-        reviews: 4120,
-        image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=400&h=500",
+        rating: 4.9,
+        reviews: 2190,
+        image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=400&h=500",
         badge: "Sale -50%"
     },
     {
+        id: 4,
+        title: "Handcrafted Brass Diya Set (Pack of 4)",
+        price: 599.00,
+        originalPrice: 1199.00,
+        rating: 4.7,
+        reviews: 4120,
+        image: "https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Festive"
+    },
+    {
         id: 5,
-        title: "Minimalist Ceramic Diya Set",
-        price: 349.00,
-        originalPrice: 599.00,
-        rating: 4.4,
-        reviews: 670,
-        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: ""
+        title: "Pure Ayurvedic Kumkumadi Tailam",
+        price: 799.00,
+        originalPrice: 1499.00,
+        rating: 4.8,
+        reviews: 1670,
+        image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "100% Vedic"
     },
     {
         id: 6,
-        title: "Ayurvedic Facial Serum",
-        price: 799.00,
-        originalPrice: 1199.00,
+        title: "Hand-Painted Terracotta Flower Vase",
+        price: 849.00,
+        originalPrice: 1599.00,
         rating: 4.6,
         reviews: 1560,
-        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: "Trending"
+        image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Artisan"
     },
     {
         id: 7,
-        title: "Men's Denim Trucker Jacket",
-        price: 1499.00,
-        originalPrice: 2999.00,
+        title: "Rajasthani Hand-Embroidered Mojari",
+        price: 899.00,
+        originalPrice: 1899.00,
         rating: 4.8,
         reviews: 2040,
-        image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: ""
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Handmade"
     },
     {
         id: 8,
-        title: "Wireless Earbuds (Made in India)",
-        price: 1899.00,
-        originalPrice: 3999.00,
+        title: "Jaipur Hand-Block Print Dohar & Quilt",
+        price: 1299.00,
+        originalPrice: 2499.00,
         rating: 4.9,
-        reviews: 8900,
-        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: "Tech Week"
+        reviews: 3400,
+        image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Heritage"
     }
 ];
 
@@ -237,15 +237,27 @@ function generateStars(rating) {
 }
 
 // ── Search ──
-document.getElementById('searchBtn')?.addEventListener('click', () => {
+function executeSearch() {
     const q = document.getElementById('searchInput').value.trim().toLowerCase();
     if (!q) { renderProducts(); return; }
-    const filtered = products.filter(p => p.title.toLowerCase().includes(q));
+    const filtered = products.filter(p => p.title.toLowerCase().includes(q) || (p.badge && p.badge.toLowerCase().includes(q)));
     productGrid.innerHTML = '';
     if (!filtered.length) {
-        productGrid.innerHTML = '<p style="color:var(--text-muted);padding:2rem;text-align:center;grid-column:1/-1;">No matching products found.</p>';
+        productGrid.innerHTML = '<p style="color:var(--text-muted);padding:2rem;text-align:center;grid-column:1/-1;font-size:1.1rem;"><i class="fas fa-search" style="margin-right:8px;color:var(--saffron);"></i>No matching products found. Try searching for Sarees, Sherwanis, Diyas, Kundan, or Mojaris.</p>';
     } else {
         renderFilteredProducts(filtered);
+    }
+}
+
+document.getElementById('searchBtn')?.addEventListener('click', executeSearch);
+document.getElementById('searchInput')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        executeSearch();
+    }
+});
+document.getElementById('searchInput')?.addEventListener('input', (e) => {
+    if (e.target.value.trim() === '') {
+        renderProducts();
     }
 });
 
@@ -271,12 +283,38 @@ function renderFilteredProducts(list) {
         `;
         productGrid.appendChild(el);
     });
+
     document.querySelectorAll('.btn-add-cart').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const productId = parseInt(e.target.getAttribute('data-id'));
             addToCart(productId);
+            const card = e.target.closest('.product-card');
+            if (card) {
+                card.style.transform = 'scale(0.97)';
+                setTimeout(() => card.style.transform = '', 180);
+            }
         });
     });
+
+    // 3D Tilt for filtered cards
+    productGrid.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const r   = card.getBoundingClientRect();
+            const x   = e.clientX - r.left;
+            const y   = e.clientY - r.top;
+            const cx  = r.width / 2;
+            const cy  = r.height / 2;
+            const rx  = ((y - cy) / cy) * -12;
+            const ry  = ((x - cx) / cx) * 12;
+            card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(900px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+        });
+        card.addEventListener('mouseenter', () => cursorRing?.classList.add('hover'));
+        card.addEventListener('mouseleave', () => cursorRing?.classList.remove('hover'));
+    });
+
     document.getElementById('productGrid').scrollIntoView({ behavior: 'smooth' });
 }
 

@@ -6,99 +6,83 @@
 const products = [
     {
         id: 1,
-        title: "Banarasi Silk Saree – Royal Crimson",
-        price: 3599, originalPrice: 5999,
-        rating: 4.8, reviews: 1280,
-        image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=500&h=600",
+        title: "Women's Printed Cotton Kurta",
+        price: 599.00,
+        originalPrice: 1299.00,
+        rating: 4.5,
+        reviews: 1280,
+        image: "https://images.unsplash.com/photo-1583391733958-650fac5ebf7f?auto=format&fit=crop&q=80&w=400&h=500",
         badge: "Best Seller"
     },
     {
         id: 2,
-        title: "Men's Embroidered Silk Kurta Set",
-        price: 1999, originalPrice: 3499,
-        rating: 4.7, reviews: 850,
-        image: "https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "New Utsav"
+        title: "Men's Classic White Sneakers",
+        price: 999.00,
+        originalPrice: 1999.00,
+        rating: 4.8,
+        reviews: 2450,
+        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "New"
     },
     {
         id: 3,
-        title: "Royal Kundan & Pearl Choker Set",
-        price: 1299, originalPrice: 2499,
-        rating: 4.9, reviews: 890,
-        image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Popular"
+        title: "Premium Leather Crossbody Bag",
+        price: 1299.00,
+        originalPrice: 2499.00,
+        rating: 4.9,
+        reviews: 890,
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: ""
     },
     {
         id: 4,
-        title: "Handcrafted Brass Urli & Diya Lamp",
-        price: 899, originalPrice: 1499,
-        rating: 4.6, reviews: 412,
-        image: "https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Sale -40%"
+        title: "Rose Gold Chronograph Watch",
+        price: 2499.00,
+        originalPrice: 4999.00,
+        rating: 4.7,
+        reviews: 4120,
+        image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Sale -50%"
     },
     {
         id: 5,
-        title: "Ayurvedic Kumkumadi Saffron Oil",
-        price: 649, originalPrice: 999,
-        rating: 4.8, reviews: 1670,
-        image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Natural"
+        title: "Minimalist Ceramic Diya Set",
+        price: 349.00,
+        originalPrice: 599.00,
+        rating: 4.4,
+        reviews: 670,
+        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: ""
     },
     {
         id: 6,
-        title: "Women's Bandhani Print Kurti Suit",
-        price: 799, originalPrice: 1599,
-        rating: 4.5, reviews: 2560,
-        image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=500&h=600",
+        title: "Ayurvedic Facial Serum",
+        price: 799.00,
+        originalPrice: 1199.00,
+        rating: 4.6,
+        reviews: 1560,
+        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400&h=500",
         badge: "Trending"
     },
     {
         id: 7,
-        title: "Rajasthani Embroidered Mojaris",
-        price: 599, originalPrice: 1299,
-        rating: 4.4, reviews: 340,
-        image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Handmade"
+        title: "Men's Denim Trucker Jacket",
+        price: 1499.00,
+        originalPrice: 2999.00,
+        rating: 4.8,
+        reviews: 2040,
+        image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: ""
     },
     {
         id: 8,
-        title: "Terracotta Handpainted Clay Pots",
-        price: 1199, originalPrice: 1999,
-        rating: 4.9, reviews: 890,
-        image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Artisan Made"
-    },
-    {
-        id: 9,
-        title: "Madhubani Folk Painting on Canvas",
-        price: 2499, originalPrice: 3999,
-        rating: 5.0, reviews: 245,
-        image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Folk Art"
-    },
-    {
-        id: 10,
-        title: "Temple Gold Jhumka Earrings",
-        price: 899, originalPrice: 1499,
-        rating: 4.7, reviews: 980,
-        image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Gold Plated"
-    },
-    {
-        id: 11,
-        title: "Kolhapuri Handcrafted Leather Chappal",
-        price: 999, originalPrice: 1799,
-        rating: 4.6, reviews: 620,
-        image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Pure Leather"
-    },
-    {
-        id: 12,
-        title: "Kannauj Steam-Distilled Rose Mist",
-        price: 299, originalPrice: 499,
-        rating: 4.8, reviews: 3210,
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=500&h=600",
-        badge: "Ayurvedic"
+        title: "Wireless Earbuds (Made in India)",
+        price: 1899.00,
+        originalPrice: 3999.00,
+        rating: 4.9,
+        reviews: 8900,
+        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Tech Week"
     }
 ];
 
@@ -289,7 +273,8 @@ function renderFilteredProducts(list) {
     });
     document.querySelectorAll('.btn-add-cart').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            addToCart(parseInt(e.target.getAttribute('data-id')));
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            addToCart(productId);
         });
     });
     document.getElementById('productGrid').scrollIntoView({ behavior: 'smooth' });

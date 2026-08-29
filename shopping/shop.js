@@ -1,83 +1,83 @@
 const products = [
     {
         id: 1,
-        title: "Women's Printed Cotton Kurta",
-        price: 599.00,
-        originalPrice: 1299.00,
-        rating: 4.5,
+        title: "Banarasi Silk Saree - Royal Blue",
+        price: 3599.00,
+        originalPrice: 5999.00,
+        rating: 4.8,
         reviews: 1280,
-        image: "https://images.unsplash.com/photo-1583391733958-650fac5ebf7f?auto=format&fit=crop&q=80&w=400&h=500",
+        image: "https://images.unsplash.com/photo-1610030469983-98e550d6153c?auto=format&fit=crop&q=80&w=400&h=500",
         badge: "Best Seller"
     },
     {
         id: 2,
-        title: "Men's Classic White Sneakers",
-        price: 999.00,
-        originalPrice: 1999.00,
-        rating: 4.8,
-        reviews: 2450,
-        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: "New"
+        title: "Men's Embroidered Kurta Set",
+        price: 1999.00,
+        originalPrice: 3499.00,
+        rating: 4.7,
+        reviews: 850,
+        image: "https://images.unsplash.com/photo-1599557451433-87d3e0db787f?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "New Utsav"
     },
     {
         id: 3,
-        title: "Premium Leather Crossbody Bag",
+        title: "Kundan & Pearl Choker Set",
         price: 1299.00,
         originalPrice: 2499.00,
         rating: 4.9,
         reviews: 890,
-        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=400&h=500",
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400&h=500",
         badge: ""
     },
     {
         id: 4,
-        title: "Rose Gold Chronograph Watch",
-        price: 2499.00,
-        originalPrice: 4999.00,
-        rating: 4.7,
-        reviews: 4120,
-        image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: "Sale -50%"
+        title: "Handcrafted Brass Urli / Diya",
+        price: 899.00,
+        originalPrice: 1499.00,
+        rating: 4.6,
+        reviews: 412,
+        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Sale -40%"
     },
     {
         id: 5,
-        title: "Minimalist Ceramic Diya Set",
-        price: 349.00,
-        originalPrice: 599.00,
-        rating: 4.4,
-        reviews: 670,
-        image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=400&h=500",
+        title: "Ayurvedic Kumkumadi Tailam",
+        price: 649.00,
+        originalPrice: 999.00,
+        rating: 4.8,
+        reviews: 1670,
+        image: "https://images.unsplash.com/photo-1595874287819-216a7f058145?auto=format&fit=crop&q=80&w=400&h=500",
         badge: ""
     },
     {
         id: 6,
-        title: "Ayurvedic Facial Serum",
+        title: "Women's Bandhani Print Kurti",
         price: 799.00,
-        originalPrice: 1199.00,
-        rating: 4.6,
-        reviews: 1560,
-        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400&h=500",
+        originalPrice: 1599.00,
+        rating: 4.5,
+        reviews: 2560,
+        image: "https://images.unsplash.com/photo-1583391733958-650fac5ebf7f?auto=format&fit=crop&q=80&w=400&h=500",
         badge: "Trending"
     },
     {
         id: 7,
-        title: "Men's Denim Trucker Jacket",
-        price: 1499.00,
-        originalPrice: 2999.00,
-        rating: 4.8,
-        reviews: 2040,
-        image: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&q=80&w=400&h=500",
+        title: "Rajasthani Mojari Footwear",
+        price: 599.00,
+        originalPrice: 1299.00,
+        rating: 4.4,
+        reviews: 340,
+        image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=400&h=500",
         badge: ""
     },
     {
         id: 8,
-        title: "Wireless Earbuds (Made in India)",
-        price: 1899.00,
-        originalPrice: 3999.00,
+        title: "Terracotta Handpainted Pots",
+        price: 1199.00,
+        originalPrice: 1999.00,
         rating: 4.9,
-        reviews: 8900,
-        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=400&h=500",
-        badge: "Tech Week"
+        reviews: 890,
+        image: "https://images.unsplash.com/photo-1599643478514-4a820c56a8e4?auto=format&fit=crop&q=80&w=400&h=500",
+        badge: "Artisan Made"
     }
 ];
 
@@ -149,6 +149,31 @@ function renderProducts() {
         btn.addEventListener('click', (e) => {
             const productId = parseInt(e.target.getAttribute('data-id'));
             addToCart(productId);
+            // Trigger a mini animation on the card
+            const card = e.target.closest('.product-card');
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => card.style.transform = '', 150);
+        });
+    });
+
+    // 3D Tilt Effect logic
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -15; // Max 15deg
+            const rotateY = ((x - centerX) / centerX) * 15;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
         });
     });
 }

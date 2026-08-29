@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Looto - Premium Indian Ethnic Wear & Handicrafts</title>
+    <title>Looto by Aniket Singh – Premium Indian Ethnic & Handicrafts</title>
+    <meta name="description" content="Discover authentic Indian ethnic wear, silk sarees, handcrafted diyas, traditional jewellery and more at Looto – curated by Aniket Singh.">
     <link rel="stylesheet" href="shop.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,16 +12,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="#" class="logo-text">Looto</a>
+                <a href="#" class="logo-link">
+                    <span class="logo-text">Looto</span>
+                    <span class="logo-subtext">by Aniket Singh</span>
+                </a>
             </div>
-            
+
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search for Sarees, Kurtas, Handicrafts...">
-                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search Sarees, Kurtas, Handicrafts...">
+                <button class="search-btn" id="searchBtn">Search</button>
             </div>
 
             <div class="nav-links">
@@ -28,11 +38,7 @@
                     <i class="fas fa-store"></i>
                     <span>Become a Seller</span>
                 </a>
-                <a href="#" class="nav-item" onclick="showToast('Investor info page coming soon!')">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Investor Info</span>
-                </a>
-                <a href="#" class="nav-item" onclick="showToast('User profile coming soon!')">
+                <a href="#" class="nav-item" onclick="showToast('Profile coming soon!')">
                     <i class="far fa-user"></i>
                     <span>Profile</span>
                 </a>
@@ -43,40 +49,59 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Category Menu -->
         <div class="category-menu">
             <ul>
-                <li><a href="#">Sarees & Lehengas</a></li>
-                <li><a href="#">Women Ethnic</a></li>
-                <li><a href="#">Men Ethnic</a></li>
-                <li><a href="#">Handicrafts</a></li>
-                <li><a href="#">Puja Essentials</a></li>
-                <li><a href="#">Ayurvedic Beauty</a></li>
-                <li><a href="#">Traditional Jewellery</a></li>
-                <li><a href="#">Ethnic Footwear</a></li>
-                <li><a href="#">Home Decor</a></li>
+                <li><a href="#section-sarees"><i class="fas fa-star-of-life"></i> Sarees & Lehengas</a></li>
+                <li><a href="#section-women"><i class="fas fa-female"></i> Women Ethnic</a></li>
+                <li><a href="#section-men"><i class="fas fa-male"></i> Men Ethnic</a></li>
+                <li><a href="#section-handicrafts"><i class="fas fa-paint-brush"></i> Handicrafts</a></li>
+                <li><a href="#section-puja"><i class="fas fa-om"></i> Puja Essentials</a></li>
+                <li><a href="#section-ayurveda"><i class="fas fa-leaf"></i> Ayurvedic Beauty</a></li>
+                <li><a href="#section-jewellery"><i class="fas fa-gem"></i> Jewellery</a></li>
+                <li><a href="#section-footwear"><i class="fas fa-shoe-prints"></i> Ethnic Footwear</a></li>
+                <li><a href="#section-decor"><i class="fas fa-home"></i> Home Decor</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-banner">
-                <div class="hero-fallback">
-                    <div class="hero-content">
-                        <h1>The Grand Festive Utsav</h1>
-                        <p>Celebrate tradition with up to 60% off on authentic Indian wear & crafts</p>
-                        <button class="btn-primary" onclick="document.getElementById('productGrid').scrollIntoView({behavior: 'smooth'})">Shop The Festival</button>
-                    </div>
+        <section class="hero" id="hero">
+            <div class="hero-bg-img" style="background-image: url('https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=1600')"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">🎉 Grand Festive Sale – Up to 70% OFF</div>
+                <h1 class="hero-title">The Grand<br><span class="gradient-text">Utsav Bazaar</span></h1>
+                <p class="hero-subtitle">Handpicked Indian ethnic wear, silk sarees, artisan crafts & heritage treasures</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary" onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">
+                        <span>Shop Now</span><i class="fas fa-arrow-right"></i>
+                    </button>
+                    <a href="#section-sarees" class="btn btn-glass">
+                        <span>Explore Sarees</span><i class="fas fa-sparkles"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span>50K+</span><p>Happy Customers</p></div>
+                    <div class="stat"><span>2000+</span><p>Products</p></div>
+                    <div class="stat"><span>100%</span><p>Authentic</p></div>
+                </div>
+            </div>
+            <div class="hero-floating-cards">
+                <div class="floating-card fc1">
+                    <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=400&h=500" alt="Festive Kurti" onerror="this.src='https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=400&h=500'">
+                    <span>Festive Kurti ₹799</span>
+                </div>
+                <div class="floating-card fc2">
+                    <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=400&h=500" alt="Kundan Jewellery" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400&h=500'">
+                    <span>Kundan Set ₹1,299</span>
                 </div>
             </div>
         </section>
-            </div>
-        </section>
 
-        <!-- Features / Trust Badges -->
+        <!-- Trust Badges -->
         <section class="features">
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-undo"></i></div>
@@ -106,72 +131,472 @@
                     <p>On orders over ₹499</p>
                 </div>
             </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-text">
+                    <h3>100% Authentic</h3>
+                    <p>Certified artisan goods</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Trending Categories -->
+        <!-- Browse Categories -->
         <section class="top-categories">
-            <h2>Explore Indian Heritage</h2>
+            <div class="section-header">
+                <h2>Explore Indian Heritage</h2>
+                <p>Shop by category – thousands of artisan-crafted products</p>
+            </div>
             <div class="category-grid">
-                <div class="category-item">
-                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6153c?auto=format&fit=crop&q=80&w=200&h=200" alt="Sarees">
+                <div class="category-item" onclick="document.querySelector('#section-sarees').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=300&h=300" alt="Silk Sarees" onerror="this.src='https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
                     <h4>Silk Sarees</h4>
                 </div>
-                <div class="category-item">
-                    <img src="https://images.unsplash.com/photo-1583391733958-650fac5ebf7f?auto=format&fit=crop&q=80&w=200&h=200" alt="Kurtas">
-                    <h4>Kurtas & Sets</h4>
+                <div class="category-item" onclick="document.querySelector('#section-women').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=300&h=300" alt="Women Ethnic" onerror="this.src='https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
+                    <h4>Women Ethnic</h4>
                 </div>
-                <div class="category-item">
-                    <img src="https://images.unsplash.com/photo-1599643478514-4a820c56a8e4?auto=format&fit=crop&q=80&w=200&h=200" alt="Handicrafts">
+                <div class="category-item" onclick="document.querySelector('#section-men').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&q=80&w=300&h=300" alt="Men Ethnic" onerror="this.src='https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
+                    <h4>Men Ethnic</h4>
+                </div>
+                <div class="category-item" onclick="document.querySelector('#section-handicrafts').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=300&h=300" alt="Handicrafts" onerror="this.src='https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
                     <h4>Handicrafts</h4>
                 </div>
-                <div class="category-item">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=200&h=200" alt="Jewellery">
+                <div class="category-item" onclick="document.querySelector('#section-jewellery').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=300&h=300" alt="Jewellery" onerror="this.src='https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
                     <h4>Jewellery</h4>
                 </div>
-                <div class="category-item">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=200&h=200" alt="Diyas & Decor">
-                    <h4>Diyas & Decor</h4>
+                <div class="category-item" onclick="document.querySelector('#section-puja').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=300&h=300" alt="Puja Essentials" onerror="this.src='https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
+                    <h4>Puja Essentials</h4>
                 </div>
-                <div class="category-item">
-                    <img src="https://images.unsplash.com/photo-1595874287819-216a7f058145?auto=format&fit=crop&q=80&w=200&h=200" alt="Ayurveda">
+                <div class="category-item" onclick="document.querySelector('#section-ayurveda').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=300&h=300" alt="Ayurvedic Beauty" onerror="this.src='https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
                     <h4>Ayurveda</h4>
                 </div>
+                <div class="category-item" onclick="document.querySelector('#section-footwear').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=300&h=300" alt="Ethnic Footwear" onerror="this.src='https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
+                    <h4>Ethnic Footwear</h4>
+                </div>
+                <div class="category-item" onclick="document.querySelector('#section-decor').scrollIntoView({behavior:'smooth'})">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=300&h=300" alt="Home Decor" onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=300&h=300'">
+                        <div class="cat-glow"></div>
+                    </div>
+                    <h4>Home Decor</h4>
+                </div>
             </div>
         </section>
 
-        <!-- Trending Products -->
+        <!-- SECTION: Premium Sarees -->
+        <section class="collection-section" id="section-sarees">
+            <div class="section-header">
+                <div class="section-tag">✦ Exclusive Heritage</div>
+                <h2>Premium Saree Collection</h2>
+                <p>Handwoven Banarasi silk, traditional Kanjeevaram & contemporary designer drapes</p>
+            </div>
+            <div class="saree-grid">
+                <div class="saree-card large-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=800&h=1000" alt="Banarasi Silk Saree" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=800&h=1000'">
+                    <div class="saree-info">
+                        <span class="saree-tag">Best Seller</span>
+                        <h3>Royal Banarasi Silk</h3>
+                        <p>Zari woven pure silk starting from ₹3,599</p>
+                        <a href="#productGrid" class="btn btn-glass-sm">Shop Collection</a>
+                    </div>
+                </div>
+                <div class="saree-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=600&h=500" alt="Kanjeevaram Saree" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=600&h=500'">
+                    <div class="saree-info">
+                        <span class="saree-tag">Temple Weave</span>
+                        <h3>Kanjeevaram Classics</h3>
+                        <p>₹5,999 onwards</p>
+                    </div>
+                </div>
+                <div class="saree-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&q=80&w=600&h=500" alt="Designer Saree" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600&h=500'">
+                    <div class="saree-info">
+                        <span class="saree-tag">New Arrival</span>
+                        <h3>Designer Georgette</h3>
+                        <p>₹2,499 onwards</p>
+                    </div>
+                </div>
+            </div>
+            <div class="collection-footer">
+                <a href="#productGrid" class="btn btn-outline-glow">View All Sarees <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- SECTION: Women Ethnic -->
+        <section class="collection-section" id="section-women">
+            <div class="section-header">
+                <div class="section-tag">✦ Trending Festive</div>
+                <h2>Women's Ethnic Collection</h2>
+                <p>Festive kurtas, lehenga cholis, anarkalis and embroidered fusion sets</p>
+            </div>
+            <div class="banner-layout">
+                <div class="banner-text tilt-card">
+                    <div class="banner-label">NEW SEASON ARRIVALS</div>
+                    <h3>Festive<br>Ready Look</h3>
+                    <p>Designer suits, Anarkali kurtas and embroidered lehengas crafted with intricate zari and gota-patti handwork for every celebration.</p>
+                    <div class="banner-price-tag">Starting ₹799</div>
+                    <button class="btn btn-primary" onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">
+                        <span>Explore All</span><i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="banner-images">
+                    <div class="banner-img-card stagger-1 tilt-card">
+                        <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=500&h=700" alt="Anarkali Sets" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=500&h=700'">
+                        <div class="img-label">Anarkali Sets</div>
+                    </div>
+                    <div class="banner-img-card stagger-2 tilt-card">
+                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=500&h=700" alt="Bandhani Kurtas" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=500&h=700'">
+                        <div class="img-label">Bandhani Kurtas</div>
+                    </div>
+                    <div class="banner-img-card stagger-3 tilt-card">
+                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&q=80&w=500&h=700" alt="Lehenga Sets" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=500&h=700'">
+                        <div class="img-label">Bridal Lehengas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Men Ethnic -->
+        <section class="collection-section" id="section-men">
+            <div class="section-header">
+                <div class="section-tag">✦ Royal For Him</div>
+                <h2>Men's Ethnic Wear</h2>
+                <p>Royal sherwanis, silk kurta-pajamas, nehru jackets and festive accessories</p>
+            </div>
+            <div class="men-grid">
+                <div class="men-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&q=80&w=500&h=650" alt="Designer Sherwani" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&q=80&w=500&h=650'">
+                    <div class="men-card-info">
+                        <h3>Designer Sherwanis</h3>
+                        <p>₹4,999 onwards</p>
+                        <button class="btn btn-glass-sm" onclick="showToast('Sherwanis collection coming soon!')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="men-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&q=80&w=500&h=650" alt="Kurta Pajama" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&q=80&w=500&h=650'">
+                    <div class="men-card-info">
+                        <h3>Kurta-Pajama Sets</h3>
+                        <p>₹1,299 onwards</p>
+                        <button class="btn btn-glass-sm" onclick="showToast('Kurta sets coming soon!')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="men-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=500&h=650" alt="Nehru Jacket" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&q=80&w=500&h=650'">
+                    <div class="men-card-info">
+                        <h3>Nehru Jackets</h3>
+                        <p>₹1,599 onwards</p>
+                        <button class="btn btn-glass-sm" onclick="showToast('Nehru jackets coming soon!')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="men-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&q=80&w=500&h=650" alt="Indo-Western" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&q=80&w=500&h=650'">
+                    <div class="men-card-info">
+                        <h3>Indo-Western Fusion</h3>
+                        <p>₹2,499 onwards</p>
+                        <button class="btn btn-glass-sm" onclick="showToast('Indo-western section coming soon!')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Handicrafts -->
+        <section class="collection-section" id="section-handicrafts">
+            <div class="section-header">
+                <div class="section-tag">✦ Artisan Craftsmanship</div>
+                <h2>Handicrafts & Folk Art</h2>
+                <p>Authentic Terracotta pottery, Madhubani canvas art, brass sculptures and block prints</p>
+            </div>
+            <div class="craft-mosaic">
+                <div class="craft-card big tilt-card">
+                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800&h=600" alt="Terracotta Crafts" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&q=80&w=800&h=600'">
+                    <div class="craft-info">
+                        <span class="craft-badge">Artisan Made</span>
+                        <h3>Terracotta Clay Pottery</h3>
+                        <p>Hand-molded rustic pottery ₹899 onwards</p>
+                        <a href="#productGrid" class="btn btn-glass-sm">Explore</a>
+                    </div>
+                </div>
+                <div class="craft-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=500&h=400" alt="Madhubani Paintings" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="craft-info">
+                        <h3>Madhubani Folk Paintings</h3>
+                    </div>
+                </div>
+                <div class="craft-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&q=80&w=500&h=400" alt="Brass Idols" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="craft-info">
+                        <h3>Brass Antique Idols</h3>
+                    </div>
+                </div>
+                <div class="craft-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&q=80&w=500&h=400" alt="Block Print Textile" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1590736969955-71cc94801759?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="craft-info">
+                        <h3>Jaipur Block Print Textiles</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Puja Essentials -->
+        <section class="collection-section" id="section-puja">
+            <div class="section-header">
+                <div class="section-tag">✦ Divine & Sacred</div>
+                <h2>Puja & Festival Essentials</h2>
+                <p>Brass diyas, aromatic dhoop, sacred puja thalis and festive decor</p>
+            </div>
+            <div class="puja-grid">
+                <div class="puja-card tilt-card">
+                    <div class="puja-img-wrap"><img src="https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=450&h=450" alt="Brass Diyas" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=450&h=450'"></div>
+                    <h3>Handcrafted Oil Diyas</h3>
+                    <p>₹249 – ₹899</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Diya to cart!')">Add to Cart</button>
+                </div>
+                <div class="puja-card tilt-card">
+                    <div class="puja-img-wrap"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=450&h=450" alt="Natural Incense" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&q=80&w=450&h=450'"></div>
+                    <h3>Organic Herbal Incense</h3>
+                    <p>₹99 – ₹499</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Incense to cart!')">Add to Cart</button>
+                </div>
+                <div class="puja-card tilt-card">
+                    <div class="puja-img-wrap"><img src="https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb?auto=format&fit=crop&q=80&w=450&h=450" alt="Puja Thali" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&q=80&w=450&h=450'"></div>
+                    <h3>Brass Aarti Thali Sets</h3>
+                    <p>₹599 – ₹1,999</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Thali to cart!')">Add to Cart</button>
+                </div>
+                <div class="puja-card tilt-card">
+                    <div class="puja-img-wrap"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=450&h=450" alt="Festival Decor" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=450&h=450'"></div>
+                    <h3>Festive Lanterns & Torans</h3>
+                    <p>₹199 – ₹1,299</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Decor to cart!')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Ayurvedic Beauty -->
+        <section class="collection-section ayurveda-section" id="section-ayurveda">
+            <div class="ayurveda-inner">
+                <div class="ayurveda-text">
+                    <div class="section-tag">✦ 100% Natural & Vedic</div>
+                    <h2>Ayurvedic Beauty & Wellness</h2>
+                    <p>Ancient Vedic formulations for glowing skin. Pure cold-pressed oils, saffron elixirs and steam-distilled botanicals from Kerala and the Himalayas.</p>
+                    <div class="ayurveda-products">
+                        <div class="ayurveda-item">
+                            <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&q=80&w=250&h=250" alt="Kumkumadi Tailam" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=250&h=250'">
+                            <span>Kumkumadi Tailam</span>
+                            <strong>₹649</strong>
+                        </div>
+                        <div class="ayurveda-item">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=250&h=250" alt="Face Serum" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=250&h=250'">
+                            <span>Herbal Face Serum</span>
+                            <strong>₹799</strong>
+                        </div>
+                        <div class="ayurveda-item">
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=250&h=250" alt="Rose Water" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=250&h=250'">
+                            <span>Kannauj Rose Mist</span>
+                            <strong>₹299</strong>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="document.getElementById('productGrid').scrollIntoView({behavior:'smooth'})">
+                        <span>Shop Ayurveda</span><i class="fas fa-leaf"></i>
+                    </button>
+                </div>
+                <div class="ayurveda-image tilt-card">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=700&h=800" alt="Ayurvedic Wellness" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&q=80&w=700&h=800'">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Traditional Jewellery -->
+        <section class="collection-section" id="section-jewellery">
+            <div class="section-header">
+                <div class="section-tag">✦ Handcrafted Royal Ornaments</div>
+                <h2>Traditional Indian Jewellery</h2>
+                <p>Royal Kundan necklaces, temple jhumkas, bridal maang tikkas & glass bangles</p>
+            </div>
+            <div class="jewellery-strip">
+                <div class="jewel-card tilt-card">
+                    <div class="jewel-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=400&h=400" alt="Kundan Choker" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400&h=400'">
+                    </div>
+                    <h3>Royal Kundan Choker</h3>
+                    <p class="price-tag">₹1,299</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Kundan Choker to cart!')">Add to Cart</button>
+                </div>
+                <div class="jewel-card tilt-card">
+                    <div class="jewel-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=400&h=400" alt="Temple Jhumkas" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400&h=400'">
+                    </div>
+                    <h3>Temple Gold Jhumkas</h3>
+                    <p class="price-tag">₹899</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Jhumkas to cart!')">Add to Cart</button>
+                </div>
+                <div class="jewel-card tilt-card">
+                    <div class="jewel-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&q=80&w=400&h=400" alt="Maang Tikka" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=400&h=400'">
+                    </div>
+                    <h3>Bridal Maang Tikka</h3>
+                    <p class="price-tag">₹599</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Maang Tikka to cart!')">Add to Cart</button>
+                </div>
+                <div class="jewel-card tilt-card">
+                    <div class="jewel-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&q=80&w=400&h=400" alt="Glass Bangles" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=400&h=400'">
+                    </div>
+                    <h3>Silk Thread Bangles</h3>
+                    <p class="price-tag">₹349</p>
+                    <button class="btn btn-outline-sm" onclick="showToast('Added Bangles to cart!')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Ethnic Footwear -->
+        <section class="collection-section" id="section-footwear">
+            <div class="section-header">
+                <div class="section-tag">✦ Handcrafted Footwear</div>
+                <h2>Authentic Ethnic Footwear</h2>
+                <p>Hand-embroidered Rajasthani mojaris, Kolhapuri chappals & mirror-work juttis</p>
+            </div>
+            <div class="footwear-grid">
+                <div class="fw-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=500&h=400" alt="Rajasthani Mojaris" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="fw-info">
+                        <h3>Rajasthani Mojaris</h3>
+                        <p>₹599 – ₹1,499</p>
+                        <button class="btn btn-outline-sm" onclick="showToast('Mojaris added to cart!')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="fw-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&q=80&w=500&h=400" alt="Kolhapuri Chappals" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="fw-info">
+                        <h3>Kolhapuri Leather Chappals</h3>
+                        <p>₹799 – ₹1,799</p>
+                        <button class="btn btn-outline-sm" onclick="showToast('Kolhapuris added to cart!')">Shop Now</button>
+                    </div>
+                </div>
+                <div class="fw-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=500&h=400" alt="Punjabi Juttis" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="fw-info">
+                        <h3>Punjabi Thread Juttis</h3>
+                        <p>₹899 – ₹2,499</p>
+                        <button class="btn btn-outline-sm" onclick="showToast('Juttis added to cart!')">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Home Decor -->
+        <section class="collection-section" id="section-decor">
+            <div class="section-header">
+                <div class="section-tag">✦ Royal Living</div>
+                <h2>Indian Heritage Home Decor</h2>
+                <p>Palace mandala wall art, brass deity idols & handwoven Kashmiri rugs</p>
+            </div>
+            <div class="decor-grid">
+                <div class="decor-wide tilt-card">
+                    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=900&h=500" alt="Mandala Palace Art" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=900&h=500'">
+                    <div class="decor-caption">
+                        <h3>Palace Mandala Wall Art</h3>
+                        <a href="#productGrid" class="btn btn-glass-sm">Shop Now</a>
+                    </div>
+                </div>
+                <div class="decor-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&q=80&w=500&h=400" alt="Brass Idols" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="decor-caption"><h3>Brass Deity Collection</h3></div>
+                </div>
+                <div class="decor-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=500&h=400" alt="Handwoven Rugs" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=500&h=400'">
+                    <div class="decor-caption"><h3>Kashmiri Handwoven Rugs</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Products Grid -->
         <section class="trending-products">
-            <h2>Trending Now</h2>
+            <div class="section-header">
+                <div class="section-tag">✦ Hot Right Now</div>
+                <h2>Trending Indian Treasures</h2>
+                <p>Most loved artisan wear and heritage products this week</p>
+            </div>
             <div class="product-grid" id="productGrid">
-                <!-- Products will be injected here by JS -->
+                <!-- Products injected by JS -->
             </div>
         </section>
 
-        <!-- Premium Gold Section -->
+        <!-- Looto Darbar Premium -->
         <section class="gold-section">
+            <div class="gold-bg-img" style="background-image: url('https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=1400')"></div>
+            <div class="gold-overlay"></div>
             <div class="gold-content">
+                <div class="gold-badge">👑 VIP PRIVILEGE</div>
                 <h2>Looto Darbar</h2>
-                <p>Unlock premium artisan brands and exclusive festive discounts</p>
-                <a href="#" class="btn-gold" onclick="showToast('Looto Darbar is launching soon!')">Explore Darbar</a>
+                <p>Unlock exclusive artisan designer labels, free express shipping across India, and royal member-only festive pricing</p>
+                <div class="gold-perks">
+                    <span><i class="fas fa-check-circle"></i> VIP Early Access</span>
+                    <span><i class="fas fa-check-circle"></i> Free Express Delivery</span>
+                    <span><i class="fas fa-check-circle"></i> Royal Member Pricing</span>
+                </div>
+                <a href="#" class="btn btn-gold" onclick="showToast('Looto Darbar membership opening soon!')">
+                    <span>Join Looto Darbar</span><i class="fas fa-crown"></i>
+                </a>
             </div>
-            <img src="https://images.unsplash.com/photo-1582560469796-03c200424b94?auto=format&fit=crop&q=80&w=600" alt="Premium Gold">
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-text">Looto</div>
+                <div class="logo-subtext">by Aniket Singh</div>
+                <p>India's most vibrant destination for authentic ethnic wear, handicrafts, and heritage items.</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-group">
                 <h3>About Looto</h3>
                 <ul>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">Press</a></li>
-                    <li><a href="#">Corporate Information</a></li>
+                    <li><a href="#">Corporate Info</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h3>Help</h3>
+            <div class="footer-links-group">
+                <h3>Help Center</h3>
                 <ul>
                     <li><a href="#">Payments</a></li>
                     <li><a href="#">Shipping</a></li>
@@ -179,7 +604,7 @@
                     <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div class="footer-links-group">
                 <h3>Policy</h3>
                 <ul>
                     <li><a href="#">Return Policy</a></li>
@@ -188,23 +613,23 @@
                     <li><a href="#">Privacy</a></li>
                 </ul>
             </div>
-            <div class="footer-section newsletter">
+            <div class="footer-newsletter">
                 <h3>Stay Connected</h3>
-                <p>Subscribe to our newsletter for updates</p>
-                <div class="newsletter-input">
-                    <input type="email" placeholder="Enter your email">
-                    <button onclick="showToast('Subscribed to newsletter!')"><i class="fas fa-paper-plane"></i></button>
-                </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <p>Get exclusive festive offers and new artisan arrivals in your inbox</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="your@email.com">
+                    <button class="btn btn-primary" onclick="showToast('Subscribed to Looto newsletter!')"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Looto. All rights reserved.</p>
+            <p>&copy; 2026 Looto by Aniket Singh. All rights reserved. Handcrafted with ❤️ for India.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-google-pay"></i>
+                <i class="fab fa-amazon-pay"></i>
+            </div>
         </div>
     </footer>
 
@@ -216,20 +641,24 @@
             <button class="close-cart" id="closeCart">&times;</button>
         </div>
         <div class="cart-items" id="cartItems">
-            <!-- Cart items will be injected here -->
-            <div class="empty-cart-message">Your cart is empty.</div>
+            <div class="empty-cart-message">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
+            </div>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
                 <span id="cartTotalValue">₹0.00</span>
             </div>
-            <button class="checkout-btn" onclick="showToast('Proceeding to secure checkout...')">Proceed to Checkout</button>
+            <button class="btn btn-primary checkout-btn" onclick="showToast('Proceeding to secure checkout...')">
+                <span>Proceed to Checkout</span><i class="fas fa-lock"></i>
+            </button>
         </div>
     </div>
 
-    <!-- Notification Toast -->
-    <div id="toast" class="toast">Item added to cart!</div>
+    <!-- Toast -->
+    <div id="toast" class="toast"><i class="fas fa-check-circle"></i><span class="toast-msg">Item added to cart!</span></div>
 
     <script src="shop.js"></script>
 </body>

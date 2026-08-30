@@ -117,9 +117,25 @@ function initAmbientCanvas() {
 function initNavigation() {
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('.nav-menu-wrapper');
+    const navMenu = document.getElementById('navMenuWrapper');
+    const navCloseBtn = document.getElementById('navCloseBtn');
+    const navBackdrop = document.getElementById('navBackdrop');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
+
+    function openMenu() {
+        if (hamburger) hamburger.classList.add('active');
+        if (navMenu) navMenu.classList.add('active');
+        if (navBackdrop) navBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        if (hamburger) hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (navBackdrop) navBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
     // Navbar Scroll Glass Effect
     window.addEventListener('scroll', () => {
@@ -131,22 +147,30 @@ function initNavigation() {
     });
 
     // Mobile Hamburger Toggle
-    if (hamburger && navMenu) {
+    if (hamburger) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Close on nav click
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+            if (navMenu && navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
     }
+
+    if (navCloseBtn) navCloseBtn.addEventListener('click', closeMenu);
+    if (navBackdrop) navBackdrop.addEventListener('click', closeMenu);
+
+    // Close on link click
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
 
     // ScrollSpy Highlight
     window.addEventListener('scroll', () => {

@@ -61,21 +61,46 @@
                 </div>
             </a>
             
-            <div class="nav-menu-wrapper">
+            <!-- Desktop & Drawer Navigation -->
+            <div class="nav-menu-wrapper" id="navMenuWrapper">
+                <div class="mobile-nav-header">
+                    <div class="logo">
+                        <div class="logo-icon-wrapper">
+                            <i class="fa-solid fa-heart-pulse logo-pulse"></i>
+                        </div>
+                        <span class="brand-name">Nath Aarogya</span>
+                    </div>
+                    <button class="nav-close-btn" id="navCloseBtn" aria-label="Close Menu">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#doctors" class="nav-link">Doctors</a></li>
                     <li><a href="#specialties" class="nav-link">Specialties</a></li>
                     <li><a href="#facilities" class="nav-link">Facilities</a></li>
-                    <li><a href="#video-tour" class="nav-link">Tour</a></li>
                     <li><a href="#gallery" class="nav-link">Gallery</a></li>
                     <li><a href="#reviews" class="nav-link">Reviews</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+
+                <div class="mobile-nav-cta">
+                    <a href="tel:+919288190052" class="btn btn-glass w-100 mb-2">
+                        <i class="fa-solid fa-phone text-emerald"></i> Call +91 92881 90052
+                    </a>
+                    <a href="#contact" class="btn btn-primary-glow w-100">
+                        <i class="fa-solid fa-calendar-check"></i> Book Appointment
+                    </a>
+                </div>
             </div>
 
             <div class="nav-actions">
+                <a href="tel:+919288190052" class="nav-phone-btn" title="Emergency Call">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span class="nav-phone-text">+91 92881 90052</span>
+                </a>
                 <a href="#contact" class="btn btn-primary-glow btn-nav">
                     <i class="fa-solid fa-calendar-check"></i>
                     <span>Book Appointment</span>
@@ -87,14 +112,81 @@
                 </button>
             </div>
         </div>
+        <!-- Mobile Drawer Backdrop -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg-container">
-            <img class="hero-image" src="assests/unnamed (2).webp" alt="Nath Aarogya Clinic Building" loading="eager">
+            <img class="hero-image" src="assests/unnamed (2).webp" alt="Nath Aarogya Clinic Building Exterior" loading="eager">
             <div class="hero-gradient-overlay"></div>
-            <div class="hero-mesh-grid"></div>
+            
+            <!-- Professional Medical Grid with Live Data HUD & Vitals Animation -->
+            <div class="hero-mesh-grid">
+                <!-- Floating Medical HUD Pill Top-Left (Visible on desktop/tablet) -->
+                <div class="hud-item hud-top-left">
+                    <div class="hud-icon"><i class="fa-solid fa-heart-pulse text-emerald"></i></div>
+                    <div class="hud-content">
+                        <span class="hud-label">LIVE CARDIAC & TRIAGE</span>
+                        <div class="hud-vital">
+                            <span class="pulse-wave-anim">
+                                <svg width="40" height="16" viewBox="0 0 40 16" fill="none">
+                                    <path d="M0 8H8L11 2L15 14L19 4L22 10L25 8H40" stroke="#00F0A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span class="vital-value">72 BPM • 99% SpO₂</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Medical HUD Pill Top-Right -->
+                <div class="hud-item hud-top-right">
+                    <div class="hud-icon"><i class="fa-solid fa-shield-halved text-cyan"></i></div>
+                    <div class="hud-content">
+                        <span class="hud-label">EMERGENCY READINESS</span>
+                        <span class="hud-val-text"><span class="hud-dot-live"></span> 24/7 Senior Triage Active</span>
+                    </div>
+                </div>
+
+                <!-- Floating Medical HUD Pill Bottom-Right -->
+                <div class="hud-item hud-bottom-right">
+                    <div class="hud-icon"><i class="fa-solid fa-prescription-bottle-medical text-gold"></i></div>
+                    <div class="hud-content">
+                        <span class="hud-label">IN-HOUSE PHARMACY</span>
+                        <span class="hud-val-text">100% Genuine Medicines Ready</span>
+                    </div>
+                </div>
+
+                <!-- Live Clinic Ticker Ribbon -->
+                <div class="hero-live-ticker">
+                    <div class="ticker-wrapper">
+                        <div class="ticker-track">
+                            <div class="ticker-item"><i class="fa-solid fa-hospital text-emerald"></i> <strong>Nath Villa, Saguna More, Patna</strong></div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-bolt text-gold"></i> Zero Wait Emergency Triage</div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-user-doctor text-cyan"></i> Senior PMCH Faculty & MD Gold Medalists</div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-clock text-emerald"></i> Open 24 Hours • 7 Days a Week</div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-notes-medical text-gold"></i> In-House 24/7 Pharmacy & ECG Lab</div>
+                            <div class="ticker-divider">•</div>
+                            <!-- Duplicate for Seamless Infinite Loop -->
+                            <div class="ticker-item"><i class="fa-solid fa-hospital text-emerald"></i> <strong>Nath Villa, Saguna More, Patna</strong></div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-bolt text-gold"></i> Zero Wait Emergency Triage</div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-user-doctor text-cyan"></i> Senior PMCH Faculty & MD Gold Medalists</div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-clock text-emerald"></i> Open 24 Hours • 7 Days a Week</div>
+                            <div class="ticker-divider">•</div>
+                            <div class="ticker-item"><i class="fa-solid fa-notes-medical text-gold"></i> In-House 24/7 Pharmacy & ECG Lab</div>
+                            <div class="ticker-divider">•</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="container hero-container">
@@ -103,31 +195,32 @@
                 <div class="hero-badges-wrapper reveal-item">
                     <div class="hero-live-badge">
                         <span class="pulse-dot"></span>
-                        <span>24/7 Multi-Specialty & Emergency</span>
+                        <span>24/7 Emergency & Multi-Specialty</span>
                     </div>
                     <div class="hero-rating-badge">
                         <i class="fa-solid fa-star text-gold"></i>
-                        <span><strong>4.8</strong> (119+ Google Reviews)</span>
+                        <span><strong>4.8</strong> Rating • 119+ Verified Reviews</span>
                     </div>
                 </div>
                 
                 <h1 class="hero-title reveal-item">
-                    <span class="hero-eyebrow-lead">PATNA'S TRUSTED MEDICAL CENTER</span>
-                    Compassionate Care, <br>
-                    <span class="gradient-text">World-Class Healing.</span>
-                    <span class="hero-title-sub">Complete Family Healthcare Under One Roof</span>
+                    <span class="hero-eyebrow-lead">PATNA'S TRUSTED FAMILY CLINIC</span>
+                    Complete Healthcare, <br>
+                    <span class="gradient-text">Treatment That Heals Family.</span>
+                    <span class="hero-title-sub">Multi-Specialty Care, In-House Pharmacy & 24/7 Emergency Support</span>
                 </h1>
                 
                 <p class="hero-description reveal-item">
-                    Led by retired PMCH Professors and MD Gold Medalist Physicians at <strong>Nath Villa, Saguna More</strong>. We deliver uninterrupted 24/7 urgent emergency triage, comprehensive diagnostics, diabetes management, and specialist consultations tailored for every generation of your family.
+                    Led by retired PMCH Professors and MD Gold Medalist Physicians at <strong>Nath Villa, Saguna More</strong>. We provide comprehensive outpatient consultations, urgent emergency triage, chronic diabetes care, and maternal health with deep clinical devotion for all age groups.
                 </p>
 
                 <!-- Key Specialty Tag Cloud -->
                 <div class="hero-tag-cloud reveal-item">
-                    <span class="hero-tag"><i class="fa-solid fa-bolt text-emerald"></i> Zero Wait Emergency</span>
-                    <span class="hero-tag"><i class="fa-solid fa-award text-gold"></i> PMCH Gold Medalists</span>
-                    <span class="hero-tag"><i class="fa-solid fa-pills text-cyan"></i> 24/7 In-House Pharmacy</span>
-                    <span class="hero-tag"><i class="fa-solid fa-heart-pulse text-emerald"></i> ECG & Pathology Lab</span>
+                    <span class="hero-tag"><i class="fa-solid fa-clock text-emerald"></i> Open 24/7 Always</span>
+                    <span class="hero-tag"><i class="fa-solid fa-award text-gold"></i> PMCH Senior Faculty</span>
+                    <span class="hero-tag"><i class="fa-solid fa-truck-medical text-cyan"></i> Immediate Triage</span>
+                    <span class="hero-tag"><i class="fa-solid fa-prescription-bottle-medical text-emerald"></i> 24h In-House Pharmacy</span>
+                    <span class="hero-tag"><i class="fa-solid fa-heart-pulse text-cyan"></i> ECG & Pathology Lab</span>
                 </div>
                 
                 <div class="hero-actions reveal-item">
@@ -137,7 +230,7 @@
                     </a>
                     <a href="tel:+919288190052" class="btn btn-glass btn-lg">
                         <i class="fa-solid fa-phone-volume text-emerald"></i>
-                        <span>Helpline: +91 92881 90052</span>
+                        <span>Emergency: +91 92881 90052</span>
                     </a>
                 </div>
 
@@ -150,8 +243,8 @@
                         <div class="stack-avatar stack-count">+5k</div>
                     </div>
                     <div class="trust-stack-text">
-                        <strong>5,000+ Families Healed</strong>
-                        <span>Serving Saguna More, Danapur & Patna with clinical devotion</span>
+                        <strong>5,000+ Families Treated</strong>
+                        <span>Serving Saguna More, Danapur & Patna with trusted medical excellence</span>
                     </div>
                 </div>
             </div>
@@ -168,8 +261,8 @@
                     </div>
 
                     <div class="spotlight-doctors-list">
-                        <h4>Specialists On Duty Now</h4>
-                        <div class="on-duty-item" onclick="selectDoctor('Dr. Abhishek Nath (MD Gold Medalist)')">
+                        <h4>Doctors Available For Consultation</h4>
+                        <div class="on-duty-item" onclick="selectDoctor('Dr. Abhishek Nath (MD Gold Medalist)')" title="Click to book Dr. Abhishek Nath">
                             <img src="assests/dr_abhishek_nath.jpg" alt="Dr. Abhishek Nath" class="duty-thumb">
                             <div class="duty-info">
                                 <strong>Dr. Abhishek Nath</strong>
@@ -178,16 +271,16 @@
                             <span class="duty-status available">Available</span>
                         </div>
 
-                        <div class="on-duty-item" onclick="selectDoctor('Dr. Kedar Nath (Senior Physician)')">
+                        <div class="on-duty-item" onclick="selectDoctor('Dr. Kedar Nath (Senior Physician)')" title="Click to book Dr. Kedar Nath">
                             <img src="assests/dr_kedar_nath.jpg" alt="Dr. Kedar Nath" class="duty-thumb">
                             <div class="duty-info">
                                 <strong>Dr. Kedar Nath</strong>
-                                <span>Retd Professor PMCH • Senior Physician</span>
+                                <span>Retd Prof PMCH • Senior Physician</span>
                             </div>
                             <span class="duty-status available">Available</span>
                         </div>
 
-                        <div class="on-duty-item" onclick="selectDoctor('Dr. Manju Nath (Obs & Gynae)')">
+                        <div class="on-duty-item" onclick="selectDoctor('Dr. Manju Nath (Obs & Gynae)')" title="Click to book Dr. Manju Nath">
                             <img src="assests/dr_manju_nath.jpg" alt="Dr. Manju Nath" class="duty-thumb">
                             <div class="duty-info">
                                 <strong>Dr. Manju Nath</strong>
@@ -201,10 +294,10 @@
                     <div class="spotlight-emergency-box">
                         <div class="em-icon"><i class="fa-solid fa-truck-medical"></i></div>
                         <div class="em-text">
-                            <strong>Emergency Or Urgent Care?</strong>
-                            <p>Call directly for immediate bed & doctor triage</p>
+                            <strong>Need Immediate Medical Care?</strong>
+                            <p>Direct doctor triage & emergency bed intake</p>
                         </div>
-                        <a href="tel:+919288190052" class="btn btn-primary-glow btn-sm" aria-label="Call Emergency">
+                        <a href="tel:+919288190052" class="btn btn-primary-glow btn-sm" aria-label="Call Emergency Helpline">
                             <i class="fa-solid fa-phone"></i>
                         </a>
                     </div>

@@ -188,6 +188,7 @@ section {
 .gradient-text {
     background: linear-gradient(135deg, #00F0A0 0%, #06B6D4 50%, #F59E0B 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
@@ -450,6 +451,7 @@ section {
     letter-spacing: 0.8px;
     background: linear-gradient(90deg, #FFFFFF 0%, var(--accent-emerald) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.1;
 }
@@ -1273,6 +1275,7 @@ section {
 .counter {
     background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1284,6 +1287,7 @@ section {
 .highlight-text {
     background: linear-gradient(135deg, var(--accent-emerald) 0%, var(--accent-cyan) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

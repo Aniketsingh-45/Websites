@@ -2830,11 +2830,13 @@ button:focus-visible {
 
 .gallery-item {
   position: relative;
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
-  transition: var(--transition);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
   contain: layout style paint;
+  border: 1px solid rgba(200, 133, 58, 0.15);
+  background: #140b05;
 }
 
 .gallery-item.hidden {
@@ -2845,33 +2847,46 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s var(--ease);
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), filter 0.65s ease;
 }
 
 .gallery-item:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 16px 36px rgba(12, 6, 2, 0.35), 0 0 20px rgba(200, 133, 58, 0.25);
+  border-color: rgba(232, 168, 76, 0.45);
   z-index: 5;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  filter: brightness(1.05) contrast(1.02);
 }
 
 .gallery-item.tall {
   grid-row: span 2;
 }
 
-.gallery-item .gallery-hover {
+.gallery-item .gallery-hover,
+.gallery-hover {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.4s var(--ease);
-  background: rgba(253, 248, 243, 0.88);
-  backdrop-filter: blur(8px);
+  transition: opacity 0.35s var(--ease);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 5, 2, 0.15) 0%,
+    rgba(10, 5, 2, 0.02) 30%,
+    rgba(10, 5, 2, 0.5) 65%,
+    rgba(10, 5, 2, 0.9) 100%
+  );
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   display: flex;
   align-items: flex-end;
-  padding: 18px;
+  padding: 20px;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .gallery-item:hover .gallery-hover {
@@ -2879,23 +2894,58 @@ button:focus-visible {
 }
 
 .gallery-hover span {
-  color: var(--text-primary);
-  font-weight: 700;
-  font-size: 0.88rem;
+  color: #FFFDF8;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-left: 3px solid var(--crimson-light);
+  padding: 7px 16px;
+  border-radius: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(10px);
+  transition: transform 0.4s var(--ease-spring);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gallery-hover span svg {
+  color: var(--crimson-light);
+  flex-shrink: 0;
+}
+
+.gallery-item:hover .gallery-hover span {
+  transform: translateY(0);
 }
 
 /* Instagram heart */
 .gallery-heart {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 14px;
+  right: 14px;
   z-index: 6;
-  font-size: 1.2rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(18, 10, 4, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFDF8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  transform: scale(0);
-  transition: var(--transition);
+  transform: scale(0.8);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  pointer-events: auto;
 }
 
 .gallery-item:hover .gallery-heart {
@@ -2903,10 +2953,26 @@ button:focus-visible {
   transform: scale(1);
 }
 
+.gallery-heart:hover {
+  background: var(--gradient-crimson);
+  border-color: rgba(255, 215, 120, 0.4);
+  transform: scale(1.15) !important;
+  box-shadow: 0 6px 20px rgba(200, 133, 58, 0.45);
+}
+
 .gallery-heart.liked {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  background: rgba(255, 255, 255, 0.95);
+  border-color: transparent;
+  color: #FF3366;
+  box-shadow: 0 4px 16px rgba(255, 51, 102, 0.35);
   animation: heartPop 0.4s var(--ease-bounce);
+}
+
+.gallery-heart.liked svg {
+  fill: #FF3366;
+  stroke: #FF3366;
 }
 
 @keyframes heartPop {
@@ -6015,33 +6081,10 @@ a:active {
   }
 }
 
-/* ── Gallery heart: use text glyph to avoid SVG render issues ── */
-.gallery-heart {
-  font-size: 1.3rem;
-  line-height: 1;
-  color: rgba(255,255,255,0.85);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 6;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.gallery-item:hover .gallery-heart,
+/* ── Gallery heart ── */
 .gallery-heart.liked {
-  opacity: 1 !important;
-  transform: scale(1) !important;
-}
-
-.gallery-heart.liked {
-  color: #e91e63;
-  text-shadow: 0 0 8px rgba(233,30,99,0.5);
+  color: #FF3366;
+  text-shadow: 0 0 8px rgba(255, 51, 102, 0.5);
 }
 
 /* ── Gallery grid: better mobile layout ── */
@@ -6203,19 +6246,23 @@ img {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: var(--transition);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
   cursor: pointer;
+  border: 1px solid rgba(200, 133, 58, 0.15);
+  background: #140b05;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease);
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), filter 0.65s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  filter: brightness(1.05) contrast(1.02);
 }
 
 .gallery-item.tall {
@@ -6238,13 +6285,22 @@ img {
 .gallery-hover {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(26, 10, 2, 0.8) 0%, rgba(26, 10, 2, 0) 50%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 5, 2, 0.15) 0%,
+    rgba(10, 5, 2, 0.02) 30%,
+    rgba(10, 5, 2, 0.5) 65%,
+    rgba(10, 5, 2, 0.9) 100%
+  );
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   display: flex;
   align-items: flex-end;
-  padding: 24px;
+  padding: 20px;
   opacity: 0;
-  transition: var(--transition);
+  transition: opacity 0.35s var(--ease);
   pointer-events: none;
+  z-index: 2;
 }
 
 .gallery-item:hover .gallery-hover {
@@ -6252,12 +6308,22 @@ img {
 }
 
 .gallery-hover span {
-  color: #fff;
+  color: #FFFDF8;
+  font-family: 'Outfit', sans-serif;
   font-weight: 600;
-  font-size: 1.1rem;
-  transform: translateY(15px);
-  transition: var(--transition);
-  display: flex;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-left: 3px solid var(--crimson-light);
+  padding: 7px 16px;
+  border-radius: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(10px);
+  transition: transform 0.4s var(--ease-spring);
+  display: inline-flex;
   align-items: center;
   gap: 8px;
 }
@@ -6268,21 +6334,25 @@ img {
 
 .gallery-heart {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 36px;
-  height: 36px;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(18, 10, 4, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-secondary);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  color: #FFFDF8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: scale(0.8);
-  transition: var(--transition);
-  z-index: 2;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 6;
+  pointer-events: auto;
 }
 
 .gallery-item:hover .gallery-heart {
@@ -6293,10 +6363,17 @@ img {
 .gallery-heart.liked {
   opacity: 1;
   transform: scale(1);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: transparent;
+  color: #FF3366;
+  box-shadow: 0 4px 16px rgba(255, 51, 102, 0.35);
 }
 
 .gallery-heart:hover {
-  transform: scale(1.1) !important;
+  background: var(--gradient-crimson);
+  border-color: rgba(255, 215, 120, 0.4);
+  transform: scale(1.15) !important;
+  box-shadow: 0 6px 20px rgba(200, 133, 58, 0.45);
 }
 
 /* ═══════ MENU ICONS (VEG/NON-VEG) ═══════ */

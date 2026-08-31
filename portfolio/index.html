@@ -37,6 +37,10 @@
     <div class="ambient-glow glow-3"></div>
     <div class="bg-grid-pattern"></div>
 
+    <!-- Custom Cursor (Desktop) -->
+    <div class="custom-cursor-dot" id="cursorDot"></div>
+    <div class="custom-cursor-glow" id="cursorGlow"></div>
+
     <!-- Navigation Header -->
     <header id="header">
         <div class="container">
@@ -73,13 +77,32 @@
                     <li><a href="#certifications" class="nav-link"><i class="fas fa-certificate nav-icon-mobile"></i>Certifications</a></li>
                     <li><a href="#github-stats" class="nav-link"><i class="fab fa-github nav-icon-mobile"></i>Activity</a></li>
                     <li><a href="#contact" class="nav-link"><i class="fas fa-paper-plane nav-icon-mobile"></i>Contact</a></li>
+
+                    <!-- Mobile Drawer Footer Actions -->
+                    <li class="mobile-nav-footer">
+                        <a href="#contact" class="status-pill mobile-status-pill" title="Open for roles & opportunities">
+                            <span class="status-beacon">
+                                <span class="status-ping"></span>
+                                <span class="status-dot"></span>
+                            </span>
+                            <i class="fas fa-briefcase status-icon"></i>
+                            <span class="status-text">Available for Roles</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mobile-connect-btn">
+                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="nav-actions">
-                    <div class="status-pill">
-                        <span class="status-dot"></span>
-                        Available for Roles
-                    </div>
+                    <a href="#contact" class="status-pill" title="Click to discuss roles & opportunities">
+                        <span class="status-beacon">
+                            <span class="status-ping"></span>
+                            <span class="status-dot"></span>
+                        </span>
+                        <i class="fas fa-briefcase status-icon"></i>
+                        <span class="status-text">Available for Roles</span>
+                    </a>
                     <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary nav-connect-btn">
                         <i class="fab fa-linkedin"></i> Connect
                     </a>
@@ -101,8 +124,15 @@
                 <div class="hero-content reveal">
                     <div class="hero-badge-container">
                         <span class="hero-pill">
-                            <i class="fas fa-code-branch"></i> B.Tech Computer Science &amp; Engineering
+                            <i class="fas fa-graduation-cap"></i> B.Tech CSE @ RPSIT Patna
                         </span>
+                        <a href="#contact" class="hero-status-pill">
+                            <span class="status-beacon">
+                                <span class="status-ping"></span>
+                                <span class="status-dot"></span>
+                            </span>
+                            <i class="fas fa-briefcase"></i> Available for Roles
+                        </a>
                     </div>
 
                     <h1 class="hero-title">
@@ -149,6 +179,7 @@
 
                 <div class="hero-visual reveal">
                     <div class="avatar-card-container">
+                        <div class="avatar-aura-ring"></div>
                         <div class="avatar-wrapper">
                             <img src="InShot_20251223_201734096.jpg" alt="Aniket Singh" class="avatar-img">
                         </div>
@@ -168,6 +199,11 @@
                             <i class="fas fa-laptop-code chip-icon chip-web"></i>
                             <span>Web &amp; APIs</span>
                         </div>
+
+                        <div class="floating-tech-chip chip-4">
+                            <i class="fas fa-bolt chip-icon chip-fastapi"></i>
+                            <span>FastAPI Dev</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +216,7 @@
             <div class="section-header reveal">
                 <span class="section-tag"><i class="fas fa-terminal"></i> Interactive Shell</span>
                 <h2>Developer Playground</h2>
-                <p>Type commands below to inspect my background, skills, projects, and dev philosophy in real time.</p>
+                <p>Type commands below or click the quick action chips to inspect my background, skills, projects, and target roles in real time.</p>
             </div>
 
             <div class="terminal-window spotlight-card reveal">
@@ -200,13 +236,26 @@
                     </div>
                     <div class="terminal-response">
 Welcome to Aniket Singh's Interactive Terminal.
-Type <span class="cmd-highlight">help</span> to list available commands (e.g., <span class="cmd-highlight">skills</span>, <span class="cmd-highlight">projects</span>, <span class="cmd-highlight">certs</span>, <span class="cmd-highlight">about</span>, <span class="cmd-highlight">contact</span>).
+Type <span class="cmd-highlight">help</span> or click any quick command below to inspect (e.g., <span class="cmd-highlight">roles</span>, <span class="cmd-highlight">skills</span>, <span class="cmd-highlight">projects</span>, <span class="cmd-highlight">certs</span>, <span class="cmd-highlight">about</span>, <span class="cmd-highlight">contact</span>).
                     </div>
                 </div>
 
                 <div class="terminal-input-row">
                     <span class="terminal-prompt">aniket@portfolio:~$</span>
-                    <input type="text" id="terminal-input" placeholder="Type a command (e.g. 'help', 'skills', 'projects')..." autocomplete="off" spellcheck="false">
+                    <input type="text" id="terminal-input" placeholder="Type a command (e.g. 'roles', 'skills', 'projects')..." autocomplete="off" spellcheck="false">
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="terminal-quick-cmds">
+                    <span class="quick-cmd-label"><i class="fas fa-bolt"></i> Quick Run:</span>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="roles"><i class="fas fa-briefcase"></i> roles</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="skills"><i class="fas fa-layer-group"></i> skills</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="projects"><i class="fas fa-laptop-code"></i> projects</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="certs"><i class="fas fa-certificate"></i> certs</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="about"><i class="fas fa-user-astronaut"></i> about</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="contact"><i class="fas fa-paper-plane"></i> contact</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="joke"><i class="far fa-smile"></i> joke</button>
+                    <button type="button" class="terminal-cmd-btn" data-cmd="clear"><i class="fas fa-trash-alt"></i> clear</button>
                 </div>
             </div>
         </div>
@@ -273,14 +322,20 @@ Type <span class="cmd-highlight">help</span> to list available commands (e.g., <
                     </p>
                 </div>
 
-                <!-- Collaborative Mindset (6 Cols) -->
+                <!-- Collaborative Mindset & Available Roles (6 Cols) -->
                 <div class="spotlight-card bento-col-6 reveal">
                     <h3 class="bento-card-title">
-                        <i class="fas fa-handshake"></i> Open to Collaborate
+                        <i class="fas fa-briefcase"></i> Open for Roles &amp; Opportunities
                     </h3>
                     <p class="about-text-sub">
-                        Eager to partner on impactful software initiatives, open-source projects, AI-powered applications, and modern web interfaces. Ready to contribute with enthusiasm and rapid adaptability.
+                        Actively seeking <strong>Software Engineering Internships</strong>, <strong>Full-Stack / Python developer roles</strong>, and impactful open-source collaborations. Ready to deliver fast, disciplined, and high-standard code.
                     </p>
+                    <div class="role-tags-cloud">
+                        <span class="role-badge"><i class="fas fa-code"></i> Full-Stack Dev</span>
+                        <span class="role-badge"><i class="fas fa-brain"></i> AI/ML Explorer</span>
+                        <span class="role-badge"><i class="fab fa-python"></i> Python Backend</span>
+                        <span class="role-badge"><i class="fas fa-rocket"></i> Software Intern</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -837,6 +892,28 @@ Type <span class="cmd-highlight">help</span> to list available commands (e.g., <
             </div>
         </div>
     </footer>
+
+    <!-- Floating Back to Top Button with SVG Progress Meter -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+        <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+            <circle class="progress-ring-circle-bg" stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="transparent" r="20" cx="24" cy="24"/>
+            <circle class="progress-ring-circle" id="progressCircle" stroke="url(#progress-grad)" stroke-width="3.2" stroke-linecap="round" fill="transparent" r="20" cx="24" cy="24"/>
+            <defs>
+                <linearGradient id="progress-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#8b5cf6"/>
+                    <stop offset="50%" stop-color="#38bdf8"/>
+                    <stop offset="100%" stop-color="#10b981"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Toast Notification -->
+    <div class="toast-notification" id="toastNotification">
+        <i class="fas fa-check-circle toast-icon"></i>
+        <span class="toast-text" id="toastText">Email copied to clipboard!</span>
+    </div>
 
     <!-- Interactive Script -->
     <script src="script.js"></script>

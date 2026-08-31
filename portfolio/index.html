@@ -15,6 +15,9 @@
 
     <title>Aniket Singh | Developer Portfolio & AI Explorer</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,20 +41,38 @@
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#home" class="logo">
-                    <span class="logo-badge"><i class="fas fa-terminal"></i></span>
-                    Aniket<span>Singh</span>
+                <a href="#home" class="logo" aria-label="Aniket Singh Portfolio Home">
+                    <span class="logo-mark">
+                        <svg viewBox="0 0 512 512" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="logo-as-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8b5cf6"/>
+                                    <stop offset="50%" stop-color="#38bdf8"/>
+                                    <stop offset="100%" stop-color="#10b981"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="32" y="32" width="448" height="448" rx="120" fill="#0d1322" stroke="rgba(139, 92, 246, 0.45)" stroke-width="20"/>
+                            <!-- Letter A -->
+                            <path d="M130 360 L210 152 Q218 132 238 132 L242 132 Q262 132 270 152 L310 250" stroke="url(#logo-as-grad)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Crossbar of A -->
+                            <path d="M172 268 L278 268" stroke="url(#logo-as-grad)" stroke-width="30" stroke-linecap="round"/>
+                            <!-- Letter S -->
+                            <path d="M370 190 Q370 150 325 150 Q275 150 275 198 Q275 240 342 264 Q410 288 410 346 Q410 395 338 395 Q285 395 270 360" stroke="url(#logo-as-grad)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="390" cy="144" r="14" fill="#10b981"/>
+                        </svg>
+                    </span>
+                    <span class="logo-text">Aniket<span>Singh</span></span>
                 </a>
 
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#terminal" class="nav-link">Terminal</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
-                    <li><a href="#github-stats" class="nav-link">Activity</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#home" class="nav-link active"><i class="fas fa-home nav-icon-mobile"></i>Home</a></li>
+                    <li><a href="#terminal" class="nav-link"><i class="fas fa-terminal nav-icon-mobile"></i>Terminal</a></li>
+                    <li><a href="#about" class="nav-link"><i class="fas fa-user-astronaut nav-icon-mobile"></i>About</a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fas fa-layer-group nav-icon-mobile"></i>Skills</a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fas fa-laptop-code nav-icon-mobile"></i>Projects</a></li>
+                    <li><a href="#certifications" class="nav-link"><i class="fas fa-certificate nav-icon-mobile"></i>Certifications</a></li>
+                    <li><a href="#github-stats" class="nav-link"><i class="fab fa-github nav-icon-mobile"></i>Activity</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-paper-plane nav-icon-mobile"></i>Contact</a></li>
                 </ul>
 
                 <div class="nav-actions">
@@ -59,13 +80,15 @@
                         <span class="status-dot"></span>
                         Available for Roles
                     </div>
-                    <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                    <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary nav-connect-btn">
                         <i class="fab fa-linkedin"></i> Connect
                     </a>
                 </div>
 
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-                    <i class="fas fa-bars"></i>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
                 </button>
             </nav>
         </div>
@@ -775,9 +798,17 @@ Type <span class="cmd-highlight">help</span> to list available commands (e.g., <
         <div class="container">
             <div class="footer-top">
                 <div>
-                    <a href="#home" class="logo" style="margin-bottom: 0.5rem;">
-                        <span class="logo-badge"><i class="fas fa-terminal"></i></span>
-                        Aniket<span>Singh</span>
+                    <a href="#home" class="logo" style="margin-bottom: 0.75rem;" aria-label="Aniket Singh Portfolio">
+                        <span class="logo-mark">
+                            <svg viewBox="0 0 512 512" class="logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="32" y="32" width="448" height="448" rx="120" fill="#0d1322" stroke="rgba(139, 92, 246, 0.45)" stroke-width="20"/>
+                                <path d="M130 360 L210 152 Q218 132 238 132 L242 132 Q262 132 270 152 L310 250" stroke="url(#logo-as-grad)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M172 268 L278 268" stroke="url(#logo-as-grad)" stroke-width="30" stroke-linecap="round"/>
+                                <path d="M370 190 Q370 150 325 150 Q275 150 275 198 Q275 240 342 264 Q410 288 410 346 Q410 395 338 395 Q285 395 270 360" stroke="url(#logo-as-grad)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="390" cy="144" r="14" fill="#10b981"/>
+                            </svg>
+                        </span>
+                        <span class="logo-text">Aniket<span>Singh</span></span>
                     </a>
                     <p style="color: var(--text-muted); font-size: 0.9rem;">
                         Driven by curiosity, powered by technology. Always learning, Always building.

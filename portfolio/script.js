@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalCommands = {
         help: () => `
 Available commands:
+  <span class="cmd-highlight">roles</span>      - Available roles, specializations & opportunities
   <span class="cmd-highlight">about</span>      - Quick bio and background
   <span class="cmd-highlight">skills</span>     - Summary of technical skills & tools
   <span class="cmd-highlight">projects</span>   - List of flagship projects
@@ -167,6 +168,18 @@ Available commands:
   <span class="cmd-highlight">date</span>       - Show current system date & time
   <span class="cmd-highlight">joke</span>       - Get a quick programming joke
 `,
+        roles: () => `
+<span class="cmd-text-accent">💼 Available for Roles &amp; Opportunities:</span>
+  • <span class="cmd-tag">Full-Stack Web Developer</span> (FastAPI, Python, JavaScript, HTML5/CSS3)
+  • <span class="cmd-tag">AI / ML Engineer &amp; Explorer</span> (TensorFlow, scikit-learn, NLP, Prompt Engineering)
+  • <span class="cmd-tag">Python Software Developer</span> (Backend APIs, Automation, Scripting)
+  • <span class="cmd-tag">Software Engineering Intern</span> (Summer 2025/2026)
+  • <span class="cmd-tag">Open Source &amp; Freelance Collaborator</span>
+
+  🟢 <span style="color: #34d399; font-weight: 600;">Current Status:</span> Actively open for internship roles, full-time junior positions, and impactful software collaborations.
+  📫 Reach out via <a href="mailto:aniketsingh4500@gmail.com" class="terminal-link">aniketsingh4500@gmail.com</a> or the <a href="#contact" class="terminal-link">Contact Form</a>.
+`,
+        available: () => terminalCommands.roles(),
         about: () => `
 <span class="cmd-text-accent">Aniket Singh</span>
 🎓 B.Tech Computer Science & Engineering @ RPS Institute of Technology, Patna (2024 - Present)
@@ -220,40 +233,55 @@ Available commands:
         }
     };
 
-    if (terminalInput && terminalBody) {
+    function runTerminalCommand(rawCommand) {
+        if (!terminalBody) return;
+        const command = rawCommand.trim().toLowerCase();
+
+        if (command === 'clear') {
+            terminalBody.innerHTML = '';
+            if (terminalInput) terminalInput.value = '';
+            return;
+        }
+
+        const commandLine = document.createElement('div');
+        commandLine.className = 'terminal-line';
+        commandLine.innerHTML = `<span class="terminal-prompt">aniket@portfolio:~$</span> <span class="terminal-command-text">${escapeHTML(rawCommand)}</span>`;
+        terminalBody.appendChild(commandLine);
+
+        const responseLine = document.createElement('div');
+        responseLine.className = 'terminal-response';
+
+        if (terminalCommands[command]) {
+            responseLine.innerHTML = terminalCommands[command]();
+        } else if (command === '') {
+            responseLine.innerHTML = '';
+        } else {
+            responseLine.innerHTML = `<span class="terminal-error">Command not found: ${escapeHTML(rawCommand)}. Type <span class="cmd-highlight">help</span> for a list of valid commands.</span>`;
+        }
+
+        terminalBody.appendChild(responseLine);
+        if (terminalInput) terminalInput.value = '';
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    if (terminalInput) {
         terminalInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                const rawCommand = terminalInput.value.trim();
-                const command = rawCommand.toLowerCase();
-
-                if (command === 'clear') {
-                    terminalBody.innerHTML = '';
-                    terminalInput.value = '';
-                    return;
-                }
-
-                const commandLine = document.createElement('div');
-                commandLine.className = 'terminal-line';
-                commandLine.innerHTML = `<span class="terminal-prompt">aniket@portfolio:~$</span> <span class="terminal-command-text">${escapeHTML(rawCommand)}</span>`;
-                terminalBody.appendChild(commandLine);
-
-                const responseLine = document.createElement('div');
-                responseLine.className = 'terminal-response';
-
-                if (terminalCommands[command]) {
-                    responseLine.innerHTML = terminalCommands[command]();
-                } else if (command === '') {
-                    responseLine.innerHTML = '';
-                } else {
-                    responseLine.innerHTML = `<span class="terminal-error">Command not found: ${escapeHTML(rawCommand)}. Type <span class="cmd-highlight">help</span> for a list of valid commands.</span>`;
-                }
-
-                terminalBody.appendChild(responseLine);
-                terminalInput.value = '';
-                terminalBody.scrollTop = terminalBody.scrollHeight;
+                runTerminalCommand(terminalInput.value);
             }
         });
     }
+
+    // Quick Command Buttons
+    const quickCmdBtns = document.querySelectorAll('.terminal-cmd-btn');
+    quickCmdBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cmd = btn.getAttribute('data-cmd');
+            if (cmd) {
+                runTerminalCommand(cmd);
+            }
+        });
+    });
 
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g, 
@@ -265,6 +293,19 @@ Available commands:
                 '"': '&quot;'
             }[tag] || tag)
         );
+    }
+
+    // --- Floating Toast Notification Helper ---
+    function showToast(message) {
+        const toast = document.getElementById('toastNotification');
+        const toastText = document.getElementById('toastText');
+        if (toast && toastText) {
+            toastText.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2600);
+        }
     }
 
     // --- Copy Email to Clipboard ---
@@ -283,6 +324,7 @@ Available commands:
                         copyTooltip.classList.remove('show');
                     }, 2000);
                 }
+                showToast("Email address copied to clipboard!");
             }).catch(() => {
                 window.location.href = `mailto:${email}`;
             });
@@ -312,6 +354,7 @@ Available commands:
                     formFeedback.innerHTML = `<strong>Thank you!</strong> Your message has been prepared. You can also reach Aniket directly at <a href="mailto:aniketsingh4500@gmail.com" class="text-accent">aniketsingh4500@gmail.com</a>.`;
                 }
 
+                showToast("Message sent successfully!");
                 contactForm.reset();
 
                 setTimeout(() => {
@@ -320,6 +363,73 @@ Available commands:
                     submitBtn.disabled = false;
                 }, 4000);
             }, 1000);
+        });
+    }
+
+    // --- Floating Back-to-Top Button & Scroll Progress Ring ---
+    const backToTopBtn = document.getElementById('backToTop');
+    const progressCircle = document.getElementById('progressCircle');
+
+    if (backToTopBtn && progressCircle) {
+        const circumference = 2 * Math.PI * 20; // 125.66
+        progressCircle.style.strokeDasharray = `${circumference}`;
+        progressCircle.style.strokeDashoffset = `${circumference}`;
+
+        window.addEventListener('scroll', () => {
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollCurrent = window.scrollY;
+
+            if (scrollCurrent > 350) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+
+            if (scrollTotal > 0) {
+                const progress = Math.min(Math.max(scrollCurrent / scrollTotal, 0), 1);
+                const offset = circumference - (progress * circumference);
+                progressCircle.style.strokeDashoffset = `${offset}`;
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // --- Custom Glowing Cursor Tracker (Desktop) ---
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorGlow = document.getElementById('cursorGlow');
+
+    if (cursorDot && cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let glowX = mouseX;
+        let glowY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+
+        function animateCursor() {
+            glowX += (mouseX - glowX) * 0.18;
+            glowY += (mouseY - glowY) * 0.18;
+            cursorGlow.style.left = `${glowX}px`;
+            cursorGlow.style.top = `${glowY}px`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .spotlight-card, .filter-btn, .tech-tag, .role-badge, .floating-tech-chip');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursorGlow.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursorGlow.classList.remove('hovered'));
         });
     }
 

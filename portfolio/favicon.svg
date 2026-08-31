@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="as-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#04060a"/>
+    </linearGradient>
+    <linearGradient id="stroke-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="24" y="24" width="464" height="464" rx="128" fill="url(#bg-grad)" stroke="url(#stroke-grad)" stroke-width="16"/>
+
+  <!-- Glowing AS Monogram Mark -->
+  <g filter="url(#neon-glow)">
+    <!-- Letter 'A' Form -->
+    <path d="M120 370 L205 142 Q214 118 238 118 L244 118 Q268 118 277 142 L320 258" 
+          fill="none" 
+          stroke="url(#as-grad)" 
+          stroke-width="36" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    
+    <!-- Crossbar of 'A' interlocking with 'S' -->
+    <path d="M165 272 L285 272" 
+          fill="none" 
+          stroke="url(#as-grad)" 
+          stroke-width="32" 
+          stroke-linecap="round"/>
+
+    <!-- Letter 'S' Dynamic Form -->
+    <path d="M375 185 Q375 145 328 145 Q275 145 275 195 Q275 240 345 265 Q415 290 415 350 Q415 400 340 400 Q285 400 270 365" 
+          fill="none" 
+          stroke="url(#as-grad)" 
+          stroke-width="36" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Tech Accent Dot -->
+  <circle cx="396" cy="138" r="14" fill="#10b981"/>
+</svg>

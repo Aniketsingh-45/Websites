@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="crimson">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Shows & Web Series - Aniket Ka Movie</title>
+    <meta name="description" content="Download and stream full seasons of trending Indian and International Web Series in 1080p and 4K UHD.">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="movie.css">
+</head>
+<body data-page="series">
+    <div class="cinema-background"></div>
+
+    <!-- Header -->
+    <header id="siteHeader">
+        <div class="header-container">
+            <a href="movie.html" class="brand-wrapper" title="Aniket Ka Movie">
+                <img src="logo.png" alt="Aniket Ka Movie" class="brand-logo">
+            </a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="movie.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        Home
+                    </a></li>
+                    <li><a href="movies.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                        Movies
+                    </a></li>
+                    <li><a href="series.html" class="nav-link active">
+                        <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+                        TV & Series
+                    </a></li>
+                    <li><a href="genres.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                        Genres
+                    </a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <input type="text" id="globalSearch" class="search-input" placeholder="Search series & shows..." autocomplete="off">
+                    <button id="searchClear" class="search-clear" aria-label="Clear Search">&times;</button>
+                </div>
+
+                <div class="theme-picker-wrapper">
+                    <button id="themePickerBtn" class="theme-btn" title="Change Background Theme">
+                        <span class="theme-color-dot"></span>
+                        <span>Theme</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+                    </button>
+                    <div id="themeDropdown" class="theme-dropdown"></div>
+                </div>
+
+                <button class="watchlist-btn" onclick="showToast('You have ' + getWatchlist().length + ' saved titles in your Watchlist!')" title="Watchlist">
+                    <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                    <span class="watchlist-badge">0</span>
+                </button>
+
+                <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle Menu">
+                    <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <div style="max-width: 1440px; margin: 30px auto 10px auto; padding: 0 5%;">
+        <h1 style="font-size: 2.4rem; font-weight: 800; letter-spacing: -0.5px;">Binge-Worthy TV & Web Series</h1>
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 6px;">Download full seasons with complete zip bundles, episode-by-episode packs, and multi-audio tracks.</p>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-container" id="catalogTop" style="margin-top: 25px;">
+        <div class="category-pills">
+            <button class="pill-btn active" data-category="All">All Series</button>
+            <button class="pill-btn" data-category="Web Series">Original Web Shows</button>
+        </div>
+
+        <div class="filter-sort-wrapper">
+            <select id="sortSelect" class="sort-select">
+                <option value="trending">Sort: Trending First</option>
+                <option value="rating">Sort: IMDb Rating ★</option>
+                <option value="year">Sort: Release Year (Newest)</option>
+                <option value="title">Sort: Title (A-Z)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Grid -->
+    <main class="content-wrapper">
+        <div class="section-header">
+            <h2 class="section-title">Streaming Series Catalog</h2>
+            <span id="resultCount" class="result-count">Loading series...</span>
+        </div>
+
+        <div id="moviesGrid" class="movies-grid"></div>
+        <div id="pagination" class="pagination-container"></div>
+    </main>
+
+    <!-- Modals -->
+    <div id="trailerModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="closeTrailerModal()" aria-label="Close Trailer">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+            <div class="video-responsive">
+                <iframe id="trailerIframe" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="downloadModal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 650px;">
+            <button class="modal-close-btn" onclick="closeDownloadModal()" aria-label="Close Download Dialog">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+            <div class="dl-modal-header">
+                <img id="dlPoster" src="" alt="Poster" class="dl-modal-poster">
+                <div>
+                    <h3 id="dlTitle" class="dl-modal-title">Select Quality</h3>
+                    <p id="dlMeta" class="dl-modal-meta">High-Speed Season Download Mirrors</p>
+                </div>
+            </div>
+            <div id="dlTierList" class="dl-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>ANIKET KA MOVIE</h4>
+                <p>Complete seasons of popular Indian OTT originals (Prime, Netflix, Hotstar, SonyLIV) and global hit shows.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <ul class="footer-links">
+                    <li><a href="movie.html">Home Cinema</a></li>
+                    <li><a href="movies.html">All Movies</a></li>
+                    <li><a href="series.html">TV & Web Series</a></li>
+                    <li><a href="genres.html">Browse Genres</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Themes</h5>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="setTheme('crimson')">Crimson Cinema</a></li>
+                    <li><a href="javascript:void(0)" onclick="setTheme('sapphire')">Midnight Sapphire</a></li>
+                    <li><a href="javascript:void(0)" onclick="setTheme('cyberpunk')">Cyberpunk Neon</a></li>
+                    <li><a href="javascript:void(0)" onclick="setTheme('emerald')">Emerald Velvet</a></li>
+                    <li><a href="javascript:void(0)" onclick="setTheme('gold')">Gold Luxe Noir</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Batch Downloads</h5>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)">Season Zip 720p</a></li>
+                    <li><a href="javascript:void(0)">Season Zip 1080p</a></li>
+                    <li><a href="javascript:void(0)">Episodes Single Direct</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aniket Ka Movie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/movie-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

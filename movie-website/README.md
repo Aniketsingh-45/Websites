@@ -1,94 +1,79 @@
-# 🎬 Aniket Ka Movie - Glassmorphism Edition
+# 🎬 Aniket Ka Movie - Ultra Cinematic Streaming & Download Portal
 
-An elegant, dark-themed, and fully responsive movie listing and download web portal. Crafted using clean, semantic HTML5 and vanilla CSS3 to deliver a **premium cinematic glassmorphism user interface**.
+A modern, multi-page, high-performance cinema portal designed with frosted glassmorphism, responsive grid architecture, and **5 dynamic background themes**. Crafted using pure semantic HTML5, modern CSS3, and modular vanilla JavaScript.
 
 ---
 
 ## ✨ Features
 
-* **Premium Glassmorphism UI**: A visually stunning backdrop featuring a cinematic background wallpaper matched with translucent, frosted glass containers (`backdrop-filter`) for a highly modern and immersive look.
-* **Modern CSS Grid Layout**: A clean, uniform fluid grid display for movie poster cards that adapts effortlessly from large 4K displays down to mobile screens.
-* **Beautiful Micro-Interactions**: Hover over movie cards to watch them lift smoothly with an enhanced neon glow. The download buttons feature a vibrant, animated gradient hover effect.
-* **Quick Filter Buttons**: Frosted glass tag buttons to filter content instantly across categories: **Bollywood**, **Hollywood**, **South (Hindi Dubbed)**, **Dual Audio**, and **Web Series**.
-* **Global Navigation Hub**: Includes quick navigation options:
-  - 🏠 HOME
-  - 🎬 MOVIES
-  - 🔗 GENRE
-  - 📅 YEAR
-  - ☠️ QUALITY
-  - 📺 TV SHOWS
-  - 🌐 WEB SERIES
-* **Interactive Search Utility**: Sleek, transparent search bar that expands its glow upon focus, giving users an elegant querying interface.
-* **Trailer & Download Links**:
-  - Select movies feature direct poster links to YouTube trailers.
-  - Every card features a vibrant call-to-action button linking directly to high-speed downloads.
+* **🎨 5 Switchable Ambient Themes**:
+  - 🔴 **Crimson Cinema** (Default): Deep obsidian `#07080b` with ruby red and warm amber glows.
+  - 🔵 **Midnight Sapphire**: Deep navy `#040914` with electric cyan and ice blue.
+  - 🟣 **Cyberpunk Neon**: Night violet `#0a0614` with magenta and purple accents.
+  - 🟢 **Emerald Velvet**: Dark jade `#04100b` with glowing emerald and mint accents.
+  - 🟡 **Gold Luxe / Noir**: Pure black `#080808` with champagne gold and warm accents.
+  *Themes automatically persist in `localStorage` across all pages.*
 
----
+* **📑 Full Multi-Page Architecture**:
+  - `movie.html` / `index.html`: Main cinema hub with hero spotlight banner, trending section, filter chips, and live search.
+  - `movies.html`: Dedicated Theatrical Movies catalog (Bollywood, Hollywood, South Indian Dubbed, Dual Audio).
+  - `series.html`: TV Shows & Web Series hub (Mirzapur, Panchayat, Stranger Things, etc.).
+  - `genres.html`: Visual genre browser (Action, Sci-Fi, Crime, Comedy, Historical, Drama).
+  - `movie-details.html`: Dynamic movie details page with synopsis, cast, ratings, trailer player, and multi-server download links.
 
-## 🎨 Theme & Styling Details
+* **🔍 Real-Time Search & Category Filters**:
+  - Instant debounce search across movie titles, genres, release years, and cast.
+  - Category filter pills for Bollywood, Hollywood, South, Dual Audio, and Web Series.
+  - Sorting options: Trending First, Highest Rating ★, Release Year (Newest), and Title (A-Z).
 
-The visual system is designed around a modern frosted glass palette with high-contrast accent gradients:
+* **🎬 Embedded HD Trailer Modal**:
+  - Watch official movie trailers in responsive 16:9 modals without leaving the page.
+  - Easily closed via the close button, clicking outside, or pressing the `Escape` key.
 
-| Attribute | Value & Implementation |
-| :--- | :--- |
-| **Primary Background** | High-quality cinematic image overlayed with a dark radial gradient |
-| **Glass Containers** | `rgba(25, 25, 30, 0.5)` with `backdrop-filter: blur(16px)` |
-| **Typography** | `Outfit`, Google's sleek sans-serif font for all interface text |
-| **Action Gradients** | Call-to-action buttons feature a vivid neon gradient (`#ff0f7b` to `#f89b29`) with dynamic hover lighting |
-| **Shadow Highlights** | Deep, smooth drop shadows (`box-shadow: 0 10px 30px rgba(0,0,0,0.3)`) to separate glass layers from the background |
+* **⚡ Verified High-Speed Download Hub**:
+  - Multi-tier resolution options: **480p Mobile**, **720p HD**, **1080p Full HD HEVC**, and **4K UHD HDR (2160p Atmos)**.
+  - Multiple cloud storage mirrors (FastDL, Mega, Google Drive).
+
+* **⭐ Personal Watchlist System**:
+  - Save favorite titles with a single click on the card bookmark button.
+  - Live watchlist counter badge in the header with persistent `localStorage` storage.
 
 ---
 
 ## 📁 File Structure
 
 ```bash
-movie/
-├── logo.png       # The main branding header logo
-├── movie.html     # Semantic structure of the portal (Search, Grid, Pagination)
-├── movie.css      # Core style sheet containing all Glassmorphism rules & animations
-└── README.md      # Documentation (This file)
+movie-website/
+├── css/
+│   └── theme.css          # Design tokens, variables & 5 switchable theme palettes
+├── js/
+│   ├── movie-data.js      # Curated movie catalog with metadata, ratings, cast & links
+│   └── app.js             # Theme switcher, search, filters, modals & pagination logic
+├── logo.png               # Main branding header logo
+├── movie.html             # Primary Home Cinema portal
+├── index.html             # Server discovery entry point
+├── movies.html            # All movies theatrical catalog
+├── series.html            # TV & Web Series catalog
+├── genres.html            # Interactive visual genre selector
+├── movie-details.html     # Deep-dive movie details & download mirrors
+├── movie.css              # Master styling & responsive grid layouts
+└── README.md              # Documentation
 ```
 
 ---
 
-## 🚀 How to Run the Project
+## 🚀 How to Run the Website
 
 ### Option 1: Direct File Launch
-Simply double-click the `movie.html` file in your directory to open it in any modern browser (Chrome, Edge, Safari, Firefox).
+Simply double-click `movie.html` (or `index.html`) to open directly in any modern web browser.
 
-### Option 2: Live Server (VS Code Extension)
-1. Open the project folder in **Visual Studio Code**.
-2. Install the **Live Server** extension.
-3. Click **Go Live** in the status bar at the bottom right to run it locally.
-
-### Option 3: Local HTTP Server (Python)
-If you have Python installed, launch a local server by running the following command in your terminal:
+### Option 2: Local HTTP Server (Python)
+Run the following command in the project folder:
 ```bash
-python -m http.server 8000
+python -m http.server 8080
 ```
-Then, open [http://localhost:8000/movie.html](http://localhost:8000/movie.html) in your browser.
+Then navigate to: [http://localhost:8080/movie.html](http://localhost:8080/movie.html)
 
 ---
 
-## 🍿 Curated Movie Library
-
-The portal displays high-demand titles with full high-resolution covers:
-1. **SardarJi 3 (2025)** (Includes YouTube Trailer)
-2. **Anand (1971)**
-3. **Maa (2025)**
-4. **Raid (2025)**
-5. **Sitaare Zameen Par (2025)**
-6. **Kesari 2 (2025)**
-7. **Sabarmati Report (2024)**
-8. **Housefull 5 (2025)**
-9. **Jaat (2025)**
-10. **Bhool-Chuk-Maaf (2025)**
-11. **Chhaava (2025)**
-12. **Azaad (2025)**
-13. **Sky-Force (2025)**
-14. **Namastey-London (2007)**
-15. **Shaadi-Mein-Zaroor-Aana (2017)**
-16. **Vicky-Vidya-Ka-Woh-Wala-Video (2024)**
-17. **Do-Patti (2024)**
-18. **Sarfira (2024)**
-19. **Khel-Khel-Mein (2024)**
+&copy; 2026 Aniket Ka Movie. All rights reserved.

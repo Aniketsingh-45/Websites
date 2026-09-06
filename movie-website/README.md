@@ -1,5 +1,12 @@
 # 🎬 Aniket Ka Movie - Ultra Cinematic Streaming & Download Portal
 
+<p align="left">
+  <a href="https://aniketmovie.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel"></a>
+  <a href="https://aniketmovie.vercel.app/"><img src="https://img.shields.io/badge/Status-Live%20Production-success?style=for-the-badge&logo=statuspage&logoColor=white" alt="Live Production"></a>
+</p>
+
+> 🌐 **Live Website:** [**https://aniketmovie.vercel.app/**](https://aniketmovie.vercel.app/)
+
 A modern, multi-page, high-performance cinema portal designed with frosted glassmorphism, responsive grid architecture, and **5 dynamic background themes**. Crafted using pure semantic HTML5, modern CSS3, and modular vanilla JavaScript.
 
 ---

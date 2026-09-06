@@ -50,30 +50,93 @@ movie-website/
 │   ├── movie-data.js      # Curated movie catalog with metadata, ratings, cast & links
 │   └── app.js             # Theme switcher, search, filters, modals & pagination logic
 ├── logo.png               # Main branding header logo
-├── movie.html             # Primary Home Cinema portal
-├── index.html             # Server discovery entry point
+├── favicon.png            # Browser tab icon
+├── index.html             # Server discovery & canonical homepage
+├── movie.html             # Legacy-compatible Home Cinema portal
 ├── movies.html            # All movies theatrical catalog
 ├── series.html            # TV & Web Series catalog
 ├── genres.html            # Interactive visual genre selector
 ├── movie-details.html     # Deep-dive movie details & download mirrors
+├── 404.html               # Cinematic custom 404 error page
 ├── movie.css              # Master styling & responsive grid layouts
+├── vercel.json            # Vercel routing, clean URLs & security headers
+├── package.json           # Project metadata & npm dev scripts
+├── robots.txt             # Search engine crawling rules
+├── sitemap.xml            # Search engine indexing map
+├── .gitignore             # Git ignore list (.vercel, node_modules, etc.)
 └── README.md              # Documentation
 ```
 
 ---
 
-## 🚀 How to Run the Website
+## 🚀 How to Run Locally
 
-### Option 1: Direct File Launch
-Simply double-click `movie.html` (or `index.html`) to open directly in any modern web browser.
+### Option 1: Using Node & Serve (Recommended)
+```bash
+npx serve .
+```
 
 ### Option 2: Local HTTP Server (Python)
-Run the following command in the project folder:
 ```bash
 python -m http.server 8080
 ```
-Then navigate to: [http://localhost:8080/movie.html](http://localhost:8080/movie.html)
+Then navigate to: [http://localhost:8080/](http://localhost:8080/)
+
+---
+
+## ⚡ How to Deploy on Vercel
+
+### Method 1: Deploy via Vercel Web Dashboard (GitHub Integration - Recommended)
+
+1. **Push your code to GitHub**:
+   Ensure your changes are committed and pushed to your GitHub repository (`Websites` or `Movie-website`).
+
+2. **Open Vercel Dashboard**:
+   - Go to [https://vercel.com/new](https://vercel.com/new) and log in with GitHub.
+
+3. **Import Project**:
+   - **If importing the `Websites` monorepo**:
+     - Click **Import** next to `Websites`.
+     - In **Project Settings**, find **Root Directory** and click **Edit**.
+     - Select `movie-website` and click **Continue**.
+     - Framework Preset: Choose **Other** (it's a static site).
+     - Click **Deploy**!
+   - **If importing standalone `Movie-website` repository**:
+     - Click **Import** next to `Movie-website`.
+     - Framework Preset: **Other**.
+     - Click **Deploy**!
+
+4. **Done!**
+   Vercel will give you a live production URL (e.g., `https://aniket-ka-movie.vercel.app`) with automatic SSL, global CDN, clean URLs, and automatic redeployment on git push.
+
+---
+
+### Method 2: Deploy via Vercel CLI (Direct from Terminal)
+
+1. Open PowerShell or Terminal inside `movie-website/`:
+   ```bash
+   cd "d:\My Apps\Websites\movie-website"
+   ```
+
+2. Run Vercel CLI directly without installing:
+   ```bash
+   npx vercel
+   ```
+
+3. Follow the on-screen prompts:
+   - `Set up and deploy?` &rarr; Type `y` and hit **Enter**.
+   - `Which scope?` &rarr; Select your Vercel account.
+   - `Link to existing project?` &rarr; Type `n` (for first time).
+   - `What's your project's name?` &rarr; Press **Enter** (defaults to `movie-website`).
+   - `In which directory is your code located?` &rarr; Press **Enter** (`./`).
+   - `Want to modify these settings?` &rarr; Type `n` and hit **Enter**.
+
+4. For production release:
+   ```bash
+   npx vercel --prod
+   ```
 
 ---
 
 &copy; 2026 Aniket Ka Movie. All rights reserved.
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="crimson">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Reel Not Found | Aniket Ka Movie</title>
+    <meta name="description" content="The page or movie reel you are looking for does not exist on Aniket Ka Movie portal.">
+    <meta property="og:title" content="404 - Reel Not Found | Aniket Ka Movie">
+    <meta property="og:description" content="Explore thousands of high-definition Bollywood, Hollywood, South Indian movies and TV series.">
+    <meta property="og:image" content="logo.png">
+    <!-- Favicon & Fonts -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="movie.css">
+</head>
+<body data-page="404">
+    <!-- Ambient Background Lighting -->
+    <div class="cinema-background"></div>
+
+    <!-- Main Site Header -->
+    <header id="siteHeader">
+        <div class="header-container">
+            <a href="index.html" class="brand-wrapper" title="Aniket Ka Movie">
+                <img src="logo.png" alt="Aniket Ka Movie" class="brand-logo">
+            </a>
+
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        Home
+                    </a></li>
+                    <li><a href="movies.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                        Movies
+                    </a></li>
+                    <li><a href="series.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+                        TV & Series
+                    </a></li>
+                    <li><a href="genres.html" class="nav-link">
+                        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                        Genres
+                    </a></li>
+                </ul>
+            </nav>
+
+            <!-- Search, Theme Selector & Actions -->
+            <div class="header-actions">
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <input type="text" id="globalSearch" class="search-input" placeholder="Search movies, series, cast..." autocomplete="off">
+                    <button id="searchClear" class="search-clear" aria-label="Clear Search">&times;</button>
+                </div>
+
+                <!-- Theme Switcher -->
+                <div class="theme-picker-wrapper">
+                    <button id="themePickerBtn" class="theme-btn" title="Change Background Theme">
+                        <span class="theme-color-dot"></span>
+                        <span>Theme</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+                    </button>
+                    <div id="themeDropdown" class="theme-dropdown">
+                        <div class="theme-option active" data-theme-val="crimson">
+                            <span class="dot crimson"></span> Crimson Cinema
+                        </div>
+                        <div class="theme-option" data-theme-val="sapphire">
+                            <span class="dot sapphire"></span> Midnight Sapphire
+                        </div>
+                        <div class="theme-option" data-theme-val="cyberpunk">
+                            <span class="dot cyberpunk"></span> Cyberpunk Neon
+                        </div>
+                        <div class="theme-option" data-theme-val="emerald">
+                            <span class="dot emerald"></span> Emerald Velvet
+                        </div>
+                        <div class="theme-option" data-theme-val="noir">
+                            <span class="dot noir"></span> Gold Luxe / Noir
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watchlist Header Button -->
+                <button id="watchlistHeaderBtn" class="watchlist-nav-btn" title="My Watchlist">
+                    <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                    <span id="watchlistCountBadge" class="watchlist-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 404 Hero Section -->
+    <main class="error-page-wrapper">
+        <div class="error-card">
+            <div class="error-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Error 404 • Missing Reel
+            </div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Cut from the Final Reel!</h1>
+            <p class="error-desc">The page, movie, or stream you're looking for doesn't exist, has been archived, or slipped past our projection room.</p>
+            <div class="error-actions">
+                <a href="index.html" class="btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    Back to Home Cinema
+                </a>
+                <a href="movies.html" class="btn-secondary">
+                    <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                    Browse Movies
+                </a>
+                <a href="series.html" class="btn-secondary">
+                    <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+                    TV Series
+                </a>
+            </div>
+            <div class="error-quick-links">
+                <span>Popular Genres:</span>
+                <a href="genres.html">Action</a> •
+                <a href="genres.html">Sci-Fi</a> •
+                <a href="genres.html">Crime</a> •
+                <a href="genres.html">Comedy</a> •
+                <a href="genres.html">Drama</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Watchlist Drawer / Modal -->
+    <div id="watchlistModal" class="watchlist-modal">
+        <div class="watchlist-modal-overlay" id="watchlistCloseOverlay"></div>
+        <div class="watchlist-drawer">
+            <div class="watchlist-header">
+                <div class="watchlist-title-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                    <h2>My Saved Cinema Watchlist</h2>
+                </div>
+                <button id="closeWatchlistBtn" class="close-btn" aria-label="Close Watchlist">&times;</button>
+            </div>
+            <div id="watchlistItemsList" class="watchlist-body">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Aniket Ka Movie" class="footer-logo">
+                <p>Ultra-cinematic streaming and download portal featuring the latest theatrical blockbusters, series, and curated cinema collections in pristine 4K UHD.</p>
+            </div>
+            <div class="footer-links-col">
+                <h4>Cinema Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home Cinema</a></li>
+                    <li><a href="movies.html">Theatrical Releases</a></li>
+                    <li><a href="series.html">TV & Web Series</a></li>
+                    <li><a href="genres.html">Browse by Genre</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-col">
+                <h4>Resolutions</h4>
+                <ul>
+                    <li><a href="movies.html">4K UHD HDR (2160p)</a></li>
+                    <li><a href="movies.html">1080p Full HD HEVC</a></li>
+                    <li><a href="movies.html">720p HD Standard</a></li>
+                    <li><a href="movies.html">480p Mobile Saver</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aniket Ka Movie. Designed for cinema connoisseurs. Deployed on Vercel.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/movie-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

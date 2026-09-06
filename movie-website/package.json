@@ -1,0 +1,19 @@
+{
+  "name": "aniket-ka-movie",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ultra Cinematic Streaming & Download Portal with 5 Dynamic Themes",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "cinema",
+    "streaming",
+    "movies",
+    "tv-series",
+    "vercel"
+  ],
+  "author": "Aniket Singh",
+  "license": "MIT"
+}

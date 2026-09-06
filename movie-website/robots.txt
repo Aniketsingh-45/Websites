@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aniket-ka-movie.vercel.app/sitemap.xml

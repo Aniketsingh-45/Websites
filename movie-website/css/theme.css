@@ -1,0 +1,207 @@
+/* ==========================================================================
+   CINEMATIC THEME ENGINE & DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+    /* Base Font Family */
+    --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Default Theme: Crimson Cinema */
+    --bg-base: #07080b;
+    --bg-surface: rgba(18, 20, 29, 0.7);
+    --bg-surface-elevated: rgba(26, 29, 44, 0.85);
+    --bg-glass: rgba(255, 255, 255, 0.04);
+    --bg-glass-hover: rgba(255, 255, 255, 0.08);
+    
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-glass: rgba(255, 255, 255, 0.15);
+    --border-accent: rgba(229, 9, 20, 0.4);
+    
+    --accent-primary: #e50914;
+    --accent-secondary: #ff7b00;
+    --accent-gradient: linear-gradient(135deg, #e50914 0%, #ff5252 50%, #ff8c00 100%);
+    --accent-glow: 0 0 25px rgba(229, 9, 20, 0.55);
+    --accent-glow-subtle: 0 0 15px rgba(229, 9, 20, 0.3);
+    
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-glow: 0 0 12px rgba(255, 255, 255, 0.5);
+    
+    --rating-gold: #ffb800;
+    --badge-quality: rgba(229, 9, 20, 0.2);
+    
+    --backdrop-glow-1: radial-gradient(circle at 15% 20%, rgba(229, 9, 20, 0.18) 0%, transparent 45%);
+    --backdrop-glow-2: radial-gradient(circle at 85% 75%, rgba(255, 123, 0, 0.12) 0%, transparent 45%);
+    --backdrop-pattern: radial-gradient(circle at center, #13141f 0%, #07080b 100%);
+    
+    --card-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+    --card-hover-shadow: 0 22px 50px rgba(0, 0, 0, 0.8), 0 0 25px rgba(229, 9, 20, 0.25);
+    
+    --blur-glass: blur(18px);
+    --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Theme 2: Midnight Sapphire */
+[data-theme="sapphire"] {
+    --bg-base: #040914;
+    --bg-surface: rgba(11, 23, 44, 0.7);
+    --bg-surface-elevated: rgba(16, 34, 64, 0.85);
+    --bg-glass: rgba(0, 210, 255, 0.04);
+    --bg-glass-hover: rgba(0, 210, 255, 0.08);
+    
+    --border-subtle: rgba(0, 210, 255, 0.1);
+    --border-glass: rgba(0, 210, 255, 0.2);
+    --border-accent: rgba(0, 210, 255, 0.5);
+    
+    --accent-primary: #00d2ff;
+    --accent-secondary: #3a7bd5;
+    --accent-gradient: linear-gradient(135deg, #00d2ff 0%, #0072ff 100%);
+    --accent-glow: 0 0 25px rgba(0, 210, 255, 0.55);
+    --accent-glow-subtle: 0 0 15px rgba(0, 210, 255, 0.3);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #7ca1c8;
+    
+    --rating-gold: #fbbf24;
+    --badge-quality: rgba(0, 210, 255, 0.2);
+    
+    --backdrop-glow-1: radial-gradient(circle at 10% 25%, rgba(0, 210, 255, 0.18) 0%, transparent 45%);
+    --backdrop-glow-2: radial-gradient(circle at 85% 70%, rgba(58, 123, 213, 0.15) 0%, transparent 45%);
+    --backdrop-pattern: radial-gradient(circle at center, #091730 0%, #040914 100%);
+    
+    --card-shadow: 0 12px 36px rgba(2, 6, 23, 0.6);
+    --card-hover-shadow: 0 22px 50px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 210, 255, 0.28);
+}
+
+/* Theme 3: Cyberpunk Neon */
+[data-theme="cyberpunk"] {
+    --bg-base: #0a0614;
+    --bg-surface: rgba(26, 12, 42, 0.72);
+    --bg-surface-elevated: rgba(38, 18, 62, 0.88);
+    --bg-glass: rgba(255, 0, 128, 0.05);
+    --bg-glass-hover: rgba(255, 0, 128, 0.1);
+    
+    --border-subtle: rgba(255, 0, 128, 0.15);
+    --border-glass: rgba(200, 50, 255, 0.25);
+    --border-accent: rgba(255, 0, 128, 0.6);
+    
+    --accent-primary: #ff007f;
+    --accent-secondary: #9d00ff;
+    --accent-gradient: linear-gradient(135deg, #ff007f 0%, #b800ff 50%, #00f0ff 100%);
+    --accent-glow: 0 0 25px rgba(255, 0, 128, 0.6);
+    --accent-glow-subtle: 0 0 15px rgba(184, 0, 255, 0.35);
+    
+    --text-primary: #ffffff;
+    --text-secondary: #e2d9f3;
+    --text-muted: #a690c5;
+    
+    --rating-gold: #ffd600;
+    --badge-quality: rgba(255, 0, 128, 0.22);
+    
+    --backdrop-glow-1: radial-gradient(circle at 20% 15%, rgba(255, 0, 128, 0.2) 0%, transparent 45%);
+    --backdrop-glow-2: radial-gradient(circle at 80% 80%, rgba(157, 0, 255, 0.2) 0%, transparent 45%);
+    --backdrop-pattern: radial-gradient(circle at center, #1b0a2e 0%, #0a0614 100%);
+    
+    --card-shadow: 0 12px 36px rgba(10, 4, 20, 0.7);
+    --card-hover-shadow: 0 22px 50px rgba(0, 0, 0, 0.9), 0 0 28px rgba(255, 0, 128, 0.35);
+}
+
+/* Theme 4: Emerald Velvet */
+[data-theme="emerald"] {
+    --bg-base: #04100b;
+    --bg-surface: rgba(8, 32, 22, 0.7);
+    --bg-surface-elevated: rgba(12, 48, 33, 0.85);
+    --bg-glass: rgba(0, 230, 118, 0.04);
+    --bg-glass-hover: rgba(0, 230, 118, 0.08);
+    
+    --border-subtle: rgba(0, 230, 118, 0.1);
+    --border-glass: rgba(0, 230, 118, 0.2);
+    --border-accent: rgba(0, 230, 118, 0.5);
+    
+    --accent-primary: #00e676;
+    --accent-secondary: #00b0ff;
+    --accent-gradient: linear-gradient(135deg, #00e676 0%, #00b0ff 100%);
+    --accent-glow: 0 0 25px rgba(0, 230, 118, 0.55);
+    --accent-glow-subtle: 0 0 15px rgba(0, 230, 118, 0.3);
+    
+    --text-primary: #f0fdf4;
+    --text-secondary: #bbf7d0;
+    --text-muted: #86efac;
+    
+    --rating-gold: #facc15;
+    --badge-quality: rgba(0, 230, 118, 0.2);
+    
+    --backdrop-glow-1: radial-gradient(circle at 15% 20%, rgba(0, 230, 118, 0.16) 0%, transparent 45%);
+    --backdrop-glow-2: radial-gradient(circle at 85% 75%, rgba(0, 176, 255, 0.14) 0%, transparent 45%);
+    --backdrop-pattern: radial-gradient(circle at center, #072217 0%, #04100b 100%);
+    
+    --card-shadow: 0 12px 36px rgba(2, 14, 9, 0.65);
+    --card-hover-shadow: 0 22px 50px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 230, 118, 0.3);
+}
+
+/* Theme 5: Gold Luxe / Film Noir */
+[data-theme="gold"] {
+    --bg-base: #080808;
+    --bg-surface: rgba(24, 22, 18, 0.75);
+    --bg-surface-elevated: rgba(38, 34, 26, 0.9);
+    --bg-glass: rgba(212, 175, 55, 0.04);
+    --bg-glass-hover: rgba(212, 175, 55, 0.08);
+    
+    --border-subtle: rgba(212, 175, 55, 0.12);
+    --border-glass: rgba(212, 175, 55, 0.22);
+    --border-accent: rgba(212, 175, 55, 0.55);
+    
+    --accent-primary: #d4af37;
+    --accent-secondary: #f39c12;
+    --accent-gradient: linear-gradient(135deg, #fce043 0%, #fb7ba2 0%, #f39c12 50%, #d4af37 100%);
+    --accent-glow: 0 0 25px rgba(212, 175, 55, 0.5);
+    --accent-glow-subtle: 0 0 15px rgba(212, 175, 55, 0.25);
+    
+    --text-primary: #fffdfa;
+    --text-secondary: #e6dfd1;
+    --text-muted: #b8ac98;
+    
+    --rating-gold: #f59e0b;
+    --badge-quality: rgba(212, 175, 55, 0.22);
+    
+    --backdrop-glow-1: radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.16) 0%, transparent 45%);
+    --backdrop-glow-2: radial-gradient(circle at 85% 75%, rgba(243, 156, 18, 0.13) 0%, transparent 45%);
+    --backdrop-pattern: radial-gradient(circle at center, #171510 0%, #080808 100%);
+    
+    --card-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+    --card-hover-shadow: 0 22px 50px rgba(0, 0, 0, 0.9), 0 0 26px rgba(212, 175, 55, 0.28);
+}
+
+/* Background Atmosphere Layer */
+.cinema-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background-color: var(--bg-base);
+    background-image: 
+        var(--backdrop-glow-1),
+        var(--backdrop-glow-2),
+        var(--backdrop-pattern);
+    background-size: cover;
+    background-attachment: fixed;
+    transition: background 0.6s ease, background-color 0.6s ease;
+}
+
+.cinema-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.6;
+    pointer-events: none;
+}

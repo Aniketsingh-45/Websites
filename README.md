@@ -1,63 +1,210 @@
 # 🌐 Websites Workspace
 
-> A curated collection of modern web applications, interactive AI tools, and creative front-end projects developed by **Aniket Singh**. 🚀
+> A curated collection of modern web applications, interactive portals, and creative front-end experiences developed by **Aniket Singh**. 🚀
 
-This repository serves as a monorepo-style home for various web designs, spanning from lightweight vanilla HTML/CSS landing pages to advanced full-stack React applications integrated with Three.js, GSAP, and Google's Gemini LLMs.
-
----
-
-## 📂 Project Directory
-
-Below is an overview of the projects contained in this workspace, organized by complexity and technology stack:
-
-| Project Name | Folder Path | Tech Stack | Project Type | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **✨ Developer Portfolio** | [`/portfolio`](./portfolio) | Three.js, GSAP, Lenis, Split-Type, Vite | 3D Interactive Portfolio | Aniket's personal website featuring immersive 3D canvas rendering, fluid scroll physics, and text typography animations. |
-| **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | HTML5, CSS3, Vanilla JS, Vite | Modern Landing Page | A fully responsive, modern web page designed for the Dadan Handi restaurant. |
-| **☕ Cafe Skylite** | [`/cafe`](./cafe) | HTML5, CSS3, Vanilla JS | Rich Media Website | Interactive cafe website featuring video backdrops, custom emoji fixes, and extensive menu showcases. |
-| **🏥 Clinic** | [`/clinic`](./clinic) | HTML5, CSS3, Vanilla JS | Clinic Landing Page | Clean, functional, and minimal landing page layout tailored for a medical clinic. |
-| **🎬 Movie Website** | [`/movie-website`](./movie-website) | HTML5, CSS3 | Movie Directory UI | A modern UI for a movie listing platform with search and categories. |
-| **🛍️ Looto Shopping** | [`/shopping`](./shopping) | HTML5, CSS3, Vanilla JS | E-Commerce Website | A feature-rich modern shopping e-commerce interface with cart functionality. |
-| **🎁 Birthday Surprise** | [`/gift`](./gift) | HTML5, CSS3, Vanilla JS | Interactive Gift | A beautiful, interactive birthday surprise website featuring music, animations, and a passcode entry. |
+<p align="center">
+  <a href="https://github.com/Aniketsingh-45/Websites"><img src="https://img.shields.io/badge/Repository-Websites%20Monorepo-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository"></a>
+  <a href="https://vercel.com"><img src="https://img.shields.io/badge/Deployed%20with-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white" alt="Deployed with Vercel"></a>
+  <a href="https://www.linkedin.com/in/aniketsingh45/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="mailto:aniketsingh4500@gmail.com"><img src="https://img.shields.io/badge/Email-aniketsingh4500-ea4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+</p>
 
 ---
 
-## 🛠️ Getting Started & Running Projects
+## 🚀 Live Deployments (Production on Vercel)
 
-Depending on the project type, follow the setup instructions below:
+The following websites are deployed and live on **Vercel** with global CDN caching, SSL encryption, and high performance:
 
-### 1. ⚡ Vite-Bundled Frontend Projects (`portfolio` & `dadan-handi`)
-These projects use Vite for asset compilation and building.
+| Website | Live Production URL | Folder | Status | Tech Stack |
+| :--- | :--- | :--- | :---: | :--- |
+| **⚡ Developer Portfolio** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | [`/portfolio`](./portfolio) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketportfolio-wheat.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Glassmorphism` |
+| **🎬 Aniket Ka Movie Portal** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | [`/movie-website`](./movie-website) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketmovie.vercel.app/) | `HTML5` `CSS3` `Vanilla JS` `Vercel Routing` |
 
-1. Navigate to the project directory:
+> 💡 *Click any of the links above to experience the live interactive applications directly in your browser!*
+
+---
+
+## 🌐 All Websites & Applications Showcase
+
+This section details all the websites contained in this repository, including live deployment URLs, key features, and technology stacks.
+
+---
+
+### 1. ⚡ Developer Portfolio & AI Explorer
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://aniketportfolio-wheat.vercel.app/)
+* **Directory**: [`/portfolio`](./portfolio)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://aniketportfolio-wheat.vercel.app/)
+* **Description**: A modern, high-performance personal developer portfolio built with a dark glassmorphism design system.
+* **Key Features**:
+  - 🟢 **Live "Available for Roles" Beacon**: Pulsing radar ring indicator across desktop and mobile menus.
+  - 💻 **Interactive Terminal Shell**: Fully functional simulated developer terminal (`aniket@portfolio:~$`) with quick-action command chips.
+  - 🍱 **Bento Grid Layout**: Responsive modular showcase of academic background, philosophy, and focus areas.
+  - 📁 **Filterable Projects Showcase**: Categorized project cards with instant switching (AI/ML, Web, Python).
+  - 🖱️ **Polished Micro-Interactions**: Custom glowing cursor tracker, circular SVG scroll progress ring, and toast notifications.
+
+---
+
+### 2. 🎬 Aniket Ka Movie — Cinema & Streaming Hub
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://aniketmovie.vercel.app/)
+* **Directory**: [`/movie-website`](./movie-website)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://aniketmovie.vercel.app/)
+* **Description**: An ultra-cinematic movie discovery and streaming portal with multi-page architecture, frosted glass cards, and verified multi-tier download links.
+* **Key Features**:
+  - 🎨 **5 Switchable Ambient Themes**: Crimson Cinema, Midnight Sapphire, Cyberpunk Neon, Emerald Velvet, and Gold Luxe. Themes persist across all pages via `localStorage`.
+  - 📑 **Multi-Page Catalog**: Dedicated pages for Theatrical Movies (`movies.html`), Web Series (`series.html`), Visual Genres (`genres.html`), and Detailed Views (`movie-details.html`).
+  - 🔍 **Real-Time Live Search & Filters**: Debounced instant search across titles, genres, and cast, plus sort options (Trending, Rating, Year).
+  - 🎬 **Embedded HD Trailer Modal**: Watch official 16:9 movie trailers without leaving the site.
+  - ⭐ **Personal Watchlist**: Bookmark favorite titles with real-time counter badge.
+
+---
+
+### 3. 🛍️ Looto — Premium Ethnic E-Commerce Portal
+* **Status**: 💻 Ready to Deploy / Local
+* **Directory**: [`/shopping`](./shopping)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Description**: An immersive Indian ethnic fashion and handicraft marketplace showcasing royal heritage aesthetics (midnight obsidian, festive saffron, and 24K gold accents).
+* **Key Features**:
+  - 🥻 **10+ Curated Collections**: Sarees & Lehengas, Men's Sherwanis, Folk Handicrafts, Puja Essentials, Ayurvedic Wellness, and Traditional Jewellery.
+  - 🛒 **Interactive Shopping Cart**: Add to cart, quantity management, live badge counter, and pricing computation.
+  - 🔍 **Instant Product Search**: Filter items with real-time query matching.
+  - 💫 **Festive Landing Hero**: The Grand Utsav Bazaar with animated highlight cards.
+
+---
+
+### 4. 🍳 Dadan Handi — Modern Restaurant Experience
+* **Status**: 💻 Ready to Deploy / Local
+* **Directory**: [`/dadan-handi`](./dadan-handi)
+* **Tech Stack**: [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/) [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Description**: A sleek, contemporary landing page and digital menu created for the renowned Dadan Handi restaurant.
+* **Key Features**:
+  - 🍲 **Signature Dish Showcase**: Highlights traditional clay-pot handi mutton and regional delicacies.
+  - 📱 **Mobile-First Responsive Layout**: Built for fast viewing on smartphones and tablets.
+  - ⚡ **Vite-Powered Fast Build**: Optimized assets and instant module hot-reloading.
+
+---
+
+### 5. ☕ Cafe Skylite — Rich Media Cafe Portal
+* **Status**: 💻 Ready to Deploy / Local
+* **Directory**: [`/cafe`](./cafe)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Description**: An ambient, rich-media cafe experience complete with video backdrops and a modern digital menu.
+* **Key Features**:
+  - ☕ **Comprehensive Menu Display**: Artisan coffees, brews, pastries, and signature beverages.
+  - 🎥 **Video Backdrops**: Dynamic visual media background enhancing the cafe ambiance.
+  - 📍 **Location & Hours Info**: Integrated visitor details, reservation hooks, and social links.
+
+---
+
+### 6. 🏥 MediCare Clinic — Healthcare Services Portal
+* **Status**: 💻 Ready to Deploy / Local
+* **Directory**: [`/clinic`](./clinic)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Description**: A clean, calming, and functional healthcare landing page designed for patient trust and accessibility.
+* **Key Features**:
+  - 🩺 **Specialties & Department Catalog**: General medicine, cardiology, diagnostics, and pediatrics.
+  - 📅 **Appointment Request Interface**: Simple and accessible patient booking forms.
+  - 🧑‍⚕️ **Doctor Profiles**: Detailed physician credentials, schedules, and reviews.
+
+---
+
+### 7. 🎁 Birthday Surprise — Interactive Celebration Gift
+* **Status**: 💻 Ready to Deploy / Local
+* **Directory**: [`/gift`](./gift)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Description**: A creative, personalized celebration experience packed with animations, audio, and surprises.
+* **Key Features**:
+  - 🔐 **Passcode Protection**: Interactive mystery lock screen.
+  - 🎵 **Synchronized Background Music**: Integrated romantic instrumental soundtrack playback.
+  - 📸 **Photo Gallery & Memory Reel**: Smooth photo transitions and celebratory confetti effects.
+
+---
+
+### 8. ✨ 3D Interactive Portfolio (Experimental)
+* **Status**: 💻 Ready to Deploy / Local
+* **Directory**: [`/portfolio1`](./portfolio1)
+* **Tech Stack**: [![Three.js](https://img.shields.io/badge/Three.js-black?style=flat-square&logo=three.js&logoColor=white)](https://threejs.org/) [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)](https://greensock.com/) [![Lenis](https://img.shields.io/badge/Lenis-Smooth_Scroll-blue?style=flat-square)](https://lenis.darkroom.engineering/) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+* **Description**: An experimental showcase featuring 3D canvas rendering, fluid physics scroll via Lenis, and kinetic typography.
+
+---
+
+## 📊 Complete Projects Summary Matrix
+
+| # | Website Project | Folder | Status | Live Link | Tech Stack |
+| :-: | :--- | :--- | :---: | :--- | :--- |
+| 1 | **⚡ Developer Portfolio** | [`/portfolio`](./portfolio) | 🟢 **Live** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
+| 2 | **🎬 Aniket Ka Movie** | [`/movie-website`](./movie-website) | 🟢 **Live** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | HTML5, CSS3, JS, Vercel Routing |
+| 3 | **🛍️ Looto E-Commerce** | [`/shopping`](./shopping) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
+| 4 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS, Vite |
+| 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
+| 6 | **🏥 MediCare Clinic** | [`/clinic`](./clinic) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
+| 7 | **🎁 Birthday Surprise** | [`/gift`](./gift) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS, Audio |
+| 8 | **✨ 3D Portfolio (Exp.)** | [`/portfolio1`](./portfolio1) | 🟡 Local | *Deploy Ready* | Three.js, GSAP, Lenis, Vite |
+
+---
+
+## 🛠️ Getting Started & Running Locally
+
+### 1. 🌐 Static Websites (`portfolio`, `movie-website`, `shopping`, `cafe`, `clinic`, `gift`)
+These require zero build steps and can be run immediately:
+
+* **Method A (Browser Direct)**: Double-click any `index.html` (or `movie.html` / `cafe.html`) to open directly in Chrome, Edge, or Firefox.
+* **Method B (Node Serve)**:
+  ```bash
+  # Example: Serve the movie website
+  cd movie-website
+  npx serve .
+  ```
+* **Method C (Python HTTP Server)**:
+  ```bash
+  # Example: Serve portfolio locally
+  cd portfolio
+  python -m http.server 8080
+  ```
+
+### 2. ⚡ Vite Projects (`dadan-handi` & `portfolio1`)
+1. Navigate into the folder:
    ```bash
-   cd portfolio
-   # or
    cd dadan-handi
    ```
 2. Install dependencies:
    ```bash
    npm install
    ```
-3. Launch the local development server:
+3. Run the development server:
    ```bash
    npm run dev
    ```
 
-### 2. 🌐 Static Web Pages (`cafe`, `clinic`, `movie-website` & `shopping`)
-These are traditional static websites composed of pure HTML, CSS, and JS. They do not require any dependency installation.
+---
 
-* **Option A**: Simply double-click the main HTML file (e.g., `cafe.html` or `index.html`) to open it directly in a web browser.
-* **Option B**: Run them using a local development server extension like VS Code's **Live Server** for instant page reloads and smooth routing.
+## 🚀 How to Deploy More Websites to Vercel
+
+To deploy any other project from this repository to Vercel:
+
+1. Push your changes to GitHub:
+   ```bash
+   git add .
+   git commit -m "Update projects"
+   git push origin main
+   ```
+2. Go to [vercel.com/new](https://vercel.com/new).
+3. Import the `Websites` repository.
+4. Under **Project Settings &rarr; Root Directory**, select the project folder (e.g. `shopping` or `dadan-handi`).
+5. Framework Preset: Choose **Other**.
+6. Click **Deploy**!
 
 ---
 
 ## 👤 Developer
-* **Name**: Aniket Singh
-* **Workspace Directory**: `d:\My Apps\Websites`
+
+* **Name**: **Aniket Singh**
+* **Portfolio**: [https://aniketportfolio-wheat.vercel.app/](https://aniketportfolio-wheat.vercel.app/)
+* **GitHub**: [@Aniketsingh-45](https://github.com/Aniketsingh-45)
+* **LinkedIn**: [linkedin.com/in/aniketsingh45](https://www.linkedin.com/in/aniketsingh45/)
+* **Email**: [aniketsingh4500@gmail.com](mailto:aniketsingh4500@gmail.com)
 
 ---
 
 <p align="center">
-  Made with ❤️ by <b>Aniket Singh</b>
+  Made with ❤️ by <b>Aniket Singh</b> &bull; &copy; 2026 All Rights Reserved
 </p>

@@ -3,371 +3,993 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dadan Handi Meat — Patna's Legendary Champaran Mutton</title>
-  <meta name="description" content="Dadan Handi Mutton Hotel — Authentic Champaran Handi Mutton, slow-cooked over wood fire in clay pots since 2016. Ram Jaipal Nagar, Patna." />
+  <title>Dadan Handi Mutton Hotel — Patna's Legendary Champaran Ahuna Mutton</title>
+  <meta name="description" content="Authentic Champaran Ahuna Handi Mutton slow-cooked in clay pots over charcoal wood-fire since 2016. Order online or visit Ram Jaipal Nagar, Saguna More, and Rukanpura in Patna." />
+  <meta name="keywords" content="Dadan Handi, Champaran Mutton Patna, Ahuna Mutton, Handi Meat Danapur, Saguna More Mutton, Bihari Mutton Hotel, Best Mutton in Patna" />
+  <meta property="og:title" content="Dadan Handi Mutton — Authentic Champaran Handi Meat in Patna" />
+  <meta property="og:description" content="Slow-cooked in sealed earthen clay pots over wood-fire embers. 'Sher dilwale ghas phus nahi khate, sirf mutton khate hai!'" />
+  <meta property="og:image" content="/champaran_handi_dum.jpg" />
+  <meta property="og:type" content="restaurant" />
+  
+  <!-- Fonts: Playfair Display SC for rustic culinary prestige + Karla for ultra-legible modern UI -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400&family=Rozha+One&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="/style.css" />
+
+  <!-- Schema.org Restaurant Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Dadan Handi Mutton Hotel",
+    "image": "/champaran_handi_dum.jpg",
+    "servesCuisine": ["Bihari", "North Indian", "Champaran Handi Mutton"],
+    "priceRange": "₹₹",
+    "telephone": "+918986496574",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ram Jaipal Nagar, Danapur Nizamat, Bailey Road",
+      "addressLocality": "Patna",
+      "addressRegion": "Bihar",
+      "postalCode": "801503",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.6138487,
+      "longitude": 85.0567988
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "11:00",
+      "closes": "23:00"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "3420"
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ============ LOADER ============ -->
-  <div id="page-loader" class="loader">
-    <div class="loader__inner">
-      <div class="loader__flame">🔥</div>
-      <p class="loader__text">Heating up the Handi<span class="loader__dots">...</span></p>
+  <!-- ============ PAGE PRE-LOADER ============ -->
+  <div id="page-loader" class="loader" role="status" aria-live="polite">
+    <div class="loader__content">
+      <div class="loader__pot">
+        <svg class="loader__pot-svg" viewBox="0 0 100 100" fill="none">
+          <ellipse cx="50" cy="78" rx="35" ry="10" fill="rgba(0,0,0,0.4)" />
+          <path d="M20 50 C20 75 30 85 50 85 C70 85 80 75 80 50 C80 40 70 38 65 38 L35 38 C30 38 20 40 20 50 Z" fill="#C2410C" />
+          <path d="M30 38 C30 30 70 30 70 38 Z" fill="#9A3412" />
+          <ellipse cx="50" cy="38" rx="20" ry="4" fill="#EA580C" />
+          <circle cx="50" cy="27" r="4" fill="#F59E0B" />
+          <!-- Animated Steam -->
+          <path class="steam steam--1" d="M42 24 C40 18 46 14 43 8" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <path class="steam steam--2" d="M50 22 C52 16 48 12 51 6" stroke="#FEF3C7" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <path class="steam steam--3" d="M58 24 C56 18 62 14 59 8" stroke="#F97316" stroke-width="2.5" stroke-linecap="round" fill="none" />
+        </svg>
+      </div>
+      <p class="loader__tagline">धुआंधार चंपारण हांडी मीट</p>
+      <p class="loader__subtext">Simmering authentic Ahuna over charcoal embers<span class="loader__dots"></span></p>
     </div>
   </div>
 
-  <!-- ============ CURSOR GLOW (desktop) ============ -->
-  <div id="cursor-glow" class="cursor-glow"></div>
+  <!-- ============ AMBIENT EMBER CANVAS ============ -->
+  <canvas id="ember-canvas" class="ember-canvas" aria-hidden="true"></canvas>
 
-  <!-- ============ TOAST + CONFETTI ============ -->
-  <div id="toast-container" class="toast-container"></div>
-  <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+  <!-- ============ CURSOR GLOW (DESKTOP) ============ -->
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ============ TOAST NOTIFIER ============ -->
+  <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+  <!-- ============ TOP LIVE ANNOUNCEMENT BANNER ============ -->
+  <aside class="announcement-bar" aria-label="Restaurant Status">
+    <div class="container announcement-bar__inner">
+      <div class="announcement-bar__pill">
+        <span class="pulse-dot"></span>
+        <span class="announcement-bar__status">Now Simmering Fresh Batches</span>
+      </div>
+      <p class="announcement-bar__text">
+        Charcoal Slow-Cooked Champaran Ahuna Mutton · Dine-in & Takeaway across <strong>4 Patna Branches</strong> till 11:00 PM
+      </p>
+      <div class="announcement-bar__actions">
+        <a href="tel:+918986496574" class="announcement-bar__link">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Direct Order Line
+        </a>
+      </div>
+    </div>
+  </aside>
 
   <!-- ============ NAVBAR ============ -->
   <header class="navbar" id="navbar">
-    <div class="navbar__inner">
-      <a href="#" class="navbar__logo">
-        <span class="navbar__logo-icon">🔥</span>
-        <span class="navbar__logo-text">Dadan Handi</span>
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__brand" aria-label="Dadan Handi Home">
+        <div class="navbar__logo-symbol">
+          <svg viewBox="0 0 40 40" class="logo-pot" fill="none">
+            <path d="M8 20 C8 32 14 36 20 36 C26 36 32 32 32 20 C32 15 27 14 25 14 L15 14 C13 14 8 15 8 20 Z" fill="#C2410C" />
+            <ellipse cx="20" cy="14" rx="10" ry="3" fill="#EA580C" />
+            <path d="M19 6 Q20 2 22 5 Q21 8 20 11" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" fill="none" />
+          </svg>
+        </div>
+        <div class="navbar__brand-text">
+          <span class="brand-title">DADAN HANDI</span>
+          <span class="brand-subtitle">CHAMPARAN MEAT · PATNA</span>
+        </div>
       </a>
 
-      <nav class="navbar__links" id="nav-links">
-        <a href="#story" class="navbar__link">Our Story</a>
-        <a href="#menu" class="navbar__link">Menu</a>
-        <a href="#gallery" class="navbar__link">Gallery</a>
-        <a href="#reviews" class="navbar__link">Reviews</a>
-        <a href="#contact" class="navbar__link">Location</a>
+      <nav class="navbar__links" id="nav-links" aria-label="Main Navigation">
+        <a href="#story" class="nav-link">Our Secret</a>
+        <a href="#dum-reveal" class="nav-link">Dum Experience</a>
+        <a href="#menu" class="nav-link">Handi Menu</a>
+        <a href="#branches" class="nav-link">4 Outlets</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#faq" class="nav-link">FAQs</a>
       </nav>
 
       <div class="navbar__actions">
-        <a href="tel:+918986496574" class="btn btn--primary btn--glow action-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          Call Now
-        </a>
-      </div>
+        <button class="cart-trigger-btn" id="open-cart-btn" aria-label="View Order Tray">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" id="cart-counter">0</span>
+        </button>
 
-      <button class="navbar__burger" id="mobile-menu-toggle" aria-label="Toggle Menu">
-        <span></span><span></span><span></span>
-      </button>
+        <a href="https://wa.me/918986496574?text=Namaste%20Dadan%20Handi!%20I%20want%20to%20order%20authentic%20Champaran%20Mutton." target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp btn--nav">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Order
+        </a>
+
+        <button class="navbar__burger" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <div class="navbar__progress" id="scroll-progress"></div>
+    <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
   </header>
 
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="hero">
-      <div class="hero__bg">
-        <img src="https://lh3.googleusercontent.com/4ukZAqeG_6XbJSDXS_Y6AFFQ79GgOSn_awWnHxAGErQ9DuNbLlkPd-Z6NBsPMOEZpbYElLqm99nbJySOirS4YvIeF2B_0_FjUXgTNMop=w1600-rw" alt="Dadan Handi Restaurant" class="hero__bg-img" />
-        <div class="hero__overlay"></div>
-        <div class="hero__particles" id="hero-particles"></div>
+  <main id="main-content">
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="hero" aria-label="Welcome to Dadan Handi">
+      <div class="hero__bg-wrapper">
+        <img src="/champaran_handi_dum.jpg" alt="Authentic Champaran Ahuna Mutton simmering in earthen handi over glowing embers" class="hero__bg-img" fetchpriority="high" />
+        <div class="hero__bg-gradient"></div>
+        <div class="hero__vignette"></div>
       </div>
 
-      <div class="hero__content reveal">
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          Since 2016 · Ram Jaipal Nagar, Patna
+      <div class="container hero__content">
+        <div class="hero__badge reveal-item">
+          <span class="badge-flame">
+            <svg class="icon-svg icon--flame" viewBox="0 0 24 24"><path d="M12 2c1.5 3 4 5.5 4 8.5 0 3-2.5 5.5-4 5.5s-4-2.5-4-5.5C8 7.5 10.5 5 12 2z"/><path d="M12 14c1 1.5 2 2.5 2 4 0 1.5-1 2-2 2s-2-.5-2-2c0-1.5 1-2.5 2-4z"/></svg>
+          </span>
+          <span class="badge-text">Authentic Champaran Ahuna Since 2016 · Patna</span>
         </div>
-        <h1 class="hero__title">
-          <span class="hero__title-line">Sher dilwale ghas phus</span>
-          <span class="hero__title-line">nahi khate,</span>
-          <span class="hero__title-line hero__title-accent">sirf mutton khate hai</span>
+
+        <div class="hero__bihari-motto reveal-item">
+          <span class="motto-quote">“</span>
+          <span class="motto-text">शेर दिलवाले घास-फूस नहीं खाते, सिर्फ मटन खाते हैं</span>
+          <span class="motto-quote">”</span>
+        </div>
+
+        <h1 class="hero__title reveal-item">
+          Patna’s Legendary <br/>
+          <span class="text-gradient">Champaran Ahuna</span> Mutton
         </h1>
-        <p class="hero__subtitle">Patna's legendary Champaran handi mutton — slow-cooked for hours over crackling wood fire in sealed earthen clay pots.</p>
-        <div class="hero__cta">
-          <a href="tel:+918986496574" class="btn btn--primary btn--large btn--glow action-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            Call to Order
+
+        <p class="hero__lead reveal-item">
+          Slow-cooked for over 2.5 hours in unglazed earthen clay pots sealed with fresh wheat dough, cold-pressed mustard oil, and whole roasted garlic bulbs over charcoal embers.
+        </p>
+
+        <div class="hero__cta-group reveal-item">
+          <a href="https://wa.me/918986496574?text=Namaste%20Dadan%20Handi!%20I%20would%20like%20to%20order%20Ahuna%20Mutton." target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--glow btn--large">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call to Order: +91 8986496574
           </a>
-          <a href="https://wa.me/918986496574" target="_blank" class="btn btn--whatsapp btn--large action-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp Order
+          <a href="#menu" class="btn btn--glass btn--large">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            Explore Menu & Combos
           </a>
         </div>
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <span class="hero__stat-number counter" data-target="10">0</span><span class="hero__stat-plus">+</span>
-            <span class="hero__stat-label">Years</span>
-          </div>
-          <div class="hero__stat-divider"></div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">⭐ 4.7</span>
-            <span class="hero__stat-label">Rating</span>
-          </div>
-          <div class="hero__stat-divider"></div>
-          <div class="hero__stat">
-            <span class="hero__stat-number counter" data-target="3000">0</span><span class="hero__stat-plus">+</span>
-            <span class="hero__stat-label">Reviews</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="hero__scroll">
-        <div class="hero__scroll-line"></div>
-        <span>Scroll</span>
-      </div>
-    </section>
-
-    <!-- ============ STORY ============ -->
-    <section class="section story" id="story">
-      <div class="container">
-        <div class="story__grid">
-          <div class="story__images reveal">
-            <div class="story__img-stack">
-              <div class="story__img story__img--1 tilt-card">
-                <img src="https://lh3.googleusercontent.com/r5g_50AjQQntdcx7ve5f-X3Egm2z08AhXL0ufmvRnZLVhyhi5fJt5TG7B7kXGpnZ9AoMVXd59UiXdSTnYiwy1ekabDw=w800-rw" alt="Handi cooking on fire" loading="lazy" />
-              </div>
-              <div class="story__img story__img--2 tilt-card">
-                <img src="https://lh3.googleusercontent.com/sdcOeAFMmiZTmtEJPxDk8BRtesKOctM_U0Drvz-VOOHPTySwhrlCOf4XiGQCICHd79T7YfKSWsHfi0YxDUvJwKg0ee4h=w800-rw" alt="Traditional clay pots" loading="lazy" />
-              </div>
-              <div class="story__floating-badge">
-                <span class="story__floating-icon">🏺</span>
-                <span>Clay Pot Sealed</span>
-              </div>
-            </div>
+        <!-- Trust Stats Strip -->
+        <div class="hero__stats glass-card reveal-item">
+          <div class="stat-card">
+            <div class="stat-val"><span class="counter" data-target="10">0</span>+</div>
+            <div class="stat-lbl">Years of Authentic Heritage</div>
           </div>
-          <div class="story__content reveal">
-            <span class="section__tag">Our Story</span>
-            <h2 class="section__title">The Magic of <br/><span class="text-gradient">Wood Fire & Clay</span></h2>
-            <p class="story__text">Dadan Handi Meat is famous for authentic Champaran-style mutton, a traditional Bihar cooking method passed down through generations.</p>
-            <p class="story__text">The meat is marinated in a rich blend of mustard oil, ghee, garlic, onions, and ginger, then sealed inside an earthen clay pot with a dough of kneaded flour, and slow-cooked for hours over a wood fire.</p>
-            <div class="story__features">
-              <div class="story__feature">
-                <div class="story__feature-icon">🔥</div>
-                <div><strong>Wood-Fire Cooked</strong><br/><small>Slow-cooked over traditional fire</small></div>
-              </div>
-              <div class="story__feature">
-                <div class="story__feature-icon">🏺</div>
-                <div><strong>Authentic Recipe</strong><br/><small>Sealed in earthen pots</small></div>
-              </div>
-              <div class="story__feature">
-                <div class="story__feature-icon">⭐</div>
-                <div><strong>10+ Years Trusted</strong><br/><small>Serving Patna since 2016</small></div>
-              </div>
-            </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-val">4.6<span class="stat-star">★</span></div>
+            <div class="stat-lbl">Over 3,400+ Google Reviews</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-val"><span class="counter" data-target="4">0</span> Outlets</div>
+            <div class="stat-lbl">Across Patna (Danapur, Saguna, Rukanpura)</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-val">100%</div>
+            <div class="stat-lbl">Kachi Ghani Mustard Oil & Clay Dum</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ MENU ============ -->
-    <section class="section menu-section" id="menu">
+    <!-- ============ INTERACTIVE DUM POT UNVEIL SECTION ============ -->
+    <section class="section dum-experience" id="dum-reveal" aria-label="Interactive Handi Dum Experience">
       <div class="container">
-        <div class="section__header reveal">
-          <span class="section__tag">Signatures</span>
-          <h2 class="section__title">Our Famous <span class="text-gradient">Menu</span></h2>
-          <p class="section__subtitle">Cooked fresh everyday. When it's gone, it's gone!</p>
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Interactive Culinary Experience</span>
+          <h2 class="section-heading">Break The <span class="text-gradient">Dough Dum Seal</span></h2>
+          <p class="section-subheading">In Champaran tradition, the aroma remains locked inside the dough-sealed clay pot until the diner arrives. Experience the grand unveiling right here!</p>
         </div>
 
-        <div class="menu__banner reveal">
-          <div class="menu__banner-glow"></div>
-          <h3>⭐ Special: Unlimited Roti & Rice with every Handi!</h3>
-          <p>Starting at just ₹200–220</p>
-        </div>
-
-        <div class="menu__grid">
-          <!-- Card 1 -->
-          <div class="menu-card menu-card--featured reveal tilt-card">
-            <div class="menu-card__img">
-              <img src="https://lh3.googleusercontent.com/KZkiFXkT8tnMXj2gIJ2Nbe6tZebiNmDqUc8HNgWGpk_NL5dN3S1ysVTla5mW5waRsrcPYkxdFPsq1kpQZltv2z-xFUL4CQIc3MBtmvk6fw=w800-rw" alt="Mutton Handi" loading="lazy" />
-              <div class="menu-card__overlay"></div>
-              <span class="menu-card__badge">🐐 Best Seller</span>
+        <div class="dum-stage glass-card reveal-item">
+          <div class="dum-visual-container">
+            <div class="dum-steam-emitter" id="steam-emitter" aria-hidden="true">
+              <span class="steam-particle s1"></span>
+              <span class="steam-particle s2"></span>
+              <span class="steam-particle s3"></span>
+              <span class="steam-particle s4"></span>
+              <span class="steam-particle s5"></span>
             </div>
-            <div class="menu-card__body">
-              <h4 class="menu-card__name">Mutton Handi (200g) + 6 Roti</h4>
-              <p class="menu-card__desc">Signature slow-cooked handi mutton in authentic Champaran style.</p>
-              <div class="menu-card__footer">
+
+            <!-- Closed State -->
+            <div class="dum-pot-wrapper" id="dum-pot-wrapper">
+              <div class="dum-pot-sealed" id="sealed-state">
+                <img src="/champaran_handi_dum.jpg" alt="Champaran Clay Handi" class="dum-main-photo" />
+                <div class="dum-dough-band" id="dough-band">
+                  <span class="dough-text">SEALED WITH FRESH WHEAT FLOUR (आटे की सील)</span>
+                </div>
+              </div>
+
+              <!-- Open State (Toggled via JS) -->
+              <div class="dum-pot-unveiled" id="unveiled-state">
+                <img src="/champaran_feast_thali.jpg" alt="Rich Champaran Mutton Ready to Serve" class="dum-unveiled-photo" />
+                <div class="dum-pot-glow"></div>
+                <div class="dum-unveiled-badge">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Melt-in-Mouth Tender · Fragrant Garlic Infused</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dum-interactive-controls">
+            <div class="dum-status-text" id="dum-status-text">
+              <span class="status-indicator live"></span>
+              <span class="status-msg">Handi is airtight & simmering at 100°C. Click below to unseal.</span>
+            </div>
+
+            <button class="btn btn--primary btn--large btn--glow" id="break-dum-btn" aria-label="Break the dough seal and release the steam">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/></svg>
+              <span id="dum-btn-label">✨ Break The Dum Seal (सील खोलें)</span>
+            </button>
+
+            <div class="dum-features-row">
+              <div class="dum-pill">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                <span>2.5 Hours Slow Charcoal Coal Simmer</span>
+              </div>
+              <div class="dum-pill">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Zero Added Water · Pure Meat Juices</span>
+              </div>
+              <div class="dum-pill">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2c1.5 3 4 5.5 4 8.5 0 3-2.5 5.5-4 5.5s-4-2.5-4-5.5C8 7.5 10.5 5 12 2z"/></svg>
+                <span>Whole Roasted Lahsun Gathi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE 4-STEP CHAMPARAN TRADITION ============ -->
+    <section class="section story" id="story" aria-label="The 4-Step Champaran Dum Secret">
+      <div class="container">
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Heritage & Craft</span>
+          <h2 class="section-heading">The 4 Sacred Secrets of <span class="text-gradient">Ahuna Mutton</span></h2>
+          <p class="section-subheading">Ahuna (or Handi Mutton) is not just a dish—it is an ancient culinary alchemy native to Champaran, Bihar.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <article class="step-card glass-card reveal-item">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap">
+              <svg class="icon-svg step-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3 class="step-title">The Clay Earthen Pot (मिट्टी की हांडी)</h3>
+            <p class="step-desc">Special earthen handis crafted from the fine alluvial clay of the Ganges, cured overnight with pure mustard oil to ensure heat retention and earthy minerality.</p>
+            <div class="step-tag">Cured 12 Hours</div>
+          </article>
+
+          <!-- Step 2 -->
+          <article class="step-card glass-card reveal-item">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap">
+              <svg class="icon-svg step-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12a4 4 0 018 0"/></svg>
+            </div>
+            <h3 class="step-title">Whole Garlic Pods & Mustard Oil</h3>
+            <p class="step-desc">Tender mutton pieces marinated with whole unpeeled garlic bulbs (लहसुन गांठी), cold-pressed kachi ghani mustard oil, onions, and hand-pounded whole spices. <strong>Zero drop of water added.</strong></p>
+            <div class="step-tag">100% Waterless</div>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="step-card glass-card reveal-item">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap">
+              <svg class="icon-svg step-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </div>
+            <h3 class="step-title">Wheat Dough Airtight Seal (दम सील)</h3>
+            <p class="step-desc">The earthen lid is firmly pressed and hermetically sealed using kneaded wheat flour dough (aata seal). The high-pressure steam builds internally, tenderizing the meat in its own juices.</p>
+            <div class="step-tag">Dum Pukht Sealed</div>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="step-card glass-card reveal-item">
+            <div class="step-number">04</div>
+            <div class="step-icon-wrap">
+              <svg class="icon-svg step-icon" viewBox="0 0 24 24"><path d="M12 2c1.5 3 4 5.5 4 8.5 0 3-2.5 5.5-4 5.5s-4-2.5-4-5.5C8 7.5 10.5 5 12 2z"/><path d="M12 14c1 1.5 2 2.5 2 4 0 1.5-1 2-2 2s-2-.5-2-2c0-1.5 1-2.5 2-4z"/></svg>
+            </div>
+            <h3 class="step-title">Charcoal Wood-Fire Simmer</h3>
+            <p class="step-desc">The handi is placed on an open angithi bed of glowing charcoal and slow-simmered for 2.5 hours. Master cooks rhythmically rotate each handi by hand every 15 minutes to guarantee even cooking.</p>
+            <div class="step-tag">2.5h Charcoal Roasted</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIVE MENU & WHATSAPP ORDER BUILDER ============ -->
+    <section class="section menu-section" id="menu" aria-label="Restaurant Menu and Ordering">
+      <div class="container">
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Fresh Daily Batches</span>
+          <h2 class="section-heading">Our Famous <span class="text-gradient">Handi Menu</span></h2>
+          <p class="section-subheading">Every dish is cooked fresh daily in dedicated earthen pots. When today's batch is over, it's over!</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs-wrapper reveal-item">
+          <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+            <button class="menu-tab active" role="tab" aria-selected="true" data-category="all">All Specialties</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="mutton">Ahuna Mutton (मटन)</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="chicken">Champaran Chicken (चिकन)</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="combos">Combos & Thalis</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="veg">Clay Pot Veg</button>
+            <button class="menu-tab" role="tab" aria-selected="false" data-category="sides">Bihari Breads & Sides</button>
+          </div>
+        </div>
+
+        <!-- Special Highlight Banner -->
+        <div class="menu-highlight-banner glass-card reveal-item">
+          <div class="banner-badge">
+            <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Dine-In Special</span>
+          </div>
+          <div class="banner-text">
+            <h3>Unlimited Fresh Tawa Roti & Steamed Rice with Every Handi Combo!</h3>
+            <p>Hot, fluffy rotis smeared with pure desi ghee served straight from the tawa to your thali.</p>
+          </div>
+          <a href="tel:+918986496574" class="btn btn--primary btn--small btn--glow">Book Table / Inquire</a>
+        </div>
+
+        <!-- Menu Cards Grid -->
+        <div class="menu-grid" id="menu-items-container">
+          <!-- Card 1: Ahuna Mutton Handi Combo (Signature) -->
+          <article class="menu-card glass-card reveal-item" data-category="mutton combos">
+            <div class="menu-card__image-wrap">
+              <img src="/champaran_handi_dum.jpg" alt="Dadan Handi Special Champaran Mutton" class="menu-card__img" loading="lazy" />
+              <span class="card-pill card-pill--bestseller">🏆 #1 Best Seller</span>
+              <div class="spice-gauge">
+                <span class="spice-fire">🔥</span>
+                <span class="spice-text">Champaran Teekha</span>
+              </div>
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Champaran Ahuna Mutton (200g) + 6 Roti</h3>
                 <span class="menu-card__price">₹280</span>
-                <a href="tel:+918986496574" class="btn btn--small btn--primary action-btn">Order Now</a>
+              </div>
+              <p class="menu-card__desc">Signature wood-fire slow-cooked handi mutton in sealed clay pot with whole garlic bulb. Served with 6 hot Tawa Rotis or Steamed Rice.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-mutton-1" class="portion-label">Select Portion:</label>
+                <select id="portion-mutton-1" class="portion-dropdown" data-id="mutton-single" data-name="Champaran Ahuna Mutton Combo" data-baseprice="280">
+                  <option value="280" data-label="Single Combo (200g + 6 Roti)">200g + 6 Roti — ₹280</option>
+                  <option value="320" data-label="Single Combo (200g + Rice + Salad)">200g + Steamed Rice — ₹320</option>
+                  <option value="650" data-label="Half Handi (500g Meat)">Half Handi (500g) — ₹650</option>
+                  <option value="1250" data-label="Full Clay Handi (1 Kg Meat)">Full Handi (1 Kg) — ₹1,250</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="mutton-combo" data-name="Champaran Ahuna Mutton Combo" data-price="280">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+                <a href="https://wa.me/918986496574?text=Hi%2C%20I%20want%20to%20order%20Champaran%20Ahuna%20Mutton%20Combo%20(%E2%82%B9280)" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-icon" aria-label="Direct WhatsApp order">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- Card 2 -->
-          <div class="menu-card reveal tilt-card">
-            <div class="menu-card__img">
-              <img src="https://lh3.googleusercontent.com/huk41OVlesO831booN3R9nWcA7kgYjnuofEDOQ0gW7NZVLhFZwDopgu23208OrWQFFZUT0-g0Gc8Y4jibb6FLC-p5ejiCHLmZNoKeStZ=w800-rw" alt="Mutton Stew" loading="lazy" />
-              <div class="menu-card__overlay"></div>
+          <!-- Card 2: Mutton Istu (Stew) Combo -->
+          <article class="menu-card glass-card reveal-item" data-category="mutton combos">
+            <div class="menu-card__image-wrap">
+              <img src="/champaran_feast_thali.jpg" alt="Mutton Istu Stew with Rotis" class="menu-card__img" loading="lazy" />
+              <span class="card-pill card-pill--special">Chef’s Special</span>
+              <div class="spice-gauge">
+                <span class="spice-fire">🔥</span>
+                <span class="spice-text">Khada Masala Mild</span>
+              </div>
             </div>
-            <div class="menu-card__body">
-              <h4 class="menu-card__name">Mutton Istu (Stew) - 3 pcs + 6 Roti</h4>
-              <p class="menu-card__desc">Rich, spiced mutton stew prepared with whole spices.</p>
-              <div class="menu-card__footer">
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Mutton Istu (Stew) — 3 Pcs + 6 Roti</h3>
                 <span class="menu-card__price">₹250</span>
-                <a href="tel:+918986496574" class="btn btn--small btn--outline action-btn">Order</a>
+              </div>
+              <p class="menu-card__desc">Aromatic whole-spice onion gravy simmered slowly with tender mutton cuts. Served with 6 hot Tawa Rotis.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-mutton-istu" class="portion-label">Select Portion:</label>
+                <select id="portion-mutton-istu" class="portion-dropdown" data-id="mutton-istu" data-name="Mutton Istu (Stew) Combo" data-baseprice="250">
+                  <option value="250" data-label="Combo with 6 Roti">3 Pcs + 6 Roti — ₹250</option>
+                  <option value="290" data-label="Combo with Basmati Rice">3 Pcs + Basmati Rice — ₹290</option>
+                  <option value="480" data-label="Double Portion (6 Pcs)">6 Pcs Meat Only — ₹480</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="mutton-istu" data-name="Mutton Istu (Stew) Combo" data-price="250">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+                <a href="https://wa.me/918986496574?text=Hi%2C%20I%20want%20to%20order%20Mutton%20Istu%20(%E2%82%B9250)" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-icon" aria-label="Direct WhatsApp order">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
               </div>
             </div>
+          </article>
+
+          <!-- Card 3: Champaran Chicken Handi -->
+          <article class="menu-card glass-card reveal-item" data-category="chicken combos">
+            <div class="menu-card__image-wrap">
+              <img src="/chicken_handi.png" alt="Champaran Chicken Handi" class="menu-card__img" loading="lazy" />
+              <span class="card-pill card-pill--popular">Popular</span>
+              <div class="spice-gauge">
+                <span class="spice-fire">🔥</span>
+                <span class="spice-text">Medium Spicy</span>
+              </div>
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Champaran Chicken Handi (200g)</h3>
+                <span class="menu-card__price">₹190</span>
+              </div>
+              <p class="menu-card__desc">Juicy chicken pieces sealed with garlic and whole spices inside clay handis. Served with choice of 6 Rotis or Steamed Rice.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-chicken" class="portion-label">Select Portion:</label>
+                <select id="portion-chicken" class="portion-dropdown" data-id="chicken-handi" data-name="Champaran Chicken Handi" data-baseprice="190">
+                  <option value="190" data-label="200g with 6 Roti">200g + 6 Roti — ₹190</option>
+                  <option value="230" data-label="200g with Steamed Rice">200g + Steamed Rice — ₹230</option>
+                  <option value="420" data-label="Half Handi (500g Chicken)">Half Handi (500g) — ₹420</option>
+                  <option value="780" data-label="Full Clay Handi (1 Kg)">Full Handi (1 Kg) — ₹780</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="chicken-handi" data-name="Champaran Chicken Handi" data-price="190">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+                <a href="https://wa.me/918986496574?text=Hi%2C%20I%20want%20to%20order%20Chicken%20Handi%20(%E2%82%B9190)" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-icon" aria-label="Direct WhatsApp order">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Chicken Istu (Stew) -->
+          <article class="menu-card glass-card reveal-item" data-category="chicken combos">
+            <div class="menu-card__image-wrap">
+              <img src="/mutton_handi.png" alt="Chicken Istu Stew" class="menu-card__img" loading="lazy" />
+              <div class="spice-gauge">
+                <span class="spice-fire">🔥</span>
+                <span class="spice-text">Mild Whole Spice</span>
+              </div>
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Chicken Istu (3 Pcs) + 6 Roti</h3>
+                <span class="menu-card__price">₹174</span>
+              </div>
+              <p class="menu-card__desc">Light yet deeply flavorful onion stew cooked with black cardamom, cloves, and tender chicken thighs.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-chicken-istu" class="portion-label">Select Portion:</label>
+                <select id="portion-chicken-istu" class="portion-dropdown" data-id="chicken-istu" data-name="Chicken Istu Combo" data-baseprice="174">
+                  <option value="174" data-label="3 Pcs + 6 Roti">3 Pcs + 6 Roti — ₹174</option>
+                  <option value="210" data-label="3 Pcs + Steamed Rice">3 Pcs + Steamed Rice — ₹210</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="chicken-istu" data-name="Chicken Istu Combo" data-price="174">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+                <a href="https://wa.me/918986496574?text=Hi%2C%20I%20want%20to%20order%20Chicken%20Istu%20(%E2%82%B9174)" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-icon" aria-label="Direct WhatsApp order">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Mutton Kaleji Roast -->
+          <article class="menu-card glass-card reveal-item" data-category="mutton sides">
+            <div class="menu-card__image-wrap">
+              <img src="/champaran_handi_dum.jpg" alt="Mutton Kaleji Roast" class="menu-card__img" loading="lazy" />
+              <div class="spice-gauge">
+                <span class="spice-fire">🔥</span>
+                <span class="spice-text">Pepper Sizzle</span>
+              </div>
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Mutton Kaleji (Liver) Roast</h3>
+                <span class="menu-card__price">₹180</span>
+              </div>
+              <p class="menu-card__desc">Fresh mutton liver tossed on an iron skillet with desi ghee, crushed black peppercorns, roasted onions, and green chilies.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-kaleji" class="portion-label">Portion:</label>
+                <select id="portion-kaleji" class="portion-dropdown" data-id="kaleji-roast" data-name="Mutton Kaleji Roast" data-baseprice="180">
+                  <option value="180" data-label="Standard Plate">Standard Plate — ₹180</option>
+                  <option value="340" data-label="Double Plate">Double Plate — ₹340</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="kaleji-roast" data-name="Mutton Kaleji Roast" data-price="180">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+                <a href="https://wa.me/918986496574?text=Hi%2C%20I%20want%20to%20order%20Kaleji%20Roast%20(%E2%82%B9180)" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-icon" aria-label="Direct WhatsApp order">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Ahuna Paneer Handi (Vegetarian) -->
+          <article class="menu-card glass-card reveal-item" data-category="veg">
+            <div class="menu-card__image-wrap">
+              <img src="/champaran_feast_thali.jpg" alt="Ahuna Paneer Handi" class="menu-card__img" loading="lazy" />
+              <span class="card-pill card-pill--veg">🌿 100% Pure Veg</span>
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Ahuna Paneer Handi</h3>
+                <span class="menu-card__price">₹160</span>
+              </div>
+              <p class="menu-card__desc">Fresh dairy cottage cheese cubes slow-cooked in sealed clay handis with whole spices, tomatoes, and cold-pressed mustard oil.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-paneer" class="portion-label">Portion:</label>
+                <select id="portion-paneer" class="portion-dropdown" data-id="ahuna-paneer" data-name="Ahuna Paneer Handi" data-baseprice="160">
+                  <option value="160" data-label="Half Clay Handi">Half Handi — ₹160</option>
+                  <option value="290" data-label="Full Clay Handi">Full Handi — ₹290</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="ahuna-paneer" data-name="Ahuna Paneer Handi" data-price="160">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+                <a href="https://wa.me/918986496574?text=Hi%2C%20I%20want%20to%20order%20Ahuna%20Paneer%20(%E2%82%B9160)" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp-icon" aria-label="Direct WhatsApp order">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7: Tawa Roti with Desi Ghee -->
+          <article class="menu-card glass-card reveal-item" data-category="sides">
+            <div class="menu-card__image-wrap">
+              <img src="/champaran_feast_thali.jpg" alt="Hot Tawa Roti with Ghee" class="menu-card__img" loading="lazy" />
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Desi Ghee Tawa Roti (1 Pc)</h3>
+                <span class="menu-card__price">₹12</span>
+              </div>
+              <p class="menu-card__desc">Freshly rolled whole wheat roti roasted over iron tawa and brushed with pure desi ghee.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-roti" class="portion-label">Quantity:</label>
+                <select id="portion-roti" class="portion-dropdown" data-id="ghee-roti" data-name="Desi Ghee Tawa Roti" data-baseprice="12">
+                  <option value="12" data-label="1 Roti">1 Roti — ₹12</option>
+                  <option value="60" data-label="5 Rotis Pack">5 Rotis Pack — ₹60</option>
+                  <option value="120" data-label="10 Rotis Pack">10 Rotis Pack — ₹120</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="ghee-roti" data-name="Desi Ghee Tawa Roti" data-price="12">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8: Steamed Basmati Rice Plate -->
+          <article class="menu-card glass-card reveal-item" data-category="sides">
+            <div class="menu-card__image-wrap">
+              <img src="/champaran_feast_thali.jpg" alt="Steamed Basmati Rice" class="menu-card__img" loading="lazy" />
+            </div>
+            <div class="menu-card__content">
+              <div class="menu-card__header">
+                <h3 class="menu-card__title">Steamed Basmati Rice (Plate)</h3>
+                <span class="menu-card__price">₹50</span>
+              </div>
+              <p class="menu-card__desc">Long-grain aromatic basmati rice cooked to perfection—the ultimate pairing with Champaran handi gravy.</p>
+              
+              <div class="portion-selector">
+                <label for="portion-rice" class="portion-label">Portion:</label>
+                <select id="portion-rice" class="portion-dropdown" data-id="steamed-rice" data-name="Steamed Basmati Rice" data-baseprice="50">
+                  <option value="50" data-label="Single Plate">Full Plate — ₹50</option>
+                  <option value="90" data-label="Double Plate">Double Plate — ₹90</option>
+                </select>
+              </div>
+
+              <div class="menu-card__actions">
+                <button class="btn btn--primary add-to-cart-btn" data-id="steamed-rice" data-name="Steamed Basmati Rice" data-price="50">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Add to Handi
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MULTI-BRANCH OUTLET NAVIGATOR ============ -->
+    <section class="section branches-section" id="branches" aria-label="Our 4 Patna Outlets">
+      <div class="container">
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Visit In Patna</span>
+          <h2 class="section-heading">4 Iconic <span class="text-gradient">Locations</span></h2>
+          <p class="section-subheading">Serving authentic Champaran flavor across the prime hubs of Patna.</p>
+        </div>
+
+        <div class="branches-layout">
+          <!-- Outlet Selector Tabs -->
+          <div class="branch-nav-tabs" role="tablist">
+            <button class="branch-tab active" data-branch="ramjaipal">
+              <div class="branch-tab__icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="branch-tab__meta">
+                <strong>Ram Jaipal Nagar</strong>
+                <small>Bailey Road / Danapur Nizamat</small>
+              </div>
+              <span class="badge-active-dot"></span>
+            </button>
+
+            <button class="branch-tab" data-branch="saguna">
+              <div class="branch-tab__icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="branch-tab__meta">
+                <strong>Saguna-Khagaul Road (Flagship)</strong>
+                <small>Near Danapur Railway Station</small>
+              </div>
+            </button>
+
+            <button class="branch-tab" data-branch="rukanpura">
+              <div class="branch-tab__icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="branch-tab__meta">
+                <strong>Rukanpura Branch</strong>
+                <small>Ashiana-Digha Road / Bailey Rd</small>
+              </div>
+            </button>
+
+            <button class="branch-tab" data-branch="brc">
+              <div class="branch-tab__icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="branch-tab__meta">
+                <strong>BRC Danapur Cantt</strong>
+                <small>Bihar Regimental Centre Area</small>
+              </div>
+            </button>
           </div>
 
-          <!-- Card 3 -->
-          <div class="menu-card reveal tilt-card">
-            <div class="menu-card__img">
-              <img src="https://lh3.googleusercontent.com/jv75mUpoVxhEShVPW9tz_DvCuFHsxtsSTDxBXdWtZogD6XtjTnLLV0pGyTj-L0cOkoKghmNDPSIXcM4HZbzcb0msqgzri9oyplt2PLUf=w800-rw" alt="Chicken Handi" loading="lazy" />
-              <div class="menu-card__overlay"></div>
-              <span class="menu-card__badge">🍗 Popular</span>
-            </div>
-            <div class="menu-card__body">
-              <h4 class="menu-card__name">Chicken Handi</h4>
-              <p class="menu-card__desc">Creamy gravy, traditional spices, cooked in a clay handi.</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">₹150</span>
-                <a href="tel:+918986496574" class="btn btn--small btn--outline action-btn">Order</a>
+          <!-- Dynamic Branch Detail Card -->
+          <div class="branch-detail-card glass-card reveal-item" id="branch-display">
+            <div class="branch-detail__header">
+              <div>
+                <span class="branch-chip" id="branch-chip">Popular Outpost</span>
+                <h3 class="branch-detail__title" id="branch-title">Ram Jaipal Nagar Branch</h3>
+                <p class="branch-detail__addr" id="branch-address">Ram Jaipal Nagar, Gola Road, Danapur Nizamat, Bailey Road, Patna, Bihar 801503</p>
+              </div>
+              <div class="branch-rating-pill">
+                <svg class="icon-svg icon--star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.6 / 5 (Google Verified)</span>
               </div>
             </div>
-          </div>
 
-          <!-- Card 4 -->
-          <div class="menu-card reveal tilt-card">
-            <div class="menu-card__img">
-              <img src="https://lh3.googleusercontent.com/9TFc8-lDA6wGNKEmxaH8uyic1-TSaQi837W6M7QKky7WOrB5YUb6sPyIy8B0NmrhLpvbJYJD8A7NoeImx8QKwim6GCaugqAy1kDjUvA=w800-rw" alt="Ahuna Chicken" loading="lazy" />
-              <div class="menu-card__overlay"></div>
-            </div>
-            <div class="menu-card__body">
-              <h4 class="menu-card__name">Ahuna Chicken</h4>
-              <p class="menu-card__desc">Dry-roasted style, extra spicy chicken.</p>
-              <div class="menu-card__footer">
-                <span class="menu-card__price">₹200</span>
-                <a href="tel:+918986496574" class="btn btn--small btn--outline action-btn">Order</a>
+            <div class="branch-info-grid">
+              <div class="info-block">
+                <div class="info-icon">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <strong>Hours Today</strong>
+                  <p id="branch-hours">11:00 AM – 11:00 PM (All 7 Days)</p>
+                </div>
               </div>
+
+              <div class="info-block">
+                <div class="info-icon">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                  <strong>Phone / Orders</strong>
+                  <p><a href="tel:+918986496574" class="phone-link">+91 8986496574</a></p>
+                </div>
+              </div>
+
+              <div class="info-block">
+                <div class="info-icon">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div>
+                  <strong>Dine-in / Seating</strong>
+                  <p>Spacious family dining & swift takeaway parcel counter</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-action-buttons">
+              <a href="https://www.google.com/maps?q=25.6138487,85.0567988" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--glow" id="branch-maps-link">
+                <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                Navigate via Google Maps
+              </a>
+              <a href="tel:+918986496574" class="btn btn--glass" id="branch-call-link">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Call Branch
+              </a>
+            </div>
+
+            <!-- Map Iframe -->
+            <div class="branch-map-embed">
+              <iframe id="branch-map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.0!2d85.0567988!3d25.6138487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM2JzQ5LjkiTiA4NcKwMDMnMjQuNSJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dadan Handi Location Map"></iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
-    <section class="section gallery" id="gallery">
+    <!-- ============ GASTRONOMIC PHOTO GALLERY ============ -->
+    <section class="section gallery-section" id="gallery" aria-label="Visual Feast & Gallery">
       <div class="container">
-        <div class="section__header reveal">
-          <span class="section__tag">Gallery</span>
-          <h2 class="section__title">Feast Your <span class="text-gradient">Eyes</span></h2>
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Visual Feast</span>
+          <h2 class="section-heading">Charcoal, Clay & <span class="text-gradient">Gastronomic Soul</span></h2>
+          <p class="section-subheading">A glimpse into the daily wood-fire ritual at Dadan Handi Patna.</p>
         </div>
 
-        <div class="gallery__grid reveal">
-          <div class="gallery__item gallery__item--wide lightbox-trigger">
-            <img src="https://lh3.googleusercontent.com/6K3e_LoBlk4jDIvv4RHBTXsAufTG5Hx69ZUV-VBOBG0fNNNXz84MeYxoEI52Sv7f4ldSU7GvUxEfxBdUf2TQVm1_cr0=w800-rw" alt="Dadan Handi Photo 1" loading="lazy" />
-            <div class="gallery__item-overlay"><span>🔍</span></div>
+        <div class="gallery-mosaic reveal-item">
+          <div class="gallery-card gallery-card--featured lightbox-trigger" data-src="/champaran_handi_dum.jpg">
+            <img src="/champaran_handi_dum.jpg" alt="Dough Sealed Handi Simmering on Open Embers" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-zoom-icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+              <span class="gallery-caption">Sealed Clay Handi on Glowing Charcoal</span>
+            </div>
           </div>
-          <div class="gallery__item lightbox-trigger">
-            <img src="https://lh3.googleusercontent.com/LHgjHbslP7SCFniiLQYqGJmdag6BFlMuyFkwbGNBC3AIxeHV8VNehJMXCgs8XxubTrBLj_gcIiUMGYPob4fVwn54BrM8kvwbrwP8e22d_w=w800-rw" alt="Dadan Handi Photo 2" loading="lazy" />
-            <div class="gallery__item-overlay"><span>🔍</span></div>
+
+          <div class="gallery-card lightbox-trigger" data-src="/champaran_feast_thali.jpg">
+            <img src="/champaran_feast_thali.jpg" alt="Royal Bihari Mutton Feast Thali" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-zoom-icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+              <span class="gallery-caption">Royal Champaran Feast Thali</span>
+            </div>
           </div>
-          <div class="gallery__item lightbox-trigger">
-            <img src="https://lh3.googleusercontent.com/Tsz7J3WzemB0eK305tim0RTOFKqseCYUOhGSvnlKSQSvs_ZwjBWYFmAvvJ5sNcdlCO8lTUt93riQVFZfPoN13OVqLB2dIHln9yZ0Afpr=w800-rw" alt="Dadan Handi Photo 3" loading="lazy" />
-            <div class="gallery__item-overlay"><span>🔍</span></div>
+
+          <div class="gallery-card lightbox-trigger" data-src="/mutton_handi.png">
+            <img src="/mutton_handi.png" alt="Succulent Mutton Handi Bowl" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-zoom-icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+              <span class="gallery-caption">Slow-Cooked Meat with Whole Garlic</span>
+            </div>
           </div>
-          <div class="gallery__item lightbox-trigger">
-            <img src="https://lh3.googleusercontent.com/fCiRKhtBc2s0NkNs7pUStcIj8D4Z9zkAW58j0GDnYxKaNtWFwZfWQ-f1ZZpXLq6Yw2ZOvBjilvl_Y7ei1RMNf6rJj-2GMacuQBQVlDaN=w800-rw" alt="Dadan Handi Photo 4" loading="lazy" />
-            <div class="gallery__item-overlay"><span>🔍</span></div>
+
+          <div class="gallery-card lightbox-trigger" data-src="/chicken_handi.png">
+            <img src="/chicken_handi.png" alt="Clay Pot Ahuna Chicken" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-zoom-icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+              <span class="gallery-caption">Aromatic Ahuna Chicken Pot</span>
+            </div>
           </div>
-          <div class="gallery__item gallery__item--wide lightbox-trigger">
-            <img src="https://lh3.googleusercontent.com/7qokClj3RKdZqsQCIv5z4TcB_XFtDhju6-rzB_Zh2SMf-ZbDUmbgkc4k7TR0ciafIjNsRROb5B7Ats-rSLlrY481Lr8yroh23J3tzy7D=w800-rw" alt="Dadan Handi Photo 5" loading="lazy" />
-            <div class="gallery__item-overlay"><span>🔍</span></div>
-          </div>
-          <div class="gallery__item lightbox-trigger">
-            <img src="https://lh3.googleusercontent.com/FLfOCsC5vxTFlpJ74rTnyUY2Fp8tLNu4M17uKDOvIypNVv8Qx5L-qwdYnthupjIDS_ZgEEblsGJ1Lm-Y8j0eowxj29pVACErNFquNKo=w800-rw" alt="Dadan Handi Photo 6" loading="lazy" />
-            <div class="gallery__item-overlay"><span>🔍</span></div>
+
+          <div class="gallery-card gallery-card--wide lightbox-trigger" data-src="/hero_bg.png">
+            <img src="/hero_bg.png" alt="Dadan Handi Kitchen & Dining Ambience" loading="lazy" />
+            <div class="gallery-overlay">
+              <div class="gallery-zoom-icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+              <span class="gallery-caption">The Legendary Cooking Bed at Danapur</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ REVIEWS ============ -->
-    <section class="section reviews" id="reviews">
+    <!-- ============ VERIFIED CUSTOMER REVIEWS & PRAISE ============ -->
+    <section class="section reviews-section" id="reviews" aria-label="Customer Reviews">
       <div class="container">
-        <div class="section__header reveal">
-          <span class="section__tag">Testimonials</span>
-          <h2 class="section__title">What Our <span class="text-gradient">Customers Say</span></h2>
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Real Diners · Real Taste</span>
+          <h2 class="section-heading">Loved By Foodies <span class="text-gradient">Across India</span></h2>
+          <p class="section-subheading">Diners from Bengaluru, Mumbai, Delhi, and Patna share why Dadan Handi is an irreplaceable pilgrimage.</p>
         </div>
 
-        <div class="reviews__carousel reveal" id="testimonial-carousel">
-          <div class="review-card active">
-            <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
-            <p class="review-card__text">"Awesome, I stay in Bengaluru and whenever I come to Patna, I have Dadan Handi mutton — better than mummy's cooking!"</p>
-            <div class="review-card__author">
-              <div class="review-card__avatar">V</div>
-              <div>
-                <strong>Verified Customer</strong>
-                <small>via Magicpin</small>
+        <div class="reviews-slider-wrapper reveal-item">
+          <div class="reviews-track" id="reviews-track">
+            <!-- Review 1 -->
+            <div class="review-slide active">
+              <div class="review-quote-mark">“</div>
+              <div class="review-stars">
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-body">
+                "Awesome! I stay in Bengaluru and whenever I fly home to Patna, Dadan Handi mutton is my very first stop. The slow-cooked mutton in clay pot is tender to the bone and beats even home cooking. Don’t miss the whole roasted garlic!"
+              </p>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">VK</div>
+                <div>
+                  <strong class="reviewer-name">Vivek Kumar</strong>
+                  <span class="reviewer-city">Tech Professional, Bengaluru (via Magicpin)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-slide">
+              <div class="review-quote-mark">“</div>
+              <div class="review-stars">
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-body">
+                "The tagline 'Sher dilwale ghas phus nahi khate' is 100% justified! Unlimited tawa rotis hot off the pan with ₹280 mutton handi is an unbeatable value proposition in Patna. Real mustard oil kick with zero fake coloring."
+              </p>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">RS</div>
+                <div>
+                  <strong class="reviewer-name">Rajesh Singh</strong>
+                  <span class="reviewer-city">Patna Local Guide & Food Vlogger</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-slide">
+              <div class="review-quote-mark">“</div>
+              <div class="review-stars">
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg class="icon-svg star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="review-body">
+                "We ordered 2 Full Handis (1 Kg each) for a family gathering at Bailey Road. They delivered them sealed in the genuine clay handis! The aroma when we cracked the dough open filled the whole house. Outstanding experience."
+              </p>
+              <div class="reviewer-meta">
+                <div class="reviewer-avatar">AN</div>
+                <div>
+                  <strong class="reviewer-name">Ananya Mishra</strong>
+                  <span class="reviewer-city">Danapur Nizamat Resident</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="review-card">
-            <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
-            <p class="review-card__text">"A very nice place to eat mutton handi at a reasonable cost. The taste is to die for, a paradise for mutton lovers."</p>
-            <div class="review-card__author">
-              <div class="review-card__avatar">R</div>
-              <div>
-                <strong>Rajesh K.</strong>
-                <small>Regular</small>
-              </div>
-            </div>
-          </div>
-          <div class="review-card">
-            <div class="review-card__stars">⭐⭐⭐⭐⭐</div>
-            <p class="review-card__text">"Ahuna Mutton, Ahuna Chicken and Mutton Stew — all cooked perfectly. Spicier but delicious."</p>
-            <div class="review-card__author">
-              <div class="review-card__avatar">S</div>
-              <div>
-                <strong>Sneha A.</strong>
-                <small>via Magicpin</small>
-              </div>
-            </div>
+
+          <div class="reviews-navigation">
+            <button class="review-nav-btn" id="prev-review-btn" aria-label="Previous review">
+              <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="review-dots" id="review-dots"></div>
+            <button class="review-nav-btn" id="next-review-btn" aria-label="Next review">
+              <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
         </div>
-        <div class="reviews__dots" id="carousel-dots"></div>
       </div>
     </section>
 
-    <!-- ============ CONTACT / MAP ============ -->
-    <section class="section contact" id="contact">
+    <!-- ============ AUTHENTIC CHAMPARAN FAQS ============ -->
+    <section class="section faq-section" id="faq" aria-label="Frequently Asked Questions">
       <div class="container">
-        <div class="section__header reveal">
-          <span class="section__tag">Find Us</span>
-          <h2 class="section__title">Visit <span class="text-gradient">Dadan Handi</span></h2>
+        <div class="section-header reveal-item">
+          <span class="section-kicker">Got Questions?</span>
+          <h2 class="section-heading">Frequently Asked <span class="text-gradient">Questions</span></h2>
         </div>
 
-        <div class="contact__grid reveal">
-          <div class="contact__info glass-card">
-            <div class="contact__row">
-              <span class="contact__icon">📍</span>
-              <div>
-                <strong>Address</strong>
-                <p>Ramjaipal Nagar, Danapur Nizamat, Patna, Bihar 801503</p>
-              </div>
+        <div class="faq-accordion reveal-item">
+          <details class="faq-item glass-card" open>
+            <summary class="faq-question">
+              <span>What makes Dadan Handi Ahuna Mutton different from ordinary curry?</span>
+              <svg class="icon-svg faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Unlike regular restaurant curries that are boiled or fried in metal pans, Ahuna Mutton is cooked strictly inside unglazed earthen clay pots sealed with kneaded dough (dum pukht) over charcoal wood-fire. No water is added—the meat simmers for 2.5 hours purely in its natural juices, sliced onions, cold-pressed mustard oil, and whole roasted garlic pods.</p>
             </div>
-            <div class="contact__row">
-              <span class="contact__icon">📞</span>
-              <div>
-                <strong>Phone</strong>
-                <p><a href="tel:+918986496574">+91 8986496574</a></p>
-              </div>
+          </details>
+
+          <details class="faq-item glass-card">
+            <summary class="faq-question">
+              <span>Can I get the mutton delivered in the authentic clay handi?</span>
+              <svg class="icon-svg faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes! For orders of 500g (Half Handi) and 1 Kg (Full Handi), we deliver the meal sealed inside the actual earthen clay pot so you can break the dough seal fresh at your dining table. For single combos, food is packed hot in premium food-grade containers.</p>
             </div>
-            <div class="contact__row">
-              <span class="contact__icon">🕐</span>
-              <div>
-                <strong>Hours</strong>
-                <p>10:00 AM – 9:00 PM (All Days)</p>
-              </div>
+          </details>
+
+          <details class="faq-item glass-card">
+            <summary class="faq-question">
+              <span>What are the opening hours and peak batch times?</span>
+              <svg class="icon-svg faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Our branches open at 11:00 AM and serve hot handis until 11:00 PM daily. The fresh morning handi batch comes off the wood fire by 12:30 PM, and the evening batch is ready by 7:30 PM. We recommend calling ahead for bulk 1 Kg orders!</p>
             </div>
-            <div class="contact__row">
-              <span class="contact__icon">💰</span>
-              <div>
-                <strong>Avg. Cost for Two</strong>
-                <p>₹500</p>
-              </div>
+          </details>
+
+          <details class="faq-item glass-card">
+            <summary class="faq-question">
+              <span>Do you offer vegetarian options cooked in clay pots?</span>
+              <svg class="icon-svg faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes, we prepare our signature <strong>Ahuna Paneer Handi</strong> (₹160) cooked in brand-new, dedicated vegetarian clay pots with the same traditional mustard oil and roasted spice marinade.</p>
             </div>
-            <div class="contact__buttons">
-              <a href="https://www.google.com/maps?q=25.6138487,85.0567988" target="_blank" class="btn btn--primary btn--glow action-btn">Get Directions</a>
-              <a href="https://wa.me/918986496574" target="_blank" class="btn btn--whatsapp action-btn">WhatsApp Us</a>
-            </div>
-          </div>
-          <div class="contact__map glass-card">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.0!2d85.0567988!3d25.6138487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM2JzQ5LjkiTiA4NcKwMDMnMjQuNSJF!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
+          </details>
         </div>
       </div>
     </section>
@@ -375,33 +997,151 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
+    <div class="container footer__grid">
+      <div class="footer__brand-col">
         <div class="footer__brand">
-          <span class="footer__logo">🔥 Dadan Handi Meat</span>
-          <p>Patna's Legendary Champaran Handi Mutton</p>
+          <svg viewBox="0 0 40 40" class="logo-pot" fill="none">
+            <path d="M8 20 C8 32 14 36 20 36 C26 36 32 32 32 20 C32 15 27 14 25 14 L15 14 C13 14 8 15 8 20 Z" fill="#C2410C" />
+            <ellipse cx="20" cy="14" rx="10" ry="3" fill="#EA580C" />
+          </svg>
+          <span class="footer__brand-name">DADAN HANDI MEAT</span>
         </div>
-        <div class="footer__links">
-          <a href="#story">Our Story</a>
-          <a href="#menu">Menu</a>
-          <a href="#gallery">Gallery</a>
-          <a href="https://magicpin.in/Patna/Ram-Jaipal-Nagar/Restaurant/Dadan-Handi-Mutton-Hotel/store/242943" target="_blank">Magicpin</a>
+        <p class="footer__brand-desc">Patna's landmark destination for original Champaran Ahuna Handi Mutton. Slow-cooked over crackling wood fire since 2016.</p>
+        <p class="footer__motto">“शेर दिलवाले घास-फूस नहीं खाते, सिर्फ मटन खाते हैं”</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Patna Outlets</h4>
+        <ul class="footer__list">
+          <li><a href="#branches">Ram Jaipal Nagar (Danapur Nizamat)</a></li>
+          <li><a href="#branches">Saguna More - Khagaul Road (Flagship)</a></li>
+          <li><a href="#branches">Rukanpura (Bailey Road / Ashiana)</a></li>
+          <li><a href="#branches">BRC Cantt (Danapur Cantt)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Quick Links</h4>
+        <ul class="footer__list">
+          <li><a href="#story">The 4 Dum Secrets</a></li>
+          <li><a href="#dum-reveal">Dum Experience</a></li>
+          <li><a href="#menu">Menu & Combos</a></li>
+          <li><a href="#reviews">Customer Stories</a></li>
+          <li><a href="https://magicpin.in/Patna/Ram-Jaipal-Nagar/Restaurant/Dadan-Handi-Mutton-Hotel/store/242943" target="_blank" rel="noopener noreferrer">Magicpin Profile</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Direct Orders</h4>
+        <p class="footer__contact-line">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+918986496574">+91 8986496574</a>
+        </p>
+        <p class="footer__contact-line">
+          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Open 11:00 AM – 11:00 PM Daily
+        </p>
+        <div class="footer__badges">
+          <span class="f-badge">Cash & UPI Accepted</span>
+          <span class="f-badge">Takeaway Handi Parcel</span>
         </div>
-        <p class="footer__copy">&copy; 2024 Dadan Handi Meat. Authenticity in every clay pot.</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2026 Dadan Handi Mutton Hotel. Preserving Champaran Culinary Heritage.</p>
+        <p class="footer__credit">Handcrafted with Gastronomic Luxury & Passion</p>
       </div>
     </div>
   </footer>
 
-  <!-- ============ FAB ============ -->
-  <a href="tel:+918986496574" class="fab action-btn" aria-label="Call Now">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-  </a>
+  <!-- ============ SLIDE-OUT ORDER TRAY (CART DRAWER) ============ -->
+  <div class="cart-drawer-backdrop" id="cart-backdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Order Cart" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <div class="cart-drawer__title-wrap">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <h3>Your Handi Order Tray</h3>
+      </div>
+      <button class="cart-close-btn" id="close-cart-btn" aria-label="Close Order Tray">
+        <svg class="icon-svg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
 
-  <!-- ============ LIGHTBOX ============ -->
-  <div id="lightbox" class="lightbox">
-    <div class="lightbox__backdrop"></div>
-    <button class="lightbox__close">&times;</button>
-    <img class="lightbox__img" id="lightbox-img" alt="Expanded view" />
+    <div class="cart-drawer__body" id="cart-items-list">
+      <div class="cart-empty-state">
+        <div class="empty-pot-icon">
+          <svg viewBox="0 0 100 100" class="pot-empty-svg" fill="none">
+            <ellipse cx="50" cy="80" rx="35" ry="10" fill="rgba(255,255,255,0.05)" />
+            <path d="M20 50 C20 75 30 85 50 85 C70 85 80 75 80 50 C80 40 70 38 65 38 L35 38 C30 38 20 40 20 50 Z" stroke="#F59E0B" stroke-width="2" />
+          </svg>
+        </div>
+        <p>Your Handi tray is empty.</p>
+        <p class="empty-sub">Add delicious Ahuna Mutton, Chicken, or Tawa Rotis from our menu!</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer__footer" id="cart-footer">
+      <div class="cart-order-type">
+        <label>Order Type:</label>
+        <div class="order-type-tabs">
+          <button class="type-btn active" data-type="Dine-in">Dine-in</button>
+          <button class="type-btn" data-type="Takeaway Parcel">Takeaway</button>
+          <button class="type-btn" data-type="Home Delivery">Delivery</button>
+        </div>
+      </div>
+
+      <div class="cart-branch-select">
+        <label for="cart-branch">Select Preferred Branch:</label>
+        <select id="cart-branch" class="cart-select">
+          <option value="Ram Jaipal Nagar">Ram Jaipal Nagar (Bailey Road)</option>
+          <option value="Saguna-Khagaul Road">Saguna-Khagaul Road (Flagship)</option>
+          <option value="Rukanpura">Rukanpura Branch</option>
+          <option value="BRC Danapur Cantt">BRC Danapur Cantt</option>
+        </select>
+      </div>
+
+      <div class="cart-subtotal-row">
+        <span>Estimated Total:</span>
+        <strong id="cart-subtotal-val">₹0</strong>
+      </div>
+
+      <button class="btn btn--whatsapp btn--large btn--full" id="send-whatsapp-order-btn">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Order on WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- ============ FLOATING MOBILE / DESKTOP ACTION DOCK ============ -->
+  <div class="action-dock" role="region" aria-label="Quick Actions">
+    <a href="tel:+918986496574" class="dock-btn dock-btn--call" aria-label="Call restaurant directly">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>Call Now</span>
+    </a>
+    
+    <a href="https://wa.me/918986496574?text=Namaste%20Dadan%20Handi!%20I%20want%20to%20order%20Champaran%20Handi%20Meat." target="_blank" rel="noopener noreferrer" class="dock-btn dock-btn--whatsapp" aria-label="Order on WhatsApp">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+
+    <button class="dock-btn dock-btn--cart" id="dock-cart-btn" aria-label="Open Order Tray">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span>Handi Tray</span>
+      <span class="dock-badge" id="dock-cart-count">0</span>
+    </button>
+  </div>
+
+  <!-- ============ IMAGE LIGHTBOX MODAL ============ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox__backdrop" id="lightbox-backdrop"></div>
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close image preview">
+      <svg class="icon-svg" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="lightbox__dialog">
+      <img src="" alt="Enlarged gallery view" id="lightbox-img" class="lightbox__image" />
+    </div>
   </div>
 
   <script type="module" src="/main.js"></script>

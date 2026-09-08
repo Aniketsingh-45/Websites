@@ -1097,3 +1097,13 @@ footer {
     .hero-content { padding: 2rem; }
     .footer-top { grid-template-columns: 1fr; }
 }
+
+/* ── Mobile Touch & Cursor Optimization ── */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+    body {
+        cursor: auto !important;
+    }
+    .cursor-dot, .cursor-ring {
+        display: none !important;
+    }
+}

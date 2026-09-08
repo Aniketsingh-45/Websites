@@ -339,27 +339,62 @@ function closeCart() {
 
 // ── Add / Remove / Update ──
 function addToCart(id) {
-    const product = products.find(p => p.id === id);
+    const product = products.find(p => String(p.id) === String(id));
     if (!product) return;
-    const existing = cart.find(i => i.id === id);
+    const existing = cart.find(i => String(i.id) === String(id));
     if (existing) existing.quantity += 1;
     else cart.push({ ...product, quantity: 1 });
     saveCart();
     updateCartUI();
-    showToast(`${product.title.slice(0, 28)}... added!`);
+    showToast(`${product.title.slice(0, 26)}... added!`);
+}
+
+function addDirectItem(title, price, image) {
+    const existing = cart.find(i => i.title === title);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        const newItem = {
+            id: 'item_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
+            title: title,
+            price: Number(price),
+            image: image,
+            quantity: 1
+        };
+        cart.push(newItem);
+    }
+    saveCart();
+    updateCartUI();
+    showToast(`${title.slice(0, 26)} added!`);
 }
 
 function removeFromCart(id) {
-    cart = cart.filter(i => i.id !== id);
+    cart = cart.filter(i => String(i.id) !== String(id));
     saveCart(); updateCartUI();
 }
 
 function updateQuantity(id, delta) {
-    const item = cart.find(i => i.id === id);
+    const item = cart.find(i => String(i.id) === String(id));
     if (!item) return;
     item.quantity += delta;
     if (item.quantity <= 0) removeFromCart(id);
     else { saveCart(); updateCartUI(); }
+}
+
+function proceedToCheckout() {
+    if (!cart.length) {
+        showToast('Your cart is empty! Add items before checkout.');
+        return;
+    }
+    const totalCount = cart.reduce((s, i) => s + i.quantity, 0);
+    const value = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+    showToast(`Order placed for ${totalCount} items (₹${value.toLocaleString()})!`);
+    cart = [];
+    saveCart();
+    updateCartUI();
+    setTimeout(() => {
+        closeCart();
+    }, 1500);
 }
 
 // ── Render Cart UI ──
@@ -382,7 +417,7 @@ function updateCartUI() {
                 <img src="${item.image}" alt="${item.title}" class="cart-item-img">
                 <div class="cart-item-info">
                     <h4 class="cart-item-title">${item.title}</h4>
-                    <div class="cart-item-price">₹${item.price.toLocaleString()}</div>
+                    <div class="cart-item-price">₹${Number(item.price).toLocaleString()}</div>
                     <div class="cart-item-actions">
                         <div class="quantity-controls">
                             <button class="qty-btn minus" data-id="${item.id}">−</button>
@@ -396,9 +431,9 @@ function updateCartUI() {
             cartItemsCont.appendChild(el);
         });
 
-        cartItemsCont.querySelectorAll('.qty-btn.minus').forEach(b => b.addEventListener('click', e => updateQuantity(+e.target.dataset.id, -1)));
-        cartItemsCont.querySelectorAll('.qty-btn.plus').forEach(b => b.addEventListener('click', e => updateQuantity(+e.target.dataset.id, 1)));
-        cartItemsCont.querySelectorAll('.remove-item').forEach(b => b.addEventListener('click', e => removeFromCart(+e.target.dataset.id)));
+        cartItemsCont.querySelectorAll('.qty-btn.minus').forEach(b => b.addEventListener('click', e => updateQuantity(e.target.dataset.id, -1)));
+        cartItemsCont.querySelectorAll('.qty-btn.plus').forEach(b => b.addEventListener('click', e => updateQuantity(e.target.dataset.id, 1)));
+        cartItemsCont.querySelectorAll('.remove-item').forEach(b => b.addEventListener('click', e => removeFromCart(e.target.dataset.id)));
     }
 
     const value = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
@@ -409,7 +444,10 @@ function updateCartUI() {
 function saveCart() { localStorage.setItem('looto_cart', JSON.stringify(cart)); }
 function loadCart() {
     const saved = localStorage.getItem('looto_cart');
-    if (saved) { cart = JSON.parse(saved); updateCartUI(); }
+    if (saved) { 
+        try { cart = JSON.parse(saved) || []; } catch(e) { cart = []; }
+        updateCartUI(); 
+    }
 }
 
 // ── Toast ──
@@ -419,6 +457,16 @@ function showToast(msg = 'Added to cart!') {
     clearTimeout(toast._timer);
     toast._timer = setTimeout(() => toast.classList.remove('show'), 2500);
 }
+
+// ── Expose globals for inline markup ──
+window.addToCart = addToCart;
+window.addDirectItem = addDirectItem;
+window.removeFromCart = removeFromCart;
+window.updateQuantity = updateQuantity;
+window.proceedToCheckout = proceedToCheckout;
+window.showToast = showToast;
+window.openCart = openCart;
+window.closeCart = closeCart;
 
 // ── Run ──
 init();

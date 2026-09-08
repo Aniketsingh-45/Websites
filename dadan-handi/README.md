@@ -1,13 +1,15 @@
 # 🍲 Dadan Handi Mutton Hotel (दादन हांडी मीट)
 > **“शेर दिलवाले घास-फूस नहीं खाते, सिर्फ मटन खाते हैं”**  
-> *Patna’s Landmark Champaran Ahuna Handi Mutton — Slow-cooked in sealed earthen clay pots over charcoal embers since 2016.*
+> *Patna’s Landmark Champaran Ahuna Handi Mutton — Slow-cooked in sealed earthen clay pots over charcoal embers since 2016.*  
+>  
+> 🌐 **Live Website**: [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/)
 
 [![Vite](https://img.shields.io/badge/Vite-5.0.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
 [![Motion](https://img.shields.io/badge/Motion-13.1.1-EA580C?style=for-the-badge)](#)
-[![Vercel Ready](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+[![Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://dadan-handi.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](#)
 
 ---

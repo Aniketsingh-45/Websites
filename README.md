@@ -19,6 +19,8 @@ The following websites are deployed and live on **Vercel** with global CDN cachi
 | :--- | :--- | :--- | :---: | :--- |
 | **⚡ Developer Portfolio** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | [`/portfolio`](./portfolio) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketportfolio-wheat.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Glassmorphism` |
 | **🎬 Aniket Ka Movie Portal** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | [`/movie-website`](./movie-website) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketmovie.vercel.app/) | `HTML5` `CSS3` `Vanilla JS` `Vercel Routing` |
+| **🛍️ Looto Ethnic E-Commerce** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | [`/shopping`](./shopping) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://shopping-neon-iota.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Imperial Dark` |
+| **🍲 Dadan Handi Mutton** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | [`/dadan-handi`](./dadan-handi) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://dadan-handi.vercel.app/) | `Vite` `HTML5` `CSS3` `JavaScript` `Motion` |
 
 > 💡 *Click any of the links above to experience the live interactive applications directly in your browser!*
 
@@ -59,9 +61,9 @@ This section details all the websites contained in this repository, including li
 ---
 
 ### 3. 🛍️ Looto — Premium Ethnic E-Commerce Portal
-* **Status**: 💻 Ready to Deploy / Local
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://shopping-neon-iota.vercel.app/)
 * **Directory**: [`/shopping`](./shopping)
-* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://shopping-neon-iota.vercel.app/)
 * **Description**: An immersive Indian ethnic fashion and handicraft marketplace showcasing royal heritage aesthetics (midnight obsidian, festive saffron, and 24K gold accents).
 * **Key Features**:
   - 🥻 **10+ Curated Collections**: Sarees & Lehengas, Men's Sherwanis, Folk Handicrafts, Puja Essentials, Ayurvedic Wellness, and Traditional Jewellery.
@@ -72,9 +74,9 @@ This section details all the websites contained in this repository, including li
 ---
 
 ### 4. 🍳 Dadan Handi — Modern Restaurant Experience
-* **Status**: 💻 Ready to Deploy / Local
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://dadan-handi.vercel.app/)
 * **Directory**: [`/dadan-handi`](./dadan-handi)
-* **Tech Stack**: [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/) [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* **Tech Stack**: [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/) [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://dadan-handi.vercel.app/)
 * **Description**: A sleek, contemporary landing page and digital menu created for the renowned Dadan Handi restaurant.
 * **Key Features**:
   - 🍲 **Signature Dish Showcase**: Highlights traditional clay-pot handi mutton and regional delicacies.
@@ -133,8 +135,8 @@ This section details all the websites contained in this repository, including li
 | :-: | :--- | :--- | :---: | :--- | :--- |
 | 1 | **⚡ Developer Portfolio** | [`/portfolio`](./portfolio) | 🟢 **Live** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
 | 2 | **🎬 Aniket Ka Movie** | [`/movie-website`](./movie-website) | 🟢 **Live** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | HTML5, CSS3, JS, Vercel Routing |
-| 3 | **🛍️ Looto E-Commerce** | [`/shopping`](./shopping) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
-| 4 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS, Vite |
+| 3 | **🛍️ Looto E-Commerce** | [`/shopping`](./shopping) | 🟢 **Live** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
+| 4 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | 🟢 **Live** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | HTML5, CSS3, JS, Vite |
 | 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
 | 6 | **🏥 MediCare Clinic** | [`/clinic`](./clinic) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
 | 7 | **🎁 Birthday Surprise** | [`/gift`](./gift) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS, Audio |

@@ -1,0 +1,23 @@
+{
+  "name": "looto-shopping",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Looto – Premium Indian Ethnic Wear & Handicrafts E-Commerce Portal",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static assets ready for Vercel deployment'"
+  },
+  "keywords": [
+    "ecommerce",
+    "indian-ethnic",
+    "handicrafts",
+    "sarees",
+    "sherwanis",
+    "glassmorphism",
+    "vercel",
+    "aniket-singh"
+  ],
+  "author": "Aniket Singh",
+  "license": "MIT"
+}

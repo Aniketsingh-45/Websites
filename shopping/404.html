@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 – Treasure Not Found | Looto by Aniket Singh</title>
+    <meta name="description" content="The page or collection you are searching for does not exist in Looto's heritage marketplace.">
+    <meta name="author" content="Aniket Singh">
+    <meta name="theme-color" content="#080C18">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="shop.css">
+
+    <style>
+        .error-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .error-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--border-hot);
+            border-radius: var(--r-xl);
+            padding: 3.5rem 2.5rem;
+            max-width: 680px;
+            width: 100%;
+            box-shadow: var(--sh-lg), 0 0 60px rgba(255,153,51,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .error-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,153,51,0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .error-code {
+            font-family: 'Yatra One', cursive;
+            font-size: clamp(5rem, 12vw, 8rem);
+            line-height: 1;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--saffron) 50%, var(--ruby) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 10px 30px rgba(255,153,51,0.25);
+        }
+        .error-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(224,17,95,0.15);
+            border: 1px solid rgba(224,17,95,0.4);
+            color: var(--ruby);
+            padding: 0.4rem 1.2rem;
+            border-radius: var(--r-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .error-title {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        .error-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .error-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        .error-links {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+        .error-links p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .quick-chips {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .quick-chip {
+            padding: 0.4rem 0.9rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: var(--r-full);
+            font-size: 0.82rem;
+            color: var(--text);
+            transition: var(--t);
+        }
+        .quick-chip:hover {
+            background: rgba(255,153,51,0.15);
+            border-color: var(--saffron);
+            color: var(--saffron);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Header -->
+    <nav class="navbar">
+        <div class="nav-container" style="justify-content: space-between;">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">Looto</span>
+                    <span class="logo-subtext">by Aniket Singh</span>
+                </a>
+            </div>
+            <a href="index.html" class="btn btn-glass-sm">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Bazaar</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Error Hero Section -->
+    <main class="error-hero">
+        <div class="error-card tilt-card">
+            <div class="error-badge">
+                <i class="fas fa-compass"></i> Lost in Royal Heritage
+            </div>
+            <div class="error-code">404</div>
+            <h1 class="error-title">Treasure Not Found</h1>
+            <p class="error-desc">
+                The artifact, ethnic collection, or royal corridor you are seeking has been retired, relocated, or does not exist in our grand bazaar.
+            </p>
+
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i>
+                    <span>Return to Grand Bazaar</span>
+                </a>
+                <a href="index.html#section-sarees" class="btn btn-glass">
+                    <i class="fas fa-sparkles"></i>
+                    <span>Explore Sarees</span>
+                </a>
+            </div>
+
+            <div class="error-links">
+                <p>Looking for something specific? Browse popular corridors:</p>
+                <div class="quick-chips">
+                    <a href="index.html#section-sarees" class="quick-chip"><i class="fas fa-star-of-life"></i> Banarasi Sarees</a>
+                    <a href="index.html#section-men" class="quick-chip"><i class="fas fa-male"></i> Sherwanis</a>
+                    <a href="index.html#section-jewellery" class="quick-chip"><i class="fas fa-gem"></i> Kundan Jewellery</a>
+                    <a href="index.html#section-handicrafts" class="quick-chip"><i class="fas fa-paint-brush"></i> Handicrafts</a>
+                    <a href="index.html#section-puja" class="quick-chip"><i class="fas fa-om"></i> Puja Essentials</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom" style="border-top: none; justify-content: center; text-align: center;">
+            <p>&copy; 2026 Looto by Aniket Singh. All rights reserved. Handcrafted with ❤️ for India.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

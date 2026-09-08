@@ -35,7 +35,7 @@ Because this application lives inside the **Websites Monorepo**, follow these si
 
 ### Step 3: Build & Output Settings
 * **Framework Preset**: `Other` (or auto-detected)
-* **Build Command**: Leave empty / default (`echo 'Static assets ready'`)
+* **Build Command**: None / Leave empty (Zero-build static site)
 * **Output Directory**: Leave empty / default (serves from root of `shopping`)
 * **Install Command**: Leave empty / default
 

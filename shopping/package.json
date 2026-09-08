@@ -5,8 +5,7 @@
   "description": "Looto – Premium Indian Ethnic Wear & Handicrafts E-Commerce Portal",
   "scripts": {
     "dev": "npx serve .",
-    "start": "npx serve .",
-    "build": "echo 'Static assets ready for Vercel deployment'"
+    "start": "npx serve ."
   },
   "keywords": [
     "ecommerce",

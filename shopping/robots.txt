@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://looto-shopping.vercel.app/sitemap.xml

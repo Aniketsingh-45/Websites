@@ -3,10 +3,11 @@
   
   <h1>🌟 Cafe Skylite — Rooftop Lounge 🌟</h1>
   <p><em>Patna's finest rooftop experience located at KV Complex, RPS More. Where every meal meets the sky.</em></p>
+  <p>🌐 <strong>Live Website:</strong> <a href="https://cafe-silk-psi.vercel.app/"><strong>cafe-silk-psi.vercel.app</strong></a></p>
 
-  [![Status](https://img.shields.io/badge/Status-Active-success.svg)]()
-  [![Website](https://img.shields.io/badge/Website-Live-blue.svg)]()
-  [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
+  [![Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://cafe-silk-psi.vercel.app/)
+  [![Status](https://img.shields.io/badge/Status-Active-success.svg)](#)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
 </div>
 
 <hr />

@@ -1,8 +1,11 @@
 # 🎁 Happy Birthday! Kiara ❤️✨
 
-> A beautiful, interactive birthday surprise website designed with love. 🎉
+> A beautiful, interactive birthday surprise website designed with love. 🎉  
+>  
+> 🌐 **Live Website:** [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/)
 
-This project is a dedicated, interactive web experience created as a special birthday gift. It features immersive animations, beautiful SVG decorations, background music, and a multi-screen interactive journey starting with a secret passcode.
+[![Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://wishing-birthday-ecru.vercel.app/)
+[![Status: Active](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)](#)
 
 ---
 

@@ -3,11 +3,14 @@
 # 🏥 NATH AAROGYA CLINIC & HEALTHCARE
 ### *Luxury Family Healthcare & Multi-Specialty Medical Center*
 
-[![Website Status](https://img.shields.io/badge/Status-Live%20%26%20Active-00f0a0?style=for-the-badge&logo=statuspage&logoColor=0b101b)](https://github.com/Aniketsingh-45/Website)
-[![Google Rating](https://img.shields.io/badge/Google%20Rating-4.8%20%E2%AD%90%20(119%2B%20Reviews)-f59e0b?style=for-the-badge&logo=google&logoColor=white)](https://github.com/Aniketsingh-45/Website)
-[![Built With](https://img.shields.io/badge/Built%20With-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-06b6d4?style=for-the-badge&logo=javascript&logoColor=white)](https://github.com/Aniketsingh-45/Website)
+<p>🌐 <strong>Live Website:</strong> <a href="https://clinic-nath-ayog.vercel.app/"><strong>clinic-nath-ayog.vercel.app</strong></a></p>
+
+[![Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://clinic-nath-ayog.vercel.app/)
+[![Website Status](https://img.shields.io/badge/Status-Live%20%26%20Active-00f0a0?style=for-the-badge&logo=statuspage&logoColor=0b101b)](https://clinic-nath-ayog.vercel.app/)
+[![Google Rating](https://img.shields.io/badge/Google%20Rating-4.8%20%E2%AD%90%20(119%2B%20Reviews)-f59e0b?style=for-the-badge&logo=google&logoColor=white)](#)
+[![Built With](https://img.shields.io/badge/Built%20With-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-06b6d4?style=for-the-badge&logo=javascript&logoColor=white)](#)
 [![Animations](https://img.shields.io/badge/Animations-GSAP%203%20%26%20ScrollTrigger-88ce02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
-[![License](https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge)](#)
 
 <br/>
 

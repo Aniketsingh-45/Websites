@@ -21,6 +21,9 @@ The following websites are deployed and live on **Vercel** with global CDN cachi
 | **🎬 Aniket Ka Movie Portal** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | [`/movie-website`](./movie-website) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketmovie.vercel.app/) | `HTML5` `CSS3` `Vanilla JS` `Vercel Routing` |
 | **🛍️ Looto Ethnic E-Commerce** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | [`/shopping`](./shopping) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://shopping-neon-iota.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Imperial Dark` |
 | **🍲 Dadan Handi Mutton** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | [`/dadan-handi`](./dadan-handi) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://dadan-handi.vercel.app/) | `Vite` `HTML5` `CSS3` `JavaScript` `Motion` |
+| **☕ Cafe Skylite Rooftop** | [**cafe-silk-psi.vercel.app**](https://cafe-silk-psi.vercel.app/) | [`/cafe`](./cafe) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://cafe-silk-psi.vercel.app/) | `HTML5` `CSS3` `JavaScript` `GSAP` |
+| **🏥 Nath Aarogya Clinic** | [**clinic-nath-ayog.vercel.app**](https://clinic-nath-ayog.vercel.app/) | [`/clinic`](./clinic) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://clinic-nath-ayog.vercel.app/) | `HTML5 Canvas` `CSS3` `JavaScript` `GSAP 3` |
+| **🎁 Birthday Surprise** | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | [`/gift`](./gift) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://wishing-birthday-ecru.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Audio API` |
 
 > 💡 *Click any of the links above to experience the live interactive applications directly in your browser!*
 
@@ -85,35 +88,35 @@ This section details all the websites contained in this repository, including li
 
 ---
 
-### 5. ☕ Cafe Skylite — Rich Media Cafe Portal
-* **Status**: 💻 Ready to Deploy / Local
+### 5. ☕ Cafe Skylite — Rooftop Lounge
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://cafe-silk-psi.vercel.app/)
 * **Directory**: [`/cafe`](./cafe)
-* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* **Description**: An ambient, rich-media cafe experience complete with video backdrops and a modern digital menu.
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white)](https://gsap.com/) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://cafe-silk-psi.vercel.app/)
+* **Description**: Patna's finest rooftop experience located at KV Complex, RPS More. Where every meal meets the sky.
 * **Key Features**:
-  - ☕ **Comprehensive Menu Display**: Artisan coffees, brews, pastries, and signature beverages.
-  - 🎥 **Video Backdrops**: Dynamic visual media background enhancing the cafe ambiance.
-  - 📍 **Location & Hours Info**: Integrated visitor details, reservation hooks, and social links.
+  - ☕ **Artisan Menu & Dining**: Multi-cuisine Indian, Chinese, Continental dishes and specialty rooftop beverages.
+  - 🚀 **GSAP & ScrollTrigger Animations**: Fluid scroll choreography, custom cursor, and dynamic text typing.
+  - 🎶 **Interactive Micro-Experiences**: Sound effects toggle, dark/light theme switcher, and celebration confetti.
 
 ---
 
-### 6. 🏥 MediCare Clinic — Healthcare Services Portal
-* **Status**: 💻 Ready to Deploy / Local
+### 6. 🏥 Nath Aarogya Clinic — Family Healthcare Center
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://clinic-nath-ayog.vercel.app/)
 * **Directory**: [`/clinic`](./clinic)
-* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* **Description**: A clean, calming, and functional healthcare landing page designed for patient trust and accessibility.
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white)](https://gsap.com/) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://clinic-nath-ayog.vercel.app/)
+* **Description**: Patna’s premier multi-specialty family medical center at Saguna More with professor-led clinical care.
 * **Key Features**:
-  - 🩺 **Specialties & Department Catalog**: General medicine, cardiology, diagnostics, and pediatrics.
-  - 📅 **Appointment Request Interface**: Simple and accessible patient booking forms.
-  - 🧑‍⚕️ **Doctor Profiles**: Detailed physician credentials, schedules, and reviews.
+  - 🌌 **Ambient Canvas Particle Network**: Lightweight GPU-accelerated interactive particle background.
+  - 🎛️ **3D Perspective Tilt**: Interactive gyroscopic tilt effect on physician credentials and specialty cards.
+  - 📅 **Online OPD Booking**: Integrated appointment inquiry with validation, department filters, and 24/7 hotline.
 
 ---
 
 ### 7. 🎁 Birthday Surprise — Interactive Celebration Gift
-* **Status**: 💻 Ready to Deploy / Local
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://wishing-birthday-ecru.vercel.app/)
 * **Directory**: [`/gift`](./gift)
-* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* **Description**: A creative, personalized celebration experience packed with animations, audio, and surprises.
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://wishing-birthday-ecru.vercel.app/)
+* **Description**: An interactive celebration experience packed with animations, audio, and surprises.
 * **Key Features**:
   - 🔐 **Passcode Protection**: Interactive mystery lock screen.
   - 🎵 **Synchronized Background Music**: Integrated romantic instrumental soundtrack playback.
@@ -121,25 +124,17 @@ This section details all the websites contained in this repository, including li
 
 ---
 
-### 8. ✨ 3D Interactive Portfolio (Experimental)
-* **Status**: 💻 Ready to Deploy / Local
-* **Directory**: [`/portfolio1`](./portfolio1)
-* **Tech Stack**: [![Three.js](https://img.shields.io/badge/Three.js-black?style=flat-square&logo=three.js&logoColor=white)](https://threejs.org/) [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=black)](https://greensock.com/) [![Lenis](https://img.shields.io/badge/Lenis-Smooth_Scroll-blue?style=flat-square)](https://lenis.darkroom.engineering/) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
-* **Description**: An experimental showcase featuring 3D canvas rendering, fluid physics scroll via Lenis, and kinetic typography.
-
----
-
 ## 📊 Complete Projects Summary Matrix
 
-| # | Website Project | Folder | Status | Live Link | Tech Stack |
+| # | Website Project | Folder | Status | Live Production Link | Tech Stack |
 | :-: | :--- | :--- | :---: | :--- | :--- |
 | 1 | **⚡ Developer Portfolio** | [`/portfolio`](./portfolio) | 🟢 **Live** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
 | 2 | **🎬 Aniket Ka Movie** | [`/movie-website`](./movie-website) | 🟢 **Live** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | HTML5, CSS3, JS, Vercel Routing |
 | 3 | **🛍️ Looto E-Commerce** | [`/shopping`](./shopping) | 🟢 **Live** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
 | 4 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | 🟢 **Live** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | HTML5, CSS3, JS, Vite |
-| 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | 🟢 **Deploy Ready** | *Vercel Ready* (`vercel.json` configured) | HTML5, CSS3, JS, GSAP |
-| 6 | **🏥 MediCare Clinic** | [`/clinic`](./clinic) | 🟢 **Deploy Ready** | *Vercel Ready* (`vercel.json` configured) | HTML5, CSS3, JS, GSAP 3 |
-| 7 | **🎁 Birthday Surprise** | [`/gift`](./gift) | 🟢 **Deploy Ready** | *Vercel Ready* (`vercel.json` configured) | HTML5, CSS3, JS, Audio |
+| 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | 🟢 **Live** | [**cafe-silk-psi.vercel.app**](https://cafe-silk-psi.vercel.app/) | HTML5, CSS3, JS, GSAP |
+| 6 | **🏥 Nath Aarogya Clinic** | [`/clinic`](./clinic) | 🟢 **Live** | [**clinic-nath-ayog.vercel.app**](https://clinic-nath-ayog.vercel.app/) | HTML5 Canvas, CSS3, JS, GSAP 3 |
+| 7 | **🎁 Birthday Surprise** | [`/gift`](./gift) | 🟢 **Live** | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | HTML5, CSS3, JS, Audio |
 
 ---
 

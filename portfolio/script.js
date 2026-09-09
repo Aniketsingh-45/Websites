@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         help: () => `
 Available commands:
   <span class="cmd-highlight">roles</span>      - Available roles, specializations & opportunities
+  <span class="cmd-highlight">live</span>       - 7 Live production web apps deployed on Vercel
   <span class="cmd-highlight">about</span>      - Quick bio and background
   <span class="cmd-highlight">skills</span>     - Summary of technical skills & tools
   <span class="cmd-highlight">projects</span>   - List of flagship projects
@@ -179,6 +180,19 @@ Available commands:
   🟢 <span style="color: #34d399; font-weight: 600;">Current Status:</span> Actively open for internship roles, full-time junior positions, and impactful software collaborations.
   📫 Reach out via <a href="mailto:aniketsingh4500@gmail.com" class="terminal-link">aniketsingh4500@gmail.com</a> or the <a href="#contact" class="terminal-link">Contact Form</a>.
 `,
+        live: () => `
+<span class="cmd-text-accent">🌐 7 Live Production Applications Deployed on Vercel:</span>
+  1. <a href="https://aniketmovie.vercel.app/" target="_blank" class="terminal-link">🎬 Aniket Ka Movie</a> — Cinema Streaming Portal
+  2. <a href="https://shopping-neon-iota.vercel.app/" target="_blank" class="terminal-link">🛍️ Looto</a> — Ethnic E-Commerce Platform
+  3. <a href="https://dadan-handi.vercel.app/" target="_blank" class="terminal-link">🍲 Dadan Handi Mutton</a> — Vite Interactive Restaurant
+  4. <a href="https://cafe-silk-psi.vercel.app/" target="_blank" class="terminal-link">☕ Cafe Skylite</a> — GSAP Animated Rooftop Lounge
+  5. <a href="https://clinic-nath-ayog.vercel.app/" target="_blank" class="terminal-link">🏥 Nath Aarogya Clinic</a> — Healthcare & Canvas Portal
+  6. <a href="https://wishing-birthday-ecru.vercel.app/" target="_blank" class="terminal-link">🎁 Birthday Surprise</a> — Interactive Audio Gift
+  7. <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" class="terminal-link">⚡ Developer Portfolio</a> — Flagship Portfolio
+
+  🚀 <a href="../index.html" class="terminal-link" style="color: #38bdf8; font-weight: 700;">Open Full Live Work Showcase Hub &rarr;</a>
+`,
+        apps: () => terminalCommands.live(),
         available: () => terminalCommands.roles(),
         about: () => `
 <span class="cmd-text-accent">Aniket Singh</span>

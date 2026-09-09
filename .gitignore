@@ -1,0 +1,28 @@
+# Vercel deployment artifacts
+.vercel/
+
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Production builds
+dadan-handi/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace

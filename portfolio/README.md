@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://aniketportfolio-wheat.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel"></a>
+  <a href="https://aniketsingh-portfolio-ruby.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel"></a>
   <a href="https://github.com/Aniketsingh-45/Websites"><img src="https://img.shields.io/badge/Status-Available%20for%20Roles-10b981?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status: Available for Roles"></a>
   <a href="https://www.linkedin.com/in/aniketsingh45/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
   <a href="https://github.com/Aniketsingh-45"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  🌐 <strong>Live URL:</strong> <a href="https://aniketportfolio-wheat.vercel.app/"><strong>https://aniketportfolio-wheat.vercel.app/</strong></a>
+  🌐 <strong>Live URL:</strong> <a href="https://aniketsingh-portfolio-ruby.vercel.app/"><strong>https://aniketsingh-portfolio-ruby.vercel.app/</strong></a>
 </p>
 
 <p align="center">

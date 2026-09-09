@@ -137,10 +137,9 @@ This section details all the websites contained in this repository, including li
 | 2 | **🎬 Aniket Ka Movie** | [`/movie-website`](./movie-website) | 🟢 **Live** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | HTML5, CSS3, JS, Vercel Routing |
 | 3 | **🛍️ Looto E-Commerce** | [`/shopping`](./shopping) | 🟢 **Live** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
 | 4 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | 🟢 **Live** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | HTML5, CSS3, JS, Vite |
-| 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
-| 6 | **🏥 MediCare Clinic** | [`/clinic`](./clinic) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS (Vanilla) |
-| 7 | **🎁 Birthday Surprise** | [`/gift`](./gift) | 🟡 Local | *Deploy Ready* | HTML5, CSS3, JS, Audio |
-| 8 | **✨ 3D Portfolio (Exp.)** | [`/portfolio1`](./portfolio1) | 🟡 Local | *Deploy Ready* | Three.js, GSAP, Lenis, Vite |
+| 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | 🟢 **Deploy Ready** | *Vercel Ready* (`vercel.json` configured) | HTML5, CSS3, JS, GSAP |
+| 6 | **🏥 MediCare Clinic** | [`/clinic`](./clinic) | 🟢 **Deploy Ready** | *Vercel Ready* (`vercel.json` configured) | HTML5, CSS3, JS, GSAP 3 |
+| 7 | **🎁 Birthday Surprise** | [`/gift`](./gift) | 🟢 **Deploy Ready** | *Vercel Ready* (`vercel.json` configured) | HTML5, CSS3, JS, Audio |
 
 ---
 
@@ -149,7 +148,7 @@ This section details all the websites contained in this repository, including li
 ### 1. 🌐 Static Websites (`portfolio`, `movie-website`, `shopping`, `cafe`, `clinic`, `gift`)
 These require zero build steps and can be run immediately:
 
-* **Method A (Browser Direct)**: Double-click any `index.html` (or `movie.html` / `cafe.html`) to open directly in Chrome, Edge, or Firefox.
+* **Method A (Browser Direct)**: Double-click any `index.html` to open directly in Chrome, Edge, or Firefox.
 * **Method B (Node Serve)**:
   ```bash
   # Example: Serve the movie website
@@ -163,7 +162,7 @@ These require zero build steps and can be run immediately:
   python -m http.server 8080
   ```
 
-### 2. ⚡ Vite Projects (`dadan-handi` & `portfolio1`)
+### 2. ⚡ Vite Projects (`dadan-handi`)
 1. Navigate into the folder:
    ```bash
    cd dadan-handi
@@ -179,21 +178,21 @@ These require zero build steps and can be run immediately:
 
 ---
 
-## 🚀 How to Deploy More Websites to Vercel
+## 🚀 How to Deploy to Vercel
 
-To deploy any other project from this repository to Vercel:
+Every project in this repository is configured with dedicated production `vercel.json` rules, clean URLs, security headers, and asset caching. You can deploy in two ways:
 
-1. Push your changes to GitHub:
-   ```bash
-   git add .
-   git commit -m "Update projects"
-   git push origin main
-   ```
-2. Go to [vercel.com/new](https://vercel.com/new).
-3. Import the `Websites` repository.
-4. Under **Project Settings &rarr; Root Directory**, select the project folder (e.g. `shopping` or `dadan-handi`).
-5. Framework Preset: Choose **Other**.
-6. Click **Deploy**!
+### Option A: Deploy the Unified Master Hub (Root)
+1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
+2. Leave **Root Directory** as `.` (root).
+3. Framework Preset: **Other** (zero build required).
+4. Click **Deploy**. Vercel will deploy the master showcase hub (`index.html` and root `vercel.json`), providing unified access to all 7 web applications!
+
+### Option B: Deploy Individual Subprojects (Standalone Apps)
+1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
+2. Under **Root Directory**, click **Edit** and select the folder you want to deploy (e.g. `cafe`, `clinic`, `gift`, `shopping`, `portfolio`, or `movie-website`).
+3. For static projects, leave **Build Command** empty. For `dadan-handi`, Vercel auto-detects Vite (`npm run build` → `dist`).
+4. Click **Deploy**!
 
 ---
 

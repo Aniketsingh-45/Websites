@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Work &bull; Web Applications &amp; Interactive Portals | Aniket Singh</title>
+    <meta name="description" content="Explore the curated ecosystem of 7 production web applications, interactive portals, and creative experiences built by Aniket Singh. Deployed on Vercel.">
+    <meta name="author" content="Aniket Singh">
+    <meta name="theme-color" content="#0a0e17">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aniket Singh | Live Work &amp; Web Applications Ecosystem">
+    <meta property="og:description" content="Curated showcase of 7 modern full-stack web applications, e-commerce, cinema streaming, healthcare, and culinary portals.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-base: #070a12;
+            --bg-card: rgba(16, 23, 38, 0.7);
+            --bg-card-hover: rgba(22, 33, 56, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(56, 189, 248, 0.35);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --glow-cyan: rgba(56, 189, 248, 0.25);
+            --glow-purple: rgba(139, 92, 246, 0.25);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Blobs */
+        .ambient-glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(140px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.45;
+        }
+        .glow-1 {
+            top: -10%;
+            left: 15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #38bdf8, transparent 70%);
+        }
+        .glow-2 {
+            top: 40%;
+            right: 10%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, #8b5cf6, transparent 70%);
+        }
+        .glow-3 {
+            bottom: -10%;
+            left: 20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #059669, transparent 70%);
+        }
+
+        /* Background grid overlay */
+        .grid-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Top Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 10, 18, 0.85);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 4px 20px var(--glow-cyan);
+        }
+        .brand-text h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .brand-text p {
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .beacon-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .beacon-pill:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+            color: #6ee7b7;
+        }
+        .beacon-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.2); }
+        }
+
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-github:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--text-secondary);
+            transform: translateY(-1px);
+        }
+
+        /* Portfolio Header Button */
+        .btn-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(139, 92, 246, 0.28));
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+            transition: var(--transition);
+        }
+        .btn-portfolio:hover {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.38), rgba(139, 92, 246, 0.48));
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Creator Spotlight Card */
+        .creator-spotlight {
+            max-width: 860px;
+            margin: 0 auto 36px;
+            background: linear-gradient(135deg, rgba(16, 23, 38, 0.9), rgba(24, 35, 60, 0.75));
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 20px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .creator-spotlight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .creator-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .creator-avatar-wrap {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            flex-shrink: 0;
+        }
+        .creator-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 14px var(--glow-cyan);
+        }
+        .creator-status-ring {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #10b981;
+            border: 2px solid var(--bg-base);
+            box-shadow: 0 0 8px #10b981;
+        }
+        .creator-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .creator-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .creator-name {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .creator-sub {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+        }
+        .creator-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .btn-creator-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-creator-primary:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--glow-cyan);
+        }
+        .btn-creator-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-creator-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Flagship Card Highlight */
+        .featured-portfolio-card {
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            background: linear-gradient(135deg, rgba(16, 23, 38, 0.92), rgba(28, 43, 76, 0.8));
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15);
+        }
+        .featured-portfolio-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 44px rgba(56, 189, 248, 0.32);
+        }
+
+        /* Floating Portfolio Dock */
+        .floating-portfolio-dock {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: rgba(16, 23, 38, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            border-radius: 9999px;
+            padding: 8px 18px 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.25);
+            transition: var(--transition);
+        }
+        .floating-portfolio-dock:hover {
+            transform: translateY(-3px) scale(1.02);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.45);
+        }
+        .dock-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--accent-cyan);
+        }
+        .dock-text {
+            font-size: 0.84rem;
+            color: var(--text-primary);
+        }
+        .dock-text strong {
+            color: #fff;
+        }
+        .dock-text span {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent-cyan);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 900px;
+            margin: 0 auto 18px;
+        }
+        .hero h2 span {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, #a855f7 50%, var(--accent-emerald) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 720px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        /* Filter Controls */
+        .filters {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 44px;
+        }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+        }
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 16px var(--glow-cyan);
+        }
+
+        /* Grid of Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 28px;
+            margin-bottom: 80px;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent-cyan)), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+        }
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            flex-shrink: 0;
+        }
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .status-badge.live {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #34d399;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+        .tech-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .btn-primary {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-cyan), #0284c7);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        .btn-primary:hover {
+            filter: brightness(1.12);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px var(--glow-cyan);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Deployment Highlight Box */
+        .deployment-box {
+            background: linear-gradient(135deg, rgba(16, 23, 38, 0.8), rgba(28, 43, 76, 0.6));
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            padding: 36px;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .deployment-box h3 {
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .deployment-box p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        .deploy-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .step-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .step-num {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            margin-bottom: 6px;
+        }
+        .step-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 36px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .creator-spotlight {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 16px;
+            }
+            .creator-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .creator-actions {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .floating-portfolio-dock {
+                bottom: 14px;
+                right: 14px;
+                padding: 6px 12px 6px 6px;
+            }
+            .floating-portfolio-dock .dock-text span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Lighting Backgrounds -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+    <div class="grid-pattern"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="brand" title="Return to Main Developer Portfolio">
+                <div class="brand-logo">AS</div>
+                <div class="brand-text">
+                    <h1>Aniket Singh</h1>
+                    <p>Live Work &bull; Web Applications Portfolio</p>
+                </div>
+            </a>
+            <div class="header-actions">
+                <a href="index.html" class="btn-portfolio" title="Return to Aniket's main developer portfolio">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Main Portfolio</span>
+                </a>
+                <a href="index.html#contact" class="beacon-pill" title="Click to contact for opportunities">
+                    <span class="beacon-dot"></span>
+                    <span>Available for Roles</span>
+                </a>
+                <a href="https://github.com/Aniketsingh-45/Websites" target="_blank" rel="noopener" class="btn-github">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub Monorepo</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Official Portfolio Showcase &bull; 7 Live Applications</span>
+            </div>
+            <h2>Curated Interactive Web Experiences &amp; <span>Live Applications</span></h2>
+            <p>
+                A high-performance collection of production-grade websites spanning developer tools, cinematic streaming, ethnic e-commerce, healthcare systems, and interactive UI showcases.
+            </p>
+
+            <!-- Creator Spotlight Banner -->
+            <div class="creator-spotlight">
+                <div class="creator-profile">
+                    <div class="creator-avatar-wrap">
+                        <img src="InShot_20251223_201734096.jpg" alt="Aniket Singh" class="creator-avatar">
+                        <span class="creator-status-ring" title="Available for Roles"></span>
+                    </div>
+                    <div class="creator-details">
+                        <span class="creator-tag">Engineering &amp; Design Lead</span>
+                        <h3 class="creator-name">Aniket Singh</h3>
+                        <p class="creator-sub">B.Tech CSE &bull; Python Specialist &bull; AI/ML Explorer &bull; Full-Stack Builder</p>
+                    </div>
+                </div>
+                <div class="creator-actions">
+                    <a href="index.html" class="btn-creator-primary" title="Launch Developer Portfolio">
+                        <i class="fa-solid fa-bolt"></i> Launch Portfolio
+                    </a>
+                    <a href="index.html#terminal" class="btn-creator-secondary" title="Open Interactive Terminal Shell">
+                        <i class="fa-solid fa-terminal"></i> Terminal Mode
+                    </a>
+                    <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener" class="btn-creator-secondary" title="Connect on LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Projects (7)</button>
+                <button class="filter-btn" data-filter="live">🟢 Live on Vercel (7)</button>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid" id="projectsGrid">
+
+            <!-- 1. Portfolio -->
+            <article class="project-card featured-portfolio-card" style="--card-accent: #38bdf8;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">⚡</div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <span class="status-badge" style="background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4);"><i class="fa-solid fa-crown"></i> Flagship Hub</span>
+                            <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Developer Portfolio &amp; Terminal</h3>
+                    <p class="card-desc">
+                        My primary personal developer home featuring an interactive CLI terminal shell simulator, live hiring availability beacon, Bento grid layout, custom glowing cursor orb, and verified credentials.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Interactive Terminal</span>
+                        <span class="tech-tag">Glassmorphism</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="index.html" class="btn-primary" style="background: linear-gradient(135deg, #38bdf8, #8b5cf6);">
+                        <i class="fa-solid fa-bolt"></i> Launch Portfolio
+                    </a>
+                    <a href="index.html#terminal" class="btn-secondary" title="Open Interactive Terminal Shell">
+                        <i class="fa-solid fa-terminal"></i> Terminal
+                    </a>
+                    <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" rel="noopener" class="btn-secondary" title="View Live on Vercel">
+                        <i class="fa-solid fa-globe"></i> Vercel
+                    </a>
+                </div>
+            </article>
+
+            <!-- 2. Movie Portal -->
+            <article class="project-card" style="--card-accent: #ef4444;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #ef4444;">🎬</div>
+                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                    </div>
+                    <h3 class="card-title">Aniket Ka Movie</h3>
+                    <p class="card-desc">
+                        Cinematic streaming portal with 5 dynamic ambient themes, multi-tier download tiers, live search filters, trailer modal, and responsive watchlists.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Theme Engine</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://aniketmovie.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    </a>
+                    <a href="https://github.com/Aniketsingh-45/Websites/tree/main/movie-website" target="_blank" rel="noopener" class="btn-secondary" title="View Source on GitHub">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                </div>
+            </article>
+
+            <!-- 3. Looto E-Commerce -->
+            <article class="project-card" style="--card-accent: #f59e0b;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #f59e0b;">🛍️</div>
+                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                    </div>
+                    <h3 class="card-title">Looto E-Commerce</h3>
+                    <p class="card-desc">
+                        Indian ethnic wear &amp; handicrafts marketplace with 10+ curated collections, festive saffron &amp; 24K gold accents, instant live search, and dynamic cart tallying.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">E-Commerce</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://shopping-neon-iota.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    </a>
+                    <a href="https://github.com/Aniketsingh-45/Websites/tree/main/shopping" target="_blank" rel="noopener" class="btn-secondary" title="View Source on GitHub">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                </div>
+            </article>
+
+            <!-- 4. Dadan Handi -->
+            <article class="project-card" style="--card-accent: #ea580c;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #ea580c;">🍲</div>
+                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                    </div>
+                    <h3 class="card-title">Dadan Handi Mutton</h3>
+                    <p class="card-desc">
+                        Modern culinary showcase built for Patna's iconic clay-pot mutton restaurant. Features smooth Vite bundling, motion animations, interactive menu, and live branch selector.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">Motion</span>
+                        <span class="tech-tag">Modern CSS</span>
+                        <span class="tech-tag">Modular JS</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://dadan-handi.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    </a>
+                    <a href="https://github.com/Aniketsingh-45/Websites/tree/main/dadan-handi" target="_blank" rel="noopener" class="btn-secondary" title="View Source on GitHub">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                </div>
+            </article>
+
+            <!-- 5. Cafe Skylite -->
+            <article class="project-card" style="--card-accent: #eab308;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #eab308;">☕</div>
+                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                    </div>
+                    <h3 class="card-title">Cafe Skylite Rooftop</h3>
+                    <p class="card-desc">
+                        Finest rooftop lounge experience at KV Complex, RPS More, Patna. Features GSAP smooth animations, Typed.js hero text, custom cursor, sound toggle, and table reservations.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">GSAP</span>
+                        <span class="tech-tag">Typed.js</span>
+                        <span class="tech-tag">Audio FX</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://cafe-silk-psi.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    </a>
+                    <a href="https://github.com/Aniketsingh-45/Websites/tree/main/cafe" target="_blank" rel="noopener" class="btn-secondary" title="View Source on GitHub">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                </div>
+            </article>
+
+            <!-- 6. MediCare Clinic -->
+            <article class="project-card" style="--card-accent: #06b6d4;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #06b6d4;">🏥</div>
+                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                    </div>
+                    <h3 class="card-title">Nath Aarogya Clinic</h3>
+                    <p class="card-desc">
+                        Patna's premier family healthcare center. Includes ambient canvas particle nodes, 3D cursor card perspective tilt, appointment booking forms, and doctor credentials.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5 Canvas</span>
+                        <span class="tech-tag">GSAP 3</span>
+                        <span class="tech-tag">3D Tilt</span>
+                        <span class="tech-tag">Medical UI</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://clinic-nath-ayog.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    </a>
+                    <a href="https://github.com/Aniketsingh-45/Websites/tree/main/clinic" target="_blank" rel="noopener" class="btn-secondary" title="View Source on GitHub">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                </div>
+            </article>
+
+            <!-- 7. Birthday Surprise -->
+            <article class="project-card" style="--card-accent: #ec4899;" data-category="live">
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon" style="color: #ec4899;">🎁</div>
+                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                    </div>
+                    <h3 class="card-title">Kiara Birthday Surprise</h3>
+                    <p class="card-desc">
+                        Interactive celebratory gift experience with secret passcode unlock, background instrumental music, canvas confetti bursts, floating SVG hearts, and photo memory gallery.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Audio API</span>
+                        <span class="tech-tag">Confetti FX</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wishing-birthday-ecru.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    </a>
+                    <a href="https://github.com/Aniketsingh-45/Websites/tree/main/gift" target="_blank" rel="noopener" class="btn-secondary" title="View Source on GitHub">
+                        <i class="fa-brands fa-github"></i> Code
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Monorepo Vercel Deployment Guide -->
+        <section class="deployment-box">
+            <h3><i class="fa-solid fa-cloud-arrow-up" style="color: var(--accent-cyan);"></i> Seamless Vercel Monorepo Deployment</h3>
+            <p>
+                Every project in this repository is equipped with its own production-grade <code>vercel.json</code>, clean URLs, security headers, and asset caching rules. You can deploy them in two ways:
+            </p>
+            <div class="deploy-steps">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <div class="step-title">Option A: Master Hub</div>
+                    <div class="step-desc">
+                        Deploy the root repository without changing settings. The root <code>vercel.json</code> and this master showcase launchpad serve all 7 apps through unified routing.
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <div class="step-title">Option B: Subproject Deploy</div>
+                    <div class="step-desc">
+                        In Vercel project settings, set <strong>Root Directory</strong> to any folder (e.g. <code>cafe</code>, <code>clinic</code>, <code>portfolio</code>). Each folder is 100% self-contained.
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <div class="step-title">Zero-Build Architecture</div>
+                    <div class="step-desc">
+                        Static HTML/CSS/JS projects require no build commands. For <code>dadan-handi</code>, Vite automates <code>npm run build</code> into <code>dist</code>.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html"><i class="fa-solid fa-user"></i> Developer Portfolio</a>
+                <a href="https://github.com/Aniketsingh-45" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:aniketsingh4500@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            </div>
+            <p>Designed &amp; Maintained by <strong>Aniket Singh</strong> &bull; &copy; 2026 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Floating Quick Jump to Developer Portfolio -->
+    <a href="index.html" class="floating-portfolio-dock" title="Return to Aniket's Developer Portfolio">
+        <img src="InShot_20251223_201734096.jpg" alt="Aniket Singh" class="dock-avatar">
+        <span class="dock-text"><strong>Main Portfolio</strong> <span>&bull; Back to Profile</span> &larr;</span>
+    </a>
+
+    <!-- Filter Script -->
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio/index.html"
+    },
+    {
+      "source": "/movie-website",
+      "destination": "/movie-website/index.html"
+    },
+    {
+      "source": "/movie",
+      "destination": "/movie-website/index.html"
+    },
+    {
+      "source": "/shopping",
+      "destination": "/shopping/index.html"
+    },
+    {
+      "source": "/dadan-handi",
+      "destination": "/dadan-handi/dist/index.html"
+    },
+    {
+      "source": "/cafe",
+      "destination": "/cafe/index.html"
+    },
+    {
+      "source": "/clinic",
+      "destination": "/clinic/index.html"
+    },
+    {
+      "source": "/gift",
+      "destination": "/gift/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|gif|svg|ico|webp|avif|mp3|mp4|woff2|woff|ttf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=604800"
+        }
+      ]
+    }
+  ]
+}

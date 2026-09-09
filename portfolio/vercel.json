@@ -6,6 +6,18 @@
     {
       "source": "/home",
       "destination": "/index.html"
+    },
+    {
+      "source": "/live-work",
+      "destination": "/live-work.html"
+    },
+    {
+      "source": "/live",
+      "destination": "/live-work.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/live-work.html"
     }
   ],
   "headers": [

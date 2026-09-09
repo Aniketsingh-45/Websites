@@ -13,6 +13,9 @@
     <meta property="og:title" content="Aniket Singh | Web Applications Ecosystem">
     <meta property="og:description" content="Curated showcase of modern full-stack web applications, e-commerce, cinema streaming, healthcare, and culinary portals.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="portfolio/favicon.svg">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -211,6 +214,205 @@
             background: rgba(255, 255, 255, 0.12);
             border-color: var(--text-secondary);
             transform: translateY(-1px);
+        }
+
+        /* Portfolio Header Button */
+        .btn-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(139, 92, 246, 0.28));
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+            transition: var(--transition);
+        }
+        .btn-portfolio:hover {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.38), rgba(139, 92, 246, 0.48));
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Creator Spotlight Card */
+        .creator-spotlight {
+            max-width: 860px;
+            margin: 0 auto 36px;
+            background: linear-gradient(135deg, rgba(16, 23, 38, 0.9), rgba(24, 35, 60, 0.75));
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 20px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .creator-spotlight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+        .creator-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .creator-avatar-wrap {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            flex-shrink: 0;
+        }
+        .creator-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 14px var(--glow-cyan);
+        }
+        .creator-status-ring {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #10b981;
+            border: 2px solid var(--bg-base);
+            box-shadow: 0 0 8px #10b981;
+        }
+        .creator-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .creator-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        .creator-name {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .creator-sub {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+        }
+        .creator-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .btn-creator-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-creator-primary:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--glow-cyan);
+        }
+        .btn-creator-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-creator-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Flagship Card Highlight */
+        .featured-portfolio-card {
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            background: linear-gradient(135deg, rgba(16, 23, 38, 0.92), rgba(28, 43, 76, 0.8));
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.15);
+        }
+        .featured-portfolio-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 44px rgba(56, 189, 248, 0.32);
+        }
+
+        /* Floating Portfolio Dock */
+        .floating-portfolio-dock {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: rgba(16, 23, 38, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            border-radius: 9999px;
+            padding: 8px 18px 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.25);
+            transition: var(--transition);
+        }
+        .floating-portfolio-dock:hover {
+            transform: translateY(-3px) scale(1.02);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.45);
+        }
+        .dock-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-cyan);
+        }
+        .dock-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .dock-text strong {
+            color: var(--accent-cyan);
         }
 
         /* Hero Section */
@@ -536,10 +738,35 @@
             .header-inner {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 16px;
             }
             .header-actions {
                 width: 100%;
                 justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .creator-spotlight {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 16px;
+            }
+            .creator-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .creator-actions {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .floating-portfolio-dock {
+                bottom: 14px;
+                right: 14px;
+                padding: 6px 12px 6px 6px;
+            }
+            .floating-portfolio-dock .dock-text span {
+                display: none;
             }
         }
     </style>
@@ -563,10 +790,14 @@
                 </div>
             </a>
             <div class="header-actions">
-                <div class="beacon-pill">
+                <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" rel="noopener" class="btn-portfolio">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Portfolio Hub</span>
+                </a>
+                <a href="https://aniketportfolio-wheat.vercel.app/#contact" target="_blank" rel="noopener" class="beacon-pill" title="Click to contact for opportunities">
                     <span class="beacon-dot"></span>
-                    <span>All Systems Live &amp; Ready</span>
-                </div>
+                    <span>Available for Roles</span>
+                </a>
                 <a href="https://github.com/Aniketsingh-45/Websites" target="_blank" rel="noopener" class="btn-github">
                     <i class="fa-brands fa-github"></i>
                     <span>GitHub Monorepo</span>
@@ -587,6 +818,32 @@
                 A high-performance collection of production-grade websites spanning developer tools, cinematic streaming, ethnic e-commerce, healthcare systems, and interactive UI showcases.
             </p>
 
+            <!-- Creator Spotlight Banner -->
+            <div class="creator-spotlight">
+                <div class="creator-profile">
+                    <div class="creator-avatar-wrap">
+                        <img src="portfolio/InShot_20251223_201734096.jpg" alt="Aniket Singh" class="creator-avatar">
+                        <span class="creator-status-ring" title="Available for Roles"></span>
+                    </div>
+                    <div class="creator-details">
+                        <span class="creator-tag">Engineering &amp; Design Lead</span>
+                        <h3 class="creator-name">Aniket Singh</h3>
+                        <p class="creator-sub">B.Tech CSE &bull; Python Specialist &bull; AI/ML Explorer &bull; Full-Stack Builder</p>
+                    </div>
+                </div>
+                <div class="creator-actions">
+                    <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" rel="noopener" class="btn-creator-primary">
+                        <i class="fa-solid fa-bolt"></i> Launch Portfolio
+                    </a>
+                    <a href="https://aniketportfolio-wheat.vercel.app/#terminal" target="_blank" rel="noopener" class="btn-creator-secondary">
+                        <i class="fa-solid fa-terminal"></i> Terminal Mode
+                    </a>
+                    <a href="https://www.linkedin.com/in/aniketsingh45/" target="_blank" rel="noopener" class="btn-creator-secondary" title="Connect on LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+
             <!-- Filters -->
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">All Projects (7)</button>
@@ -598,26 +855,33 @@
         <section class="projects-grid" id="projectsGrid">
 
             <!-- 1. Portfolio -->
-            <article class="project-card" style="--card-accent: #38bdf8;" data-category="live">
+            <article class="project-card featured-portfolio-card" style="--card-accent: #38bdf8;" data-category="live">
                 <div>
                     <div class="card-header">
-                        <div class="card-icon" style="color: #38bdf8;">⚡</div>
-                        <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                        <div class="card-icon" style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3);">⚡</div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <span class="status-badge" style="background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4);"><i class="fa-solid fa-crown"></i> Flagship Hub</span>
+                            <span class="status-badge live"><i class="fa-solid fa-circle-check"></i> Live on Vercel</span>
+                        </div>
                     </div>
-                    <h3 class="card-title">Developer Portfolio</h3>
+                    <h3 class="card-title">Developer Portfolio &amp; Terminal</h3>
                     <p class="card-desc">
-                        Cyber-dark developer portfolio featuring an interactive terminal shell simulator, live hiring beacon, Bento grid layout, custom cursor orb, and dynamic project filtering.
+                        My primary personal developer home featuring an interactive CLI terminal shell simulator, live hiring availability beacon, Bento grid layout, custom glowing cursor orb, and verified credentials.
                     </p>
                     <div class="tech-tags">
                         <span class="tech-tag">HTML5</span>
                         <span class="tech-tag">CSS3</span>
                         <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Interactive Terminal</span>
                         <span class="tech-tag">Glassmorphism</span>
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
+                    <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" rel="noopener" class="btn-primary" style="background: linear-gradient(135deg, #38bdf8, #8b5cf6);">
+                        <i class="fa-solid fa-bolt"></i> Launch Portfolio
+                    </a>
+                    <a href="https://aniketportfolio-wheat.vercel.app/#terminal" target="_blank" rel="noopener" class="btn-secondary" title="Open Interactive Terminal Shell">
+                        <i class="fa-solid fa-terminal"></i> Terminal
                     </a>
                     <a href="/portfolio/" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
@@ -839,6 +1103,12 @@
             <p>Designed &amp; Maintained by <strong>Aniket Singh</strong> &bull; &copy; 2026 All Rights Reserved</p>
         </div>
     </footer>
+
+    <!-- Floating Quick Jump to Developer Portfolio -->
+    <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" rel="noopener" class="floating-portfolio-dock" title="Explore Aniket's Developer Portfolio">
+        <img src="portfolio/InShot_20251223_201734096.jpg" alt="Aniket Singh" class="dock-avatar">
+        <span class="dock-text"><strong>Aniket's Portfolio</strong> <span>&bull; Explore Interactive Hub</span> ↗</span>
+    </a>
 
     <!-- Filter Script -->
     <script>

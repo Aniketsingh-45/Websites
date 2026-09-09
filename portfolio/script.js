@@ -188,7 +188,7 @@ Available commands:
   4. <a href="https://cafe-silk-psi.vercel.app/" target="_blank" class="terminal-link">☕ Cafe Skylite</a> — GSAP Animated Rooftop Lounge
   5. <a href="https://clinic-nath-ayog.vercel.app/" target="_blank" class="terminal-link">🏥 Nath Aarogya Clinic</a> — Healthcare & Canvas Portal
   6. <a href="https://wishing-birthday-ecru.vercel.app/" target="_blank" class="terminal-link">🎁 Birthday Surprise</a> — Interactive Audio Gift
-  7. <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" class="terminal-link">⚡ Developer Portfolio</a> — Flagship Portfolio
+  7. <a href="https://aniketsingh-portfolio-ruby.vercel.app/" target="_blank" class="terminal-link">⚡ Developer Portfolio</a> — Flagship Portfolio
 
   🚀 <a href="live-work.html" class="terminal-link" style="color: #38bdf8; font-weight: 700;">Open Full Live Work Showcase Hub &rarr;</a>
 `,

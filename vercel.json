@@ -8,6 +8,18 @@
       "destination": "/portfolio/index.html"
     },
     {
+      "source": "/portfolio/live-work",
+      "destination": "/portfolio/live-work.html"
+    },
+    {
+      "source": "/portfolio/live",
+      "destination": "/portfolio/live-work.html"
+    },
+    {
+      "source": "/portfolio/work",
+      "destination": "/portfolio/live-work.html"
+    },
+    {
       "source": "/movie-website",
       "destination": "/movie-website/index.html"
     },

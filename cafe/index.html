@@ -1,0 +1,1546 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafe Skylite — Rooftop Lounge | Patna's Finest Rooftop Experience</title>
+  <meta name="description"
+    content="Cafe Skylite – Rooftop Lounge. Patna's finest rooftop experience located at KV Complex, RPS More. Indulge in Indian, Chinese, and Continental cuisine under the sky." />
+  <meta name="keywords"
+    content="Cafe Skylite, rooftop cafe Patna, restaurant Patna, Silkhouse Premier Hotel, rooftop lounge, RPS More, fine dining" />
+  <meta name="theme-color" content="#FFD700" />
+  <meta property="og:title" content="Cafe Skylite — Rooftop Lounge" />
+  <meta property="og:description"
+    content="Patna's finest rooftop experience located at KV Complex, RPS More. Where every meal meets the sky." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="images/cafe-skylite-rps-more-patna-restaurants-ba4zejy.avif" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="cafe.css">
+</head>
+
+<body>
+  <!-- ═══════ CUSTOM CURSOR ═══════ -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-follower" id="customCursorFollower"></div>
+
+  <!-- ═══════ SCROLL PROGRESS BAR ═══════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+
+
+  <!-- ═══════ PRELOADER ═══════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-brand">
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-ba4zejy.avif" alt="Cafe Skylite" class="preloader-logo" />
+      <div class="preloader-name">Cafe Skylite</div>
+      <div class="preloader-tagline">Rooftop Lounge</div>
+    </div>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar">
+        <div class="preloader-fill" id="preloaderFill"></div>
+      </div>
+      <div class="preloader-pct" id="preloaderPct">0%</div>
+    </div>
+    <div class="preloader-tip" id="preloaderTip">Preparing your rooftop experience...</div>
+  </div>
+
+  <!-- ═══════ HEADER ═══════ -->
+  <header id="siteHeader">
+    <div class="header-progress-glow"></div>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <img src="images/cafe-skylite-rps-more-patna-restaurants-ba4zejy.avif" alt="Cafe Skylite logo" />
+        <div>
+          <h1>Cafe Skylite</h1>
+          <span class="tagline">Rooftop Lounge</span>
+        </div>
+      </a>
+      <nav id="mainNav" aria-label="Primary navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#amenities" class="nav-link">Amenities</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#offers" class="nav-link">Offers</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#order" class="nav-cta" id="orderNowBtn"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block;vertical-align:middle;margin-right:4px;">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg> Reserve a Table</a>
+      </nav>
+      <div class="header-controls">
+        <button class="ctrl-btn" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
+          <span class="sound-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block;vertical-align:middle;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg></span>
+        </button>
+        <button class="ctrl-btn" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="theme-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block;vertical-align:middle;">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg></span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero" id="home">
+    <!-- Aurora background -->
+    <div class="aurora-bg">
+      <div class="aurora-blob blob-1"></div>
+      <div class="aurora-blob blob-2"></div>
+      <div class="aurora-blob blob-3"></div>
+      <div class="aurora-blob blob-4"></div>
+    </div>
+    <!-- Video BG -->
+    <div class="hero-video-bg">
+      <video autoplay muted loop playsinline id="heroVideo" preload="auto">
+        <source src="images/hero-bg.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge sr-fade">
+          <span class="badge-dot"></span>
+          Chinese • Indian • Continental • Bar
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line-1 hero-welcome-line">Welcome to <span class="accent shimmer-text hero-brand-name" id="heroAccent">Cafe
+              Skylite</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          <span id="typedSubtitle"></span>
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary magnetic-btn" href="#menu" id="exploreMenuBtn">
+            <span class="btn-inner"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2" />
+                <path d="M7 2v20" />
+                <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+              </svg> Explore Menu</span>
+            <span class="btn-ripple"></span>
+          </a>
+          <a class="btn btn-outline magnetic-btn" href="#contact">
+            <span class="btn-inner"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+              </svg> Book Now</span>
+          </a>
+        </div>
+        <div class="hero-info-bar">
+          <div class="hero-info-item">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>11 AM – 11 PM</span>
+          </div>
+          <div class="hero-info-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            <a href="tel:+919031023202">09031023202</a>
+          </div>
+          <div class="hero-info-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>RPS More, Patna</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" id="heroVisual">
+        <div class="hero-tilt-card" id="heroTiltCard">
+          <div class="hero-glow"></div>
+          <div class="parallax-layer layer-back">
+            <img
+              src="images/eabe0674e3d26c7cdd61946c8bc8470b.avif"
+              alt="Cafe Skylite rooftop" class="hero-img-main" />
+          </div>
+    
+          <div class="parallax-layer layer-front">
+            <img
+              src="images/f1799eedda360d2143dc12e294d88a8c_1729913775.avif"
+              alt="Delightful food" class="hero-img-float-2" />
+          </div>
+          
+          
+        </div>
+        <!-- Floating rating badge -->
+        <div class="hero-rating-badge">
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-text">4.7 on Justdial</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator removed as per request -->
+  </section>
+
+  <!-- ═══════ STATS ═══════ -->
+  <section class="stats-bar" id="stats">
+    <div class="stats-confetti-container" id="statsConfetti"></div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item sr">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 010-5H6" />
+              <path d="M18 9h1.5a2.5 2.5 0 000-5H18" />
+              <path d="M4 22h16" />
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+              <path d="M18 2H6v7a6 6 0 0012 0V2z" />
+            </svg></div>
+          <div class="stat-number odometer" data-count="4" data-decimal="7" data-suffix="★" id="stat1">0</div>
+          <div class="stat-label">Justdial Rating</div>
+          <div class="stat-badge">2437+ Reviews</div>
+        </div>
+        <div class="stat-item sr">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg></div>
+          <div class="stat-number odometer" data-count="4" data-decimal="8" data-suffix="★" id="stat2">0</div>
+          <div class="stat-label">Yappe Rating</div>
+          <div class="stat-badge">552+ Reviews</div>
+        </div>
+        <div class="stat-item sr">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg></div>
+          <div class="stat-number odometer" data-count="4" data-decimal="1" data-suffix="★" id="stat3">0</div>
+          <div class="stat-label">EazyDiner Rating</div>
+          <div class="stat-badge">Verified</div>
+        </div>
+        <div class="stat-item sr">
+          <div class="stat-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 10v12" />
+              <path
+                d="M15 5.88L14 10h5.83a2 2 0 011.92 2.56l-2.33 8A2 2 0 0117.5 22H4a2 2 0 01-2-2v-8a2 2 0 012-2h2.76a2 2 0 001.79-1.11L12 2a3.13 3.13 0 013 3.88z" />
+            </svg></div>
+          <div class="stat-number odometer" data-count="100" data-suffix="%" id="stat4">0</div>
+          <div class="stat-label">Rooftop Vibe</div>
+          <div class="stat-badge">Patna's Finest</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ ABOUT ═══════ -->
+  <section class="section-light" id="about">
+    <div class="section-bg-pattern"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Our Story</span>
+        <h2 class="sr scramble-text" data-text="About Cafe Skylite">About Cafe Skylite</h2>
+        <p class="muted sr">Where every meal meets the sky.</p>
+
+      </div>
+      <div class="about-grid">
+        <div class="about-text sr-left">
+          <p>Cafe Skylite is a premium rooftop lounge and dining destination located on the 6th floor of KV Complex,
+            inside the Silkhouse Premier Hotel in Patna. Experience the breathtaking rooftop ambience, perfect for
+            celebrations, romantic dinners, and unwinding under the stars.</p>
+          <p>Our philosophy: <strong>A luxurious culinary journey</strong>. We serve exquisite Indian, Chinese,
+            Continental, North Indian, and Mughlai delicacies. Our full-service bar, live music, and karaoke nights
+            ensure an unforgettable experience.</p>
+          <div class="about-features">
+            <div class="about-feature magnetic-card">
+              <div class="icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 11h18" />
+                  <path d="M5 11a7 7 0 0014 0" />
+                  <path d="M12 18v4" />
+                  <path d="M8 22h8" />
+                </svg></div><span>Multi-Cuisine</span>
+            </div>
+            <div class="about-feature magnetic-card">
+              <div class="icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z" />
+                </svg></div><span>Rooftop Ambience</span>
+            </div>
+            <div class="about-feature magnetic-card">
+              <div class="icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13" />
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                  <circle cx="5.5" cy="18.5" r="2.5" />
+                  <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg></div><span>Bar & Lounge</span>
+            </div>
+            <div class="about-feature magnetic-card">
+              <div class="icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.8 11.3L2 22l10.7-3.79" />
+                  <path d="M4 3h.01" />
+                  <path d="M22 8h.01" />
+                  <path d="M15 2h.01" />
+                  <path d="M22 20h.01" />
+                </svg></div><span>Live Music</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-images sr-right">
+          <div class="about-img-frame">
+            <img
+              src="images/cafe-skylite-rps-more-patna-restaurants-vis0y3w9ny.avif"
+              alt="Cafe Skylite Interior" class="about-img-main" />
+          </div>
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-xiiomw2s9z.avif" alt="Rooftop Drinks" class="about-img-accent" />
+          <div class="about-exp-badge">
+            <div class="exp-num">6th</div>
+            <div class="exp-text">Floor<br>Views</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PHOTO STRIP ═══════ -->
+  <!-- Uses all available images in a seamless infinite-scroll strip -->
+  <section class="photo-strip" aria-hidden="true">
+    <div class="strip-scroll" id="stripScroll">
+      <!-- First set -->
+      <img src="images/eabe0674e3d26c7cdd61946c8bc8470b.avif" alt="Cafe Skylite interior" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-vis0y3w9ny.avif" alt="Cafe Skylite ambience" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-8yo25ptv26.avif" alt="" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-ugtyeqh6ez.avif" alt="Crispy starters" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-xiiomw2s9z.avif" alt="Cafe seating" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-nonhangwd3.avif" alt="Pizza" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-bysir8exnm.avif" alt="Chicken special" loading="lazy" />
+      <img src="images/c9ed6f991d3340db6e2b677572365907_1694531186.webp" alt="Paneer Butter Masala" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-8yo25ptv26.avif" alt="Naan and curry" loading="lazy" />
+      <img src="images/23f705951dec0d36d1ffa54ae22386a9.avif" alt="Fresh salad" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-pfweuaik3e.avif" alt="Celebration event" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-0mp75o0ad0.avif" alt="Rooftop view" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-hmaxgxd1zf.webp" alt="Food platter" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-r7klogulsh.avif" alt="Chef special" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-efvnv0mfrs.avif" alt="Appetizer" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-tpjsjjbars.webp" alt="Dessert" loading="lazy" />
+      <img src="images/f1799eedda360d2143dc12e294d88a8c_1729913775.avif" alt="Drinks bar" loading="lazy" />
+      <img src="images/InSaver.to_659522073_122115561201238741_3013933204055416379_n.jpg" alt="Cafe atmosphere" loading="lazy" />
+      <!-- Duplicate set for seamless loop -->
+      <img src="images/eabe0674e3d26c7cdd61946c8bc8470b.avif" alt="Cafe Skylite interior" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-vis0y3w9ny.avif" alt="Cafe Skylite ambience" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-8yo25ptv26.avif" alt="Paneer Tikka Masala" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-ugtyeqh6ez.avif" alt="Crispy starters" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-xiiomw2s9z.avif" alt="Cafe seating" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-nonhangwd3.avif" alt="Pizza" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-nonhangwd3.avif" alt="Signature dish" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-bysir8exnm.avif" alt="Chicken special" loading="lazy" />
+      <img src="images/c9ed6f991d3340db6e2b677572365907_1694531186.webp" alt="Paneer Butter Masala" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-8yo25ptv26.avif" alt="Naan and curry" loading="lazy" />
+      <img src="images/23f705951dec0d36d1ffa54ae22386a9.avif" alt="Fresh salad" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-pfweuaik3e.avif" alt="Celebration event" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-0mp75o0ad0.avif" alt="Rooftop view" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-hmaxgxd1zf.webp" alt="Food platter" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-r7klogulsh.avif" alt="Chef special" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-efvnv0mfrs.avif" alt="Appetizer" loading="lazy" />
+      <img src="images/cafe-skylite-rps-more-patna-restaurants-tpjsjjbars.webp" alt="Dessert" loading="lazy" />
+      <img src="images/f1799eedda360d2143dc12e294d88a8c_1729913775.avif" alt="Drinks bar" loading="lazy" />
+      <img src="images/InSaver.to_659522073_122115561201238741_3013933204055416379_n.jpg" alt="Cafe atmosphere" loading="lazy" />
+    </div>
+  </section>  
+
+  <!-- ═══════ FOOD SHOWCASE (3D Flip Cards) ═══════ -->
+  <section class="section-dark" id="specialties">
+    <div class="aurora-bg-subtle">
+      <div class="aurora-blob blob-sm-1"></div>
+      <div class="aurora-blob blob-sm-2"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Chef's Picks</span>
+        <h2 class="sr">Our Specialties</h2>
+        <p class="muted sr">Handcrafted with love, served with pride.</p>
+
+      </div>
+      <div class="food-showcase">
+        <!-- 3D Flip Card 1 -->
+        <div class="flip-card sr" id="fc1">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img src="images/cafe-skylite-rps-more-patna-restaurants-hmaxgxd1zf.webp" alt="Paneer Tikka Masala" />
+                <div class="food-card-overlay"><a
+                    href="https://wa.me/919031023202?text=Hi!%20I%20want%20to%20order%20Paneer%20Tikka%20Masala"
+                    class="btn btn-primary btn-sm" target="_blank">Order Now</a></div>
+                <span class="food-tag hot"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z" />
+                  </svg> Bestseller</span>
+                <div class="steam-wrap">
+                  <div class="steam steam-1"></div>
+                  <div class="steam steam-2"></div>
+                  <div class="steam steam-3"></div>
+                </div>
+              </div>
+              <div class="food-card-info">
+                <h4>Paneer Pudina Tikka Masala</h4>
+                <p>Tandoori Paneer Traditional Preparation Cooked In Rich Indian Gravy</p>
+                <div class="food-meta">
+                  <span class="food-price">₹318</span>
+                  <span class="food-rating">★ 4.9</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Paneer Pudina Tikka Masala</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Ingredients</div>
+                <div class="ingredient-pills">
+                  <span>Paneer</span><span>Tikka Masala</span><span>Rich Gravy</span><span>Spices</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M12 2c1 3 2.5 3.5 3.5 4.5A5 5 0 0112 17a5 5 0 01-3.5-10.5C9.5 5.5 11 5 12 2z" />
+                    </svg></span> Spice Level: High</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg></span> Prep Time: 15 min</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M15.45 2.86a4 4 0 015.69 5.69L12 17.69 6.31 12z" />
+                      <path d="M6.31 12L2 22l10-4.31" />
+                    </svg></span> Vegetarian</div>
+                <div><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2" />
+                      <path d="M7 2v20" />
+                      <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+                    </svg></span> Serves: 2-3</div>
+              </div>
+              <a href="https://wa.me/919031023202?text=Hi!%20I%20want%20to%20order%20Paneer%20Tikka%20Masala"
+                class="btn btn-primary btn-sm" target="_blank">Order ₹299</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card 2 -->
+        <div class="flip-card sr" id="fc2">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img
+                  src="images/2b0a41af5abbeabf95cdbbbaed05c5dd_1708525918.avif"
+                  alt="Chicken Tandoori Pizza" />
+                <div class="food-card-overlay"><a
+                    href="https://wa.me/919031023202?text=Hi!%20I%20want%20to%20order%20Chicken%20Tandoori%20Pizza"
+                    class="btn btn-primary btn-sm" target="_blank">Order Now</a></div>
+                <span class="food-tag nonveg"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M15.45 2.86a4 4 0 015.69 5.69L12 17.69 6.31 12z" />
+                    <path d="M6.31 12L2 22l10-4.31" />
+                  </svg> Non-Veg</span>
+                <div class="sizzle-overlay"></div>
+              </div>
+              <div class="food-card-info">
+                <h4>Chicken Tandoori Pizza</h4>
+                <p>Spicy Chicken Roasted, Mozzarella Cheese, Parsley Cheddar Cheese & Olive</p>
+                <div class="food-meta">
+                  <span class="food-price">₹449</span>
+                  <span class="food-rating">★ 4.8</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Chicken Tandoori Pizza</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Ingredients</div>
+                <div class="ingredient-pills">
+                  <span>Chicken</span><span>Mozzarella</span><span>Cheddar</span><span>Olive</span><span>Spices</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M12 2c1 3 2.5 3.5 3.5 4.5A5 5 0 0112 17a5 5 0 01-3.5-10.5C9.5 5.5 11 5 12 2z" />
+                    </svg></span> Spice Level: Medium</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg></span> Prep Time: 20 min</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M15.45 2.86a4 4 0 015.69 5.69L12 17.69 6.31 12z" />
+                      <path d="M6.31 12L2 22l10-4.31" />
+                    </svg></span> Non-Vegetarian</div>
+                <div><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2" />
+                      <path d="M7 2v20" />
+                      <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+                    </svg></span> Serves: 2</div>
+              </div>
+              <a href="https://wa.me/919031023202?text=Hi!%20I%20want%20to%20order%20Chicken%20Tandoori%20Pizza"
+                class="btn btn-primary btn-sm" target="_blank">Order ₹449</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card 3 -->
+        <div class="flip-card sr" id="fc3">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img src="images/c9ed6f991d3340db6e2b677572365907_1694531186.webp" alt="Shake" />
+                <div class="food-card-overlay"><a href="https://wa.me/919031023202?text=Hi!%20Order%20Paneer%20Butter%20Masala"
+                    class="btn btn-primary btn-sm" target="_blank">Order Now</a></div>
+                <span class="food-tag veg"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M11 20A7 7 0 019.8 6.9C15.5 4.9 20 4 20 4s-1 4.5-3 10.1A7 7 0 0111 20z" />
+                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                  </svg> Fresh</span>
+                <div class="steam-wrap">
+                  <div class="steam steam-1"></div>
+                  <div class="steam steam-2"></div>
+                </div>
+              </div>
+              <div class="food-card-info">
+                <h4>Rich Oreo Shake</h4>
+                <p>Milk, Ice Cream, Chocolate Sauce & Oreo Cookies</p>
+                <div class="food-meta">
+                  <span class="food-price">₹149</span>
+                  <span class="food-rating">★ 4.8</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Rich Oreo Shake</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Ingredients</div>
+                <div class="ingredient-pills">
+                  <span>Milk</span><span>Ice Cream</span><span>Chocolate Sauce</span><span>Oreo Cookies</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M12 2c1 3 2.5 3.5 3.5 4.5A5 5 0 0112 17a5 5 0 01-3.5-10.5C9.5 5.5 11 5 12 2z" />
+                    </svg></span> Taste: Sweet</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg></span> Prep Time: 18 min</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M11 20A7 7 0 019.8 6.9C15.5 4.9 20 4 20 4s-1 4.5-3 10.1A7 7 0 0111 20z" />
+                      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                    </svg></span> Vegetarian</div>
+                <div><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2" />
+                      <path d="M7 2v20" />
+                      <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+                    </svg></span> Serves: 1</div>
+              </div>
+              <a href="https://wa.me/919031023202?text=Hi!%20Order%20Paneer%20Butter%20Masala" class="btn btn-primary btn-sm"
+                target="_blank">Order ₹149</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card 4 -->
+        <div class="flip-card sr" id="fc4">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img
+                  src="images/cafe-skylite-rps-more-patna-restaurants-bysir8exnm.avif"
+                  alt="Roast Chicken" />
+                <div class="food-card-overlay"><a href="https://wa.me/919031023202?text=Hi!%20Order%20Roast%20Chicken"
+                    class="btn btn-primary btn-sm" target="_blank">Order Now</a></div>
+                <span class="food-tag nonveg"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <path d="M15.45 2.86a4 4 0 015.69 5.69L12 17.69 6.31 12z" />
+                    <path d="M6.31 12L2 22l10-4.31" />
+                  </svg> Non-Veg</span>
+              </div>
+              <div class="food-card-info">
+                <h4>Roast Chicken</h4>
+                <p>Authentic roast chicken with a blend of delicious spices</p>
+                <div class="food-meta">
+                  <span class="food-price">₹339</span>
+                  <span class="food-rating">★ 4.7</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Roast Chicken</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Ingredients</div>
+                <div class="ingredient-pills">
+                  <span>Chicken</span><span>Spices</span><span>Lemon</span><span>Garlic</span><span>Herbs</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M12 2c1 3 2.5 3.5 3.5 4.5A5 5 0 0112 17a5 5 0 01-3.5-10.5C9.5 5.5 11 5 12 2z" />
+                    </svg></span> Spice Level: Medium</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg></span> Prep Time: 25 min</div>
+                <div><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M15.45 2.86a4 4 0 015.69 5.69L12 17.69 6.31 12z" />
+                      <path d="M6.31 12L2 22l10-4.31" />
+                    </svg></span> Non-Vegetarian</div>
+                <div><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2" />
+                      <path d="M7 2v20" />
+                      <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+                    </svg></span> Serves: 2</div>
+              </div>
+              <a href="https://wa.me/919031023202?text=Hi!%20Order%20Roast%20Chicken" class="btn btn-primary btn-sm"
+                target="_blank">Order ₹339</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ VIDEO 1 ═══════ -->
+  <section class="video-section" id="video-sec">
+    <div class="video-container">
+      <video id="showcaseVideo" preload="auto" muted class="ken-burns">
+        <source src="images/showcase-2.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay-ui" id="videoOverlayUI">
+        <div class="video-play-btn" id="videoPlayBtn" role="button" aria-label="Play video">
+          <div class="play-ring play-ring-1"></div>
+          <div class="play-ring play-ring-2"></div>
+          <svg viewBox="0 0 24 24">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+        </div>
+        <h3>Experience Our Restaurant</h3>
+        <p>Watch the Skylight experience — stunning interiors, sizzling food &amp; happy moments</p>
+      </div>
+      <div class="video-custom-controls" id="videoControls">
+        <div class="video-progress-bar" id="videoProgressBar">
+          <div class="video-progress-fill" id="videoProgressFill"></div>
+          <div class="video-thumb" id="videoThumb"></div>
+        </div>
+        <div class="video-ctrl-row">
+          <button class="vid-btn" id="vidPlayPause"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16" />
+              <rect x="14" y="4" width="4" height="16" />
+            </svg></button>
+          <div class="vid-time" id="vidTime">0:00 / 0:00</div>
+          <button class="vid-btn" id="vidMute"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" />
+            </svg></button>
+          <button class="vid-btn" id="vidPip"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block;vertical-align:middle;">
+              <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+            </svg></button>
+          <button class="vid-btn" id="vidFullscreen"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block;vertical-align:middle;">
+              <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+            </svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ MENU CATEGORIES ═══════ -->
+  <section class="section-light" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Our Menu</span>
+        <h2 class="sr">What We Serve</h2>
+        <p class="muted sr">Exquisite Indian, Chinese, Continental, North Indian, and Mughlai delicacies.</p>
+
+      </div>
+      <div class="menu-tabs-wrap sr">
+        <div class="menu-tabs">
+          <button class="menu-tab active" data-target="tab-indian">Main Course</button>
+          <button class="menu-tab" data-target="tab-pizza-pasta">Pizza & Pasta</button>
+          <button class="menu-tab" data-target="tab-sizzlers">Sizzlers</button>
+          <button class="menu-tab" data-target="tab-starters">Starters & Tikka</button>
+          <button class="menu-tab" data-target="tab-soups-salads">Soups & Salads</button>
+        </div>
+      </div>
+
+      <div class="menu-content-wrap sr">
+        <!-- INDIAN MAIN COURSE -->
+        <div class="menu-tab-content active" id="tab-indian">
+          <h3 class="menu-section-title">Main Course - Indian</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER TIKKA MASALA <span class="veg-icon"></span></span><span class="menu-item-price">299</span></div><p class="menu-item-desc">Tandoori Paneer Traditional Preparation Cooked In Rich Indian Gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER BUTTER MASALA <span class="veg-icon"></span></span><span class="menu-item-price">299</span></div><p class="menu-item-desc">Cubes of fresh cottage cheese cooked with tomato butter base gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">KADHAI PANEER <span class="veg-icon"></span></span><span class="menu-item-price">290</span></div><p class="menu-item-desc">Cubes of indian cottage cheese cooked with capsicum, onion delicious spices thick gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">KHUMB MASALA <span class="veg-icon"></span></span><span class="menu-item-price">299</span></div><p class="menu-item-desc">Cello Fry Bootom Mushroom Cooked In Indian Gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER LABABDAR <span class="veg-icon"></span></span><span class="menu-item-price">290</span></div><p class="menu-item-desc">Cubes of indian cottage cheese cooked with delicious onion masala base gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">VEG JALFREZI <span class="veg-icon"></span></span><span class="menu-item-price">289</span></div><p class="menu-item-desc">An exotics mix of paneer, assorted veg and tasty mix of Indian spices cooked in dry gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PALAK PANEER <span class="veg-icon"></span></span><span class="menu-item-price">279</span></div><p class="menu-item-desc">Puree of tender spinach leaf cooked with homemade cottage cheese</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">SHAHI PANEER <span class="veg-icon"></span></span><span class="menu-item-price">299</span></div><p class="menu-item-desc">Homemade fresh cottage cheese cooked with fresh tomato onion creamy cashew gravy</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER BHURJI <span class="veg-icon"></span></span><span class="menu-item-price">289</span></div><p class="menu-item-desc">Crush indian cottage Cheese cooked with thick onion base</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">VEG NAVRATAN KORMA <span class="veg-icon"></span></span><span class="menu-item-price">309</span></div><p class="menu-item-desc">A Bunch of vegetable cooked with cashew nut gravy and spices</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MIX VEGETABLES <span class="veg-icon"></span></span><span class="menu-item-price">250</span></div><p class="menu-item-desc">Mix vegetable cooked with light masala gravy and spices</p></div>
+          </div>
+        </div>
+
+        <!-- PIZZA & PASTA -->
+        <div class="menu-tab-content" id="tab-pizza-pasta">
+          <h3 class="menu-section-title">Pizza (Veg)</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MARGITA <span class="veg-icon"></span></span><span class="menu-item-price">259</span></div><p class="menu-item-desc">TRUE ITALIAN PIZZA TOPPED WITH CHOICEST CHERRY TOMATO BALSIMIC AMD MOZZARELLA</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">VERDORA <span class="veg-icon"></span></span><span class="menu-item-price">259</span></div><p class="menu-item-desc">BROCCOLI CHERRY TOMATO, YELLOW PEPPER, SPINACH AND CHEDDAR CHEESE</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">GIARDINTERA <span class="veg-icon"></span></span><span class="menu-item-price">259</span></div><p class="menu-item-desc">ASSORTED COTTAGE CHEESE BABY TOMATO MOZZARELLA PEPPERS, BASIL AND BUTTON MUSHROOM</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CAPIRESE CHEESE <span class="veg-icon"></span></span><span class="menu-item-price">259</span></div><p class="menu-item-desc">CHIPOTLE COTTAGE CHEESE CHEDDAR BABY TOMATO MOZZARELLA CHEESE</p></div>
+          </div>
+          
+          <h3 class="menu-section-title" style="margin-top: 2.5rem;">Pizza (Non-Veg)</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">POPY CHICKEN <span class="non-veg-icon"></span></span><span class="menu-item-price">339</span></div><p class="menu-item-desc">PERI-PERI CHICKEN BALLS, CHILLI FLAKES OLIVES, IN MOZZARELLA</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">ROAST CHICKEN <span class="non-veg-icon"></span></span><span class="menu-item-price">339 / 449</span></div><p class="menu-item-desc">TOMATO SAUCE MOZZARELLA CHEESE, PEPPER AND ROAST CHICKEN</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PESTO CHICKEN <span class="non-veg-icon"></span></span><span class="menu-item-price">339 / 449</span></div><p class="menu-item-desc">BASIL PESTO, GRILLED CHICKEN, ONION, MOZZARELLA, AND FETA CHEESE</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CHICKEN TANDOORI PIZZA <span class="non-veg-icon"></span></span><span class="menu-item-price">449</span></div><p class="menu-item-desc">Spicy Chicken Roasted, Mozzarella Cheese, Parsley Cheddar Cheese & Olive</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">SEAFOOD MAXICAN DELIGHT <span class="non-veg-icon"></span></span><span class="menu-item-price">499</span></div><p class="menu-item-desc">A zesty pizza topped with spicy seafood, jalapeños, and Mexican herbs!</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PERI PERI CHICKEN PIZZA <span class="non-veg-icon"></span></span><span class="menu-item-price">449</span></div><p class="menu-item-desc">Fiery peri peri chicken, melty cheese, and bold spices on a crispy crust!</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">THE LAST CHOICE <span class="non-veg-icon"></span></span><span class="menu-item-price">339</span></div><p class="menu-item-desc">SPICY CHICKEN ROASTED, MOZZARELLA CHEESE, PARSLEY, CHEDDAR CHEESE, AND OLIVE</p></div>
+          </div>
+
+          <h3 class="menu-section-title" style="margin-top: 2.5rem;">Pasta</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CREAMY PESTO (VEG/NON VEG)</span><span class="menu-item-price">399/449</span></div><p class="menu-item-desc">Pesto Sauce Mix With Cream & Parmesan Cheese Choice Of Pasta: Penne/Spaghetti</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">TANGY ARRABITA (VEG/NON VEG)</span><span class="menu-item-price">369/419</span></div><p class="menu-item-desc">Pasta Cooked With The Tomato Chilli Flakes And Parmesan Cheese Choice Of Pasta: Penne/Spaghetti</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">WHITE ALFREDO (VEG/NON VEG)</span><span class="menu-item-price">389/439</span></div><p class="menu-item-desc">White Sauce With Cream And Parmesan Cheese Choice Of Pasta: Penne/Spaghetti</p></div>
+          </div>
+        </div>
+
+        <!-- SIZZLERS -->
+        <div class="menu-tab-content" id="tab-sizzlers">
+          <h3 class="menu-section-title">Sizzlers (Veg)</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CHINESE SIZZLER <span class="veg-icon"></span></span><span class="menu-item-price">429</span></div><p class="menu-item-desc">A Combination Of Chinese Rice/Noodles And Chef Special Veg Mix With Seasoning Flavour</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER SASLIC SIZZLER <span class="veg-icon"></span></span><span class="menu-item-price">429</span></div><p class="menu-item-desc">Fresh Paneer & Other Assorted Veggies Marinated In Spicy Sauce & Grilled In Tandoor Served With French Fry, Saute Veggies With Herb Rice</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">COTTAGE CHEESE CORN STEAK SASLIC SIZZLER <span class="veg-icon"></span></span><span class="menu-item-price">429</span></div><p class="menu-item-desc">Grilled Cottage Cheese And Corn Steak Served With French Fry, Saute Veggies, bbq Sauce And Butter Rice</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">BBQ VEGETABLE SIZZLER <span class="veg-icon"></span></span><span class="menu-item-price">449</span></div><p class="menu-item-desc">Oriental Vegies, Cube Of Paneer, French Fry, Saute Veggies Along With Corn And Mash Potato With Mexican Rice Served With Bbq Sauce</p></div>
+          </div>
+          <h3 class="menu-section-title" style="margin-top: 2.5rem;">Sizzlers (Non-Veg)</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CHINESE SIZZLER NON-VEG <span class="non-veg-icon"></span></span><span class="menu-item-price">489</span></div><p class="menu-item-desc">Authentic Chinese Food Served With Smoky Flavour Served In Hot Sizzling</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CHICKEN STEAK CAROLINE SIZZLER <span class="non-veg-icon"></span></span><span class="menu-item-price">499</span></div><p class="menu-item-desc">Grilled Breast Chicken Bell Pepper In Pepper Sauce With Penne Topped With Fried Egg Served With Fries In Hot Sizzling</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PERI PERI CHICKEN WING SIZZLER <span class="non-veg-icon"></span></span><span class="menu-item-price">489</span></div><p class="menu-item-desc">Chicken Wings Marinated In Peri Peri Sauce Served With French Fry, Saute Vegetable And Parsley Rice</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">BBQ CHICKEN SIZZLER <span class="non-veg-icon"></span></span><span class="menu-item-price">499</span></div><p class="menu-item-desc">Chicken Breast Marinated In Bbq Sauce Served With French Fry, Saute Vegetable And Herb Rice</p></div>
+          </div>
+        </div>
+
+        <!-- STARTERS -->
+        <div class="menu-tab-content" id="tab-starters">
+          <h3 class="menu-section-title">Starters & Tikka</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER PUDINA TIKKA <span class="veg-icon"></span></span><span class="menu-item-price">319</span></div><p class="menu-item-desc">Fresh cottage cheese marinated with Flavoured with Mint</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MULTANI STUFFED MUSHROOM TIKKA <span class="veg-icon"></span></span><span class="menu-item-price">329</span></div><p class="menu-item-desc">Fresh Bottom Mushroom Filling With the Chef Special Choice</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">KHUMBH KA KHAJANA <span class="veg-icon"></span></span><span class="menu-item-price">329</span></div><p class="menu-item-desc">Bottom Mushroom Marinated With Tandoor Hurbs N Spice</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MALAI PANEER TIKKA <span class="veg-icon"></span></span><span class="menu-item-price">319</span></div><p class="menu-item-desc">Cubes of fresh cottage chees marinated white cashew paste sauce</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER DILWALE <span class="veg-icon"></span></span><span class="menu-item-price">349</span></div><p class="menu-item-desc">SKY LITE Chef Special</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">SALT & PEPPER <span class="veg-icon"></span></span><span class="menu-item-price">269</span></div><p class="menu-item-desc">(A, Assorted Veg) (B, Mushroom) (C, Baby Corn) (D, American Corn) (E, Panne):- Hot Deep Fried Toast With Salt& Pepper</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CHILLIES, DRY & FRY <span class="veg-icon"></span></span><span class="menu-item-price">289</span></div><p class="menu-item-desc">(A,Paneer) (B,Mushroom) (C,Baby corn) (D,Potato):- Deep Fried Crispy Hot Work Toasted With Chineese Spicy Sauce Along With Ginger And Garlic</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">TANGY CORN <span class="veg-icon"></span></span><span class="menu-item-price">269</span></div><p class="menu-item-desc">Deep Fried American Corn Toast With Spicy Floverd</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">GREEN GARLIC COTTAGE CHEESE <span class="veg-icon"></span></span><span class="menu-item-price">289</span></div><p class="menu-item-desc">Fried Cottage Cheese Toast With Oriental Vege With Tangy Sauce</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">VEG SPRING ROLL <span class="veg-icon"></span></span><span class="menu-item-price">229</span></div><p class="menu-item-desc">Handmade sheets roll with fresh spices vegetables stuffed in deep fry</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">PANEER 65 <span class="veg-icon"></span></span><span class="menu-item-price">289</span></div><p class="menu-item-desc">Fresh indian cottage cheese deep fried with South Indian Hurbs And Curd</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MUSTARD FISH TIKKA <span class="non-veg-icon"></span></span><span class="menu-item-price">399</span></div><p class="menu-item-desc">Fresh fillet cubes of fish marinated with Tandoori spices and roasted and Flovouerd With Mustard</p></div>
+          </div>
+        </div>
+
+        <!-- SOUPS & SALADS -->
+        <div class="menu-tab-content" id="tab-soups-salads">
+          <h3 class="menu-section-title">Soup</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MANCHOW SOUP (VEG/NON VEG)</span><span class="menu-item-price">149/169</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">HOT N SOUR SOUP (VEG/NON VEG)</span><span class="menu-item-price">149/169</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">TALUMIN SOUP (VEG/NON VEG)</span><span class="menu-item-price">159/179</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">LEMON CORIANDER SOUP (VEG/NON VEG)</span><span class="menu-item-price">159/169</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">SWEET CORN SOUP (VEG/NON VEG)</span><span class="menu-item-price">149/169</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CLEAR SOUP (VEG/NON VEG)</span><span class="menu-item-price">159/179</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">TOM YUM SOUP (VEG/NON VEG)</span><span class="menu-item-price">159/179</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">BROCCOLI (VEG/NON VEG)</span><span class="menu-item-price">159/179</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CREAM OF MUSHROOM (VEG/NON VEG)</span><span class="menu-item-price">159/179</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">SMOKY GARLIC SOUP (VEG/NON VEG)</span><span class="menu-item-price">159/179</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">TOMATO DHANIYA SHORBA (VEG/NON VEG)</span><span class="menu-item-price">157</span></div></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CREAM OF TOMATO SOUP (VEG/NON VEG)</span><span class="menu-item-price">157</span></div></div>
+          </div>
+          <h3 class="menu-section-title" style="margin-top: 2.5rem;">Salad (Veg)</h3>
+          <div class="menu-grid">
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">CAESAR SALAD <span class="veg-icon"></span></span><span class="menu-item-price">189</span></div><p class="menu-item-desc">Crispy Lettuce, Sunrise Tomato, Olives, Thyme, Crotons, and Parmesan Flax</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">MEXICAN SALAD <span class="veg-icon"></span></span><span class="menu-item-price">189</span></div><p class="menu-item-desc">A Bunch Of Oriental Vege, Grilled Pepper, Olives, Serve with Lime Dressing, And Garlic Breads</p></div>
+            <div class="menu-item"><div class="menu-item-header"><span class="menu-item-name">FRESH GREEN SALAD <span class="veg-icon"></span></span><span class="menu-item-price">149</span></div><p class="menu-item-desc">Mix Sliced. Cucumber. Carrot, Beetroots, Tomato. Onion</p></div>
+          </div>
+        </div>
+      </div>
+      <!-- Table Booking CTA -->
+      <div class="table-booking-cta sr">
+        <div class="booking-text">
+          <h3>Reserve Your Table</h3>
+          <p>Book in advance for a guaranteed spot on our beautiful rooftop</p>
+        </div>
+        <button class="btn btn-primary magnetic-btn" id="openBookingBtn">
+          <span class="btn-inner">Book a Table →</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ VIDEO 2 ═══════ -->
+  <section class="video-section video-section-2" id="video-2">
+    <div class="video-container">
+      <video id="showcaseVideo2" preload="auto" muted class="ken-burns">
+        <source src="images/showcase-1.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay-ui" id="videoOverlayUI2">
+        <div class="video-play-btn video-play-btn-2" id="videoPlayBtn2" role="button" aria-label="Play video">
+          <div class="play-ring play-ring-1"></div>
+          <div class="play-ring play-ring-2"></div>
+          <svg viewBox="0 0 24 24">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+        </div>
+        <h3>Inside The Skylight Cafe</h3>
+        <p>Take a peek at our beautiful interiors and vibrant atmosphere</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PHOTO GALLERY ═══════ -->
+  <section class="section-light" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Visual Journey</span>
+        <h2 class="sr">Photo Gallery</h2>
+        <p class="muted sr">Our space, food, drinks and celebrations.</p>
+
+      </div>
+      <div class="gallery-filters sr">
+        <button class="filter-btn active" data-filter="interior">Interior</button>
+        <button class="filter-btn" data-filter="food">Food</button>
+        <button class="filter-btn" data-filter="menu">Menu</button>
+      </div>
+      <!-- Bento Gallery Grid -->
+      <div class="gallery-grid bento-grid" id="galleryGrid">
+        <div class="gallery-item tall sr" data-category="interior">
+          <img src="images/eabe0674e3d26c7cdd61946c8bc8470b.avif" alt="Interior" loading="lazy" />
+          <div class="gallery-hover"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg> Floral Interior</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-vis0y3w9ny.avif" alt="Cafe Ambience" loading="lazy" />
+          <div class="gallery-hover"><span>Beautiful Ambience</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/2f3b2592e55be7e161438cad30ec351f.avif" alt="Cafe Ambience" loading="lazy" />
+          <div class="gallery-hover"><span>Beautiful Ambience</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-xiiomw2s9z.avif" alt="Seating" loading="lazy" />
+          <div class="gallery-hover"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9V6a2 2 0 00-2-2H7a2 2 0 00-2 2v3" /><path d="M3 11v5a2 2 0 002 2h14a2 2 0 002-2v-5a2 2 0 00-2-2H5a2 2 0 00-2 2z" /></svg> Cozy Seating</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/9e7eefbc83fa3c38c53f08892bb87958.avif" alt="Rooftop View" loading="lazy" />
+          <div class="gallery-hover"><span>Rooftop View</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/98661b2bb0dd8ba3482b35dbe519cb60.avif" alt="Lounge Area" loading="lazy" />
+          <div class="gallery-hover"><span>Lounge Area</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/cafe-skylite-5329562.webp" alt="Atmosphere" loading="lazy" />
+          <div class="gallery-hover"><span>Vibrant Atmosphere</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/images (2).jpg" alt="Atmosphere" loading="lazy" />
+          <div class="gallery-hover"><span>Vibrant Atmosphere</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-pfweuaik3e.avif" alt="Atmosphere" loading="lazy" />
+          <div class="gallery-hover"><span>Vibrant Atmosphere</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="interior">
+          <img src="images/f1799eedda360d2143dc12e294d88a8c_1729913775.avif" alt="Atmosphere" loading="lazy" />
+          <div class="gallery-hover"><span>Vibrant Atmosphere</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div> 
+
+
+        <div class="gallery-item large sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-8yo25ptv26.avif" alt="" loading="lazy" />
+          <div class="gallery-hover"><span>Speciality</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item large sr" data-category="food">
+          <img src="images/01KX0HF8BG4WVAGHCCXGNPJ0SD.jpg" alt="" loading="lazy" />
+          <div class="gallery-hover"><span>Speciality</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item large sr" data-category="food">
+          <img src="images/2b0a41af5abbeabf95cdbbbaed05c5dd_1708525918.avif" alt="" loading="lazy" />
+          <div class="gallery-hover"><span>Speciality</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-ugtyeqh6ez.avif" alt="Crispy Starters" loading="lazy" />
+          <div class="gallery-hover"><span>Main Course</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+         <div class="gallery-item sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-nonhangwd3.avif" alt="Pizza" loading="lazy" />
+          <div class="gallery-hover"><span>Tandoori Pizza</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item wide sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-bysir8exnm.avif" alt="Chicken" loading="lazy" />
+          <div class="gallery-hover"><span>Spicy Chicken</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-hmaxgxd1zf.webp" alt="Food Platter" loading="lazy" />
+          <div class="gallery-hover"><span>Food Platter</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-r7klogulsh.avif" alt="Appetizer" loading="lazy" />
+          <div class="gallery-hover"><span>Delicious Starters</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/23f705951dec0d36d1ffa54ae22386a9.avif" alt="Appetizer" loading="lazy" />
+          <div class="gallery-hover"><span>Salad</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/b6ac680be65a24d60b2fb3351c45903a.avif" alt="Appetizer" loading="lazy" />
+          <div class="gallery-hover"><span>Plate</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/cafe-skylite-rps-more-patna-restaurants-lnlmowldcc.webp" alt="Appetizer" loading="lazy" />
+          <div class="gallery-hover"><span>Salad</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        <div class="gallery-item sr" data-category="food">
+          <img src="images/images (1).jpg" alt="Appetizer" loading="lazy" />
+          <div class="gallery-hover"><span>Salad</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+
+
+
+        <div class="gallery-item tall sr" data-category="menu">
+          <img src="images/menu111676351157509.webp" alt="Menu Page" loading="lazy" />
+          <div class="gallery-hover"><span>Menu Details</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+
+        
+        
+        
+        <div class="gallery-item sr" data-category="menu">
+          <img src="images/menu11676351152456.webp" alt="Menu Selection" loading="lazy" />
+          <div class="gallery-hover"><span>Menu Selection</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+        
+        
+        <div class="gallery-item wide sr" data-category="menu">
+          <img src="images/menu41676351154026.webp" alt="Chef's Special Menu" loading="lazy" />
+          <div class="gallery-hover"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.8 11.3L2 22l10.7-3.79" /><path d="M4 3h.01" /><path d="M22 8h.01" /><path d="M15 2h.01" /><path d="M22 20h.01" /></svg> Chef's Specials</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+        
+        
+        <div class="gallery-item tall sr" data-category="menu">
+          <img src="images/unnamed (1).webp" alt="Menu Choices" loading="lazy" />
+          <div class="gallery-hover"><span>Menu Choices</span></div>
+          <div class="gallery-heart" data-liked="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg></div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ REVIEWS ═══════ -->
+  <section class="section-dark" id="reviews">
+    <div class="aurora-bg-subtle">
+      <div class="aurora-blob blob-sm-3"></div>
+    </div>
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Testimonials</span>
+        <h2 class="sr">What Customers Say</h2>
+        <p class="muted sr">4.0★ Zomato · 4.3★ Swiggy · 2,076 Justdial Reviews</p>
+
+      </div>
+      <div class="reviews-track-wrap">
+        <div class="reviews-track" id="reviewsTrack">
+          <div class="review-card">
+            <div class="review-stars-anim" data-stars="5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Amazing ambiance and delicious food. The floral ceiling and teal seating create such a beautiful vibe!"
+            </p>
+            <div class="review-author">
+              <div class="review-avatar">RK</div>
+              <div class="review-author-info"><strong>Rahul Kumar</strong><span>Zomato</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars-anim" data-stars="5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Made our birthday special with beautiful decorations. The paneer butter masala is to die for!"</p>
+            <div class="review-author">
+              <div class="review-avatar">PS</div>
+              <div class="review-author-info"><strong>Priya Sharma</strong><span>Swiggy</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars-anim" data-stars="5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"One of premium top quality restaurants. Food, staff service, specifically the owner, hats off. Finest of
+              all at the rooftop. Believe me, fine of all at the rooftop."</p>
+            <div class="review-author">
+              <div class="review-avatar">YP</div>
+              <div class="review-author-info"><strong>Yappe User</strong><span>Yappe.in</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars-anim" data-stars="5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"It is a very good cafe. Hospitable hosts, delicious dishes, beautiful presentation. The ambience is
+              top-notch."</p>
+            <div class="review-author">
+              <div class="review-avatar">JD</div>
+              <div class="review-author-info"><strong>Justdial User</strong><span>Justdial</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars-anim" data-stars="4">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+            </div>
+            <p>"The food quality and the music make this place a must-visit in Patna. Good hygiene and pricing."</p>
+            <div class="review-author">
+              <div class="review-avatar">ED</div>
+              <div class="review-author-info"><strong>EazyDiner Reviewer</strong><span>EazyDiner</span></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars-anim" data-stars="5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p>"Absolutely stunning rooftop view! The cocktails and tandoori items are highly recommended."</p>
+            <div class="review-author">
+              <div class="review-avatar">SK</div>
+              <div class="review-author-info"><strong>Saurabh Kumar</strong><span>Google</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-dots" id="reviewsDots"></div>
+    </div>
+  </section>
+
+  <!-- ═══════ AMENITIES ═══════ -->
+  <section class="section-light" id="amenities">
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Premium Facilities</span>
+        <h2 class="sr">Amenities & Features</h2>
+        <p class="muted sr">Everything you need for a comfortable and entertaining visit.</p>
+      </div>
+      <div class="about-features"
+        style="justify-content: center; flex-wrap: wrap; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+        <div class="about-feature magnetic-card">
+          <div class="icon">❄️</div><span>Air Conditioning</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">🎵</div><span>Live Music</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">🎤</div><span>Karaoke</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">💃</div><span>Dance Floor</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">🌃</div><span>Outdoor Seating</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">🛵</div><span>Home Delivery</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">🛍️</div><span>Takeaway</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">🚬</div><span>Smoking Area</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">♿</div><span>Wheelchair Accessible</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">👶</div><span>Kids Allowed</span>
+        </div>
+        <div class="about-feature magnetic-card">
+          <div class="icon">💳</div><span>Card Payment Accepted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ OFFERS ═══════ -->
+  <section class="order-section" id="offers">
+    <div class="order-particles" id="orderParticles"></div>
+    <div class="container">
+      <div class="order-content">
+        <h2 class="sr">Exclusive Dining Deals</h2>
+        <p class="sr">Unlock premium dining at unbeatable prices with our partners.</p>
+        <div class="order-buttons sr" style="justify-content: center;">
+          <a href="https://www.zomato.com/patna/cafe-skylite-rukanpura/book?utm_source=rwg" target="_blank" class="btn btn-primary magnetic-btn">
+            <span class="btn-inner">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16z"/></svg>
+              Order on Zomato
+            </span>
+            <span class="btn-ripple"></span>
+          </a>
+          <a href="https://www.swiggy.com/restaurants/cafe-skylite-bailey-road-phulwari-sharif-patna-730818/dineout?is_retargeting=true&media_source=GoogleReserve&utm_campaign=GoogleMap&utm_source=GoogleReserve" target="_blank" class="btn btn-outline magnetic-btn">
+            <span class="btn-inner">Order on Swiggy</span>
+          </a>
+          <a href="https://www.eazydiner.com/patna/cafe-skylite-rooftop-lounge-silkhouse-premier-hotel-patna-686826" target="_blank" class="btn btn-outline magnetic-btn">
+            <span class="btn-inner">EazyDiner: 15% to 50% OFF</span>
+          </a>
+          <a href="https://www.district.in/dining/patna/cafe-skylite-rukanpura/book?utm_source=rwg" target="_blank" class="btn btn-outline magnetic-btn">
+            <span class="btn-inner">Book on District</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONTACT ═══════ -->
+  <section class="section-light" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="label sr">Get In Touch</span>
+        <h2 class="sr">Contact &amp; Location</h2>
+
+      </div>
+      <div class="contact-grid">
+        <div class="contact-form-card sr-left">
+          <h4>Send Us a Message</h4>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group floating-label-group">
+              <input type="text" id="name" placeholder=" " required />
+              <label for="name">Your Name</label>
+              <div class="form-focus-bar"></div>
+            </div>
+            <div class="form-group floating-label-group">
+              <input type="email" id="email" placeholder=" " required />
+              <label for="email">Your Email</label>
+              <div class="form-focus-bar"></div>
+            </div>
+            <div class="form-group floating-label-group">
+              <input type="tel" id="phone" placeholder=" " />
+              <label for="phone">Phone Number</label>
+              <div class="form-focus-bar"></div>
+            </div>
+            <div class="form-group floating-label-group">
+              <textarea id="message" placeholder=" " rows="4" required maxlength="300"></textarea>
+              <label for="message">Your Message</label>
+              <div class="form-focus-bar"></div>
+              <div class="char-counter">
+                <svg class="char-ring" viewBox="0 0 36 36">
+                  <circle class="char-ring-bg" cx="18" cy="18" r="15.9155" />
+                  <circle class="char-ring-fill" id="charRingFill" cx="18" cy="18" r="15.9155" />
+                </svg>
+                <span class="char-count" id="charCount">0/300</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-dark submit-btn" style="width:100%" id="submitBtn">
+              <span class="btn-inner submit-text">Send Message →</span>
+              <span class="submit-loader" style="display:none"><svg viewBox="0 0 24 24" width="16" height="16"
+                  fill="none" stroke="currentColor" stroke-width="2" class="spin-loader">
+                  <path d="M21 12a9 9 0 11-6.219-8.56" />
+                </svg></span>
+              <span class="submit-success" style="display:none">✓ Sent!</span>
+            </button>
+            <div id="formMessage" class="form-message"></div>
+          </form>
+        </div>
+        <div class="contact-info-card sr-right">
+          <div class="contact-details">
+            <h4>Cafe Skylite</h4>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg></div>
+              <div class="contact-item-text"><strong>Address</strong><span>6th Floor, KV Complex, Bailey Road, above
+                  Silk House Hotel, RPS More, Kaliket Nagar, Patna, Bihar 801503</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg></div>
+              <div class="contact-item-text"><strong>Phone</strong>
+                <span style="display:block;color:var(--text-secondary);font-size:0.85rem;margin-bottom:6px;">09031023202</span>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                  <a href="tel:+919031023202" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;background:rgba(200,133,58,0.12);border:1px solid rgba(200,133,58,0.3);color:var(--text-primary);font-size:0.78rem;font-weight:600;text-decoration:none;">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    Call Us
+                  </a>
+                  <a href="https://wa.me/919031023202?text=Hi%20Cafe%20Skylite!%20I%20would%20like%20to%20enquire." target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.35);color:#1a7a3c;font-size:0.78rem;font-weight:600;text-decoration:none;">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="#25d366"><path d="M12.01 2.01a10 10 0 00-8.59 15.11L2 22l4.98-1.39a10 10 0 105.03-18.6z"/></svg>
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg></div>
+              <div class="contact-item-text"><strong>Email</strong><a
+                  href="mailto:contact@cafeskylite.com">contact@cafeskylite.com</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg></div>
+              <div class="contact-item-text"><strong>Hours</strong><span>Open all 7 days a week: 11:00 AM – 11:00
+                  PM</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18.5" cy="17.5" r="3.5" />
+                  <circle cx="5.5" cy="17.5" r="3.5" />
+                  <circle cx="15" cy="5" r="1" />
+                  <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
+                </svg></div>
+              <div class="contact-item-text"><strong>Transit</strong><span>Danapur Railway Station (5 km) • Patna Airport (6 km)</span></div>
+            </div>
+            <div class="contact-socials">
+              <a href="https://www.instagram.com/cafeskylite/" target="_blank" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18"
+                  height="18" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg></a>
+              <a href="https://wa.me/919031023202?text=Hi%20Cafe%20Skylite!%20I%20would%20like%20to%20enquire." target="_blank" class="social-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18"
+                  height="18" fill="currentColor">
+                  <path
+                    d="M12.01 2.01a10 10 0 00-8.59 15.11L2 22l4.98-1.39a10 10 0 105.03-18.6zM17.48 15.93c-.24.7-1.25 1.34-1.74 1.43-.49.09-1.11.23-3.64-.81-3.03-1.25-4.97-4.34-5.11-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.76-2.2.98-2.47.24-.26.54-.33.74-.33.2 0 .4 0 .57.02.2.02.43-.07.67.5.26.63.89 2.15.97 2.32.08.17.13.37.02.6-.1.21-.15.35-.3.51-.15.18-.33.38-.46.51-.15.15-.31.32-.12.63.19.32.84 1.37 1.78 2.21 1.21 1.09 2.24 1.42 2.56 1.57.31.14.5.12.69-.09.18-.21.78-.91 1-1.22.2-.3.42-.25.7-.15.3.1 1.83.86 2.14 1.01.32.16.53.24.6.38.08.15.08.83-.16 1.53z" />
+                </svg></a>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <div class="map-pulse-beacon"></div>
+            <iframe src="https://www.google.com/maps?q=25.6180934,85.0476084&z=17&output=embed"
+              allowfullscreen loading="lazy" title="Cafe Skylite Location"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-aurora"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/cafe-skylite-rps-more-patna-restaurants-ba4zejy.avif" alt="Cafe Skylite" />
+          <h4>Cafe Skylite</h4>
+          <p>Patna's Finest Rooftop Experience – Where Every Meal Meets the Sky.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5><a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a
+            href="#gallery">Gallery</a><a href="#reviews">Reviews</a>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5><a href="#specialties">Dine In</a><a href="#amenities">Amenities</a><a
+            href="#offers">Offers</a><a href="#contact">Reservations</a>
+        </div>
+        <div class="footer-col footer-newsletter">
+          <h5>Stay Updated</h5>
+          <p>Get offers &amp; updates.</p>
+          <form class="newsletter-form"
+            onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓';this.querySelector('input').value='';">
+            <input type="email" placeholder="Your email" required /><button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 <strong style="color:#1A0A02;font-family:'Playfair Display',serif">Cafe Skylite</strong></p>
+        <div class="footer-bottom-links"><a href="tel:+919031023202"><svg viewBox="0 0 24 24" width="16" height="16"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.19 12a19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg> Call Us</a><a href="mailto:contact@cafeskylite.com"><svg viewBox="0 0 24 24" width="16" height="16"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg> Email</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════ LIGHTBOX ═══════ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">›</button>
+    <img id="lightboxImg" src="" alt="Gallery image" />
+    <div class="lightbox-heart" id="lightboxHeart"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        style="display:inline-block;vertical-align:middle;">
+        <path
+          d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+      </svg></div>
+    <div class="lightbox-share" id="lightboxShare">
+      <button class="share-btn"
+        onclick="navigator.share&&navigator.share({title:'Cafe Skylite',url:window.location.href})"><svg
+          viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
+        </svg> Share</button>
+    </div>
+  </div>
+
+  <!-- ═══════ TABLE BOOKING MODAL ═══════ -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeBookingModal">×</button>
+      <div class="modal-header">
+        <h3>Reserve a Table</h3>
+        <p>Guaranteed seating &amp; special setup</p>
+      </div>
+      <form class="booking-form" id="bookingForm">
+        <div class="booking-grid">
+          <div class="form-group floating-label-group">
+            <input type="text" id="bName" placeholder=" " required />
+            <label for="bName">Your Name</label>
+          </div>
+          <div class="form-group floating-label-group">
+            <input type="tel" id="bPhone" placeholder=" " required />
+            <label for="bPhone">Phone Number</label>
+          </div>
+          <div class="form-group floating-label-group">
+            <input type="date" id="bDate" placeholder=" " required />
+            <label for="bDate">Date</label>
+          </div>
+          <div class="form-group floating-label-group">
+            <input type="time" id="bTime" placeholder=" " required />
+            <label for="bTime">Time</label>
+          </div>
+          <div class="form-group floating-label-group">
+            <select id="bGuests" required>
+              <option value="" disabled selected>Select guests</option>
+              <option value="2">2 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="8+">8+ Guests</option>
+            </select>
+            <label for="bGuests">No. of Guests</label>
+          </div>
+          <div class="form-group floating-label-group">
+            <select id="bOccasion">
+              <option value="" disabled selected>Select occasion</option>
+              <option value="birthday">Birthday</option>
+              <option value="anniversary">Anniversary</option>
+              <option value="date">Date Night</option>
+              <option value="business">Business</option>
+              <option value="family">Family Gathering</option>
+            </select>
+            <label for="bOccasion">Occasion (optional)</label>
+          </div>
+        </div>
+        <div class="modal-price-note">
+          Min. spend: <strong>₹300 per person</strong> · Free delivery within 3km on ₹300+
+        </div>
+        <div class="availability-indicator" id="availabilityIndicator">
+          <div class="avail-dot avail-green"></div>
+          <span>Tables available today!</span>
+        </div>
+        <a href="https://wa.me/919031023202?text=Hi!%20I'd%20like%20to%20book%20a%20table" target="_blank"
+          class="btn btn-primary" style="width:100%">
+          Confirm via WhatsApp →
+        </a>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- ═══════ CHATBOT ═══════ -->
+  <div class="chatbot-widget" id="chatbotWidget">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat">
+      <span class="chat-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+        </svg></span>
+      <span class="chat-close-icon" style="display:none">×</span>
+      <div class="chatbot-badge">1</div>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow" style="display:none">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M6 13.87A4 4 0 013.13 11 4 4 0 016 4a4 4 0 018 0 4 4 0 012.87 7 4 4 0 01-2.87 2.87V18a2 2 0 01-2 2H8a2 2 0 01-2-2z" />
+          </svg></div>
+        <div>
+          <strong>Cafe Skylite AI</strong>
+          <div class="chatbot-status"><span class="status-dot"></span> Online</div>
+        </div>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+          <span>Welcome to Cafe Skylite! I'm your virtual assistant. Ask me about our rooftop menu, events, or
+            reservations!</span>
+        </div>
+      </div>
+      <div class="chatbot-input-row">
+        <input type="text" id="chatInput" placeholder="Ask anything..." />
+        <button id="chatSend">Send</button>
+      </div>
+      <div class="quick-replies">
+        <button class="quick-reply" data-msg="What are your timings?"><svg viewBox="0 0 24 24" width="16" height="16"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg> Timings</button>
+        <button class="quick-reply" data-msg="What's your best dish?"><svg viewBox="0 0 24 24" width="16" height="16"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2" />
+            <path d="M7 2v20" />
+            <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7" />
+          </svg> Best Dish</button>
+        <button class="quick-reply" data-msg="Do you have offers?"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18.5" cy="17.5" r="3.5" />
+            <circle cx="5.5" cy="17.5" r="3.5" />
+            <circle cx="15" cy="5" r="1" />
+            <path d="M12 17.5V14l-3-3 4-3 2 3h2" />
+          </svg> Offers</button>
+        <button class="quick-reply" data-msg="What is your address?"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg> Address</button>
+        <button class="quick-reply" data-msg="How to order?"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg> How to Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <span>↑</span>
+  </button>
+
+  <script src="cafe.js"></script>
+</body>
+
+</html>

@@ -190,7 +190,7 @@ Available commands:
   6. <a href="https://wishing-birthday-ecru.vercel.app/" target="_blank" class="terminal-link">🎁 Birthday Surprise</a> — Interactive Audio Gift
   7. <a href="https://aniketportfolio-wheat.vercel.app/" target="_blank" class="terminal-link">⚡ Developer Portfolio</a> — Flagship Portfolio
 
-  🚀 <a href="../index.html" class="terminal-link" style="color: #38bdf8; font-weight: 700;">Open Full Live Work Showcase Hub &rarr;</a>
+  🚀 <a href="live-work.html" class="terminal-link" style="color: #38bdf8; font-weight: 700;">Open Full Live Work Showcase Hub &rarr;</a>
 `,
         apps: () => terminalCommands.live(),
         available: () => terminalCommands.roles(),

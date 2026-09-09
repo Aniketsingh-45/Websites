@@ -17,7 +17,7 @@ The following websites are deployed and live on **Vercel** with global CDN cachi
 
 | Website | Live Production URL | Folder | Status | Tech Stack |
 | :--- | :--- | :--- | :---: | :--- |
-| **⚡ Developer Portfolio** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | [`/portfolio`](./portfolio) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketportfolio-wheat.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Glassmorphism` |
+| **⚡ Developer Portfolio** | [**aniketsingh-portfolio-ruby.vercel.app**](https://aniketsingh-portfolio-ruby.vercel.app/) | [`/portfolio`](./portfolio) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketsingh-portfolio-ruby.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Glassmorphism` |
 | **🎬 Aniket Ka Movie Portal** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | [`/movie-website`](./movie-website) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aniketmovie.vercel.app/) | `HTML5` `CSS3` `Vanilla JS` `Vercel Routing` |
 | **🛍️ Looto Ethnic E-Commerce** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | [`/shopping`](./shopping) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://shopping-neon-iota.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Imperial Dark` |
 | **🍲 Dadan Handi Mutton** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | [`/dadan-handi`](./dadan-handi) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://dadan-handi.vercel.app/) | `Vite` `HTML5` `CSS3` `JavaScript` `Motion` |
@@ -36,9 +36,9 @@ This section details all the websites contained in this repository, including li
 ---
 
 ### 1. ⚡ Developer Portfolio & AI Explorer
-* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://aniketportfolio-wheat.vercel.app/)
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://aniketsingh-portfolio-ruby.vercel.app/)
 * **Directory**: [`/portfolio`](./portfolio)
-* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://aniketportfolio-wheat.vercel.app/)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat-square&logo=vercel&logoColor=white)](https://aniketsingh-portfolio-ruby.vercel.app/)
 * **Description**: A modern, high-performance personal developer portfolio built with a dark glassmorphism design system.
 * **Key Features**:
   - 🟢 **Live "Available for Roles" Beacon**: Pulsing radar ring indicator across desktop and mobile menus.
@@ -128,7 +128,7 @@ This section details all the websites contained in this repository, including li
 
 | # | Website Project | Folder | Status | Live Production Link | Tech Stack |
 | :-: | :--- | :--- | :---: | :--- | :--- |
-| 1 | **⚡ Developer Portfolio** | [`/portfolio`](./portfolio) | 🟢 **Live** | [**aniketportfolio-wheat.vercel.app**](https://aniketportfolio-wheat.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
+| 1 | **⚡ Developer Portfolio** | [`/portfolio`](./portfolio) | 🟢 **Live** | [**aniketsingh-portfolio-ruby.vercel.app**](https://aniketsingh-portfolio-ruby.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
 | 2 | **🎬 Aniket Ka Movie** | [`/movie-website`](./movie-website) | 🟢 **Live** | [**aniketmovie.vercel.app**](https://aniketmovie.vercel.app/) | HTML5, CSS3, JS, Vercel Routing |
 | 3 | **🛍️ Looto E-Commerce** | [`/shopping`](./shopping) | 🟢 **Live** | [**shopping-neon-iota.vercel.app**](https://shopping-neon-iota.vercel.app/) | HTML5, CSS3, JS (Vanilla) |
 | 4 | **🍳 Dadan Handi** | [`/dadan-handi`](./dadan-handi) | 🟢 **Live** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | HTML5, CSS3, JS, Vite |
@@ -194,7 +194,7 @@ Every project in this repository is configured with dedicated production `vercel
 ## 👤 Developer
 
 * **Name**: **Aniket Singh**
-* **Portfolio**: [https://aniketportfolio-wheat.vercel.app/](https://aniketportfolio-wheat.vercel.app/)
+* **Portfolio**: [https://aniketsingh-portfolio-ruby.vercel.app/](https://aniketsingh-portfolio-ruby.vercel.app/)
 * **GitHub**: [@Aniketsingh-45](https://github.com/Aniketsingh-45)
 * **LinkedIn**: [linkedin.com/in/aniketsingh45](https://www.linkedin.com/in/aniketsingh45/)
 * **Email**: [aniketsingh4500@gmail.com](mailto:aniketsingh4500@gmail.com)

@@ -6,8 +6,8 @@ node_modules/
 .pnp/
 .pnp.js
 
-# Production builds
-dadan-handi/dist/
+# Production builds (kept for zero-build static monorepo deployment)
+# dadan-handi/dist/
 
 # Logs
 npm-debug.log*

@@ -36,6 +36,10 @@
       "destination": "/dadan-handi/dist/index.html"
     },
     {
+      "source": "/dadan-handi/(.*)",
+      "destination": "/dadan-handi/dist/$1"
+    },
+    {
       "source": "/cafe",
       "destination": "/cafe/index.html"
     },

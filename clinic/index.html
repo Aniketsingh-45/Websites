@@ -128,40 +128,6 @@
             
             <!-- Professional Medical Grid with Live Data HUD & Vitals Animation -->
             <div class="hero-mesh-grid">
-                <!-- Floating Medical HUD Pill Top-Left (Visible on desktop/tablet) -->
-                <div class="hud-item hud-top-left">
-                    <div class="hud-icon"><i class="fa-solid fa-heart-pulse text-emerald"></i></div>
-                    <div class="hud-content">
-                        <span class="hud-label">LIVE CARDIAC & TRIAGE</span>
-                        <div class="hud-vital">
-                            <span class="pulse-wave-anim">
-                                <svg width="40" height="16" viewBox="0 0 40 16" fill="none">
-                                    <path d="M0 8H8L11 2L15 14L19 4L22 10L25 8H40" stroke="#00F0A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                            <span class="vital-value">72 BPM • 99% SpO₂</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Floating Medical HUD Pill Top-Right -->
-                <div class="hud-item hud-top-right">
-                    <div class="hud-icon"><i class="fa-solid fa-shield-halved text-cyan"></i></div>
-                    <div class="hud-content">
-                        <span class="hud-label">EMERGENCY READINESS</span>
-                        <span class="hud-val-text"><span class="hud-dot-live"></span> 24/7 Senior Triage Active</span>
-                    </div>
-                </div>
-
-                <!-- Floating Medical HUD Pill Bottom-Right -->
-                <div class="hud-item hud-bottom-right">
-                    <div class="hud-icon"><i class="fa-solid fa-prescription-bottle-medical text-gold"></i></div>
-                    <div class="hud-content">
-                        <span class="hud-label">IN-HOUSE PHARMACY</span>
-                        <span class="hud-val-text">100% Genuine Medicines Ready</span>
-                    </div>
-                </div>
-
                 <!-- Live Clinic Ticker Ribbon -->
                 <div class="hero-live-ticker">
                     <div class="ticker-wrapper">
@@ -196,10 +162,24 @@
         <div class="container hero-container">
             <!-- Hero Left: Headlines & Core Actions -->
             <div class="hero-content">
-                <div class="hero-badges-wrapper reveal-item">
+                <div class="hero-badges-wrapper">
+                    <div class="hero-vital-badge" title="Live Cardiac Triage Telemetry">
+                        <div class="vital-badge-icon"><i class="fa-solid fa-heart-pulse text-emerald"></i></div>
+                        <div class="vital-badge-content">
+                            <span class="vital-badge-label">LIVE CARDIAC &amp; TRIAGE</span>
+                            <div class="vital-badge-data">
+                                <span class="pulse-wave-anim">
+                                    <svg width="34" height="14" viewBox="0 0 40 16" fill="none">
+                                        <path d="M0 8H8L11 2L15 14L19 4L22 10L25 8H40" stroke="#00F0A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span class="vital-value">72 BPM • 99% SpO₂</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="hero-live-badge">
                         <span class="pulse-dot"></span>
-                        <span>24/7 Emergency & Multi-Specialty</span>
+                        <span>24/7 Emergency &amp; OPD</span>
                     </div>
                     <div class="hero-rating-badge">
                         <i class="fa-solid fa-star text-gold"></i>
@@ -207,19 +187,19 @@
                     </div>
                 </div>
                 
-                <h1 class="hero-title reveal-item">
+                <h1 class="hero-title">
                     <span class="hero-eyebrow-lead">PATNA'S TRUSTED FAMILY CLINIC</span>
                     Complete Healthcare, <br>
                     <span class="gradient-text">Treatment That Heals Family.</span>
                     <span class="hero-title-sub">Multi-Specialty Care, In-House Pharmacy & 24/7 Emergency Support</span>
                 </h1>
                 
-                <p class="hero-description reveal-item">
+                <p class="hero-description">
                     Led by retired PMCH Professors and MD Gold Medalist Physicians at <strong>Nath Villa, Saguna More</strong>. We provide comprehensive outpatient consultations, urgent emergency triage, chronic diabetes care, and maternal health with deep clinical devotion for all age groups.
                 </p>
 
                 <!-- Key Specialty Tag Cloud -->
-                <div class="hero-tag-cloud reveal-item">
+                <div class="hero-tag-cloud">
                     <span class="hero-tag"><i class="fa-solid fa-clock text-emerald"></i> Open 24/7 Always</span>
                     <span class="hero-tag"><i class="fa-solid fa-award text-gold"></i> PMCH Senior Faculty</span>
                     <span class="hero-tag"><i class="fa-solid fa-truck-medical text-cyan"></i> Immediate Triage</span>
@@ -227,7 +207,7 @@
                     <span class="hero-tag"><i class="fa-solid fa-heart-pulse text-cyan"></i> ECG & Pathology Lab</span>
                 </div>
                 
-                <div class="hero-actions reveal-item">
+                <div class="hero-actions">
                     <a href="#contact" class="btn btn-primary-glow btn-lg">
                         <i class="fa-solid fa-calendar-plus"></i>
                         <span>Book Instant Consultation</span>
@@ -239,7 +219,7 @@
                 </div>
 
                 <!-- Patient & Family Trust Proof -->
-                <div class="hero-trust-stack reveal-item">
+                <div class="hero-trust-stack">
                     <div class="avatar-stack">
                         <img src="assests/dr_abhishek_nath.jpg" alt="Dr. Abhishek Nath" class="stack-avatar">
                         <img src="assests/dr_manju_nath.jpg" alt="Dr. Manju Nath" class="stack-avatar">
@@ -254,7 +234,7 @@
             </div>
 
             <!-- Hero Right: Interactive Live Spotlight Card -->
-            <div class="hero-spotlight-wrapper reveal-item">
+            <div class="hero-spotlight-wrapper">
                 <div class="hero-spotlight-card glass-panel" data-tilt>
                     <div class="spotlight-header">
                         <div class="spotlight-live-status">
@@ -307,13 +287,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="hero-scroll-indicator">
-            <a href="#stats" aria-label="Scroll to stats">
-                <span class="mouse-icon"><span class="mouse-wheel"></span></span>
-                <span class="scroll-text">EXPLORE CLINIC</span>
-            </a>
         </div>
     </section>
 

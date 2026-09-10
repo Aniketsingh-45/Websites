@@ -179,7 +179,7 @@ img, video {
 }
 
 section {
-    padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+    padding: clamp(2.5rem, 5vw, 4.2rem) 0;
     position: relative;
     z-index: 1;
 }
@@ -224,9 +224,9 @@ section {
 
 .section-subtitle {
     color: var(--text-secondary);
-    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
     max-width: 680px;
-    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+    margin: 0 auto clamp(1.6rem, 3.2vw, 2.4rem);
 }
 
 /* --- Glassmorphism Panel --- */
@@ -594,11 +594,11 @@ section {
 
 /* --- Hero Section --- */
 .hero {
-    min-height: calc(100vh - 120px);
+    min-height: auto;
     display: flex;
     align-items: center;
     position: relative;
-    padding: clamp(3rem, 6vw, 6rem) 0 clamp(4rem, 6vw, 6.5rem);
+    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3.5rem, 5vw, 4.5rem);
     overflow: hidden;
 }
 
@@ -649,78 +649,59 @@ section {
     background-size: 45px 45px, 45px 45px, 45px 45px;
 }
 
-/* Floating Medical HUD Items */
-.hud-item {
-    position: absolute;
-    display: flex;
+/* Hero Live Vitals Telemetry Badge (Inline in Hero Flow) */
+.hero-vital-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 18px;
-    background: rgba(14, 24, 38, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    gap: 10px;
+    background: rgba(14, 24, 38, 0.85);
+    border: 1px solid rgba(0, 240, 160, 0.35);
     border-radius: var(--radius-full);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 240, 160, 0.05);
-    animation: floatHud 7s infinite ease-in-out alternate;
-    z-index: 1;
-    pointer-events: auto;
+    padding: 5px 14px 5px 8px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 240, 160, 0.1);
+    transition: var(--transition-fast);
 }
 
-.hud-top-left {
-    top: 50px;
-    left: 2%;
-    border-color: rgba(0, 240, 160, 0.3);
+.hero-vital-badge:hover {
+    border-color: var(--accent-emerald);
+    box-shadow: 0 4px 25px rgba(0, 240, 160, 0.25);
+    transform: translateY(-2px);
 }
 
-.hud-top-right {
-    top: 60px;
-    right: 2%;
-    animation-delay: -2.5s;
-    border-color: rgba(6, 182, 212, 0.3);
-}
-
-.hud-bottom-right {
-    bottom: 60px;
-    right: 3%;
-    animation-delay: -5s;
-    border-color: rgba(245, 158, 11, 0.3);
-}
-
-@keyframes floatHud {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-10px); }
-}
-
-.hud-icon {
-    width: 36px;
-    height: 36px;
+.vital-badge-icon {
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(0, 240, 160, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     flex-shrink: 0;
 }
 
-.hud-content {
+.vital-badge-content {
     display: flex;
     flex-direction: column;
+    gap: 2px;
 }
 
-.hud-label {
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 1.2px;
+.vital-badge-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     color: var(--text-muted);
     text-transform: uppercase;
+    line-height: 1;
 }
 
-.hud-vital {
+.vital-badge-data {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    line-height: 1;
 }
 
 .pulse-wave-anim {
@@ -740,26 +721,9 @@ section {
 
 .vital-value {
     font-family: var(--font-heading);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 700;
     color: var(--accent-emerald);
-}
-
-.hud-val-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.hud-dot-live {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent-emerald);
-    box-shadow: 0 0 8px var(--accent-emerald);
 }
 
 /* Live Clinic Ticker Ribbon */
@@ -831,8 +795,8 @@ section {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 1.5rem;
+    gap: 10px;
+    margin-bottom: 1.1rem;
 }
 
 .hero-live-badge {
@@ -842,9 +806,9 @@ section {
     background: rgba(0, 240, 160, 0.1);
     border: 1px solid rgba(0, 240, 160, 0.35);
     backdrop-filter: blur(12px);
-    padding: 6px 16px;
+    padding: 6px 14px;
     border-radius: var(--radius-full);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--accent-emerald);
     box-shadow: 0 0 15px rgba(0, 240, 160, 0.15);
@@ -857,9 +821,9 @@ section {
     background: rgba(14, 24, 38, 0.8);
     border: 1px solid rgba(245, 158, 11, 0.35);
     backdrop-filter: blur(12px);
-    padding: 6px 16px;
+    padding: 6px 14px;
     border-radius: var(--radius-full);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: #F8FAFC;
     box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
@@ -867,34 +831,34 @@ section {
 
 .hero-eyebrow-lead {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
     color: var(--accent-cyan);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.4rem;
     text-transform: uppercase;
 }
 
 .hero-title {
-    font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
     letter-spacing: -0.5px;
     line-height: 1.18;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1rem;
 }
 
 .hero-title-sub {
     display: block;
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(0.92rem, 1.8vw, 1.15rem);
     font-weight: 500;
     color: var(--text-secondary);
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
 }
 
 .hero-description {
-    font-size: clamp(0.98rem, 1.8vw, 1.12rem);
+    font-size: clamp(0.94rem, 1.6vw, 1.05rem);
     color: #94A3B8;
-    line-height: 1.7;
-    margin-bottom: 1.8rem;
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
     max-width: 680px;
 }
 
@@ -906,8 +870,8 @@ section {
 .hero-tag-cloud {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 2.2rem;
+    gap: 8px;
+    margin-bottom: 1.4rem;
 }
 
 .hero-tag {
@@ -917,9 +881,9 @@ section {
     background: rgba(14, 24, 38, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: var(--radius-full);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--text-primary);
     transition: var(--transition-fast);
@@ -934,16 +898,16 @@ section {
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 2.5rem;
+    gap: 14px;
+    margin-bottom: 1.6rem;
 }
 
 /* Patient Trust Proof Stack */
 .hero-trust-stack {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding-top: 1.5rem;
+    gap: 14px;
+    padding-top: 1.1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1157,62 +1121,12 @@ section {
     flex-shrink: 0;
 }
 
-.hero-scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 2;
-}
-
-.hero-scroll-indicator a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-muted);
-}
-
-.hero-scroll-indicator a:hover {
-    color: var(--accent-emerald);
-}
-
-.mouse-icon {
-    width: 22px;
-    height: 36px;
-    border: 2px solid var(--text-muted);
-    border-radius: 12px;
-    position: relative;
-}
-
-.mouse-wheel {
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 8px;
-    background-color: var(--accent-emerald);
-    border-radius: 2px;
-    animation: mouseScroll 1.8s infinite;
-}
-
-@keyframes mouseScroll {
-    0% { opacity: 1; transform: translate(-50%, 0); }
-    100% { opacity: 0; transform: translate(-50%, 12px); }
-}
-
-.scroll-text {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
 /* --- Dynamic Stats Section --- */
 .stats-section {
-    padding: 2rem 0 clamp(3rem, 6vw, 5rem);
-    margin-top: -2rem;
+    padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .stats-grid {
@@ -2246,6 +2160,12 @@ section {
     align-items: flex-start;
 }
 
+.contact-info-col,
+.contact-form-col {
+    min-width: 0;
+    width: 100%;
+}
+
 .contact-lead {
     font-size: 1.05rem;
     color: var(--text-secondary);
@@ -2263,6 +2183,12 @@ section {
     align-items: flex-start;
     gap: 16px;
     padding: 18px 22px;
+    min-width: 0;
+}
+
+.contact-card > div {
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .c-icon {
@@ -2288,6 +2214,7 @@ section {
     font-size: 0.88rem;
     color: var(--text-secondary);
     margin-bottom: 0.3rem;
+    overflow-wrap: break-word;
 }
 
 .c-action-link {
@@ -2312,20 +2239,25 @@ section {
     border-radius: var(--radius-lg);
     overflow: hidden;
     padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .map-wrapper iframe {
     width: 100%;
-    height: 240px;
+    height: clamp(210px, 32vw, 280px);
     border: none;
     border-radius: var(--radius-md);
     filter: invert(90%) hue-rotate(180deg) contrast(1.1);
+    display: block;
 }
 
 /* Booking Card & Form */
 .booking-card {
-    padding: clamp(24px, 4vw, 38px);
+    padding: clamp(20px, 4vw, 38px);
     border-top: 3px solid var(--accent-emerald);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .booking-header {
@@ -2347,6 +2279,7 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    flex-shrink: 0;
 }
 
 .booking-header h3 {
@@ -2362,18 +2295,22 @@ section {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    width: 100%;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    min-width: 0;
+    width: 100%;
 }
 
 .form-group label {
@@ -2393,6 +2330,9 @@ section {
 .appointment-form input,
 .appointment-form select,
 .appointment-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     background: rgba(5, 9, 14, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-md);
@@ -2422,6 +2362,8 @@ section {
     margin-top: 10px;
     padding: 16px;
     font-size: 1.05rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-disclaimer {
@@ -2429,6 +2371,7 @@ section {
     font-size: 0.78rem;
     color: var(--text-muted);
     margin-top: 4px;
+    line-height: 1.4;
 }
 
 /* --- Success Modal --- */
@@ -2786,12 +2729,25 @@ section {
     transform: translateY(0);
 }
 
+/* Above-the-fold Hero Content must always be 100% visible */
+.hero .hero-content,
+.hero .hero-badges-wrapper,
+.hero .hero-title,
+.hero .hero-description,
+.hero .hero-tag-cloud,
+.hero .hero-actions,
+.hero .hero-trust-stack,
+.hero .hero-spotlight-wrapper {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
 
-/* Laptops & Tablets (max-width: 1024px) */
-@media (max-width: 1024px) {
+/* Laptops & Tablets (max-width: 1140px) */
+@media (max-width: 1140px) {
     .nav-phone-btn,
     .btn-nav {
         display: none;
@@ -2807,7 +2763,8 @@ section {
         right: -100%;
         width: 85%;
         max-width: 380px;
-        height: 100vh;
+        height: 100dvh;
+        max-height: 100vh;
         background: rgba(6, 12, 20, 0.98);
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
@@ -2820,6 +2777,7 @@ section {
         z-index: 1001;
         box-shadow: -15px 0 50px rgba(0, 0, 0, 0.8);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-menu-wrapper.active {
@@ -2950,6 +2908,7 @@ section {
 
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
 
     .footer-grid {
@@ -2957,7 +2916,14 @@ section {
     }
 }
 
-/* Medium Tablets & Large Mobiles (max-width: 768px) */
+/* Medium Tablets & Below (max-width: 900px) */
+@media (max-width: 900px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablets & Mobiles (max-width: 768px) */
 @media (max-width: 768px) {
     .top-bar-contact {
         display: none;
@@ -2994,12 +2960,33 @@ section {
         min-width: 100%;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .contact-section {
+        padding-bottom: 95px;
+    }
+
+    .footer-section {
+        padding-bottom: 95px;
     }
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .floating-dock {
+        bottom: 16px;
+        right: 16px;
+        gap: 10px;
+    }
+    
+    .float-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 1.25rem;
+    }
+
+    .modal-card {
+        padding: clamp(20px, 5vw, 30px);
+        max-width: calc(100vw - 32px);
     }
 
     .lightbox-prev { left: 10px; }
@@ -3048,31 +3035,51 @@ section {
         justify-content: center;
     }
 
-    .floating-dock {
-        bottom: 15px;
-        right: 15px;
-    }
-    .float-btn {
-        width: 46px;
-        height: 46px;
-        font-size: 1.2rem;
-    }
-
     .hero-spotlight-card {
         padding: 20px 16px;
     }
     
-    .hud-item {
-        display: none !important;
+    .contact-card {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .booking-card {
+        padding: 20px 16px;
+    }
+
+    .booking-header {
+        gap: 12px;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .booking-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+    }
+
+    .booking-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .appointment-form {
+        gap: 14px;
     }
 
     .form-group input,
     .form-group select,
-    .form-group textarea {
+    .form-group textarea,
+    .appointment-form input,
+    .appointment-form select,
+    .appointment-form textarea {
         font-size: 16px !important; /* Prevents auto-zoom on iOS */
     }
 
-    .form-submit-btn {
+    .btn-submit {
+        padding: 14px;
+        font-size: 0.98rem;
         min-height: 48px;
     }
 }
@@ -3086,8 +3093,3 @@ section {
     }
 }
 
-@media (max-width: 1280px) {
-    .hud-item {
-        display: none;
-    }
-}

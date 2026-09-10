@@ -1203,7 +1203,7 @@ header.scrolled {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
     gap: 2rem;
 }
 
@@ -1276,7 +1276,7 @@ header.scrolled {
    ========================================================================== */
 .certs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 1.5rem;
 }
 
@@ -1284,6 +1284,7 @@ header.scrolled {
     display: flex;
     align-items: flex-start;
     gap: 1.25rem;
+    min-width: 0;
 }
 
 .cert-badge-wrap {
@@ -1300,6 +1301,11 @@ header.scrolled {
 .cert-cdac { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
 .cert-tcs { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
 .cert-cisco { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+
+.cert-content {
+    min-width: 0;
+    flex: 1;
+}
 
 .cert-content h3 {
     font-size: 1.05rem;
@@ -1340,7 +1346,8 @@ header.scrolled {
 
 .github-banner-card {
     text-align: center;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
+    min-width: 0;
 }
 
 .github-banner-card img {
@@ -1352,7 +1359,7 @@ header.scrolled {
 
 .stats-flex-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 1.5rem;
 }
 
@@ -1361,6 +1368,7 @@ header.scrolled {
     align-items: center;
     gap: 1.25rem;
     padding: 1.5rem;
+    min-width: 0;
 }
 
 .stat-metric-icon {
@@ -1373,6 +1381,11 @@ header.scrolled {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-metric-info {
+    min-width: 0;
 }
 
 .stat-metric-info h4 {
@@ -1392,7 +1405,8 @@ header.scrolled {
 .contact-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-    gap: 3rem;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    min-width: 0;
 }
 
 .contact-info-list {
@@ -1400,6 +1414,7 @@ header.scrolled {
     flex-direction: column;
     gap: 1.25rem;
     margin: 2rem 0;
+    min-width: 0;
 }
 
 .contact-card-item {
@@ -1413,6 +1428,7 @@ header.scrolled {
     text-decoration: none;
     color: var(--text-main);
     transition: var(--transition);
+    min-width: 0;
 }
 
 .contact-card-item:hover {
@@ -1429,11 +1445,17 @@ header.scrolled {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
+    flex-shrink: 0;
 }
 .icon-mail { background: rgba(239, 68, 68, 0.15); color: #f87171; }
 .icon-linkedin { background: rgba(10, 102, 194, 0.15); color: #38bdf8; }
 .icon-github { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
 .icon-location { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+
+.contact-item-text {
+    min-width: 0;
+    flex: 1;
+}
 
 .contact-item-text h4 {
     font-size: 0.95rem;
@@ -1443,6 +1465,8 @@ header.scrolled {
 .contact-item-text p {
     font-size: 0.85rem;
     color: var(--text-muted);
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .copy-email-btn {
@@ -1455,6 +1479,7 @@ header.scrolled {
     position: relative;
     padding: 0.5rem;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .copy-email-btn:hover {
@@ -1483,11 +1508,15 @@ header.scrolled {
 
 /* Contact Form */
 .contact-form-card {
-    padding: 2.25rem;
+    padding: clamp(1.25rem, 4vw, 2.25rem);
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .form-group {
     margin-bottom: 1.4rem;
+    min-width: 0;
+    width: 100%;
 }
 
 .form-label {
@@ -1500,6 +1529,8 @@ header.scrolled {
 
 .form-input, .form-textarea {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 0.85rem 1.1rem;
     background: rgba(10, 14, 23, 0.8);
     border: 1px solid var(--border-subtle);
@@ -1788,10 +1819,10 @@ footer {
         justify-content: center;
     }
     
-    .chip-1 { left: -2%; }
-    .chip-2 { right: -2%; }
-    .chip-3 { right: -6%; }
-    .chip-4 { left: -2%; }
+    .chip-1 { left: 0; }
+    .chip-2 { right: 0; }
+    .chip-3 { right: 0; }
+    .chip-4 { left: 0; }
 }
 
 @media (max-width: 900px) {
@@ -1812,8 +1843,9 @@ footer {
         top: 70px;
         left: 0;
         width: 100%;
-        max-height: calc(100vh - 75px);
+        max-height: calc(100dvh - 75px);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         background: rgba(7, 9, 14, 0.96);
         backdrop-filter: blur(25px) saturate(200%);
         -webkit-backdrop-filter: blur(25px);
@@ -2312,8 +2344,12 @@ footer {
         padding: 0.35rem 0.65rem;
         min-height: 36px;
     }
-    .contact-form input,
-    .contact-form textarea {
+    .form-input,
+    .form-textarea,
+    #contactForm input,
+    #contactForm textarea,
+    .contact-form-card input,
+    .contact-form-card textarea {
         font-size: 16px !important; /* Prevents auto-zoom on iOS */
     }
     .project-card {

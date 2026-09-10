@@ -135,11 +135,11 @@ ul {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1rem, 4vw, 1.5rem);
 }
 
 .section {
-  padding: 6.5rem 0;
+  padding: clamp(3.5rem, 6vw, 6.5rem) 0;
   position: relative;
   z-index: 2;
 }
@@ -676,6 +676,9 @@ ul {
     top: var(--nav-height);
     left: 0;
     width: 100%;
+    max-height: calc(100dvh - var(--nav-height));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background: rgba(16, 13, 9, 0.98);
     backdrop-filter: blur(25px);
     border-bottom: 1px solid rgba(245, 158, 11, 0.2);
@@ -839,21 +842,23 @@ ul {
 }
 
 .hero__stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 1.8rem 2.2rem;
-  gap: 1.5rem;
+  gap: 1.2rem;
   border-radius: var(--radius-xl);
 }
 
 .stat-card {
+  flex: 1;
+  min-width: 0;
   text-align: center;
 }
 
 .stat-val {
   font-family: var(--ff-heading);
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-weight: 800;
   color: var(--clr-gold);
   line-height: 1.1;
@@ -861,7 +866,7 @@ ul {
 
 .stat-star {
   color: #F59E0B;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .stat-lbl {
@@ -874,16 +879,32 @@ ul {
 .stat-divider {
   width: 1px;
   height: 48px;
-  background: rgba(245, 158, 11, 0.15);
-  margin: 0 auto;
+  background: rgba(245, 158, 11, 0.2);
+  flex-shrink: 0;
 }
 
 @media (max-width: 860px) {
   .hero__stats {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.8rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
   .stat-divider { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem 0.8rem;
+    padding: 1.2rem 1rem;
+  }
+  .stat-val {
+    font-size: 1.55rem;
+  }
+  .stat-lbl {
+    font-size: 0.75rem;
+  }
 }
 
 /* ============================================================
@@ -1467,6 +1488,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  min-width: 0;
 }
 
 .branch-tab {
@@ -1480,6 +1502,7 @@ ul {
   text-align: left;
   transition: all var(--transition-base);
   position: relative;
+  min-width: 0;
 }
 
 .branch-tab:hover {
@@ -1512,6 +1535,10 @@ ul {
   border-color: transparent;
 }
 
+.branch-tab__meta {
+  min-width: 0;
+}
+
 .branch-tab__meta strong {
   display: block;
   font-family: var(--ff-heading);
@@ -1532,6 +1559,7 @@ ul {
   border-radius: 50%;
   background: var(--clr-gold);
   opacity: 0;
+  flex-shrink: 0;
 }
 
 .branch-tab.active .badge-active-dot {
@@ -1539,8 +1567,11 @@ ul {
 }
 
 .branch-detail-card {
-  padding: 2.4rem;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
   border-radius: var(--radius-xl);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .branch-detail__header {
@@ -1551,6 +1582,11 @@ ul {
   margin-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 1.8rem;
+}
+
+.branch-detail__header-left {
+  min-width: 0;
+  flex: 1;
 }
 
 .branch-chip {
@@ -1565,15 +1601,17 @@ ul {
 
 .branch-detail__title {
   font-family: var(--ff-heading);
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
   color: #FFFFFF;
   margin-bottom: 0.4rem;
+  line-height: 1.25;
 }
 
 .branch-detail__addr {
   font-size: 0.96rem;
   color: var(--clr-text-secondary);
   line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 .branch-rating-pill {
@@ -1588,6 +1626,7 @@ ul {
   font-size: 0.82rem;
   font-weight: 700;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .icon--star {
@@ -1607,6 +1646,7 @@ ul {
 .info-block {
   display: flex;
   gap: 0.8rem;
+  min-width: 0;
 }
 
 .info-icon {
@@ -1625,12 +1665,14 @@ ul {
 .info-block p {
   font-size: 0.88rem;
   color: var(--clr-text-muted);
+  overflow-wrap: break-word;
 }
 
 .phone-link {
   color: var(--clr-gold);
   font-weight: 700;
   text-decoration: underline;
+  overflow-wrap: break-word;
 }
 
 .branch-action-buttons {
@@ -1645,17 +1687,37 @@ ul {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #000000;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (max-width: 900px) {
+.branch-map-embed iframe {
+  width: 100%;
+  height: clamp(220px, 35vw, 290px);
+  display: block;
+}
+
+@media (max-width: 1080px) {
   .branches-layout {
     grid-template-columns: 1fr;
   }
   .branch-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .branch-info-grid {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .branch-detail__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
   .branch-detail-card {
-    padding: 1.6rem;
+    padding: 1.4rem;
   }
 }
 
@@ -1760,13 +1822,14 @@ ul {
 }
 
 .reviews-track {
+  display: grid;
+  grid-template-columns: 1fr;
   position: relative;
-  min-height: 280px;
+  width: 100%;
 }
 
 .review-slide {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
   background: var(--clr-bg-surface);
   border: 1px solid rgba(245, 158, 11, 0.2);
   border-radius: var(--radius-xl);
@@ -1776,16 +1839,21 @@ ul {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
   transform: scale(0.96) translateY(20px);
-  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
   box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .review-slide.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
   transform: scale(1) translateY(0);
   z-index: 2;
+  position: relative;
 }
 
 .review-quote-mark {
@@ -1900,10 +1968,17 @@ ul {
 
 @media (max-width: 600px) {
   .review-slide {
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 1.4rem;
   }
   .review-body {
-    font-size: 1rem;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    margin-bottom: 1.2rem;
+  }
+  .review-quote-mark {
+    font-size: 3.5rem;
+    top: 0.8rem;
+    right: 1rem;
   }
 }
 
@@ -2072,9 +2147,23 @@ ul {
   }
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 100px;
+  }
+}
+
 @media (max-width: 600px) {
   .footer__grid {
     grid-template-columns: 1fr;
+  }
+  .faq-question {
+    padding: 1.1rem 1.2rem;
+    font-size: 1.05rem;
+  }
+  .faq-answer {
+    padding: 0 1.2rem 1.2rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 

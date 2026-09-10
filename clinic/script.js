@@ -197,6 +197,14 @@ function initNavigation() {
 function initScrollAnimations() {
     const revealItems = document.querySelectorAll('.reveal-item');
 
+    // Immediately reveal items already within or above the viewport on initial load
+    revealItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            item.classList.add('is-revealed');
+        }
+    });
+
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
@@ -205,22 +213,26 @@ function initScrollAnimations() {
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
 
-        revealItems.forEach(item => observer.observe(item));
+        revealItems.forEach(item => {
+            if (!item.classList.contains('is-revealed')) {
+                observer.observe(item);
+            }
+        });
     } else {
         revealItems.forEach(item => item.classList.add('is-revealed'));
     }
 
-    // Check if GSAP is loaded for smooth hero text reveal
+    // Check if GSAP is loaded for smooth hero text entrance animation
     if (typeof gsap !== 'undefined') {
-        gsap.from('.hero-badges-wrapper', { opacity: 0, y: -20, duration: 0.8, ease: 'power3.out', delay: 0.2 });
-        gsap.from('.hero-title', { opacity: 0, y: 30, duration: 1, ease: 'power3.out', delay: 0.35 });
-        gsap.from('.hero-description', { opacity: 0, y: 20, duration: 0.9, ease: 'power3.out', delay: 0.5 });
-        gsap.from('.hero-tag', { opacity: 0, scale: 0.9, stagger: 0.08, duration: 0.6, ease: 'power3.out', delay: 0.65 });
-        gsap.from('.hero-actions', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.8 });
-        gsap.from('.hero-trust-stack', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.95 });
-        gsap.from('.hero-spotlight-wrapper', { opacity: 0, x: 40, duration: 1.1, ease: 'power3.out', delay: 0.45 });
+        gsap.fromTo('.hero-badges-wrapper', { opacity: 0, y: -15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.1, clearProps: 'all' });
+        gsap.fromTo('.hero-title', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.25, clearProps: 'all' });
+        gsap.fromTo('.hero-description', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.4, clearProps: 'all' });
+        gsap.fromTo('.hero-tag', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, stagger: 0.06, duration: 0.5, ease: 'power3.out', delay: 0.55, clearProps: 'all' });
+        gsap.fromTo('.hero-actions', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.7, clearProps: 'all' });
+        gsap.fromTo('.hero-trust-stack', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', delay: 0.85, clearProps: 'all' });
+        gsap.fromTo('.hero-spotlight-wrapper', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out', delay: 0.35, clearProps: 'all' });
     }
 }
 

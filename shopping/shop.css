@@ -37,7 +37,10 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-base);
@@ -1081,21 +1084,80 @@ footer {
     .decor-wide { grid-column: span 2; }
 }
 @media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
+    .nav-container {
+        flex-wrap: wrap;
+        padding: 0.6rem 4%;
+        gap: 0.5rem;
+    }
+    .search-container {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        margin: 0.4rem 0 0;
+    }
+    .search-input {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+    }
+    .hero-title { font-size: 2.2rem; }
     .hero-floating-cards { display: none; }
     .banner-layout { flex-direction: column; }
-    .stagger-1,.stagger-2,.stagger-3 { height: 250px; }
+    .stagger-1,.stagger-2,.stagger-3 { height: 220px; }
     .ayurveda-inner { flex-direction: column; }
-    .nav-links { gap: 0.8rem; }
+    .nav-links { gap: 1rem; }
     .nav-links .nav-item span { display: none; }
+    .nav-links .nav-item i { font-size: 1.35rem; margin-bottom: 0; }
     .footer-top { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: 1 / -1; }
+    .cart-sidebar {
+        width: 100%;
+        max-width: 380px;
+    }
 }
+
 @media (max-width: 480px) {
-    main { padding: 1.5rem 4%; }
-    .hero { min-height: 400px; }
-    .hero-content { padding: 2rem; }
+    main { padding: 1.25rem 4%; }
+    .hero { min-height: 380px; }
+    .hero-content { padding: 1.5rem 1rem; }
+    .hero-title { font-size: 1.85rem; }
+    .hero-subtitle { font-size: 0.95rem; }
+    .hero-btns {
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+    }
+    .hero-btns .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+    }
+    .hero-stats {
+        gap: 1rem;
+        justify-content: center;
+    }
+    .craft-mosaic { grid-template-columns: 1fr; }
+    .craft-card.big { grid-column: span 1; height: 240px; }
+    .decor-grid { grid-template-columns: 1fr; }
+    .decor-wide { grid-column: span 1; }
     .footer-top { grid-template-columns: 1fr; }
+    .cart-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+    .btn-checkout {
+        min-height: 48px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title { font-size: 1.6rem; }
+    .logo-text { font-size: 1.8rem; }
+    .search-btn {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.78rem;
+    }
 }
 
 /* ── Mobile Touch & Cursor Optimization ── */

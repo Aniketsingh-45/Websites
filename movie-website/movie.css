@@ -15,6 +15,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -1547,6 +1548,32 @@ button {
     }
 }
 
+@media (max-width: 640px) {
+    .header-container {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px 14px;
+    }
+    .brand-logo {
+        height: 38px;
+        max-width: 150px;
+    }
+    .header-actions {
+        gap: 8px;
+    }
+    .search-box {
+        order: 3;
+        width: 100% !important;
+        margin-top: 4px;
+    }
+    .search-box:focus-within {
+        width: 100% !important;
+    }
+    .search-input {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+    }
+}
+
 @media (max-width: 480px) {
     .hero-title {
         font-size: 1.8rem;
@@ -1554,19 +1581,65 @@ button {
     .hero-synopsis {
         display: none;
     }
+    .hero-spotlight {
+        min-height: 380px;
+        padding: 30px 4%;
+    }
+    .hero-meta {
+        font-size: 0.82rem;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+    }
     .movies-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
     }
     .card-poster-wrapper {
-        height: 200px;
+        height: 190px;
     }
     .btn-download-card {
-        padding: 8px;
+        padding: 8px 6px;
         font-size: 0.75rem;
+        min-height: 38px;
     }
     .card-body {
-        padding: 10px;
+        padding: 10px 8px;
+    }
+    .card-title {
+        font-size: 0.85rem;
+    }
+    .catalog-filters {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .filter-pills {
+        overflow-x: auto;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 360px) {
+    .movies-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-poster-wrapper {
+        height: 260px;
+    }
+    .hero-title {
+        font-size: 1.55rem;
     }
 }
 

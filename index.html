@@ -50,6 +50,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: var(--bg-base);
             color: var(--text-primary);
@@ -492,7 +497,7 @@
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
             gap: 28px;
             margin-bottom: 72px;
         }
@@ -734,6 +739,7 @@
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             .header-inner {
                 flex-direction: column;
@@ -742,7 +748,7 @@
             }
             .header-actions {
                 width: 100%;
-                justify-content: space-between;
+                justify-content: flex-start;
                 flex-wrap: wrap;
                 gap: 8px;
             }
@@ -764,9 +770,119 @@
                 bottom: 14px;
                 right: 14px;
                 padding: 6px 12px 6px 6px;
+                max-width: calc(100vw - 28px);
             }
             .floating-portfolio-dock .dock-text span {
                 display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .brand-text h1 {
+                font-size: 1.15rem;
+            }
+            .brand-text p {
+                font-size: 0.72rem;
+            }
+            .header-actions {
+                flex-direction: column;
+                width: 100%;
+                align-items: stretch;
+            }
+            .btn-portfolio,
+            .beacon-pill,
+            .btn-github {
+                width: 100%;
+                justify-content: center;
+                min-height: 44px;
+            }
+            .hero {
+                padding: 36px 0 24px;
+            }
+            .hero-badge {
+                font-size: 0.78rem;
+                padding: 5px 12px;
+            }
+            .hero h2 {
+                font-size: 1.95rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+            }
+            .filters {
+                gap: 8px;
+                margin-bottom: 32px;
+            }
+            .filter-btn {
+                padding: 8px 14px;
+                font-size: 0.82rem;
+                min-height: 40px;
+            }
+            .project-card {
+                padding: 20px 16px;
+                border-radius: 16px;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .card-desc {
+                font-size: 0.88rem;
+            }
+            .card-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+            .card-actions .btn-primary,
+            .card-actions .btn-secondary {
+                width: 100%;
+                justify-content: center;
+                min-height: 44px;
+                padding: 11px 16px;
+                font-size: 0.88rem;
+            }
+            .creator-spotlight {
+                padding: 18px 14px;
+                border-radius: 16px;
+            }
+            .creator-actions {
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+            }
+            .creator-actions a {
+                width: 100%;
+                justify-content: center;
+                min-height: 44px;
+            }
+            .deployment-box {
+                padding: 22px 16px;
+                border-radius: 16px;
+            }
+            .deployment-box h3 {
+                font-size: 1.25rem;
+            }
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h2 {
+                font-size: 1.7rem;
+            }
+            .project-card {
+                padding: 16px 12px;
+            }
+            .brand-logo {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -845,9 +961,9 @@
             </div>
 
             <!-- Filters -->
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All Projects (7)</button>
-                <button class="filter-btn" data-filter="live">🟢 Live on Vercel (7)</button>
+            <div class="filters" role="group" aria-label="Filter Projects">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects (7)</button>
+                <button class="filter-btn" data-filter="live" aria-pressed="false">🟢 Live on Vercel (7)</button>
             </div>
         </section>
 
@@ -883,7 +999,7 @@
                     <a href="https://aniketsingh-portfolio-ruby.vercel.app/#terminal" target="_blank" rel="noopener" class="btn-secondary" title="Open Interactive Terminal Shell">
                         <i class="fa-solid fa-terminal"></i> Terminal
                     </a>
-                    <a href="/portfolio/" class="btn-secondary" title="View local folder">
+                    <a href="portfolio/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -911,7 +1027,7 @@
                     <a href="https://aniketmovie.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
                     </a>
-                    <a href="/movie-website/" class="btn-secondary" title="View local folder">
+                    <a href="movie-website/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -939,7 +1055,7 @@
                     <a href="https://shopping-neon-iota.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
                     </a>
-                    <a href="/shopping/" class="btn-secondary" title="View local folder">
+                    <a href="shopping/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -967,7 +1083,7 @@
                     <a href="https://dadan-handi.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
                     </a>
-                    <a href="/dadan-handi/" class="btn-secondary" title="View local folder">
+                    <a href="dadan-handi/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -995,7 +1111,7 @@
                     <a href="https://cafe-silk-psi.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
                     </a>
-                    <a href="/cafe/" class="btn-secondary" title="View local folder">
+                    <a href="cafe/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -1023,7 +1139,7 @@
                     <a href="https://clinic-nath-ayog.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
                     </a>
-                    <a href="/clinic/" class="btn-secondary" title="View local folder">
+                    <a href="clinic/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -1051,7 +1167,7 @@
                     <a href="https://wishing-birthday-ecru.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live
                     </a>
-                    <a href="/gift/" class="btn-secondary" title="View local folder">
+                    <a href="gift/index.html" class="btn-secondary" title="View local folder">
                         <i class="fa-solid fa-folder-open"></i> Local
                     </a>
                 </div>
@@ -1117,8 +1233,12 @@
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+                filterBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
                 btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
 
                 const filter = btn.dataset.filter;
                 cards.forEach(card => {

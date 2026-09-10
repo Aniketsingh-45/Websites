@@ -6445,3 +6445,23 @@ img {
     grid-row: span 1;
   }
 }
+
+/* ── Mobile Form & Touch Target Polish ── */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS */
+  }
+  .ctrl-btn, .hamburger, .chatbot-toggle, .back-to-top {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  .modal-card {
+    padding: 18px 14px !important;
+  }
+}

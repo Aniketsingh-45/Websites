@@ -100,8 +100,8 @@ body.dark-theme {
 #ambient-canvas {
     position: fixed;
     inset: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     z-index: 0;
     opacity: 0.6;
@@ -3009,8 +3009,26 @@ section {
 
 /* Extra Small Phones (max-width: 480px) */
 @media (max-width: 480px) {
+    .top-bar-container {
+        justify-content: center;
+        text-align: center;
+        padding: 6px 12px;
+    }
+    
+    .status-text {
+        font-size: 0.78rem;
+    }
+
+    .brand-name {
+        font-size: 1.15rem;
+    }
+    
+    .brand-tagline {
+        font-size: 0.65rem;
+    }
+
     .hero-title {
-        font-size: 2.1rem;
+        font-size: 2rem;
     }
     
     .stats-grid {
@@ -3026,6 +3044,8 @@ section {
     }
     .hero-actions .btn {
         width: 100%;
+        min-height: 44px;
+        justify-content: center;
     }
 
     .floating-dock {
@@ -3044,6 +3064,25 @@ section {
     
     .hud-item {
         display: none !important;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+    }
+
+    .form-submit-btn {
+        min-height: 48px;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.7rem;
+    }
+    .hero-badge-pill {
+        font-size: 0.72rem;
     }
 }
 

@@ -66,8 +66,23 @@ class GalleryManager {
     if (!container) return;
 
     const afterWrapper = container.querySelector(".ba-after-wrapper");
+    const afterImg = afterWrapper ? afterWrapper.querySelector("img") : null;
     const handle = container.querySelector(".ba-handle");
+    if (!afterWrapper || !handle) return;
+
     let isDown = false;
+
+    // Synchronize inner image width to match the parent container exactly
+    const syncImageDimensions = () => {
+      const w = container.offsetWidth;
+      if (afterImg && w > 0) {
+        afterImg.style.width = w + "px";
+        afterImg.style.minWidth = w + "px";
+      }
+    };
+
+    syncImageDimensions();
+    window.addEventListener("resize", syncImageDimensions);
 
     const setPosition = (clientX) => {
       const rect = container.getBoundingClientRect();
@@ -79,6 +94,7 @@ class GalleryManager {
       handle.style.left = `${percentage}%`;
     };
 
+    // Desktop mouse events
     container.addEventListener("mousedown", (e) => {
       isDown = true;
       setPosition(e.clientX);
@@ -93,9 +109,9 @@ class GalleryManager {
       setPosition(e.clientX);
     });
 
-    // Touch events for mobile
+    // Mobile & tablet touch events
     container.addEventListener("touchstart", (e) => {
-      if (e.touches.length > 0) {
+      if (e.touches && e.touches.length > 0) {
         isDown = true;
         setPosition(e.touches[0].clientX);
       }
@@ -105,10 +121,18 @@ class GalleryManager {
       isDown = false;
     });
 
+    window.addEventListener("touchcancel", () => {
+      isDown = false;
+    });
+
     window.addEventListener("touchmove", (e) => {
-      if (!isDown || e.touches.length === 0) return;
+      if (!isDown || !e.touches || e.touches.length === 0) return;
       setPosition(e.touches[0].clientX);
     }, { passive: true });
+
+    // Initial 50% split
+    afterWrapper.style.width = "50%";
+    handle.style.left = "50%";
   }
 
   bindEvents() {

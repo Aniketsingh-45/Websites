@@ -71,87 +71,169 @@ class Beauty3DExperience {
   }
 
   setupLights() {
-    const ambientLight = new THREE.AmbientLight(0xfff0f5, 1.4);
+    const ambientLight = new THREE.AmbientLight(0xFFF6E8, 1.8);
     this.scene.add(ambientLight);
 
-    const mainLight = new THREE.DirectionalLight(0xffe8ba, 2.5);
-    mainLight.position.set(5, 8, 5);
+    // Warm Key Gold Sun Light
+    const mainLight = new THREE.DirectionalLight(0xFFE4A0, 3.2);
+    mainLight.position.set(6, 10, 6);
     this.scene.add(mainLight);
 
-    const roseLight = new THREE.DirectionalLight(0xff6699, 1.8);
-    roseLight.position.set(-6, -4, 4);
+    // Soft Venetian Rose Rim Light
+    const roseLight = new THREE.DirectionalLight(0xFF7597, 2.0);
+    roseLight.position.set(-6, -3, 4);
     this.scene.add(roseLight);
 
-    const pointLight = new THREE.PointLight(0xd4af37, 2.2, 12);
-    pointLight.position.set(0, 2, 4);
+    // Dynamic Specular Highlight Light for Gold & Mirror Gleam
+    const pointLight = new THREE.PointLight(0xFFD700, 2.6, 15);
+    pointLight.position.set(0, 3, 5);
     this.scene.add(pointLight);
+
+    // Cool Backlight for Glass Depth
+    const backLight = new THREE.DirectionalLight(0xE0F2FE, 1.5);
+    backLight.position.set(0, -6, -6);
+    this.scene.add(backLight);
   }
 
   createCompactModel() {
     this.compactGroup = new THREE.Group();
 
-    // Luxury Rose Gold Compact Base (Cylinder)
-    const baseGeo = new THREE.CylinderGeometry(2.3, 2.3, 0.35, 64);
-    const roseGoldMat = new THREE.MeshStandardMaterial({
-      color: 0xc45d7a,
-      metalness: 0.85,
-      roughness: 0.22,
-      clearcoat: 0.5,
-      clearcoatRoughness: 0.1
-    });
-    const baseMesh = new THREE.Mesh(baseGeo, roseGoldMat);
-    baseMesh.rotation.x = Math.PI / 6;
-    this.compactGroup.add(baseMesh);
-
-    // Champagne Gold Rim Ring
-    const rimGeo = new THREE.TorusGeometry(2.32, 0.08, 16, 64);
+    // Premium Materials
     const goldMat = new THREE.MeshStandardMaterial({
-      color: 0xe5c365,
+      color: 0xE8B742,
       metalness: 0.95,
-      roughness: 0.15
+      roughness: 0.18,
+      envMapIntensity: 1.8
     });
-    const rimMesh = new THREE.Mesh(rimGeo, goldMat);
-    rimMesh.rotation.x = Math.PI / 2 + Math.PI / 6;
-    this.compactGroup.add(rimMesh);
 
-    // Inner Cosmetic Powder / Pressed Shimmer Palette
-    const powderGeo = new THREE.CylinderGeometry(2.05, 2.05, 0.38, 64);
+    const deepGoldMat = new THREE.MeshStandardMaterial({
+      color: 0xC59324,
+      metalness: 0.98,
+      roughness: 0.25
+    });
+
+    const mirrorMat = new THREE.MeshPhysicalMaterial({
+      color: 0xFAFAFA,
+      metalness: 0.98,
+      roughness: 0.02,
+      reflectivity: 1.0,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.05
+    });
+
     const powderMat = new THREE.MeshStandardMaterial({
-      color: 0xe89cb2,
-      roughness: 0.85,
-      metalness: 0.1
+      color: 0xE69688, // Velvet Rose Champagne Highlighter
+      roughness: 0.78,
+      metalness: 0.22
     });
-    const powderMesh = new THREE.Mesh(powderGeo, powderMat);
-    powderMesh.position.set(0, 0.02, 0);
-    powderMesh.rotation.x = Math.PI / 6;
-    this.compactGroup.add(powderMesh);
 
-    // Embossed Bella 'B' Monogram Crown Crest in Gold
-    const crestGeo = new THREE.RingGeometry(0.7, 0.85, 32);
-    const crestMesh = new THREE.Mesh(crestGeo, goldMat);
-    crestMesh.position.set(0, 0.22, 0);
-    crestMesh.rotation.x = Math.PI / 2 + Math.PI / 6;
-    this.compactGroup.add(crestMesh);
-
-    // Faceted Crystal Highlight Gem at center
-    const gemGeo = new THREE.OctahedronGeometry(0.55, 1);
-    const gemMat = new THREE.MeshPhysicalMaterial({
-      color: 0xffffff,
-      transmission: 0.75,
-      opacity: 1,
+    const rubyMat = new THREE.MeshPhysicalMaterial({
+      color: 0xBE285C,
+      roughness: 0.1,
+      metalness: 0.1,
+      transmission: 0.65,
       transparent: true,
-      roughness: 0.05,
-      ior: 1.55,
-      reflectivity: 0.9
+      ior: 1.7
     });
-    const gemMesh = new THREE.Mesh(gemGeo, gemMat);
-    gemMesh.position.set(0, 0.35, 0);
-    gemMesh.rotation.x = Math.PI / 6;
-    this.compactGroup.add(gemMesh);
 
-    // Tilting group slightly for elegant editorial presentation
-    this.compactGroup.rotation.x = 0.4;
-    this.compactGroup.rotation.y = -0.3;
+    // ==========================================
+    // 1. BASE PAN ASSEMBLY (Lower Compact)
+    // ==========================================
+    const basePanGroup = new THREE.Group();
+
+    // Outer 24K Gold Lower Shell
+    const baseGeo = new THREE.CylinderGeometry(2.35, 2.2, 0.42, 64);
+    const baseMesh = new THREE.Mesh(baseGeo, goldMat);
+    basePanGroup.add(baseMesh);
+
+    // Fluted Outer Perimeter Bezel
+    const rimGeo = new THREE.TorusGeometry(2.36, 0.10, 24, 64);
+    const rimMesh = new THREE.Mesh(rimGeo, deepGoldMat);
+    rimMesh.rotation.x = Math.PI / 2;
+    rimMesh.position.y = 0.16;
+    basePanGroup.add(rimMesh);
+
+    // Inner Recessed Powder Well
+    const powderGeo = new THREE.CylinderGeometry(2.08, 2.08, 0.32, 64);
+    const powderMesh = new THREE.Mesh(powderGeo, powderMat);
+    powderMesh.position.y = 0.10;
+    basePanGroup.add(powderMesh);
+
+    // Concentric Luxury Relief Rings on Highlighter Cake
+    const outerRingGeo = new THREE.TorusGeometry(1.45, 0.04, 16, 64);
+    const outerRing = new THREE.Mesh(outerRingGeo, goldMat);
+    outerRing.rotation.x = Math.PI / 2;
+    outerRing.position.y = 0.27;
+    basePanGroup.add(outerRing);
+
+    const innerRingGeo = new THREE.TorusGeometry(0.85, 0.035, 16, 64);
+    const innerRing = new THREE.Mesh(innerRingGeo, goldMat);
+    innerRing.rotation.x = Math.PI / 2;
+    innerRing.position.y = 0.27;
+    basePanGroup.add(innerRing);
+
+    // Central Bella Monogram Star Crest
+    const crestGeo = new THREE.OctahedronGeometry(0.35, 0);
+    const crestMesh = new THREE.Mesh(crestGeo, goldMat);
+    crestMesh.position.y = 0.30;
+    crestMesh.scale.set(1, 0.4, 1);
+    basePanGroup.add(crestMesh);
+
+    // Front Push-Button Clasp with Ruby Gem
+    const claspGeo = new THREE.BoxGeometry(0.35, 0.18, 0.22);
+    const claspMesh = new THREE.Mesh(claspGeo, goldMat);
+    claspMesh.position.set(0, 0.1, 2.38);
+    basePanGroup.add(claspMesh);
+
+    const rubyGeo = new THREE.SphereGeometry(0.12, 16, 16);
+    const rubyMesh = new THREE.Mesh(rubyGeo, rubyMat);
+    rubyMesh.position.set(0, 0.1, 2.5);
+    basePanGroup.add(rubyMesh);
+
+    this.compactGroup.add(basePanGroup);
+
+    // ==========================================
+    // 2. OPEN UPPER LID ASSEMBLY (Hinged Back at ~108°)
+    // ==========================================
+    const lidHingePivot = new THREE.Group();
+    lidHingePivot.position.set(0, 0.22, -2.3); // Rear hinge position
+    lidHingePivot.rotation.x = -1.88; // Open angle ~108 degrees
+
+    // Rear Gold Hinge Joint
+    const hingeJointGeo = new THREE.CylinderGeometry(0.12, 0.12, 1.4, 32);
+    const hingeJoint = new THREE.Mesh(hingeJointGeo, deepGoldMat);
+    hingeJoint.rotation.z = Math.PI / 2;
+    lidHingePivot.add(hingeJoint);
+
+    // Lid Shell Group (offset along hinge radius)
+    const lidGroup = new THREE.Group();
+    lidGroup.position.set(0, 0, 2.3);
+
+    // Upper Gold Lid Outer Casing
+    const lidCasingGeo = new THREE.CylinderGeometry(2.35, 2.35, 0.25, 64);
+    const lidCasing = new THREE.Mesh(lidCasingGeo, goldMat);
+    lidGroup.add(lidCasing);
+
+    // Vanity Mirror Glass on Inner Lid Surface
+    const mirrorGeo = new THREE.CylinderGeometry(2.05, 2.05, 0.05, 64);
+    const mirrorMesh = new THREE.Mesh(mirrorGeo, mirrorMat);
+    mirrorMesh.position.y = -0.11;
+    lidGroup.add(mirrorMesh);
+
+    // Mirror Bevel Ring in Deep Gold
+    const mirrorRingGeo = new THREE.TorusGeometry(2.06, 0.06, 16, 64);
+    const mirrorRing = new THREE.Mesh(mirrorRingGeo, deepGoldMat);
+    mirrorRing.rotation.x = Math.PI / 2;
+    mirrorRing.position.y = -0.11;
+    lidGroup.add(mirrorRing);
+
+    lidHingePivot.add(lidGroup);
+    this.compactGroup.add(lidHingePivot);
+
+    // Initial Presentation Orientation
+    this.compactGroup.rotation.x = 0.45;
+    this.compactGroup.rotation.y = -0.35;
+    this.compactGroup.position.y = -0.3;
     this.scene.add(this.compactGroup);
   }
 

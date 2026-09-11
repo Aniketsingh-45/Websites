@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   
+  <!-- Zero-Flash Theme Bootstrapper (Midnight Dark Default) -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem("BELLA_THEME_V2");
+      if (!saved) {
+        saved = "midnight";
+        try {
+          localStorage.setItem("BELLA_THEME_V2", "midnight");
+          localStorage.removeItem("BELLA_THEME");
+        } catch (e) {}
+      }
+      document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+  
   <title>Bella Beauty Makeup Studio | Best Bridal & Beauty Studio in Patna</title>
   <meta name="description" content="Bella Beauty Makeup Studio is Patna's top-rated 5.0-star bridal makeover, hair, skin, and wellness destination in Danapur Bazar / Ram Jaipal Nagar on Gola Road. Book HD & Airbrush bridal makeup appointments online." />
   <meta name="keywords" content="Bella Beauty Makeup Studio, bridal makeup Patna, beauty parlour Danapur Bazar, hair smoothening Gola Road, airbrush bridal makeup Patna, Ram Jaipal Nagar beauty parlour" />
@@ -251,20 +266,55 @@
       <div class="section-head reveal-on-scroll">
         <span class="badge-gold">Studio Interactive Lab</span>
         <h2 class="section-title">Interactive 3D Beauty & Transformation Lookbook</h2>
-        <p class="section-subtitle">Interact with our 3D beauty cosmetic compact in real time, and slide across real bridal makeover results before reserving your session.</p>
+        <p class="section-subtitle">Explore our interactive 3D bridal vanity ensemble in real time—switch pigment shades, inspect couture details, and preview authentic bridal makeover results before reserving your session.</p>
       </div>
 
       <div class="experience-grid">
         <!-- 3D Interactive WebGL Model Canvas -->
         <div class="three-canvas-card reveal-on-scroll">
           <div class="three-canvas-overlay">
-            <div>
-              <span class="badge-rose">3D WebGL Canvas</span>
-              <h4 style="font-size: 1.1rem; margin-top: 4px;">Bella 24K Gold Highlighter Compact</h4>
+            <div class="three-overlay-header">
+              <span class="badge-rose">Haute 3D Studio Lab</span>
+              <h4 class="three-title">Royal Bridal Vanity Ensemble</h4>
             </div>
-            <span class="three-tip">✨ Move mouse / Drag to rotate</span>
+            <div class="three-overlay-actions">
+              <span id="three-shade-pill" class="badge-gold" title="Active Pigment Shade">
+                <span class="shade-dot-preview" id="shade-dot-preview" style="background: #B82255;"></span>
+                <span id="shade-name-label">Royal Bridal Ruby</span>
+              </span>
+              <button type="button" class="three-spin-btn" id="three-spin-btn" title="Toggle Auto-Orbit" aria-label="Toggle Auto Orbit">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                </svg>
+                <span id="spin-btn-text">Auto Orbit</span>
+              </button>
+            </div>
           </div>
+
           <canvas id="threejs-canvas"></canvas>
+
+          <!-- Interactive Bottom Controls Dock -->
+          <div class="three-canvas-dock">
+            <!-- Shade Swatches -->
+            <div class="three-dock-group">
+              <span class="three-dock-label">Shade:</span>
+              <div class="three-swatches-wrap" id="three-swatches-wrap">
+                <button type="button" class="shade-swatch active" data-shade="ruby" style="--swatch-color:#B82255;" title="Royal Bridal Ruby" aria-label="Royal Bridal Ruby"></button>
+                <button type="button" class="shade-swatch" data-shade="champagne" style="--swatch-color:#DFB74C;" title="24K Liquid Gold" aria-label="24K Liquid Gold"></button>
+                <button type="button" class="shade-swatch" data-shade="rose" style="--swatch-color:#E85285;" title="Rose Quartz Blush" aria-label="Rose Quartz Blush"></button>
+                <button type="button" class="shade-swatch" data-shade="plum" style="--swatch-color:#6E1A47;" title="Midnight Velvet Plum" aria-label="Midnight Velvet Plum"></button>
+                <button type="button" class="shade-swatch" data-shade="coral" style="--swatch-color:#C95B42;" title="Parisian Sunset Coral" aria-label="Parisian Sunset Coral"></button>
+              </div>
+            </div>
+
+            <!-- View Camera Focus -->
+            <div class="three-dock-group three-view-tabs" id="three-view-tabs">
+              <button type="button" class="three-tab-btn active" data-view="all">Vanity Set</button>
+              <button type="button" class="three-tab-btn" data-view="compact">Compact</button>
+              <button type="button" class="three-tab-btn" data-view="lipstick">Lipstick</button>
+              <button type="button" class="three-tab-btn" data-view="brush">Brush</button>
+            </div>
+          </div>
         </div>
 
         <!-- Before / After Interactive Slider -->

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="champagne">
+<html lang="en" data-theme="midnight">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -91,15 +91,29 @@
       <div class="nav-actions">
         <!-- Theme Toggle (Daytime Champagne vs Midnight Velvet) -->
         <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Mood Theme">
-          <span id="theme-toggle-icon">
+          <span id="theme-toggle-icon" title="Switch to Daytime Champagne Luxe">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
           </span>
         </button>
 
         <button type="button" class="btn btn-gold btn-sm" onclick="bookingEngine.openBooking()">
-          Book Appointment
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:-2px; margin-right:3px;">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book Appointment</span>
         </button>
 
         <!-- Mobile Menu Toggle Button -->
@@ -153,7 +167,15 @@
           </button>
           
           <a href="#services" class="btn btn-outline">
-            View Service Menu
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+            <span>View Service Menu</span>
           </a>
 
           <a href="https://wa.me/919217002598?text=Hi%20Bella%20Beauty%20Makeup%20Studio%2C%20I%20would%20like%20to%20inquire%20about%20bridal%20makeup%20packages." target="_blank" class="btn btn-whatsapp">
@@ -272,7 +294,13 @@
           <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
             <span>Drag the center divider sideways to inspect skin texture & finish</span>
             <button type="button" class="btn btn-sm btn-primary" onclick="bookingEngine.openBooking('bridal-hd')">
-              Book This Bridal Look
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Book This Bridal Look</span>
             </button>
           </div>
         </div>
@@ -858,7 +886,10 @@
                   Add to Calendar (.ics)
                 </button>
                 <button type="button" class="btn btn-primary" style="flex: 1;" onclick="bookingEngine.closeBooking()">
-                  Done
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Done</span>
                 </button>
               </div>
             </div>
@@ -870,14 +901,26 @@
       <!-- Modal Footer Stepper Navigation -->
       <div class="booking-modal-footer" id="booking-modal-footer">
         <button type="button" class="btn btn-outline btn-sm" id="booking-prev-btn" onclick="bookingEngine.prevStep()" style="display: none;">
-          ← Previous Step
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Previous Step</span>
         </button>
         <div style="flex: 1;"></div>
         <button type="button" class="btn btn-primary btn-sm" id="booking-next-btn" onclick="bookingEngine.nextStep()">
-          Continue →
+          <span>Continue</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </button>
         <button type="button" class="btn btn-gold btn-sm" id="booking-submit-btn" onclick="document.getElementById('booking-details-form').requestSubmit()" style="display: none;">
-          Confirm Booking
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <span>Confirm Booking</span>
         </button>
       </div>
 
@@ -917,7 +960,13 @@
       <div style="padding: 14px 16px; background: #120610; color: #fff; display: flex; justify-content: space-between; align-items: center;">
         <span id="reel-title" style="font-size: 0.92rem; font-weight: 600;"></span>
         <button type="button" class="btn btn-sm btn-primary" onclick="bookingEngine.openBooking('bridal-hd')">
-          Book Look
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book Look</span>
         </button>
       </div>
     </div>
@@ -964,7 +1013,10 @@
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%;">
-          Publish Verified Review
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Publish Verified Review</span>
         </button>
       </form>
     </div>
@@ -977,8 +1029,21 @@
       <div style="font-size: 0.76rem; color: #0E9F6E; font-weight: 600;">● Open 11 AM - 9 PM</div>
     </div>
     <div style="display: flex; gap: 8px;">
-      <a href="tel:+918235215577" class="btn btn-sm btn-outline" style="padding: 8px 12px;">📞 Call</a>
-      <button type="button" class="btn btn-sm btn-gold" onclick="bookingEngine.openBooking()">Book Slot</button>
+      <a href="tel:+918235215577" class="btn btn-sm btn-outline" style="padding: 8px 14px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>Call</span>
+      </a>
+      <button type="button" class="btn btn-sm btn-gold" onclick="bookingEngine.openBooking()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>Book Slot</span>
+      </button>
     </div>
   </div>
 

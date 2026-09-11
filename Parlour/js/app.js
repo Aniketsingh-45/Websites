@@ -75,7 +75,7 @@ function renderInstagramFeed() {
  */
 function initThemeManager() {
   const toggleBtn = document.getElementById("theme-toggle-btn");
-  const currentTheme = localStorage.getItem("BELLA_THEME") || "champagne";
+  const currentTheme = localStorage.getItem("BELLA_THEME") || "midnight";
 
   document.documentElement.setAttribute("data-theme", currentTheme);
   updateThemeIcon(currentTheme);
@@ -192,7 +192,13 @@ function renderServices() {
 
         <div class="service-card-footer">
           <button type="button" class="btn btn-primary" style="flex: 1;" onclick="bookingEngine.openBooking('${s.id}')">
-            Book Service
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline-block; vertical-align:-2px; margin-right:3px;">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Book Service</span>
           </button>
           <a href="https://wa.me/919217002598?text=${encodeURIComponent(`Hi Bella Beauty Studio, I'm interested in the ${s.name} (₹${s.price.toLocaleString("en-IN")}). Could you share more details?`)}" target="_blank" class="btn btn-outline btn-icon-only" title="Inquire on WhatsApp" style="color: #25D366; border-color: rgba(37, 211, 102, 0.4);">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

@@ -41,8 +41,67 @@ const STUDIO_DATA = {
     justdial: "https://www.justdial.com/Patna/Bella-Beauty-Makeup-Studio-Near-By-Balajii-Medical-Danapur-Bazar/0612PX612-X612-250419160653-P8U8_BZDET",
     magicpin: "https://magicpin.in/Patna/Ram-Jaipal-Nagar/Beauty/Bella-Beauty-Makeup-Studio/store/1a8b91c"
   },
-  logo: "https://lh3.googleusercontent.com/lbiiGUTvtCEVZpJ8c7-mVsteynFC0UEPAiqoK8J0Xr7JvIqDgbGp9l09ArrPzBYzEtbnPECEvNR0iGGOD0o0XMJv-FQ=s0-rw",
+  logo: "assets/bella_logo.jpg",
   coverImage: "https://content3.jdmagicbox.com/v2/comp/patna/u8/0612px612.x612.250419160653.p8u8/catalogue/rvucb3y2p49g7dk-j8sbyqzlr3.jpg",
+
+  instagramData: {
+    handle: "@bellabeautymakeupstudio",
+    profileUrl: "https://www.instagram.com/bellabeautymakeupstudio/",
+    avatar: "assets/bella_logo.jpg",
+    postsCount: 124,
+    followersCount: "100+",
+    bio: "💄 Bella Beauty Makeup Studio\n✨ Bridal | Party | HD Makeup\n📍 Expert in Glow Transformation\n📲 Book Your Appointment\n📩 DM / WhatsApp",
+    posts: [
+      {
+        id: "ig-1",
+        image: "assets/ig_post_6.jpg",
+        caption: "Official Transformation Showcase & Real Client Before/After Glow 💖 Enhancing your natural beauty!",
+        likes: 184,
+        comments: 29,
+        tag: "Transformation"
+      },
+      {
+        id: "ig-2",
+        image: "assets/ig_post_1.jpg",
+        caption: "Radha bridal aesthetics with delicate yellow floral crown and royal maroon velvet lehenga ✨",
+        likes: 242,
+        comments: 41,
+        tag: "Bridal Couture"
+      },
+      {
+        id: "ig-3",
+        image: "assets/ig_post_3.jpg",
+        caption: "Serene garden bridal shoot — subtle shimmer and perfectly contoured dewy skin tone 🌿",
+        likes: 198,
+        comments: 32,
+        tag: "Editorial"
+      },
+      {
+        id: "ig-4",
+        image: "assets/ig_post_4.jpg",
+        caption: "Golden hour bridal perfection. Moments crafted with passion at Bella Beauty Studio 👑",
+        likes: 215,
+        comments: 36,
+        tag: "Golden Hour"
+      },
+      {
+        id: "ig-5",
+        image: "assets/ig_post_5.jpg",
+        caption: "Pre-wedding celebrations glow! Lightweight, transfer-proof makeup that stays all night long ✨",
+        likes: 176,
+        comments: 24,
+        tag: "Party Glam"
+      },
+      {
+        id: "ig-6",
+        image: "assets/ig_post_2.jpg",
+        caption: "Detailed eye artistry & soft lip contour for our gorgeous Patna client 💄",
+        likes: 230,
+        comments: 38,
+        tag: "Eye Artistry"
+      }
+    ]
+  },
 
   stylists: [
     {

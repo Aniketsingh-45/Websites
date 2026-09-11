@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="champagne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <title>Bella Beauty Makeup Studio | Best Bridal & Beauty Studio in Patna</title>
+  <meta name="description" content="Bella Beauty Makeup Studio is Patna's top-rated 5.0-star bridal makeover, hair, skin, and wellness destination in Danapur Bazar / Ram Jaipal Nagar on Gola Road. Book HD & Airbrush bridal makeup appointments online." />
+  <meta name="keywords" content="Bella Beauty Makeup Studio, bridal makeup Patna, beauty parlour Danapur Bazar, hair smoothening Gola Road, airbrush bridal makeup Patna, Ram Jaipal Nagar beauty parlour" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bella Beauty Makeup Studio | Luxury Bridal & Beauty Studio Patna" />
+  <meta property="og:description" content="Rated 5.0 Stars with 154+ Customer Reviews on Justdial. Experience royal bridal transformations, hair styling, hydra facials, and nail art." />
+  <meta property="og:image" content="https://content3.jdmagicbox.com/v2/comp/patna/u8/0612px612.x612.250419160653.p8u8/catalogue/rvucb3y2p49g7dk-j8sbyqzlr3.jpg" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://lh3.googleusercontent.com/lbiiGUTvtCEVZpJ8c7-mVsteynFC0UEPAiqoK8J0Xr7JvIqDgbGp9l09ArrPzBYzEtbnPECEvNR0iGGOD0o0XMJv-FQ=s0-rw" type="image/x-icon" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/booking.css" />
+
+  <!-- Three.js (r128) for 3D Experience -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Notification & Quick Info Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-info-group">
+        <span class="live-status-text">
+          <span class="status-indicator"><span class="status-dot"></span> Open Today: 11:00 AM – 9:00 PM</span>
+        </span>
+        <span style="color: var(--text-muted); font-size: 0.8rem;">📍 Sonu Market, Gola Rd, Danapur Bazar, Patna</span>
+      </div>
+      <div class="top-info-group">
+        <a href="tel:+918235215577" style="font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: 6px;">
+          📞 +91 82352 15577
+        </a>
+        <button type="button" class="btn btn-sm btn-outline" style="padding: 4px 12px; font-size: 0.75rem;" onclick="bookingEngine.openMyBookings()">
+          📅 My Bookings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <img src="https://lh3.googleusercontent.com/lbiiGUTvtCEVZpJ8c7-mVsteynFC0UEPAiqoK8J0Xr7JvIqDgbGp9l09ArrPzBYzEtbnPECEvNR0iGGOD0o0XMJv-FQ=s0-rw" alt="Bella Beauty Makeup Studio Logo" class="brand-logo-img" />
+        <div class="brand-text-wrap">
+          <span class="brand-title">Bella Beauty</span>
+          <span class="brand-subtitle">Makeup Studio & Salon</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#experience" class="nav-link">3D & Lookbook</a></li>
+          <li><a href="#reels" class="nav-link">Reels & Videos</a></li>
+          <li><a href="#gallery" class="nav-link">Portfolio</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#location" class="nav-link">Contact</a></li>
+          <li><a href="#faqs" class="nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Action CTAs -->
+      <div class="nav-actions">
+        <!-- Theme Toggle (Daytime Champagne vs Midnight Velvet) -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Mood Theme">
+          <span id="theme-toggle-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <button type="button" class="btn btn-gold btn-sm" onclick="bookingEngine.openBooking()">
+          Book Appointment
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-backdrop-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-content-col">
+        <div class="hero-badge-wrap">
+          <span class="badge-gold">
+            ⭐ 5.0 Star Rated (154+ Reviews)
+          </span>
+          <span class="badge-rose">
+            ✓ Justdial & Magicpin Verified
+          </span>
+        </div>
+
+        <h1 class="hero-heading">
+          Elegance Reimagined. The Art of <span class="text-rose-gradient">Haute Bridal</span> & Luxury Glamour.
+        </h1>
+
+        <p class="hero-desc">
+          Welcome to Patna's distinguished bridal couture and makeover sanctuary in Danapur Bazar. Specializing in flawless HD Base, 24-hour Airbrush precision, French hair balayage, and clinical hydra-derm glow therapies.
+        </p>
+
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary" onclick="bookingEngine.openBooking()">
+            <span>Reserve Your Slot</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          
+          <a href="#services" class="btn btn-outline">
+            View Service Menu
+          </a>
+
+          <a href="https://wa.me/919217002598?text=Hi%20Bella%20Beauty%20Makeup%20Studio%2C%20I%20would%20like%20to%20inquire%20about%20bridal%20makeup%20packages." target="_blank" class="btn btn-whatsapp">
+            <span>💬 WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <div class="trust-val">5.0★</div>
+            <div class="trust-lbl">Justdial<br/>Verified</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-val">100%</div>
+            <div class="trust-lbl">Original Luxury<br/>Cosmetics</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-val">8+ Yrs</div>
+            <div class="trust-lbl">Master Bridal<br/>Artistry</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-val">7 Days</div>
+            <div class="trust-lbl">Open All Week<br/>11 AM – 9 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card with Real Bridal Makeover from Justdial -->
+      <div class="hero-visual-col">
+        <div class="hero-visual-card">
+          <img src="https://content3.jdmagicbox.com/v2/comp/patna/u8/0612px612.x612.250419160653.p8u8/catalogue/rvucb3y2p49g7dk-j8sbyqzlr3.jpg" alt="Signature Bridal Makeover by Bella Beauty Studio" class="hero-main-img" />
+          
+          <div class="hero-floating-badge animate-float">
+            <div>
+              <div style="font-weight: 700; font-size: 0.92rem;">Bella Signature Bride</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted);">Traditional Bihari Royal Makeover</div>
+            </div>
+            <div class="rating-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive 3D Beauty Showcase & Makeover Comparison Section -->
+  <section class="makeover-experience-section" id="experience">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-gold">Studio Interactive Lab</span>
+        <h2 class="section-title">Interactive 3D Beauty & Transformation Lookbook</h2>
+        <p class="section-subtitle">Interact with our 3D beauty cosmetic compact in real time, and slide across real bridal makeover results before reserving your session.</p>
+      </div>
+
+      <div class="experience-grid">
+        <!-- 3D Interactive WebGL Model Canvas -->
+        <div class="three-canvas-card reveal-on-scroll">
+          <div class="three-canvas-overlay">
+            <div>
+              <span class="badge-rose">3D WebGL Canvas</span>
+              <h4 style="font-size: 1.1rem; margin-top: 4px;">Bella Rose-Gold Compact</h4>
+            </div>
+            <span class="three-tip">✨ Move mouse / Drag to rotate</span>
+          </div>
+          <canvas id="threejs-canvas"></canvas>
+        </div>
+
+        <!-- Before / After Interactive Slider -->
+        <div class="reveal-on-scroll">
+          <div class="ba-slider-container" id="ba-slider-container">
+            <!-- Before Image Layer (Natural Pre-Makeover) -->
+            <img src="https://content3.jdmagicbox.com/v2/comp/patna/u8/0612px612.x612.250419160653.p8u8/catalogue/ygaw8wuj85xhzxa-cu03tlnwir.jpg" alt="Before Look" class="ba-image-layer" />
+            <span class="ba-label ba-label-before">Before Glamour</span>
+
+            <!-- After Image Layer (Bridal Transformation) -->
+            <div class="ba-after-wrapper">
+              <img src="https://content3.jdmagicbox.com/v2/comp/patna/u8/0612px612.x612.250419160653.p8u8/catalogue/rvucb3y2p49g7dk-j8sbyqzlr3.jpg" alt="After Bridal Makeover" class="ba-image-layer" />
+              <span class="ba-label ba-label-after">Signature Bridal After</span>
+            </div>
+
+            <!-- Drag Handle -->
+            <div class="ba-handle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="15 18 9 12 15 6"></polyline>
+                <polyline points="9 18 3 12 9 6" style="display: none;"></polyline>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 0.85rem; color: var(--text-muted);">
+            <span>Drag the center divider sideways to inspect skin texture & finish</span>
+            <button type="button" class="btn btn-sm btn-primary" onclick="bookingEngine.openBooking('bridal-hd')">
+              Book This Bridal Look
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services & Menu Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-gold">Our Master Menu</span>
+        <h2 class="section-title">Bespoke Bridal, Hair & Aesthetics</h2>
+        <p class="section-subtitle">Every service is executed with premium dermatologist-tested and internationally accredited products for long-lasting, camera-ready perfection.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="service-filter-nav reveal-on-scroll">
+        <button type="button" class="filter-btn active" data-category="all">All Services</button>
+        <button type="button" class="filter-btn" data-category="bridal">👑 Bridal & Occasion</button>
+        <button type="button" class="filter-btn" data-category="hair">✂️ Hair Care & Color</button>
+        <button type="button" class="filter-btn" data-category="skin">✨ Skin & Facials</button>
+        <button type="button" class="filter-btn" data-category="nails">💅 Nail & Lash Art</button>
+        <button type="button" class="filter-btn" data-category="packages">🎁 Pre-Bridal Packages</button>
+      </div>
+
+      <!-- Dynamic Services Cards Grid -->
+      <div class="services-grid" id="services-grid-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Shorts & Transformation Reels Section -->
+  <section class="reels-section" id="reels">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-rose">Live From Studio</span>
+        <h2 class="section-title">Real Client Transformation Reels</h2>
+        <p class="section-subtitle">Watch authentic video shorts recorded right inside our Danapur Bazar studio, showing real brides, hairstyles, and glowing makeovers.</p>
+      </div>
+
+      <!-- Horizontal Reels Scroll Container -->
+      <div class="reels-scroll-container" id="reels-container">
+        <!-- Rendered dynamically by gallery.js -->
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="https://www.youtube.com/channel/UCvMZ7w2DMKlsxrEf_BgVXsw" target="_blank" class="btn btn-outline" style="border-color: #DC2626; color: #DC2626;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>Subscribe on YouTube (The Bella Beauty Studio)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery & Lightbox Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-gold">Studio Portfolio</span>
+        <h2 class="section-title">The Bella Gallery & Ambience</h2>
+        <p class="section-subtitle">Explore authentic high-resolution snapshots of our bridal artistry, hair setups, and hygienic luxury studio facility in Patna.</p>
+      </div>
+
+      <!-- Gallery Filter -->
+      <div class="service-filter-nav reveal-on-scroll">
+        <button type="button" class="filter-btn gallery-filter-btn active" data-category="all">All Photos</button>
+        <button type="button" class="filter-btn gallery-filter-btn" data-category="bridal">Bridal Looks</button>
+        <button type="button" class="filter-btn gallery-filter-btn" data-category="hair">Hair Styling</button>
+        <button type="button" class="filter-btn gallery-filter-btn" data-category="ambience">Studio Ambience</button>
+        <button type="button" class="filter-btn gallery-filter-btn" data-category="skin">Skin & Spa</button>
+        <button type="button" class="filter-btn gallery-filter-btn" data-category="nails">Nail Art</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid-container">
+        <!-- Rendered dynamically by gallery.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews & Testimonials Section -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-gold">Verified Client Reviews</span>
+        <h2 class="section-title">Loved by Brides Across Patna</h2>
+        <p class="section-subtitle">Real experiences shared by clients who trusted Bella Beauty Makeup Studio with their most cherished milestones.</p>
+      </div>
+
+      <!-- Reviews Summary Rating Card -->
+      <div class="glass-card reviews-summary-card reveal-on-scroll">
+        <div class="rating-score-box">
+          <div class="rating-big-num">5.0</div>
+          <div>
+            <div class="rating-stars-lg">★★★★★</div>
+            <div style="font-weight: 700; font-size: 1.05rem;">Overall Customer Rating</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Based on 154+ Verified Customer Ratings on Justdial</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+          <span class="badge-gold" style="padding: 10px 18px; font-size: 0.85rem;">
+            ✓ 100% Verified Business
+          </span>
+          <button type="button" class="btn btn-outline" id="write-review-btn">
+            ✍️ Leave a Review
+          </button>
+        </div>
+      </div>
+
+      <div class="reviews-grid" id="reviews-grid-container">
+        <!-- Rendered dynamically by reviews.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Location, Map & Contact Hub Section -->
+  <section class="location-section" id="location">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-gold">Visit Our Studio</span>
+        <h2 class="section-title">Directions & Contact Hub</h2>
+        <p class="section-subtitle">Conveniently situated in Danapur Bazar / Ram Jaipal Nagar near Gola Road. We look forward to welcoming you.</p>
+      </div>
+
+      <div class="location-grid">
+        <div class="glass-card location-info-card reveal-on-scroll">
+          <div class="info-item">
+            <div class="info-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <h4 class="info-title">Studio Address</h4>
+              <p class="info-desc">
+                Sonu Market, Gola Road, Near By Balajii Medical,<br/>
+                Vastu Ganga Colony, Vivek Vihar Colony,<br/>
+                Danapur Bazar / Ram Jaipal Nagar, Patna, Bihar 801503
+              </p>
+              <a href="https://www.google.com/maps?q=25.6186744,85.056569" target="_blank" style="color: var(--primary); font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;">
+                Open in Google Maps & Get Directions →
+              </a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="info-title">Phone & WhatsApp Inquiries</h4>
+              <p class="info-desc">
+                Primary Line: <a href="tel:+918235215577" style="color: var(--text-primary); font-weight: 700;">+91 82352 15577</a><br/>
+                Secondary: <a href="tel:+918460556685" style="color: var(--text-primary); font-weight: 600;">+91 84605 56685</a><br/>
+                WhatsApp: <a href="https://wa.me/919217002598" target="_blank" style="color: #25D366; font-weight: 700;">+91 92170 02598</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h4 class="info-title">Studio Timings</h4>
+              <p class="info-desc">
+                Monday to Sunday: <strong>11:00 AM – 09:00 PM</strong><br/>
+                <span class="live-status-text">
+                  <span class="status-indicator"><span class="status-dot"></span> Open Today</span>
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <button type="button" class="btn btn-primary" style="width: 100%;" onclick="bookingEngine.openBooking()">
+              📅 Book An Appointment Online
+            </button>
+          </div>
+        </div>
+
+        <!-- Google Map Embed -->
+        <div class="map-card reveal-on-scroll">
+          <iframe
+            title="Bella Beauty Makeup Studio Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.518749818817!2d85.05437!3d25.618674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57f5c225a071%3A0x897910ba1b1bf05!2sGola%20Rd%2C%20Danapur%20Nizamat%2C%20Patna%2C%20Bihar%20801503!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <section class="faq-section" id="faqs">
+    <div class="container">
+      <div class="section-head reveal-on-scroll">
+        <span class="badge-gold">Common Queries</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about reserving your bridal slot, consultations, and studio policies.</p>
+      </div>
+
+      <div class="faq-list" id="faq-list-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Footer -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+          <img src="https://lh3.googleusercontent.com/lbiiGUTvtCEVZpJ8c7-mVsteynFC0UEPAiqoK8J0Xr7JvIqDgbGp9l09ArrPzBYzEtbnPECEvNR0iGGOD0o0XMJv-FQ=s0-rw" alt="Bella Logo" style="width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--gold);" />
+          <h3 class="footer-brand-title">Bella Beauty</h3>
+        </div>
+        <p class="footer-desc">
+          The Bella Beauty Makeup Studio & Salon is Danapur Bazar's premier destination for haute bridal artistry, HD airbrush makeovers, professional hair treatments, and luxury aesthetics in Patna.
+        </p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/bellabeautymakeupstudio/" target="_blank" class="social-icon-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCvMZ7w2DMKlsxrEf_BgVXsw" target="_blank" class="social-icon-btn" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/919217002598" target="_blank" class="social-icon-btn" aria-label="WhatsApp">
+            💬
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="#services" class="footer-link">Bridal Makeovers</a></li>
+          <li><a href="#services" class="footer-link">Hair Smoothening</a></li>
+          <li><a href="#services" class="footer-link">Hydra Facials</a></li>
+          <li><a href="#services" class="footer-link">Nail Studio</a></li>
+          <li><a href="#reels" class="footer-link">Transformation Videos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Studio Info</h4>
+        <ul class="footer-links-list">
+          <li><a href="#experience" class="footer-link">3D Makeover Lab</a></li>
+          <li><a href="#reviews" class="footer-link">Client Reviews</a></li>
+          <li><a href="#location" class="footer-link">Studio Map</a></li>
+          <li><a href="#faqs" class="footer-link">Booking Policy</a></li>
+          <li><a href="javascript:void(0)" onclick="bookingEngine.openMyBookings()" class="footer-link">My Bookings</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Contact & Booking</h4>
+        <p style="font-size: 0.88rem; color: #B99FAB; margin-bottom: 12px;">
+          Call: +91 82352 15577<br/>
+          WhatsApp: +91 92170 02598<br/>
+          Hours: 11:00 AM – 9:00 PM (All 7 Days)
+        </p>
+        <button type="button" class="btn btn-gold btn-sm" onclick="bookingEngine.openBooking()" style="width: 100%;">
+          Book Appointment
+        </button>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>
+        © 2026 Bella Beauty Makeup Studio. All Rights Reserved. Sonu Market, Gola Road, Patna.
+      </div>
+      <div>
+        Crafted with UI/UX Excellence for Patna's Discerning Brides.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+
+  <!-- 1. Full Multi-Step Booking Engine Modal -->
+  <div class="modal-backdrop" id="booking-modal">
+    <div class="modal-dialog booking-modal-dialog">
+      <button type="button" class="modal-close-btn" onclick="bookingEngine.closeBooking()" aria-label="Close Booking Modal">✕</button>
+
+      <div class="booking-modal-header">
+        <span class="badge-gold">Online Reservation</span>
+        <h3 class="booking-modal-title">Book Your Appointment</h3>
+        <p class="booking-modal-subtitle">Instant booking confirmation with WhatsApp synchronization.</p>
+      </div>
+
+      <!-- Stepper Progress Bar -->
+      <div class="booking-stepper">
+        <div class="step-item active" id="step-nav-1">
+          <div class="step-circle">1</div>
+          <span>Services</span>
+        </div>
+        <div class="step-item" id="step-nav-2">
+          <div class="step-circle">2</div>
+          <span>Stylist</span>
+        </div>
+        <div class="step-item" id="step-nav-3">
+          <div class="step-circle">3</div>
+          <span>Date & Slot</span>
+        </div>
+        <div class="step-item" id="step-nav-4">
+          <div class="step-circle">4</div>
+          <span>Your Info</span>
+        </div>
+      </div>
+
+      <!-- Modal Body - Dynamic Step Panels -->
+      <div class="booking-modal-body">
+        
+        <!-- STEP 1: Select Services -->
+        <div class="booking-step-panel active" id="booking-step-1">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h4 style="font-size: 1.1rem;">Choose Desired Services:</h4>
+            <span class="badge-rose" id="selected-services-count">0 Selected</span>
+          </div>
+          <div class="booking-services-list" id="booking-services-container">
+            <!-- Rendered by booking.js -->
+          </div>
+        </div>
+
+        <!-- STEP 2: Choose Stylist -->
+        <div class="booking-step-panel" id="booking-step-2">
+          <h4 style="font-size: 1.1rem; margin-bottom: 16px;">Select Preferred Beauty Specialist:</h4>
+          <div class="stylist-selection-grid" id="booking-stylists-container">
+            <!-- Rendered by booking.js -->
+          </div>
+        </div>
+
+        <!-- STEP 3: Date & Slot Picker -->
+        <div class="booking-step-panel" id="booking-step-3">
+          <div class="date-slot-wrapper">
+            <div class="date-select-group">
+              <label class="form-label" for="booking-date-input">Select Appointment Date</label>
+              <input type="date" id="booking-date-input" class="date-input" required />
+            </div>
+
+            <div class="slots-group">
+              <label class="form-label">Select Suitable Time Slot (11:00 AM – 9:00 PM)</label>
+              <div class="slots-grid" id="booking-slots-container">
+                <!-- Rendered by booking.js -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Client Info & Bill Summary -->
+        <div class="booking-step-panel" id="booking-step-4">
+          <form id="booking-details-form">
+            <h4 style="font-size: 1.1rem; margin-bottom: 16px;">Contact Details & Special Notes:</h4>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="clientName">Full Name *</label>
+                <input type="text" id="clientName" name="clientName" class="form-control" placeholder="e.g. Priya Kumari" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="clientPhone">Contact Number (WhatsApp) *</label>
+                <input type="tel" id="clientPhone" name="clientPhone" class="form-control" placeholder="e.g. 9876543210" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="clientOccasionDate">Wedding / Event Date (Optional)</label>
+                <input type="date" id="clientOccasionDate" name="clientOccasionDate" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="clientNotes">Special Requests / Skin Type</label>
+                <input type="text" id="clientNotes" name="clientNotes" class="form-control" placeholder="e.g. Sensitive skin, bridal lehenga red" />
+              </div>
+            </div>
+
+            <!-- Estimated Bill & Promo Card -->
+            <div class="booking-bill-card">
+              <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px;">Booking Bill Summary</h5>
+              <div class="bill-line">
+                <span>Services Subtotal:</span>
+                <span id="bill-subtotal">₹0</span>
+              </div>
+              <div class="bill-line">
+                <span>Promotional Discount:</span>
+                <span id="bill-discount" style="color: #0E9F6E;">₹0</span>
+              </div>
+              <div class="bill-line total">
+                <span>Estimated Total Payable:</span>
+                <span id="bill-total">₹0</span>
+              </div>
+
+              <!-- Promo Code Input -->
+              <div class="promo-box">
+                <input type="text" id="promo-input" class="promo-input" placeholder="Promo code (e.g. BELLA10)" />
+                <button type="button" class="btn btn-sm btn-outline" onclick="bookingEngine.applyPromo()">Apply</button>
+              </div>
+              <div id="promo-message" style="font-size: 0.78rem; font-weight: 600;"></div>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 5: Instant Booking Confirmation Screen -->
+        <div class="booking-step-panel" id="booking-step-5">
+          <div class="confirmation-success-wrap">
+            <div class="success-badge-icon">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 4px;">Appointment Confirmed!</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Your appointment request has been registered in the studio system.</p>
+
+            <div class="booking-ref-chip" id="confirm-booking-ref">BBL-8942</div>
+
+            <div class="confirmation-card">
+              <div class="confirm-item">
+                <span class="confirm-lbl">Client Name:</span>
+                <span class="confirm-val" id="confirm-client-name">-</span>
+              </div>
+              <div class="confirm-item">
+                <span class="confirm-lbl">Services:</span>
+                <span class="confirm-val" id="confirm-services-list">-</span>
+              </div>
+              <div class="confirm-item">
+                <span class="confirm-lbl">Appointment Slot:</span>
+                <span class="confirm-val" id="confirm-datetime">-</span>
+              </div>
+              <div class="confirm-item">
+                <span class="confirm-lbl">Assigned Artist:</span>
+                <span class="confirm-val" id="confirm-stylist-name">-</span>
+              </div>
+              <div class="confirm-item">
+                <span class="confirm-lbl">Total Payable:</span>
+                <span class="confirm-val" id="confirm-total-amount" style="color: var(--primary);">-</span>
+              </div>
+            </div>
+
+            <div class="confirmation-actions">
+              <a href="#" id="confirm-whatsapp-btn" target="_blank" class="btn btn-whatsapp">
+                💬 Send Booking Confirmation to Studio WhatsApp
+              </a>
+              <div style="display: flex; gap: 10px;">
+                <button type="button" class="btn btn-outline" style="flex: 1;" onclick="bookingEngine.downloadCalendarEvent()">
+                  📅 Add to Calendar (.ics)
+                </button>
+                <button type="button" class="btn btn-primary" style="flex: 1;" onclick="bookingEngine.closeBooking()">
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer Stepper Navigation -->
+      <div class="booking-modal-footer" id="booking-modal-footer">
+        <button type="button" class="btn btn-outline btn-sm" id="booking-prev-btn" onclick="bookingEngine.prevStep()" style="display: none;">
+          ← Previous Step
+        </button>
+        <div style="flex: 1;"></div>
+        <button type="button" class="btn btn-primary btn-sm" id="booking-next-btn" onclick="bookingEngine.nextStep()">
+          Continue →
+        </button>
+        <button type="button" class="btn btn-gold btn-sm" id="booking-submit-btn" onclick="document.getElementById('booking-details-form').requestSubmit()" style="display: none;">
+          Confirm Booking
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. "My Bookings" Drawer Modal -->
+  <div class="modal-backdrop" id="my-bookings-modal">
+    <div class="modal-dialog" style="max-width: 550px; padding: 28px;">
+      <button type="button" class="modal-close-btn" onclick="bookingEngine.closeMyBookings()" aria-label="Close My Bookings Modal">✕</button>
+      <span class="badge-gold">Saved Reservations</span>
+      <h3 style="font-size: 1.5rem; margin: 8px 0 16px;">My Appointments</h3>
+      <div id="my-bookings-list">
+        <!-- Rendered by booking.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Photo Lightbox Modal -->
+  <div class="modal-backdrop" id="lightbox-modal">
+    <div class="modal-dialog lightbox-dialog">
+      <button type="button" class="modal-close-btn" onclick="galleryManager.closeLightbox()" aria-label="Close Lightbox">✕</button>
+      <div class="lightbox-img-wrap">
+        <img src="" alt="Enlarged Portfolio" id="lightbox-img" class="lightbox-img" />
+      </div>
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- 4. Video Reel Shorts Player Modal -->
+  <div class="modal-backdrop" id="reel-modal">
+    <div class="modal-dialog reel-modal-dialog">
+      <button type="button" class="modal-close-btn" onclick="galleryManager.closeReel()" style="background: rgba(0,0,0,0.7); color: #fff; border-color: var(--gold);" aria-label="Close Reel Player">✕</button>
+      <div class="reel-video-iframe-wrap">
+        <iframe id="reel-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div style="padding: 14px 16px; background: #120610; color: #fff; display: flex; justify-content: space-between; align-items: center;">
+        <span id="reel-title" style="font-size: 0.92rem; font-weight: 600;"></span>
+        <button type="button" class="btn btn-sm btn-primary" onclick="bookingEngine.openBooking('bridal-hd')">
+          Book Look
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Leave a Review Modal -->
+  <div class="modal-backdrop" id="review-modal">
+    <div class="modal-dialog" style="max-width: 520px; padding: 30px;">
+      <button type="button" class="modal-close-btn" onclick="reviewsManager.closeReviewModal()" aria-label="Close Review Modal">✕</button>
+      <span class="badge-rose">Customer Feedback</span>
+      <h3 style="font-size: 1.5rem; margin: 8px 0 16px;">Share Your Studio Experience</h3>
+      
+      <form id="review-submission-form">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label" for="authorName">Your Name *</label>
+          <input type="text" id="authorName" name="authorName" class="form-control" placeholder="e.g. Shalini Roy" required />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label" for="serviceName">Service Received</label>
+          <select id="serviceName" name="serviceName" class="form-control">
+            <option value="Bridal Makeover">Bridal Makeover (HD / Airbrush)</option>
+            <option value="Engagement Makeup">Engagement / Party Makeup</option>
+            <option value="Hair Smoothening">Hair Keratin / Smoothening</option>
+            <option value="Hydra Facial">Hydra Glow Facial</option>
+            <option value="Nail Art">Gel Nail Extensions</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">Star Rating: <span id="star-rating-value-label" style="color: #F59E0B; font-weight: 700;">5 Stars</span></label>
+          <div class="star-rating-input" style="display: flex; gap: 8px; font-size: 1.4rem;">
+            <label><input type="radio" name="rating" value="5" checked style="display:none;" /><span style="cursor:pointer; color:#F59E0B;">★</span></label>
+            <label><input type="radio" name="rating" value="4" style="display:none;" /><span style="cursor:pointer; color:#F59E0B;">★</span></label>
+            <label><input type="radio" name="rating" value="3" style="display:none;" /><span style="cursor:pointer; color:#F59E0B;">★</span></label>
+            <label><input type="radio" name="rating" value="2" style="display:none;" /><span style="cursor:pointer; color:#F59E0B;">★</span></label>
+            <label><input type="radio" name="rating" value="1" style="display:none;" /><span style="cursor:pointer; color:#F59E0B;">★</span></label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label class="form-label" for="reviewText">Your Review *</label>
+          <textarea id="reviewText" name="reviewText" class="form-control" rows="4" placeholder="Tell us about the makeup quality, staff hospitality, hygiene, and results..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Publish Verified Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Bottom Booking Bar -->
+  <div class="mobile-sticky-booking">
+    <div>
+      <div style="font-weight: 700; font-size: 0.92rem;">Bella Beauty Studio</div>
+      <div style="font-size: 0.76rem; color: #0E9F6E; font-weight: 600;">● Open 11 AM - 9 PM</div>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <a href="tel:+918235215577" class="btn btn-sm btn-outline" style="padding: 8px 12px;">📞 Call</a>
+      <button type="button" class="btn btn-sm btn-gold" onclick="bookingEngine.openBooking()">Book Slot</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/threeExperience.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/reviews.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

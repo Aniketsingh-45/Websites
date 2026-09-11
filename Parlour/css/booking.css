@@ -177,7 +177,7 @@
 /* Step 2: Stylist Selection */
 .stylist-selection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: 16px;
 }
 
@@ -224,12 +224,13 @@
 
 .stylist-role {
   font-size: 0.76rem;
-  color: var(--gold-dark);
+  color: var(--gold);
   font-weight: 600;
 }
 
-[data-theme="midnight"] .stylist-role {
-  color: var(--gold);
+[data-theme="champagne"] .stylist-role,
+[data-theme="light"] .stylist-role {
+  color: var(--gold-dark);
 }
 
 .stylist-exp {
@@ -414,12 +415,13 @@
   font-family: 'Cinzel', serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--gold-dark);
+  color: var(--gold);
   margin: 12px 0 24px;
 }
 
-[data-theme="midnight"] .booking-ref-chip {
-  color: var(--gold);
+[data-theme="champagne"] .booking-ref-chip,
+[data-theme="light"] .booking-ref-chip {
+  color: var(--gold-dark);
 }
 
 .confirmation-card {
@@ -490,11 +492,69 @@
     padding-right: 18px;
   }
 
+  .booking-modal-header {
+    padding-top: 20px;
+    padding-bottom: 16px;
+  }
+
+  .booking-modal-title {
+    font-size: 1.4rem;
+  }
+
+  .booking-modal-body {
+    min-height: 280px;
+    max-height: 58vh;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .step-item span {
     display: none; /* Icon only on mobile stepper */
+  }
+
+  .stylist-selection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 8px;
+  }
+
+  .slot-btn {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .booking-service-choice {
+    padding: 10px 12px;
+  }
+
+  .choice-name {
+    font-size: 0.88rem;
+  }
+
+  .choice-price {
+    font-size: 1rem;
+  }
+
+  .booking-modal-footer {
+    padding: 14px 16px;
+  }
+
+  .mobile-sticky-booking {
+    padding: 10px 14px;
+  }
+
+  .mobile-sticky-booking .btn-sm {
+    padding: 6px 10px;
+    font-size: 0.78rem;
   }
 }

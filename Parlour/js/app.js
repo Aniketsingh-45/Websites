@@ -71,21 +71,30 @@ function renderInstagramFeed() {
 
 
 /**
- * Theme Manager: Luxury Champagne Gold vs Midnight Velvet Glamour
+ * Theme Manager: Midnight Velvet Glamour (Dark Mode - Default) vs Luxury Champagne Gold
  */
 function initThemeManager() {
   const toggleBtn = document.getElementById("theme-toggle-btn");
-  const currentTheme = localStorage.getItem("BELLA_THEME") || "midnight";
+  
+  // Default to Midnight Velvet & Gold (Dark Mode).
+  // Clear any legacy cached theme so the dark theme is reliably active on first visit/refresh.
+  let currentTheme = localStorage.getItem("BELLA_THEME_V2");
+  if (!currentTheme) {
+    currentTheme = "midnight";
+    localStorage.setItem("BELLA_THEME_V2", "midnight");
+    localStorage.removeItem("BELLA_THEME");
+  }
 
   document.documentElement.setAttribute("data-theme", currentTheme);
   updateThemeIcon(currentTheme);
 
   if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
-      const activeTheme = document.documentElement.getAttribute("data-theme");
-      const nextTheme = activeTheme === "midnight" ? "champagne" : "midnight";
+      const activeTheme = document.documentElement.getAttribute("data-theme") || "midnight";
+      const nextTheme = (activeTheme === "midnight" || activeTheme === "dark") ? "champagne" : "midnight";
 
       document.documentElement.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("BELLA_THEME_V2", nextTheme);
       localStorage.setItem("BELLA_THEME", nextTheme);
       updateThemeIcon(nextTheme);
     });
@@ -96,8 +105,8 @@ function updateThemeIcon(theme) {
   const iconWrap = document.getElementById("theme-toggle-icon");
   if (!iconWrap) return;
 
-  if (theme === "midnight") {
-    // Show Sun icon for switching back to daytime champagne
+  if (theme === "midnight" || theme === "dark") {
+    // Show Sun icon for switching to daytime champagne
     iconWrap.innerHTML = `
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
@@ -302,9 +311,7 @@ function initNavigation() {
   });
 
   if (mobileBtn && navMenu) {
-    mobileBtn.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
-      const isOpen = navMenu.classList.contains("open");
+    const setMobileMenuIcon = (isOpen) => {
       mobileBtn.innerHTML = isOpen ? `
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -317,11 +324,17 @@ function initNavigation() {
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       `;
+    };
+
+    mobileBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+      setMobileMenuIcon(navMenu.classList.contains("open"));
     });
 
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("open");
+        setMobileMenuIcon(false);
       });
     });
   }

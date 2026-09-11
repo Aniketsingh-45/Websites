@@ -1918,6 +1918,7 @@ button {
   overflow: hidden;
 }
 
+/* Instagram Profile Spotlight Header Bar */
 .instagram-profile-card {
   display: flex;
   align-items: center;
@@ -1930,12 +1931,33 @@ button {
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.instagram-profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 
 .ig-profile-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
+  min-width: 0;
+}
+
+.ig-profile-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .ig-avatar-ring {
@@ -1961,6 +1983,8 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .ig-handle {
@@ -1968,31 +1992,54 @@ button {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
+  word-break: break-word;
 }
 
 .ig-verified-badge {
   color: #3897F0;
   display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .ig-stats-row {
   display: flex;
-  gap: 20px;
-  margin-top: 6px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
   font-size: 0.88rem;
   color: var(--text-secondary);
+  flex-wrap: wrap;
 }
 
-.ig-stats-row strong {
+.ig-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.ig-stat-pill strong {
   color: var(--text-primary);
+  font-weight: 700;
+}
+
+.ig-stat-location {
+  white-space: normal;
 }
 
 .ig-bio-text {
   font-size: 0.82rem;
   color: var(--text-muted);
-  margin-top: 4px;
-  max-width: 480px;
-  line-height: 1.45;
+  margin-top: 8px;
+  max-width: 520px;
+  line-height: 1.5;
 }
 
 .btn-instagram {
@@ -2000,6 +2047,13 @@ button {
   color: #FFFFFF !important;
   font-weight: 700;
   box-shadow: 0 8px 24px rgba(220, 39, 67, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .btn-instagram:hover {
@@ -2177,14 +2231,38 @@ button {
   .instagram-profile-card {
     flex-direction: column;
     text-align: center;
+    padding: 24px 20px;
+    gap: 20px;
   }
 
   .ig-profile-left {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .ig-profile-info {
+    align-items: center;
+    width: 100%;
+  }
+
+  .ig-handle-wrap {
+    justify-content: center;
   }
 
   .ig-stats-row {
     justify-content: center;
+  }
+
+  .ig-bio-text {
+    margin: 8px auto 0;
+    text-align: center;
+  }
+
+  .btn-instagram {
+    align-self: center;
   }
 }
 
@@ -2382,6 +2460,44 @@ button {
     max-height: 92vh;
     border-radius: var(--radius-md);
   }
+
+  /* Instagram Profile Card Mobile */
+  .instagram-profile-card {
+    padding: 20px 16px;
+    margin-bottom: 28px;
+    gap: 18px;
+  }
+
+  .ig-avatar-ring {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ig-handle {
+    font-size: clamp(0.96rem, 4.2vw, 1.15rem);
+    text-align: center;
+  }
+
+  .ig-stats-row {
+    gap: 8px 10px;
+    justify-content: center;
+  }
+
+  .ig-stat-pill {
+    padding: 3px 8px;
+    font-size: 0.78rem;
+  }
+
+  .ig-bio-text {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .btn-instagram {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
 }
 
 /* --- Breakpoint: Mobile Compact & Small Phones (<= 480px) --- */
@@ -2487,14 +2603,55 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .ig-stats-row {
-    gap: 12px;
-    font-size: 0.8rem;
+  /* Instagram Spotlight Compact */
+  .instagram-profile-card {
+    padding: 18px 12px;
+    border-radius: var(--radius-md);
+    gap: 16px;
   }
 
   .ig-avatar-ring {
-    width: 62px;
-    height: 62px;
+    width: 58px;
+    height: 58px;
+    padding: 2.5px;
+  }
+
+  .ig-handle-wrap {
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .ig-handle {
+    font-size: clamp(0.86rem, 3.8vw, 1.02rem);
+    word-break: break-all;
+  }
+
+  .ig-verified-badge svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ig-stats-row {
+    gap: 6px 8px;
+    justify-content: center;
+  }
+
+  .ig-stat-pill {
+    padding: 3px 8px;
+    font-size: 0.74rem;
+  }
+
+  .ig-bio-text {
+    font-size: 0.74rem;
+    padding: 0 4px;
+    line-height: 1.45;
+  }
+
+  .btn-instagram {
+    width: 100%;
+    max-width: 100%;
+    padding: 11px 16px;
+    font-size: 0.88rem;
   }
 }
 
@@ -2526,6 +2683,39 @@ button {
   .hero-trust-bar {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .instagram-profile-card {
+    padding: 14px 10px;
+    gap: 14px;
+  }
+
+  .ig-avatar-ring {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ig-handle {
+    font-size: 0.82rem;
+  }
+
+  .ig-stats-row {
+    gap: 4px 6px;
+  }
+
+  .ig-stat-pill {
+    padding: 2px 6px;
+    font-size: 0.69rem;
+  }
+
+  .ig-bio-text {
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+
+  .btn-instagram {
+    font-size: 0.82rem;
+    padding: 10px 12px;
   }
 }
 

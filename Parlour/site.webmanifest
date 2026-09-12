@@ -1,0 +1,25 @@
+{
+  "name": "Bella Beauty Makeup Studio & Salon",
+  "short_name": "Bella Beauty",
+  "description": "Patna's Premier Luxury Bridal Makeover & Beauty Salon in Danapur Bazar / Gola Road",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#090207",
+  "theme_color": "#E83D75",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/bella_logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/bella_logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Robots.txt for Bella Beauty Makeup Studio
+User-agent: *
+Allow: /
+
+Sitemap: https://bellabeautymakeupstudio.vercel.app/sitemap.xml

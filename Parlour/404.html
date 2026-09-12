@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <!-- Zero-Flash Theme Bootstrapper (Midnight Dark Default) -->
+  <script>
+    (function() {
+      var saved = localStorage.getItem("BELLA_THEME_V2");
+      if (!saved) saved = "midnight";
+      document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+  
+  <title>Page Not Found | Bella Beauty Makeup Studio Patna</title>
+  <meta name="description" content="404 Page Not Found — Return to Bella Beauty Makeup Studio & Salon in Danapur Bazar / Ram Jaipal Nagar, Patna." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="assets/bella_logo.jpg" type="image/jpeg" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .notfound-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      background: var(--bg-hero, radial-gradient(circle at 50% 30%, #2E0D24 0%, #090207 70%, #030103 100%));
+    }
+    .notfound-card {
+      max-width: 620px;
+      width: 100%;
+      background: var(--bg-card, rgba(22, 9, 20, 0.9));
+      border: 1px solid var(--border-gold, rgba(245, 210, 114, 0.35));
+      border-radius: var(--radius-lg, 22px);
+      padding: 48px 36px;
+      box-shadow: var(--shadow-lg, 0 24px 60px rgba(0, 0, 0, 0.85));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
+    }
+    .notfound-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: var(--gold-gradient, linear-gradient(135deg, #FAD97B, #D4A838));
+    }
+    .notfound-code {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(4.5rem, 12vw, 7.5rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 0 0 10px 0;
+      background: var(--gold-gradient, linear-gradient(135deg, #FAD97B 0%, #FFF3D1 40%, #D4A838 75%, #9E7412 100%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 4px;
+    }
+    .notfound-badge {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: var(--radius-full, 9999px);
+      background: var(--primary-light, rgba(232, 61, 117, 0.15));
+      border: 1px solid var(--border-soft, rgba(232, 61, 117, 0.3));
+      color: var(--primary, #E83D75);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .notfound-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      color: var(--text-primary, #FFF5FA);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .notfound-desc {
+      color: var(--text-secondary, #D4BED0);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .notfound-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+      font-size: 0.88rem;
+    }
+    .quick-links a {
+      color: var(--gold, #F5D272);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    .quick-links a:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+    .brand-mini {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .brand-mini img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--gold, #F5D272);
+    }
+    .brand-mini-text {
+      text-align: left;
+    }
+    .brand-mini-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary, #FFF5FA);
+      letter-spacing: 1px;
+      display: block;
+    }
+    .brand-mini-sub {
+      font-size: 0.72rem;
+      color: var(--gold, #F5D272);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="notfound-wrapper">
+    <div class="notfound-card">
+      <a href="/" class="brand-mini">
+        <img src="assets/bella_logo.jpg" alt="Bella Beauty Logo" />
+        <div class="brand-mini-text">
+          <span class="brand-mini-name">Bella Beauty</span>
+          <span class="brand-mini-sub">Makeup Studio & Salon</span>
+        </div>
+      </a>
+
+      <div class="notfound-badge">Elegance Interrupted</div>
+      <div class="notfound-code">404</div>
+      <h1 class="notfound-title">Look Not Found</h1>
+      <p class="notfound-desc">
+        The bridal look or beauty service you were looking for seems to have moved or never existed. Let us guide you back to our signature studio experience.
+      </p>
+
+      <div class="notfound-actions">
+        <a href="/" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Return to Studio</span>
+        </a>
+        <a href="/#services" class="btn btn-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Explore Services</span>
+        </a>
+        <a href="tel:+918235215577" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Call Studio</span>
+        </a>
+      </div>
+
+      <div class="quick-links">
+        <a href="/#services">Bridal Packages</a>
+        <a href="/#experience">3D Beauty Lab</a>
+        <a href="/#gallery">Portfolio Gallery</a>
+        <a href="/#reviews">5.0★ Client Reviews</a>
+        <a href="/#location">Studio Location</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://bellabeautymakeupstudio.vercel.app/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://bellabeautymakeupstudio.vercel.app/assets/bella_logo.jpg</image:loc>
+      <image:title>Bella Beauty Makeup Studio Logo</image:title>
+      <image:caption>Bella Beauty Makeup Studio &amp; Salon Patna</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://bellabeautymakeupstudio.vercel.app/assets/bella_after.jpg</image:loc>
+      <image:title>Bridal Makeover Transformation</image:title>
+      <image:caption>Signature Bridal Makeover at Bella Beauty</image:caption>
+    </image:image>
+  </url>
+</urlset>

@@ -1,0 +1,26 @@
+{
+  "name": "bella-beauty-makeup-studio",
+  "version": "1.0.0",
+  "description": "Luxury Web Experience & Booking Portal for Bella Beauty Makeup Studio, Patna",
+  "private": true,
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve .",
+    "build": "echo \"Ready for static deployment\"",
+    "preview": "serve ."
+  },
+  "keywords": [
+    "bella-beauty",
+    "makeup-studio",
+    "patna",
+    "bridal-makeup",
+    "beauty-salon",
+    "threejs",
+    "vercel"
+  ],
+  "author": "Bella Beauty Makeup Studio",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

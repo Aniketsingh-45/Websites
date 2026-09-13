@@ -32,7 +32,7 @@ Every application in this monorepo is deployed live on **Vercel** with global An
 | **4** | **🍲 Dadan Handi Mutton** | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | [`/dadan-handi`](./dadan-handi) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://dadan-handi.vercel.app/) | `Vite` `HTML5` `CSS3` `Motion` `Web Audio` |
 | **5** | **☕ Cafe Skylite Rooftop** | [**cafe-silk-psi.vercel.app**](https://cafe-silk-psi.vercel.app/) | [`/cafe`](./cafe) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://cafe-silk-psi.vercel.app/) | `HTML5` `CSS3` `JavaScript` `GSAP` `ScrollTrigger` |
 | **6** | **🏥 Nath Aarogya Clinic** | [**clinic-nath-ayog.vercel.app**](https://clinic-nath-ayog.vercel.app/) | [`/clinic`](./clinic) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://clinic-nath-ayog.vercel.app/) | `HTML5 Canvas` `CSS3` `JavaScript` `GSAP 3` |
-| **7** | **💄 Bella Beauty Makeup Studio** | [**bellabeautymakeupstudio.vercel.app**](https://bellabeautymakeupstudio.vercel.app/) | [`/Parlour`](./Parlour) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://bellabeautymakeupstudio.vercel.app/) | `Three.js` `WebGL` `CSS3` `Vanilla JS` `PWA` |
+| **7** | **💄 Bella Beauty Makeup Studio** | [**bellybeauty-salon.vercel.app**](https://bellybeauty-salon.vercel.app/) | [`/Parlour`](./Parlour) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://bellybeauty-salon.vercel.app/) | `Three.js` `WebGL` `CSS3` `Vanilla JS` `PWA` |
 | **8** | **🎁 Kiara Birthday Surprise** | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | [`/gift`](./gift) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://wishing-birthday-ecru.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Audio API` `Confetti` |
 
 > [!TIP]
@@ -127,7 +127,7 @@ Explore in-depth specifications, key feature breakdowns, and tech architectures 
 ---
 
 ### 7. 💄 Bella Beauty Makeup Studio & Salon
-* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://bellabeautymakeupstudio.vercel.app/)
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://bellybeauty-salon.vercel.app/)
 * **Directory**: [`/Parlour`](./Parlour)
 * **Tech Stack**: [![Three.js](https://img.shields.io/badge/Three.js-WebGL-000000?style=flat-square&logo=three.js&logoColor=white)](https://threejs.org/) [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/) [![PWA](https://img.shields.io/badge/PWA-Ready-5A0FC8?style=flat-square)](#) [![CSS3](https://img.shields.io/badge/CSS3-Luxury%20Theme-E83D75?style=flat-square)](#)
 * **Description**: A luxury editorial digital web platform and smart appointment engine crafted for Patna's premier 5.0★ bridal makeover destination.
@@ -163,7 +163,7 @@ Explore in-depth specifications, key feature breakdowns, and tech architectures 
 | 4 | **🍲 Dadan Handi Mutton** | [`/dadan-handi`](./dadan-handi) | Culinary / Restaurant | [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/) | HTML5, CSS3, JS, Vite, Motion |
 | 5 | **☕ Cafe Skylite** | [`/cafe`](./cafe) | Hospitality / Dining | [**cafe-silk-psi.vercel.app**](https://cafe-silk-psi.vercel.app/) | HTML5, CSS3, JS, GSAP |
 | 6 | **🏥 Nath Aarogya Clinic** | [`/clinic`](./clinic) | Healthcare / Medical | [**clinic-nath-ayog.vercel.app**](https://clinic-nath-ayog.vercel.app/) | HTML5 Canvas, CSS3, JS, GSAP 3 |
-| 7 | **💄 Bella Beauty Studio** | [`/Parlour`](./Parlour) | Beauty / Luxury Salon | [**bellabeautymakeupstudio.vercel.app**](https://bellabeautymakeupstudio.vercel.app/) | Three.js WebGL, CSS3, JS, PWA |
+| 7 | **💄 Bella Beauty Studio** | [`/Parlour`](./Parlour) | Beauty / Luxury Salon | [**bellybeauty-salon.vercel.app**](https://bellybeauty-salon.vercel.app/) | Three.js WebGL, CSS3, JS, PWA |
 | 8 | **🎁 Birthday Surprise** | [`/gift`](./gift) | Interactive / Celebration | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | HTML5, CSS3, JS, Audio API |
 
 ---

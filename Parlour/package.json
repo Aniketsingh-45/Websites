@@ -5,9 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "serve .",
-    "start": "serve .",
-    "build": "echo \"Ready for static deployment\"",
-    "preview": "serve ."
+    "start": "serve ."
   },
   "keywords": [
     "bella-beauty",

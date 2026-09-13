@@ -1,49 +1,79 @@
-# 🎬 Aniket Ka Movie - Ultra Cinematic Streaming & Download Portal
+<div align="center">
 
-<p align="left">
-  <a href="https://aniketmovie.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel"></a>
-  <a href="https://aniketmovie.vercel.app/"><img src="https://img.shields.io/badge/Status-Live%20Production-success?style=for-the-badge&logo=statuspage&logoColor=white" alt="Live Production"></a>
+# 🎬 Aniket Ka Movie — Cinema & Streaming Hub
+### *Ultra-Cinematic Streaming Portal &bull; 5 Ambient Switchable Themes &bull; Multi-Tier Download Hub*
+
+<br/>
+
+[![Live on Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://aniketmovie.vercel.app/)
+[![Status: Production](https://img.shields.io/badge/Status-Live%20Production-success?style=for-the-badge&logo=statuspage&logoColor=white)](https://aniketmovie.vercel.app/)
+[![Theme Engine](https://img.shields.io/badge/Themes-5%20Palettes-EF4444?style=for-the-badge&logo=materialdesign&logoColor=white)](#-5-switchable-ambient-themes)
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+<br/>
+
+🌐 **Live Production URL:** [**https://aniketmovie.vercel.app/**](https://aniketmovie.vercel.app/)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Glassmorphism-Frosted%20Dark-38BDF8?style=flat-square" alt="Glassmorphism">
+  <img src="https://img.shields.io/badge/Routing-Vercel%20Clean%20URLs-000000?style=flat-square&logo=vercel&logoColor=white" alt="Clean URLs">
 </p>
 
-> 🌐 **Live Website:** [**https://aniketmovie.vercel.app/**](https://aniketmovie.vercel.app/)
-
-A modern, multi-page, high-performance cinema portal designed with frosted glassmorphism, responsive grid architecture, and **5 dynamic background themes**. Crafted using pure semantic HTML5, modern CSS3, and modular vanilla JavaScript.
+[✨ Features](#-key-features) • [🎨 Ambient Themes](#-5-switchable-ambient-themes) • [📁 Directory Structure](#-file-structure) • [🚀 Run Locally](#-how-to-run-locally) • [☁️ Deploy to Vercel](#-how-to-deploy-on-vercel)
 
 ---
 
-## ✨ Features
+</div>
+
+## 📖 Overview
+
+**Aniket Ka Movie** is a modern, high-performance cinema portal designed with frosted glassmorphism, responsive grid architecture, and **5 dynamic ambient background themes**. Crafted using pure semantic HTML5, modern CSS3, and modular vanilla JavaScript, it delivers an immersive cinematic experience across desktop, tablet, and mobile displays.
+
+---
+
+## ✨ Key Features
 
 * **🎨 5 Switchable Ambient Themes**:
-  - 🔴 **Crimson Cinema** (Default): Deep obsidian `#07080b` with ruby red and warm amber glows.
-  - 🔵 **Midnight Sapphire**: Deep navy `#040914` with electric cyan and ice blue.
-  - 🟣 **Cyberpunk Neon**: Night violet `#0a0614` with magenta and purple accents.
-  - 🟢 **Emerald Velvet**: Dark jade `#04100b` with glowing emerald and mint accents.
-  - 🟡 **Gold Luxe / Noir**: Pure black `#080808` with champagne gold and warm accents.
-  *Themes automatically persist in `localStorage` across all pages.*
+  - Automatically persist in `localStorage` across all pages.
+  - Dynamically updates primary accents, background glows, card borders, and button gradients.
 
-* **📑 Full Multi-Page Architecture**:
-  - `movie.html` / `index.html`: Main cinema hub with hero spotlight banner, trending section, filter chips, and live search.
+* **📑 Multi-Page Architecture**:
+  - `index.html` / `movie.html`: Main cinema hub with hero spotlight, trending rails, genre chips, and live search.
   - `movies.html`: Dedicated Theatrical Movies catalog (Bollywood, Hollywood, South Indian Dubbed, Dual Audio).
   - `series.html`: TV Shows & Web Series hub (Mirzapur, Panchayat, Stranger Things, etc.).
   - `genres.html`: Visual genre browser (Action, Sci-Fi, Crime, Comedy, Historical, Drama).
-  - `movie-details.html`: Dynamic movie details page with synopsis, cast, ratings, trailer player, and multi-server download links.
+  - `movie-details.html`: Deep-dive details page with synopsis, cast, ratings, trailer modal, and download mirrors.
 
 * **🔍 Real-Time Search & Category Filters**:
-  - Instant debounce search across movie titles, genres, release years, and cast.
-  - Category filter pills for Bollywood, Hollywood, South, Dual Audio, and Web Series.
-  - Sorting options: Trending First, Highest Rating ★, Release Year (Newest), and Title (A-Z).
+  - Instant debounce search across movie titles, genres, release years, and cast members.
+  - Category filter pills with sort options (Trending First, Highest Rating ★, Release Year, Title A-Z).
 
 * **🎬 Embedded HD Trailer Modal**:
   - Watch official movie trailers in responsive 16:9 modals without leaving the page.
-  - Easily closed via the close button, clicking outside, or pressing the `Escape` key.
+  - Keyboard accessible (close on `Escape` or backdrop click).
 
 * **⚡ Verified High-Speed Download Hub**:
   - Multi-tier resolution options: **480p Mobile**, **720p HD**, **1080p Full HD HEVC**, and **4K UHD HDR (2160p Atmos)**.
   - Multiple cloud storage mirrors (FastDL, Mega, Google Drive).
 
 * **⭐ Personal Watchlist System**:
-  - Save favorite titles with a single click on the card bookmark button.
-  - Live watchlist counter badge in the header with persistent `localStorage` storage.
+  - Save favorite titles with a single click on the bookmark button.
+  - Real-time counter badge in the header with persistent `localStorage` synchronization.
+
+---
+
+## 🎨 5 Switchable Ambient Themes
+
+| Theme Palette | Mood & Colorway | Dominant Accents |
+| :--- | :--- | :--- |
+| 🔴 **Crimson Cinema** *(Default)* | Deep obsidian `#07080b` | Ruby Red & Warm Amber |
+| 🔵 **Midnight Sapphire** | Deep oceanic navy `#040914` | Electric Cyan & Ice Blue |
+| 🟣 **Cyberpunk Neon** | Night violet `#0a0614` | High-Voltage Magenta & Neon Purple |
+| 🟢 **Emerald Velvet** | Dark jade `#04100b` | Glowing Mint & Emerald |
+| 🟡 **Gold Luxe / Noir** | Pure black `#080808` | Champagne 24K Gold & Warm Bronze |
 
 ---
 
@@ -70,80 +100,47 @@ movie-website/
 ├── package.json           # Project metadata & npm dev scripts
 ├── robots.txt             # Search engine crawling rules
 ├── sitemap.xml            # Search engine indexing map
-├── .gitignore             # Git ignore list (.vercel, node_modules, etc.)
-└── README.md              # Documentation
+├── .gitignore             # Git ignore list
+└── README.md              # Project documentation
 ```
 
 ---
 
 ## 🚀 How to Run Locally
 
-### Option 1: Using Node & Serve (Recommended)
 ```bash
-npx serve .
-```
+# 1. Clone the Monorepo
+git clone https://github.com/Aniketsingh-45/Websites.git
+cd Websites/movie-website
 
-### Option 2: Local HTTP Server (Python)
-```bash
+# 2. Run with Node.js
+npx serve .
+
+# Or run with Python 3
 python -m http.server 8080
 ```
-Then navigate to: [http://localhost:8080/](http://localhost:8080/)
 
 ---
 
 ## ⚡ How to Deploy on Vercel
 
-### Method 1: Deploy via Vercel Web Dashboard (GitHub Integration - Recommended)
-
-1. **Push your code to GitHub**:
-   Ensure your changes are committed and pushed to your GitHub repository (`Websites` or `Movie-website`).
-
-2. **Open Vercel Dashboard**:
-   - Go to [https://vercel.com/new](https://vercel.com/new) and log in with GitHub.
-
-3. **Import Project**:
-   - **If importing the `Websites` monorepo**:
-     - Click **Import** next to `Websites`.
-     - In **Project Settings**, find **Root Directory** and click **Edit**.
-     - Select `movie-website` and click **Continue**.
-     - Framework Preset: Choose **Other** (it's a static site).
-     - Click **Deploy**!
-   - **If importing standalone `Movie-website` repository**:
-     - Click **Import** next to `Movie-website`.
-     - Framework Preset: **Other**.
-     - Click **Deploy**!
-
-4. **Done!**
-   Vercel will give you a live production URL (e.g., `https://aniket-ka-movie.vercel.app`) with automatic SSL, global CDN, clean URLs, and automatic redeployment on git push.
+1. In [Vercel Dashboard](https://vercel.com/new), select `Aniketsingh-45/Websites`.
+2. Under **Root Directory**, click **Edit** and choose `movie-website`.
+3. Framework Preset: **Other**.
+4. Click **Deploy**!
 
 ---
 
-### Method 2: Deploy via Vercel CLI (Direct from Terminal)
+## 👤 Author
 
-1. Open PowerShell or Terminal inside `movie-website/`:
-   ```bash
-   cd "d:\My Apps\Websites\movie-website"
-   ```
+**Aniket Singh**  
+- **Portfolio**: [https://aniketsingh-portfolio-ruby.vercel.app/](https://aniketsingh-portfolio-ruby.vercel.app/)  
+- **GitHub**: [@Aniketsingh-45](https://github.com/Aniketsingh-45)  
+- **LinkedIn**: [linkedin.com/in/aniketsingh45](https://www.linkedin.com/in/aniketsingh45/)  
+- **Email**: [aniketsingh4500@gmail.com](mailto:aniketsingh4500@gmail.com)  
 
-2. Run Vercel CLI directly without installing:
-   ```bash
-   npx vercel
-   ```
+<br/>
 
-3. Follow the on-screen prompts:
-   - `Set up and deploy?` &rarr; Type `y` and hit **Enter**.
-   - `Which scope?` &rarr; Select your Vercel account.
-   - `Link to existing project?` &rarr; Type `n` (for first time).
-   - `What's your project's name?` &rarr; Press **Enter** (defaults to `movie-website`).
-   - `In which directory is your code located?` &rarr; Press **Enter** (`./`).
-   - `Want to modify these settings?` &rarr; Type `n` and hit **Enter**.
-
-4. For production release:
-   ```bash
-   npx vercel --prod
-   ```
-
----
-
-&copy; 2026 Aniket Ka Movie. All rights reserved.
-
+<div align="center">
+  <sub>&copy; 2026 Aniket Ka Movie &bull; All Rights Reserved</sub>
+</div>

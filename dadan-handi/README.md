@@ -1,18 +1,34 @@
-# 🍲 Dadan Handi Mutton Hotel (दादन हांडी मीट)
-> **“शेर दिलवाले घास-फूस नहीं खाते, सिर्फ मटन खाते हैं”**  
-> *Patna’s Landmark Champaran Ahuna Handi Mutton — Slow-cooked in sealed earthen clay pots over charcoal embers since 2016.*  
->  
-> 🌐 **Live Website**: [**dadan-handi.vercel.app**](https://dadan-handi.vercel.app/)
+<div align="center">
 
+# 🍲 Dadan Handi Mutton Hotel (दादन हांडी मीट)
+### *“शेर दिलवाले घास-फूस नहीं खाते, सिर्फ मटन खाते हैं”*
+> *Patna’s Landmark Champaran Ahuna Handi Mutton — Slow-cooked in sealed earthen clay pots over charcoal embers since 2016.*
+
+<br/>
+
+[![Live on Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://dadan-handi.vercel.app/)
 [![Vite](https://img.shields.io/badge/Vite-5.0.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
-[![Motion](https://img.shields.io/badge/Motion-13.1.1-EA580C?style=for-the-badge)](#)
-[![Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://dadan-handi.vercel.app/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](#)
+[![Status: Active](https://img.shields.io/badge/Status-Live%20%26%20Active-10b981?style=for-the-badge&logo=statuspage&logoColor=white)](https://dadan-handi.vercel.app/)
+[![UI/UX Pro Max](https://img.shields.io/badge/Design-UI%2FUX%20Pro%20Max-EA580C?style=for-the-badge)](#-design-system--uiux-pro-max-standards)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+<br/>
+
+🌐 **Live Production URL**: [**https://dadan-handi.vercel.app/**](https://dadan-handi.vercel.app/)
+
+<p align="center">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"></a>
+  <a href="https://motion.dev/"><img src="https://img.shields.io/badge/Motion-13.1.1-EA580C?style=flat-square" alt="Motion"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API"><img src="https://img.shields.io/badge/Web%20Audio-Dum%20Puff%20Sound-F59E0B?style=flat-square" alt="Web Audio"></a>
+</p>
+
+[✨ Key Features](#-key-features--experience) • [🏺 Dum Seal Ritual](#1--interactive-break-the-dum-seal--3d-showcase) • [🎨 Design System](#-design-system--uiux-pro-max-standards) • [⚙️ Local Setup](#%EF%B8%8F-local-development-setup) • [☁️ Deploy to Vercel](#-vercel-deployment) • [📍 Patna Branches](#-restaurant-contact--branches)
 
 ---
+
+</div>
 
 ## 📖 Overview
 
@@ -69,7 +85,7 @@ An illustrated timeline detailing the traditional 4-stage cooking process:
 
 Built in compliance with the **UI/UX Pro Max** framework:
 
-| Token | Value | Meaning |
+| Token | Hex Value | Meaning |
 | :--- | :--- | :--- |
 | `--clr-bg-obsidian` | `#0A0806` | Deep volcanic charcoal background |
 | `--clr-bg-surface` | `#18130E` | Rich warm earthenware surface |
@@ -116,10 +132,12 @@ dadan-handi/
 
 ### 1. Prerequisites
 - [Node.js](https://nodejs.org/) (v18.0.0 or higher recommended)
-- `npm` or `pnpm`
+- `npm`
 
 ### 2. Install Dependencies
 ```bash
+git clone https://github.com/Aniketsingh-45/Websites.git
+cd Websites/dadan-handi
 npm install
 ```
 
@@ -139,32 +157,38 @@ Generates a production-ready, minified bundle in the `dist/` directory.
 
 ## 🚀 Vercel Deployment
 
-This project is pre-configured with a dedicated [vercel.json](file:///d:/My%20Apps/Websites/dadan-handi/vercel.json) for 1-click deployment on [Vercel](https://vercel.com/):
+This project is pre-configured with a dedicated [`vercel.json`](file:///d:/My%20Apps/Websites/dadan-handi/vercel.json) for 1-click deployment on [Vercel](https://vercel.com/):
 
 ### Method 1: Deploy via Vercel Dashboard (Recommended)
 1. Push your changes to GitHub.
 2. Go to your [Vercel Dashboard](https://vercel.com/new).
 3. Select your repository `Websites`.
-4. If deploying from a monorepo workspace, set **Root Directory** to `dadan-handi`.
+4. Set **Root Directory** to `dadan-handi`.
 5. Framework Preset will auto-detect as **Vite**.
 6. Click **Deploy**!
 
 ### Method 2: Deploy via Vercel CLI
 ```bash
 cd dadan-handi
-npx vercel
+npx vercel --prod
 ```
-Follow the interactive CLI prompts to deploy directly.
 
 ---
 
-## 📞 Restaurant Contact & Information
+## 📞 Restaurant Contact & Branches
 
-- **Brand:** Dadan Handi Mutton Hotel (दादन हांडी मीट)
-- **Direct Phone / WhatsApp:** [+91 8986496574](tel:+918986496574)
-- **Hours:** 11:00 AM – 11:00 PM (Monday to Sunday)
-- **Prime Locations:** Ram Jaipal Nagar, Saguna-Khagaul Road, Rukanpura, and BRC Cantt, Patna, Bihar.
+<div align="center">
 
----
+| Property | Details |
+| :--- | :--- |
+| **🏢 Brand** | **Dadan Handi Mutton Hotel (दादन हांडी मीट)** |
+| **📞 Direct Line / WhatsApp** | [+91 8986496574](tel:+918986496574) |
+| **🕒 Operating Hours** | Monday – Sunday: 11:00 AM – 11:00 PM |
+| **📍 Outposts** | Ram Jaipal Nagar &bull; Saguna-Khagaul Rd &bull; Rukanpura &bull; BRC Cantt, Patna |
 
-*Made with 🔥 in Patna. Preserving Champaran Culinary Heritage.*
+<br/>
+
+**Crafted with 🔥 in Patna &bull; Preserving Champaran Culinary Heritage**  
+Engineered by [Aniket Singh](https://aniketsingh-portfolio-ruby.vercel.app/) &bull; [GitHub](https://github.com/Aniketsingh-45) &bull; [LinkedIn](https://www.linkedin.com/in/aniketsingh45/)
+
+</div>

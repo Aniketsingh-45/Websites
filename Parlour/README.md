@@ -5,7 +5,7 @@
 
 <br/>
 
-[![Live on Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://bellabeautymakeupstudio.vercel.app/)
+[![Live on Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://bellybeauty-salon.vercel.app/)
 [![Three.js](https://img.shields.io/badge/3D%20WebGL-Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 [![JavaScript](https://img.shields.io/badge/ES6+-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 [![Justdial Rating](https://img.shields.io/badge/Justdial-5.0%20%E2%98%85%20(154%2B)-FF6F00?style=for-the-badge&logo=google-maps&logoColor=white)](#-studio-information--verification)
@@ -13,7 +13,7 @@
 
 <br/>
 
-🌐 **Live Production URL:** [**https://bellabeautymakeupstudio.vercel.app/**](https://bellabeautymakeupstudio.vercel.app/)
+🌐 **Live Production URL:** [**https://bellybeauty-salon.vercel.app/**](https://bellybeauty-salon.vercel.app/)
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">

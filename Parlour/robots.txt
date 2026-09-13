@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bellabeautymakeupstudio.vercel.app/sitemap.xml
+Sitemap: https://bellybeauty-salon.vercel.app/sitemap.xml

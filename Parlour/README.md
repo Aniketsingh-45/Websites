@@ -1,18 +1,29 @@
-# 💄 Bella Beauty Makeup Studio — Luxury Web Experience & Booking Portal
-
 <div align="center">
 
-[![Vercel Deployment](https://img.shields.io/badge/Deploy%20on-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https://github.com/Aniketsingh-45/Websites&root-directory=Parlour)
+# 💄 Bella Beauty Makeup Studio & Salon
+### *Patna's Premier Luxury Bridal Transformation Studio & Smart Appointment Engine*
+
+<br/>
+
+[![Live on Vercel](https://img.shields.io/badge/Live%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://bellabeautymakeupstudio.vercel.app/)
 [![Three.js](https://img.shields.io/badge/3D%20WebGL-Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
 [![JavaScript](https://img.shields.io/badge/ES6+-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/)
-[![Justdial Rating](https://img.shields.io/badge/Justdial-5.0%20%E2%98%85%20(154%2B)-FF6F00?style=for-the-badge&logo=google-maps&logoColor=white)](https://www.justdial.com)
-[![License](https://img.shields.io/badge/License-MIT-E83D75?style=for-the-badge)](LICENSE)
+[![Justdial Rating](https://img.shields.io/badge/Justdial-5.0%20%E2%98%85%20(154%2B)-FF6F00?style=for-the-badge&logo=google-maps&logoColor=white)](#-studio-information--verification)
+[![License: MIT](https://img.shields.io/badge/License-MIT-E83D75?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-<br />
+<br/>
 
-**A high-converting, editorial luxury digital portal and real-time appointment booking engine crafted for Patna's premier bridal makeover studio.**
+🌐 **Live Production URL:** [**https://bellabeautymakeupstudio.vercel.app/**](https://bellabeautymakeupstudio.vercel.app/)
 
-[🚀 Deploy with Vercel](#-deploy-to-vercel) • [✨ Key Features](#-key-features) • [🛠️ Vercel Optimizations](#%EF%B8%8F-vercel-production-optimizations) • [📂 Project Structure](#-project-structure) • [📍 Studio Contact](#-studio-information)
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Three.js-WebGL-000000?style=flat-square&logo=three.js&logoColor=white" alt="Three.js">
+  <img src="https://img.shields.io/badge/PWA-Ready-5A0FC8?style=flat-square" alt="PWA">
+  <img src="https://img.shields.io/badge/WhatsApp-Booking%20Sync-25D366?style=flat-square&logo=whatsapp&logoColor=white" alt="WhatsApp">
+</p>
+
+[📖 Overview](#-overview) • [✨ Key Features](#-key-features--interactive-architecture) • [🛠️ Optimizations](#%EF%B8%8F-vercel-production-optimizations) • [📂 Structure](#-project-structure) • [📍 Studio Information](#-studio-information--verification)
 
 ---
 
@@ -30,49 +41,21 @@ This web platform bridges ultra-luxury visual storytelling with practical salon 
 
 This repository is pre-configured and 100% production-ready for **Vercel** with instant zero-config edge hosting, custom security headers, and asset caching.
 
-### Option 1: One-Click Deploy (Instant)
-
-Click the button below to fork and deploy directly to your Vercel account:
-
+### Option 1: One-Click Deploy via Vercel Button
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aniketsingh-45/Websites&root-directory=Parlour)
 
----
+### Option 2: From Websites Monorepo
+1. Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New Project"**.
+2. Import your repository (`Aniketsingh-45/Websites`).
+3. Set **Root Directory** to `Parlour`.
+4. Framework Preset: `Other`.
+5. Click **Deploy**!
 
-### Option 2: Deploy via Vercel CLI
-
-1. **Install Vercel CLI** (or run with `npx`):
-   ```bash
-   npm i -g vercel
-   ```
-
-2. **Navigate into the project directory**:
-   ```bash
-   cd "d:/My Apps/Websites/Parlour"
-   ```
-
-3. **Deploy to Preview**:
-   ```bash
-   vercel
-   ```
-
-4. **Deploy to Production**:
-   ```bash
-   vercel --prod
-   ```
-
----
-
-### Option 3: Connect via Vercel Web Dashboard
-
-1. Push your repository to GitHub.
-2. Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New Project"**.
-3. Import your repository (`Websites`).
-4. In the **Project Settings**:
-   - **Framework Preset**: `Other`
-   - **Root Directory**: `Parlour`
-   - **Build Command**: *(Leave empty or `npm run build`)*
-   - **Output Directory**: `.` *(Root)*
-5. Click **Deploy**. Your site will go live globally across Vercel’s Anycast Edge Network with an automatic SSL certificate.
+### Option 3: Deploy via Vercel CLI
+```bash
+cd Parlour
+npx vercel --prod
+```
 
 ---
 
@@ -133,7 +116,7 @@ This project includes a tailor-made [`vercel.json`](file:///d:/My%20Apps/Website
 - Fullscreen lightbox viewer with keyboard navigation (`Esc`, `←`, `→`).
 
 ### 7. ⭐ 5.0★ Justdial Testimonials & Review Engine
-- Showcases verified 5-star customer testimonials from Patna clients (Najiya Sultana, Amrita Kumari, Vishal, Pankaj Yadav, Chinki Singh).
+- Showcases verified 5-star customer testimonials from Patna clients.
 - Interactive "Leave a Review" modal with star rating selector and instant `localStorage` publishing.
 
 ### 8. 🕒 Real-Time Studio Open / Closed Indicator
@@ -143,7 +126,7 @@ This project includes a tailor-made [`vercel.json`](file:///d:/My%20Apps/Website
 
 ## 📂 Project Structure
 
-```
+```bash
 Parlour/
 ├── .gitignore                   # Git ignore for Vercel, node_modules & OS files
 ├── 404.html                     # Luxury branded 404 error page for Vercel
@@ -176,26 +159,22 @@ Parlour/
 
 ## 💻 Local Development
 
-You can run and test this project locally using any modern static server:
-
-### Option A: Using npm (Recommended)
 ```bash
-# Run using npx serve
-npm run dev
-```
+# Clone repository
+git clone https://github.com/Aniketsingh-45/Websites.git
+cd Websites/Parlour
 
-### Option B: Using Python 3
-```bash
+# Run with Node.js
+npx serve .
+# or run with Python 3
 python -m http.server 8080
 ```
-Visit `http://localhost:8080` in your web browser.
-
-### Option C: VS Code Live Server
-Right-click `index.html` and select **"Open with Live Server"**.
 
 ---
 
 ## 📍 Studio Information & Verification
+
+<div align="center">
 
 | Property | Details |
 | :--- | :--- |
@@ -209,11 +188,9 @@ Right-click `index.html` and select **"Open with Live Server"**.
 | **Instagram** | [@bellabeautymakeupstudio](https://www.instagram.com/bellabeautymakeupstudio/) |
 | **YouTube Channel** | [The Bella Beauty Makeup Studio & Salon](https://www.youtube.com/channel/UCvMZ7w2DMKlsxrEf_BgVXsw) |
 
----
-
-<div align="center">
+<br/>
 
 **Crafted with Passion for Patna's Most Radiant Brides.**  
-© 2026 Bella Beauty Makeup Studio. All Rights Reserved.
+Engineered by [Aniket Singh](https://aniketsingh-portfolio-ruby.vercel.app/) &bull; [GitHub](https://github.com/Aniketsingh-45) &bull; [LinkedIn](https://www.linkedin.com/in/aniketsingh45/) &bull; &copy; 2026 Bella Beauty Makeup Studio
 
 </div>

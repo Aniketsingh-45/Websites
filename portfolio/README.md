@@ -1,22 +1,19 @@
 <div align="center">
 
 # ⚡ Aniket Singh | Developer Portfolio & AI Explorer
+### *B.Tech CSE Student &bull; Python Specialist &bull; AI/ML Explorer &bull; Full-Stack Builder*
 
-<p align="center">
-  <strong>B.Tech CSE Student &bull; Python Specialist &bull; AI/ML Explorer &bull; Full-Stack Builder</strong>
-</p>
+<br/>
 
-<p align="center">
-  <a href="https://aniketsingh-portfolio-ruby.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo on Vercel"></a>
-  <a href="https://github.com/Aniketsingh-45/Websites"><img src="https://img.shields.io/badge/Status-Available%20for%20Roles-10b981?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status: Available for Roles"></a>
-  <a href="https://www.linkedin.com/in/aniketsingh45/"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-  <a href="https://github.com/Aniketsingh-45"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
-  <a href="mailto:aniketsingh4500@gmail.com"><img src="https://img.shields.io/badge/Email-aniketsingh4500-ea4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
-</p>
+[![Live Demo on Vercel](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://aniketsingh-portfolio-ruby.vercel.app/)
+[![Status: Available for Roles](https://img.shields.io/badge/Status-Available%20for%20Roles-10b981?style=for-the-badge&logo=statuspage&logoColor=white)](https://aniketsingh-portfolio-ruby.vercel.app/#contact)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketsingh45/)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketsingh-45)
+[![Email](https://img.shields.io/badge/Email-aniketsingh4500-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:aniketsingh4500@gmail.com)
 
-<p align="center">
-  🌐 <strong>Live URL:</strong> <a href="https://aniketsingh-portfolio-ruby.vercel.app/"><strong>https://aniketsingh-portfolio-ruby.vercel.app/</strong></a>
-</p>
+<br/>
+
+🌐 **Live Production URL:** [**https://aniketsingh-portfolio-ruby.vercel.app/**](https://aniketsingh-portfolio-ruby.vercel.app/)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
@@ -30,13 +27,15 @@
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git">
 </p>
 
+[🌌 Overview](#-overview) • [✨ Highlights](#-key-highlights--features) • [💻 Terminal Commands](#-terminal-command-cheatsheet) • [🛠️ Projects Matrix](#%EF%B8%8F-flagship-projects) • [🚀 Local Setup](#-quick-start--local-development) • [☁️ Deploy to Vercel](#-deploy-to-vercel)
+
 ---
 
 </div>
 
 ## 🌌 Overview
 
-A modern, high-performance, dark-mode developer portfolio engineered with **Vanilla HTML5, CSS3, and JavaScript**. Built with a dark glassmorphic design system, cyber accents, dynamic interactive terminal shell, and live-animated status badges.
+A modern, high-performance, dark-mode developer portfolio engineered with **Vanilla HTML5, CSS3, and JavaScript**. Built with a dark glassmorphic design system, cyber accents, dynamic interactive terminal shell simulator, live-animated status beacons, and seamless responsiveness across devices.
 
 ---
 
@@ -48,9 +47,7 @@ A modern, high-performance, dark-mode developer portfolio engineered with **Vani
 - **Hero & Bento Badges**: Prominent hiring availability indicators across the Hero and About Bento cards.
 
 ### 💻 Interactive Developer Terminal Simulator
-- Built-in live terminal shell (`aniket@portfolio:~$`) supporting rich commands:
-  - `roles` / `available` &bull; `skills` &bull; `projects` &bull; `certs` &bull; `about` &bull; `contact` &bull; `philosophy` &bull; `joke` &bull; `date` &bull; `clear`
-- **Quick-Run Buttons**: 1-click interactive action buttons for swift command execution on mobile and desktop.
+- Built-in live terminal shell (`aniket@portfolio:~$`) with authentic command interpretation, typing delays, and interactive shortcut chips.
 
 ### 🍱 Bento Grid Architecture
 - Modular responsive grid highlighting:
@@ -59,12 +56,12 @@ A modern, high-performance, dark-mode developer portfolio engineered with **Vani
   - 🎬 **Beyond Code**: Storytelling inspiration through cinema and real-world narratives.
   - 💼 **Open Collaborations**: Active focus on Software Engineering Internships and Open Source.
 
-### 🚀 Flagship Projects Showcase
-- Filterable project grid with category switching (AI & ML, Web & APIs, Python Utilities).
-- Integrated direct GitHub repository links, tech stack tags, and interactive hover spotlight effects.
+### 🚀 Filterable Flagship Projects Showcase
+- Category switching across **AI & ML**, **Web & APIs**, and **Python Utilities**.
+- Direct links to GitHub repositories, live demo mirrors, and tech stack tags.
 
 ### 🏆 Verified Industry Certifications
-- Verified credential badges from **Reliance Foundation**, **C-DAC**, **TCS iON**, and **Cisco Networking Academy**.
+- Badges from **Reliance Foundation**, **C-DAC**, **TCS iON**, and **Cisco Networking Academy**.
 
 ### 📈 Live GitHub Contribution Snake Graph
 - Integrated SVG contribution snake tracking continuous commit activity and open-source contributions.
@@ -72,32 +69,35 @@ A modern, high-performance, dark-mode developer portfolio engineered with **Vani
 ### 🖱️ Polished Interactive Micro-Experiences
 - **Custom Desktop Cursor**: Smooth glowing cursor orb tracking pointer movement with expansion over interactive elements.
 - **Dynamic Scroll Progress Ring**: Floating "Back to Top" button with an SVG circular meter tracking scroll depth (0% to 100%).
-- **Instant Toast Feedback**: Floating glassmorphism toast notification on 1-click email copy and contact form actions.
+- **Instant Toast Feedback**: Floating glassmorphism toast notification on 1-click email copy and contact actions.
+
+---
+
+## 💻 Terminal Command Cheatsheet
+
+| Command | Action | Output Description |
+| :--- | :--- | :--- |
+| `roles` / `available` | Check hiring status | Displays active target roles (SDE Intern, Python/AI) |
+| `skills` | List technical stack | Breakdown of programming languages, libraries & tools |
+| `projects` | View flagship builds | Highlights ResuSmart, AAPDA-MITRA, Voice Assistant |
+| `certs` | View credentials | Lists verified certifications with issuing organizations |
+| `about` | Personal background | Academic status, university, location, and passions |
+| `contact` | Get in touch | Displays email, LinkedIn, and direct communication lines |
+| `date` | System timestamp | Prints current date and local time |
+| `clear` | Reset shell | Clears terminal screen buffer |
 
 ---
 
 ## 🛠️ Flagship Projects
 
-| Project | Category | Key Technologies | Description |
+| Project | Category | Technologies | Description |
 | :--- | :--- | :--- | :--- |
-| **ResuSmart** | AI & Web | `Python` `Streamlit` `NLP` `Prompt Engineering` | Intelligent AI resume evaluator analyzing ATS compatibility and providing personalized keyword scoring. |
-| **AAPDA-MITRA** | Emergency Tech | `JavaScript` `WebDev` `Emergency APIs` | Disaster management and alert platform providing real-time crisis protocols and community assistance. |
-| **Intelligent Voice Assistant** | Automation | `Python` `SpeechRecognition` `pyttsx3` | Desktop AI assistant performing voice-driven automation, OS control, and live web intelligence tasks. |
-| **File Sharing via QR Code** | Web Utility | `JavaScript` `QR-API` `Networking` `HTML5` | Cross-device local network document and media transfer using dynamic QR codes. |
-| **FastAPI Backend Services** | API Architecture | `FastAPI` `Python` `Pydantic` `Swagger` | High-performance asynchronous REST microservices with auto-generated OpenAPI documentation. |
-| **Life Expectancy ML Model** | Data Science | `scikit-learn` `pandas` `NumPy` `Jupyter` | Machine learning predictive regression pipeline modeling socioeconomic and healthcare indicators. |
-
----
-
-## 🧠 Technical Arsenal
-
-```
-├── Languages:       Python (Advanced), JavaScript (ES6+), Java, C, HTML5, CSS3
-├── AI & Data:       TensorFlow, Keras, scikit-learn, NumPy, pandas, Prompt Engineering
-├── Web & Backend:   FastAPI, Streamlit, RESTful APIs, Semantic HTML5, Responsive UI/UX
-├── Tools & DevOps:  Git, GitHub, Docker, VS Code, Postman, Linux CLI
-└── Methodologies:   Vibe Coding, Rapid Prototyping, Clean Code, Agile Development
-```
+| **ResuSmart** | AI & Web | `Python` `Streamlit` `NLP` `Prompt Eng.` | Intelligent AI resume evaluator analyzing ATS compatibility with keyword scoring. |
+| **AAPDA-MITRA** | Emergency Tech | `JavaScript` `WebDev` `Emergency APIs` | Disaster management and alert platform providing real-time crisis protocols. |
+| **Intelligent Voice Assistant** | Automation | `Python` `SpeechRecognition` `pyttsx3` | Desktop AI assistant executing voice-driven automation, OS control, and web searches. |
+| **File Sharing via QR Code** | Web Utility | `JavaScript` `QR-API` `HTML5` | Cross-device local network document and media transfer using dynamic QR codes. |
+| **FastAPI Microservices** | API Architecture | `FastAPI` `Python` `Pydantic` `Swagger` | High-performance asynchronous REST microservices with auto-generated OpenAPI. |
+| **Life Expectancy ML Model** | Data Science | `scikit-learn` `pandas` `NumPy` `Jupyter` | Machine learning predictive regression pipeline modeling socioeconomic indicators. |
 
 ---
 
@@ -105,49 +105,54 @@ A modern, high-performance, dark-mode developer portfolio engineered with **Vani
 
 ```bash
 portfolio/
-├── index.html                  # Core semantic HTML5 structure
-├── style.css                   # Custom CSS3 design system & glassmorphic styles
-├── script.js                   # Interactive logic (Terminal, Cursor, Filter, Toast, Progress)
-├── favicon.svg                 # Brand SVG AS monogram favicon
-├── InShot_20251223_201734096.jpg # Profile image asset
-└── README.md                   # Project documentation & overview
+├── index.html                    # Core semantic HTML5 structure
+├── live-work.html                # Full ecosystem live applications showcase
+├── style.css                     # Custom CSS3 design system & glassmorphic styles
+├── script.js                     # Terminal, cursor, filters, progress & toast logic
+├── favicon.svg                   # Brand SVG AS monogram favicon
+├── InShot_20251223_201734096.jpg   # Profile image asset
+└── README.md                     # Project documentation
 ```
 
 ---
 
 ## ⚡ Quick Start & Local Development
 
-No complex bundler required — runs natively in any modern web browser:
+Runs natively in any modern web browser without any bundlers:
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Aniketsingh-45/Websites.git
-   cd Websites/portfolio
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Aniketsingh-45/Websites.git
+cd Websites/portfolio
 
-2. **Launch with any local static server**:
-   ```bash
-   # Using Python 3
-   python -m http.server 8080
+# Serve using any local server
+npx serve .
+# or
+python -m http.server 8080
+```
 
-   # Or using Node.js npx serve
-   npx serve
-   ```
+---
 
-3. **Open in browser**:
-   Navigate to `http://localhost:8080`.
+## ☁️ Deploy to Vercel
+
+1. In [Vercel Dashboard](https://vercel.com/new), select `Aniketsingh-45/Websites`.
+2. Set **Root Directory** to `portfolio`.
+3. Framework Preset: **Other**.
+4. Click **Deploy**!
 
 ---
 
 ## 📬 Connect With Me
 
-- **LinkedIn**: [linkedin.com/in/aniketsingh45](https://www.linkedin.com/in/aniketsingh45/)
-- **GitHub**: [github.com/Aniketsingh-45](https://github.com/Aniketsingh-45)
-- **Email**: [aniketsingh4500@gmail.com](mailto:aniketsingh4500@gmail.com)
-- **Location**: Patna, Bihar, India
-
----
-
 <div align="center">
-  <sub>Designed & Developed by <strong>Aniket Singh</strong> &bull; &copy; 2026 All Rights Reserved</sub>
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-aniketsingh--portfolio-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white)](https://aniketsingh-portfolio-ruby.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketsingh45/)
+[![GitHub](https://img.shields.io/badge/GitHub-Aniketsingh--45-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketsingh-45)
+[![Email](https://img.shields.io/badge/Email-aniketsingh4500-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:aniketsingh4500@gmail.com)
+
+<br/>
+
+<sub>Designed & Developed by <strong>Aniket Singh</strong> &bull; &copy; 2026 All Rights Reserved</sub>
+
 </div>

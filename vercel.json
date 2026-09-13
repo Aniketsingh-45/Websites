@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
@@ -50,6 +51,26 @@
     {
       "source": "/gift",
       "destination": "/gift/index.html"
+    },
+    {
+      "source": "/parlour",
+      "destination": "/Parlour/index.html"
+    },
+    {
+      "source": "/parlour/(.*)",
+      "destination": "/Parlour/$1"
+    },
+    {
+      "source": "/Parlour",
+      "destination": "/Parlour/index.html"
+    },
+    {
+      "source": "/Parlour/(.*)",
+      "destination": "/Parlour/$1"
+    },
+    {
+      "source": "/bella",
+      "destination": "/Parlour/index.html"
     }
   ],
   "headers": [

@@ -36,7 +36,7 @@ Every application in this monorepo is deployed live on **Vercel** with global An
 | **8** | **🎁 Kiara Birthday Surprise** | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | [`/gift`](./gift) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://wishing-birthday-ecru.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Audio API` `Confetti` |
 
 > [!TIP]
-> **Experience the Master Launchpad**: The repository root (`index.html`) serves as a unified interactive launchpad showcasing all 8 applications with real-time category filtering and live preview links!
+> **Experience the Master Launchpad**: The interactive project showcase ([`/showcase`](./showcase)) serves as a unified launchpad showcasing all 8 applications with real-time category filtering and live preview links!
 
 ---
 
@@ -206,11 +206,11 @@ npm run dev
 
 Every project in this repository is configured with dedicated production `vercel.json` rules, clean URLs, security headers, and asset caching. You can deploy in two ways:
 
-### Option A: Deploy the Unified Master Hub (Root)
+### Option A: Deploy the Showcase Launchpad Hub (`/showcase`)
 1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
-2. Leave **Root Directory** as `.` (root).
+2. Under **Root Directory**, click **Edit** and select `showcase`.
 3. Framework Preset: **Other** (zero build required).
-4. Click **Deploy**. Vercel will deploy the master showcase hub (`index.html` and root `vercel.json`), providing unified access to all 8 web applications!
+4. Click **Deploy**. Vercel will deploy the master showcase hub (`showcase/index.html` and `showcase/vercel.json`), providing unified access to all 8 web applications!
 
 ### Option B: Deploy Individual Subprojects (Standalone Apps)
 1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.

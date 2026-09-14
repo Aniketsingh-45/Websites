@@ -10,12 +10,14 @@ class AppController {
     this.searchQuery = '';
     this.activeTask = null;
     this.lastNotifiedTaskId = null;
+    this.density = localStorage.getItem('aura_density') || 'comfortable';
 
     // Focus mode timer state
     this.focusTimerInterval = null;
     this.focusSecondsRemaining = 25 * 60;
     this.isFocusTimerRunning = false;
 
+    this.activeView = localStorage.getItem('aura_active_view') || 'routineView';
     this.init();
   }
 
@@ -23,12 +25,81 @@ class AppController {
     this.loadRoutine();
     this.setupEventListeners();
     this.startLiveClockTracker();
+    this.updateHeaderButtonBadges();
     this.render();
+    this.switchView(this.activeView);
 
     // Initial check for notifications
     if (window.notificationEngine) {
       window.notificationEngine.checkPermission();
     }
+  }
+
+  switchView(viewName) {
+    this.activeView = viewName;
+    try {
+      localStorage.setItem('aura_active_view', viewName);
+    } catch (e) {}
+
+    // Update main nav tabs
+    document.querySelectorAll('.nav-view-tab').forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.view === viewName);
+    });
+
+    // Update main view panels
+    document.querySelectorAll('.main-view-panel').forEach(panel => {
+      panel.classList.toggle('active', panel.id === viewName);
+    });
+
+    // Specific sub-renders based on view
+    if (viewName === 'englishView') {
+      if (window.englishLab) {
+        window.englishLab.renderReadingLibrary();
+        window.englishLab.renderVocabVault();
+        window.englishLab.renderBookWisdomVault();
+        window.englishLab.updateStatsBar();
+      }
+    } else if (viewName === 'wellnessView') {
+      if (window.wellnessSentinel) {
+        window.wellnessSentinel.renderHydrationWidget();
+      }
+    } else if (viewName === 'rulesView') {
+      this.renderRulesView();
+    } else if (viewName === 'routineView') {
+      this.render();
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  renderRulesView() {
+    const container = document.getElementById('fullRulesCardsGrid');
+    if (!container || !this.routine || !this.routine.rules) return;
+
+    container.innerHTML = this.routine.rules.map(r => `
+      <div class="golden-rule-card ${r.highlight ? 'highlight-glow' : ''}">
+        <div class="rule-top-meta">
+          <span class="rule-index-tag">GOLDEN RULE #0${r.num}</span>
+          ${r.highlight ? '<span class="rule-pillar-tag">CORE PILLAR</span>' : ''}
+        </div>
+        <h3 class="rule-card-title">${r.title}</h3>
+        <blockquote class="rule-card-quote">"${r.text}"</blockquote>
+        <p class="rule-card-explanation">${this.getRuleExplanation(r.num)}</p>
+      </div>
+    `).join('');
+  }
+
+  getRuleExplanation(num) {
+    const map = {
+      1: "Missing one day happens to everyone; missing two days begins forming an entirely new, destructive habit. When tired or busy, shorten the block, but protect the streak at all costs.",
+      2: "Sleep is biological restoration, not a luxury. If you sleep 5 hours to study at 5 AM, your cognitive retention drops by 40%. Protect 7–8 hours of deep restorative sleep first.",
+      3: "Do not wait for flawless grammar before opening your mouth. Fluency is forged through repeated vocal vibrations. Speak aloud, record yourself, and embrace imperfections.",
+      4: "Follow the complete feedback loop daily: Listen to native audio → Shadow rhythm → Read aloud → Speak original thoughts → Record 2-5m → Review without shame → Repeat.",
+      5: "Endless short-form scrolling depletes dopamine and fractures attention spans. Keep your phone in another room during study blocks to maintain laser focus.",
+      6: "Passive reading creates the illusion of competence. Build practical projects and force yourself to explain what you've learned in clear English to prove true understanding.",
+      7: "Upgrade is a 30-day compounding marathon. Don't quit because of one low-energy afternoon; show up, execute the minimum, and maintain steady momentum."
+    };
+    return map[num] || "Discipline is the bridge between goals and accomplishment.";
   }
 
   loadRoutine() {
@@ -64,15 +135,25 @@ class AppController {
   }
 
   setupEventListeners() {
+    // Top-Level Main Navigation View Switcher
+    document.querySelectorAll('.nav-view-tab').forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        const view = e.currentTarget.dataset.view;
+        if (view) this.switchView(view);
+      });
+    });
+
     // Top Bar buttons
     document.getElementById('restoreRoutineBtn')?.addEventListener('click', () => this.restoreDefaultRoutine());
     document.getElementById('openAddModalBtn')?.addEventListener('click', () => this.openTaskModal());
     document.getElementById('openPdfUploadBtn')?.addEventListener('click', () => this.openPdfModal());
     document.getElementById('openFocusModeBtn')?.addEventListener('click', () => this.openFocusMode());
-    document.getElementById('openRulesBtn')?.addEventListener('click', () => this.openRulesDrawer());
+    document.getElementById('openRulesBtn')?.addEventListener('click', () => this.switchView('rulesView'));
+    document.getElementById('openEnglishLabBtn')?.addEventListener('click', () => this.switchView('englishView'));
     document.getElementById('soundToggleBtn')?.addEventListener('click', () => this.toggleSound());
     document.getElementById('notifyPermBtn')?.addEventListener('click', () => this.requestNotifyPerm());
     document.getElementById('printRoutineBtn')?.addEventListener('click', () => window.print());
+    document.getElementById('densityToggleBtn')?.addEventListener('click', () => this.toggleDensity());
 
     // Filter tabs
     document.querySelectorAll('.filter-tab').forEach(tab => {
@@ -323,17 +404,97 @@ class AppController {
     this.renderLiveBillboard(matched);
   }
 
+  getCategoryMeta(category) {
+    const map = {
+      'English': { icon: '🗣️', label: 'English Practice', class: 'cat-english', color: '#06b6d4' },
+      'AI/ML': { icon: '🤖', label: 'AI / ML Deep Study', class: 'cat-aiml', color: '#a855f7' },
+      'Coding': { icon: '💻', label: 'Coding & DSA', class: 'cat-coding', color: '#6366f1' },
+      'Fitness': { icon: '🏃', label: 'Fitness & Health', class: 'cat-fitness', color: '#f97316' },
+      'Discipline': { icon: '🛡️', label: 'Discipline & Habits', class: 'cat-discipline', color: '#10b981' },
+      'Wellness': { icon: '🌿', label: 'Wellness & Rest', class: 'cat-wellness', color: '#38bdf8' },
+      'College': { icon: '🎓', label: 'College & Study', class: 'cat-college', color: '#f59e0b' }
+    };
+    return map[category] || { icon: '⚡', label: category, class: 'cat-wellness', color: '#38bdf8' };
+  }
+
+  calculateDuration(startTime, endTime) {
+    if (!startTime || !endTime) return '';
+    const [sH, sM] = startTime.split(':').map(Number);
+    const [eH, eM] = endTime.split(':').map(Number);
+    let diff = (eH * 60 + eM) - (sH * 60 + sM);
+    if (diff < 0) diff += 1440; // overnight
+    if (diff < 60) return `${diff}m`;
+    const h = Math.floor(diff / 60);
+    const m = diff % 60;
+    return m > 0 ? `${h}h ${m}m` : `${h}h`;
+  }
+
+  toggleDensity() {
+    this.density = this.density === 'comfortable' ? 'compact' : 'comfortable';
+    localStorage.setItem('aura_density', this.density);
+    const btn = document.getElementById('densityToggleBtn');
+    if (btn) {
+      btn.innerHTML = this.density === 'comfortable' ? '📐 Compact' : '📐 Relaxed';
+    }
+    this.renderTaskList();
+  }
+
+  clearFilters() {
+    this.searchQuery = '';
+    this.currentFilter = 'all';
+    this.currentCategory = 'all';
+    const searchInput = document.getElementById('taskSearchInput');
+    if (searchInput) searchInput.value = '';
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.toggle('active', t.dataset.filter === 'all'));
+    document.querySelectorAll('.category-chip').forEach(c => c.classList.toggle('active', c.dataset.category === 'all'));
+    this.renderTaskList();
+  }
+
+  updateHeaderButtonBadges() {
+    const soundBtn = document.getElementById('soundToggleBtn');
+    if (soundBtn && window.soundEngine) {
+      const on = window.soundEngine.soundEnabled;
+      soundBtn.innerHTML = `🔊 Sound <span class="btn-status-pill ${on ? 'on' : 'off'}">${on ? 'ON' : 'OFF'}</span>`;
+    }
+
+    const notifyBtn = document.getElementById('notifyPermBtn');
+    if (notifyBtn) {
+      const granted = 'Notification' in window && Notification.permission === 'granted';
+      notifyBtn.innerHTML = `🔔 Alerts <span class="btn-status-pill ${granted ? 'on' : 'off'}">${granted ? 'ON' : 'READY'}</span>`;
+    }
+
+    const densityBtn = document.getElementById('densityToggleBtn');
+    if (densityBtn) {
+      densityBtn.innerHTML = this.density === 'comfortable' ? '📐 Compact' : '📐 Relaxed';
+    }
+  }
+
+  focusTask(taskId) {
+    const task = this.routine.tasks.find(t => t.id === taskId);
+    if (task) {
+      this.openFocusMode(task.activity);
+    }
+  }
+
   renderLiveBillboard(matched) {
     const card = document.getElementById('liveBillboardCard');
     if (!card) return;
 
     if (!matched || !matched.task) {
       card.innerHTML = `
-        <div class="billboard-empty">
-          <span class="pulse-indicator off"></span>
-          <div>
+        <div class="billboard-empty-luxe">
+          <div class="free-flow-badge">
+            <span class="live-dot-pulse idle"></span>
+            <span>⚡ FREE-FLOW / RECOVERY MODE</span>
+          </div>
+          <div class="free-flow-body">
             <h3>Between Routine Intervals</h3>
-            <p>Next scheduled block will appear automatically. Take a moment to hydrate or review your plan.</p>
+            <p class="free-flow-quote">"Rule #7: Aim for consistency, not a perfect 10/10 day."</p>
+          </div>
+          <div class="free-flow-action">
+            <button class="billboard-focus-btn-large" onclick="window.app.openFocusMode()">
+              🎯 Launch Focus Block (25m)
+            </button>
           </div>
         </div>
       `;
@@ -345,34 +506,42 @@ class AppController {
     const elapsed = current - startTotal;
     const remaining = Math.max(0, endTotal - current);
     const progressPct = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+    const meta = this.getCategoryMeta(task.category);
+    const duration = this.calculateDuration(task.startTime, task.endTime);
 
     card.innerHTML = `
       <div class="billboard-active-content">
         <div class="billboard-left">
           <div class="live-pill">
             <span class="live-dot-pulse"></span>
-            LIVE NOW • ${task.timeDisplay}
+            <span>LIVE NOW • ${task.timeDisplay}</span>
+            <span class="duration-pill">${duration}</span>
           </div>
           <h2 class="billboard-title">${task.activity}</h2>
-          <p class="billboard-goal">🎯 <strong>Target:</strong> ${task.goal}</p>
+          <p class="billboard-goal"><span class="target-sticker">🎯 Goal:</span> ${task.goal}</p>
           <div class="billboard-meta">
-            <span class="badge-cat cat-${task.category.toLowerCase()}">${task.category}</span>
-            <span class="badge-prio prio-${task.priority}">Priority: ${task.priority.toUpperCase()}</span>
-            <span class="badge-xp">+${task.xp} XP</span>
+            <span class="badge-cat ${meta.class}">${meta.icon} ${task.category}</span>
+            <span class="badge-prio prio-${task.priority}"><span class="prio-dot"></span>Priority: ${task.priority.toUpperCase()}</span>
+            <span class="badge-xp">💎 +${task.xp} XP</span>
           </div>
         </div>
 
         <div class="billboard-right">
-          <div class="billboard-timer">
+          <div class="billboard-timer-badge">
             <span class="timer-remaining">${remaining}</span>
             <span class="timer-unit">min left</span>
           </div>
-          <div class="billboard-progress-track">
+          <div class="billboard-progress-track" title="${progressPct}% of this slot elapsed">
             <div class="billboard-progress-fill" style="width: ${progressPct}%"></div>
           </div>
-          <button class="billboard-check-btn ${task.completed ? 'completed' : ''}" onclick="window.app.toggleTask('${task.id}')">
-            ${task.completed ? '✓ Completed' : 'Mark as Completed'}
-          </button>
+          <div class="billboard-actions-row">
+            <button class="billboard-focus-btn" onclick="window.app.focusTask('${task.id}')" title="Enter Focus Mode for this block">
+              🎯 Focus
+            </button>
+            <button class="billboard-check-btn ${task.completed ? 'completed' : ''}" onclick="window.app.toggleTask('${task.id}')">
+              ${task.completed ? '✓ Completed' : 'Mark Completed'}
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -406,19 +575,16 @@ class AppController {
   }
 
   checkMilestones(task) {
-    // 1. Early bird check (task 1)
     if (task.id === 'task-1' || task.activity.toLowerCase().includes('wake up')) {
       window.gamification.unlockBadge('badge-early-bird');
     }
 
-    // 2. AI & Coding combo
     const aiDone = this.routine.tasks.some(t => t.category === 'AI/ML' && t.completed);
     const codeDone = this.routine.tasks.some(t => t.category === 'Coding' && t.completed);
     if (aiDone && codeDone) {
       window.gamification.unlockBadge('badge-ai-dev');
     }
 
-    // 3. 100% routine complete
     const allDone = this.routine.tasks.length > 0 && this.routine.tasks.every(t => t.completed);
     if (allDone) {
       window.gamification.unlockBadge('badge-full-day');
@@ -472,41 +638,52 @@ class AppController {
     if (filtered.length === 0) {
       container.innerHTML = `
         <div class="tasks-empty-view">
-          <span class="empty-icon">📝</span>
-          <p>No tasks match the selected filter.</p>
+          <span class="empty-icon">🔍</span>
+          <h3>No matching schedule tasks</h3>
+          <p>Try resetting your filters or search query to see your routine.</p>
+          <button class="btn-secondary" onclick="window.app.clearFilters()">Clear All Filters</button>
         </div>
       `;
       return;
     }
 
+    const isCompact = this.density === 'compact';
+
     container.innerHTML = filtered.map(task => {
       const isLive = this.activeTask && this.activeTask.id === task.id;
+      const meta = this.getCategoryMeta(task.category);
+      const duration = this.calculateDuration(task.startTime, task.endTime);
+
       return `
-        <div class="task-card ${task.completed ? 'completed' : ''} ${isLive ? 'is-live-slot' : ''}" data-id="${task.id}">
+        <div class="task-card ${isCompact ? 'compact' : ''} ${task.completed ? 'completed' : ''} ${isLive ? 'is-live-slot' : ''}" data-id="${task.id}">
           <div class="task-left">
-            <button class="task-checkbox ${task.completed ? 'checked' : ''}" onclick="window.app.toggleTask('${task.id}')" aria-label="Toggle task completion">
-              ${task.completed ? '✓' : ''}
+            <button class="task-checkbox ${task.completed ? 'checked' : ''}" 
+                    onclick="window.app.toggleTask('${task.id}')" 
+                    title="${task.completed ? 'Mark as pending' : 'Click to complete (+XP)'}">
+              <span class="check-icon">${task.completed ? '✓' : ''}</span>
             </button>
             <div class="task-time-col">
               <span class="task-time-text">${task.timeDisplay}</span>
-              ${isLive ? '<span class="task-live-tag">CURRENT</span>' : ''}
+              <span class="task-duration-pill">${duration}</span>
+              ${isLive ? '<span class="task-live-tag">● LIVE</span>' : ''}
             </div>
           </div>
 
           <div class="task-center">
             <div class="task-main-row">
               <h3 class="task-activity ${task.completed ? 'strike' : ''}">${task.activity}</h3>
-              <span class="badge-cat cat-${task.category.toLowerCase()}">${task.category}</span>
-              <span class="badge-prio prio-${task.priority}">${task.priority}</span>
+              <span class="badge-cat ${meta.class}">${meta.icon} ${task.category}</span>
+              <span class="badge-prio prio-${task.priority}"><span class="prio-dot"></span>${task.priority.toUpperCase()}</span>
             </div>
-            <p class="task-goal-text">🎯 ${task.goal}</p>
+            <p class="task-goal-text"><strong class="goal-label">🎯 Goal:</strong> ${task.goal}</p>
           </div>
 
           <div class="task-right">
-            <span class="task-xp-badge">+${task.xp} XP</span>
+            <span class="task-xp-badge" title="XP reward">💎 +${task.xp} XP</span>
             <div class="task-actions-menu">
-              <button class="task-mini-btn" title="Edit Task" onclick="window.app.editTask('${task.id}')">✏️</button>
-              <button class="task-mini-btn del" title="Delete Task" onclick="window.app.deleteTask('${task.id}')">🗑️</button>
+              <button class="task-action-btn focus-btn" title="Focus Mode on this block" onclick="window.app.focusTask('${task.id}')">🎯</button>
+              <button class="task-action-btn edit-btn" title="Edit routine block" onclick="window.app.editTask('${task.id}')">✏️</button>
+              <button class="task-action-btn del-btn" title="Delete block" onclick="window.app.deleteTask('${task.id}')">🗑️</button>
             </div>
           </div>
         </div>
@@ -519,6 +696,7 @@ class AppController {
 
     const total = this.routine.tasks.length;
     const completed = this.routine.tasks.filter(t => t.completed).length;
+    const pending = total - completed;
     const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
 
     const dayPctElem = document.getElementById('dayCompletionPercent');
@@ -530,6 +708,15 @@ class AppController {
     if (dayProgressFill) dayProgressFill.style.width = `${pct}%`;
     if (completedCountElem) completedCountElem.textContent = completed;
     if (totalCountElem) totalCountElem.textContent = total;
+
+    // Filter tab counter badges
+    const tabAll = document.querySelector('.filter-tab[data-filter="all"]');
+    const tabActive = document.querySelector('.filter-tab[data-filter="active"]');
+    const tabCompleted = document.querySelector('.filter-tab[data-filter="completed"]');
+
+    if (tabAll) tabAll.innerHTML = `All Tasks <span class="tab-badge">${total}</span>`;
+    if (tabActive) tabActive.innerHTML = `Pending <span class="tab-badge">${pending}</span>`;
+    if (tabCompleted) tabCompleted.innerHTML = `Completed <span class="tab-badge">${completed}</span>`;
 
     // Category breakdown
     const categories = ['English', 'AI/ML', 'Coding', 'Fitness', 'Discipline'];

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraRoutine | High-Tech Student Growth & 30-Day Upgrade Routine</title>
+  <meta name="description" content="A futuristic, high-tech student growth routine & to-do platform. Interactive 30-Day Personal Upgrade timetable, PDF schedule parser, 20-20-20 eye rest & hydration sentinel, English voice recorder lab, and gamified XP achievements.">
+  
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- PDF.js from Cloudflare CDN for Client-Side PDF Extraction -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- Canvas Confetti CDN with internal fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body class="dark-theme">
+
+  <!-- Top Floating Toast Containers -->
+  <div id="toastNotificationContainer" class="toast-stack-container" aria-live="polite"></div>
+  <div id="xpToastContainer" class="xp-toast-container" aria-live="polite"></div>
+
+  <!-- Posture Alert Floating Banner -->
+  <div id="postureBanner" class="posture-floating-banner">
+    <div class="posture-banner-icon">🧘</div>
+    <div class="posture-banner-body">
+      <strong>Ergonomic Checkpoint</strong>
+      <p>Roll your shoulders back, straighten your spine, and uncross legs.</p>
+    </div>
+    <button class="posture-banner-close" onclick="document.getElementById('postureBanner').classList.remove('visible')">✕</button>
+  </div>
+
+  <!-- App Shell -->
+  <div class="app-container">
+    
+    <!-- COMMAND CENTER NAVIGATION BAR -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-badge">
+          <div class="brand-logo-glow">
+            <span class="brand-icon">⚡</span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">AURA<span class="brand-highlight">ROUTINE</span></div>
+            <div class="brand-subtitle">30-Day Personal Upgrade OS</div>
+          </div>
+        </div>
+
+        <div class="hud-clock-widget">
+          <span class="live-dot-pulse"></span>
+          <span id="liveDigitalClock" class="hud-clock-time">00:00:00</span>
+          <span id="liveDateDisplay" class="hud-clock-date">Mon, Sep 14</span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <!-- Gamification Rank & XP HUD -->
+        <div class="user-gamification-hud" title="Complete tasks and maintain discipline to earn XP and level up">
+          <div class="rank-badge-row">
+            <span id="userRankTitle" class="user-rank-title">🌱 Novice Apprentice</span>
+            <span id="userRankLevel" class="user-rank-level">LVL 1</span>
+          </div>
+          <div class="xp-bar-container">
+            <div id="userXpFill" class="xp-bar-fill" style="width: 0%"></div>
+          </div>
+          <div class="xp-labels-row">
+            <span id="userXpProgressText" class="xp-label-sub">0 / 150 XP</span>
+            <span class="user-streak-badge" title="Rule #1: Never miss two days in a row!">
+              🔥 <span id="userStreakCount">1d</span> Streak
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button id="soundToggleBtn" class="header-hud-btn" title="Toggle Synthesized Audio Chimes">
+          🔊 Sound ON
+        </button>
+        <button id="notifyPermBtn" class="header-hud-btn" title="Enable System Push Notifications">
+          🔔 Alerts
+        </button>
+        <button id="openEnglishLabBtn" class="header-hud-btn" title="Open English Practice Lab & Voice Recorder">
+          🎙️ English Lab
+        </button>
+        <button id="openFocusModeBtn" class="header-hud-btn glow-accent" title="Open Minimalist Focus Mode">
+          🎯 Focus Mode
+        </button>
+        <button id="openRulesBtn" class="header-hud-btn" title="View 30-Day Golden Rules">
+          📖 30-Day Rules
+        </button>
+        <button id="restoreRoutineBtn" class="header-hud-btn outline" title="Restore Flagship 30-Day Routine">
+          🔄 Reset
+        </button>
+      </div>
+    </header>
+
+    <!-- BENTO GRID DASHBOARD OVERVIEW -->
+    <section class="dashboard-bento-grid">
+      
+      <!-- BENTO 1: Real-time Live Task Billboard -->
+      <div class="bento-card bento-billboard">
+        <div class="bento-header-row">
+          <span class="bento-pill-title">CURRENT SCHEDULE BLOCK</span>
+          <span class="bento-live-badge"><span class="dot-pulse-green"></span> LIVE SYNC</span>
+        </div>
+        <div id="liveBillboardCard" class="billboard-content-wrapper">
+          <!-- Dynamic Content Rendered in app.js -->
+        </div>
+      </div>
+
+      <!-- BENTO 2: Daily Completion & Category Progress -->
+      <div class="bento-card bento-progress">
+        <div class="bento-header-row">
+          <span class="bento-pill-title">DAILY UPGRADE PROGRESS</span>
+          <span id="dayCompletionPercent" class="bento-stat-num">0%</span>
+        </div>
+        
+        <div class="day-progress-master-bar">
+          <div id="dayProgressFillBar" class="day-progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-sub-stats">
+          <span><strong id="completedTasksCount">0</strong> of <strong id="totalTasksCount">26</strong> completed</span>
+          <span class="aim-note">Aim for consistency, not perfection</span>
+        </div>
+
+        <div class="category-breakdown-list">
+          <div class="cat-bar-item">
+            <span class="cat-item-name">English Practice</span>
+            <div class="cat-item-bar"><div id="catProgFill-english" class="cat-fill cat-english"></div></div>
+            <span id="catProgText-english" class="cat-item-val">0/7</span>
+          </div>
+          <div class="cat-bar-item">
+            <span class="cat-item-name">AI / ML Concepts</span>
+            <div class="cat-item-bar"><div id="catProgFill-aiml" class="cat-fill cat-aiml"></div></div>
+            <span id="catProgText-aiml" class="cat-item-val">0/2</span>
+          </div>
+          <div class="cat-bar-item">
+            <span class="cat-item-name">Coding & DSA</span>
+            <div class="cat-item-bar"><div id="catProgFill-coding" class="cat-fill cat-coding"></div></div>
+            <span id="catProgText-coding" class="cat-item-val">0/2</span>
+          </div>
+          <div class="cat-bar-item">
+            <span class="cat-item-name">Discipline & Habits</span>
+            <div class="cat-item-bar"><div id="catProgFill-discipline" class="cat-fill cat-discipline"></div></div>
+            <span id="catProgText-discipline" class="cat-item-val">0/4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BENTO 3: Student Bio-Wellness Sentinel (Requested Feature) -->
+      <div class="bento-card bento-wellness">
+        <div class="bento-header-row">
+          <span class="bento-pill-title">STUDENT BIO-WELLNESS</span>
+          <span class="bento-active-tag">SENTINEL ACTIVE</span>
+        </div>
+
+        <!-- 20-20-20 Screen Rest Engine -->
+        <div class="wellness-subcard eye-rest-card">
+          <div class="wellness-card-top">
+            <div class="wellness-icon-wrap eye">👁️</div>
+            <div class="wellness-meta">
+              <strong>20-20-20 Eye Rest</strong>
+              <p>Next break in <span id="eyeScreenTimerDisplay" class="highlight-mono">20:00</span></p>
+            </div>
+            <button class="wellness-quick-btn" onclick="window.wellnessSentinel.triggerEyeBreak()" title="Take 20s break now">Rest Now</button>
+          </div>
+          <div class="wellness-counter-row">
+            <span>Breaks taken today: <strong id="eyeBreaksDisplay">0</strong></span>
+            <span class="sub-tip">Look 20ft away for 20s</span>
+          </div>
+        </div>
+
+        <!-- Hydration Water Intake -->
+        <div class="wellness-subcard hydration-card">
+          <div class="wellness-card-top">
+            <div class="wellness-icon-wrap water">💧</div>
+            <div class="wellness-meta">
+              <strong>Hydration Tracker</strong>
+              <p><span id="waterCountDisplay">0 / 8</span> glasses (<span id="waterTargetDisplay">0.0 L</span>)</p>
+            </div>
+            <div class="water-ctrl-btns">
+              <button id="waterSubBtn" class="water-step-btn" title="Remove glass">-</button>
+              <button id="waterAddBtn" class="water-step-btn add" title="Drink +1 Glass">+1 Glass</button>
+            </div>
+          </div>
+          <div class="water-bar-track">
+            <div id="waterProgressBar" class="water-bar-fill" style="width: 0%"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- WEEKLY FOCUS ROADMAP & ENGLISH LAB CALLOUT -->
+    <section id="weeklyFocusBanner" class="weekly-focus-strip">
+      <!-- Injected by app.js -->
+    </section>
+
+    <!-- MAIN INTERACTIVE WORKSPACE -->
+    <main class="main-layout-grid">
+
+      <!-- LEFT COLUMN: ROUTINE TIMELINE & TASK MANAGER -->
+      <section class="routine-manager-column">
+        
+        <!-- Controls & Filter Toolbar -->
+        <div class="routine-toolbar-panel">
+          <div class="toolbar-top">
+            <div class="toolbar-heading">
+              <h2 class="section-title">Daily Routine Timeline</h2>
+              <span class="section-tagline">Time-blocked execution slots</span>
+            </div>
+
+            <div class="toolbar-action-buttons">
+              <button id="openAddModalBtn" class="btn-primary">
+                <span class="btn-icon">＋</span> Add Custom Task
+              </button>
+              <button id="openPdfUploadBtn" class="btn-secondary">
+                <span class="btn-icon">📄</span> PDF Importer
+              </button>
+              <button id="printRoutineBtn" class="btn-ghost" title="Print Routine">
+                🖨️ Print
+              </button>
+            </div>
+          </div>
+
+          <!-- Search & Filter Controls -->
+          <div class="toolbar-controls-row">
+            <div class="search-input-wrap">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="taskSearchInput" placeholder="Search tasks, goals, or time slots..." aria-label="Search routine tasks">
+            </div>
+
+            <div class="filter-tabs-group" role="tablist">
+              <button class="filter-tab active" data-filter="all">All</button>
+              <button class="filter-tab" data-filter="active">Active</button>
+              <button class="filter-tab" data-filter="completed">Completed</button>
+            </div>
+          </div>
+
+          <!-- Category Chips Bar -->
+          <div class="category-chips-scroll">
+            <button class="category-chip active" data-category="all">All Categories</button>
+            <button class="category-chip" data-category="English">English</button>
+            <button class="category-chip" data-category="AI/ML">AI / ML</button>
+            <button class="category-chip" data-category="Coding">Coding</button>
+            <button class="category-chip" data-category="Fitness">Fitness</button>
+            <button class="category-chip" data-category="Discipline">Discipline</button>
+            <button class="category-chip" data-category="Wellness">Wellness</button>
+            <button class="category-chip" data-category="College">College</button>
+          </div>
+        </div>
+
+        <!-- Routine Time-Slots List -->
+        <div id="taskListContainer" class="task-list-wrapper">
+          <!-- Dynamic Task Cards Rendered Here -->
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN: HABITS CHECKLIST & ACHIEVEMENT VAULT -->
+      <aside class="sidebar-column">
+
+        <!-- Daily Habit Checklist (Page 2 of document) -->
+        <div class="sidebar-widget-card habits-card">
+          <div class="widget-header">
+            <div class="widget-title-wrap">
+              <span class="widget-icon">✅</span>
+              <h3>Daily Habits Checklist</h3>
+            </div>
+            <span id="habitsProgressPercent" class="widget-badge">0% (0/14)</span>
+          </div>
+          <p class="widget-desc">High-performance daily essentials for mental clarity and career readiness.</p>
+          
+          <div id="dailyHabitsContainer" class="habits-checklist-grid">
+            <!-- Dynamic Habits Rendered Here -->
+          </div>
+        </div>
+
+        <!-- Gamified Achievements Vault -->
+        <div class="sidebar-widget-card achievements-card">
+          <div class="widget-header">
+            <div class="widget-title-wrap">
+              <span class="widget-icon">🏆</span>
+              <h3>Milestone Badges</h3>
+            </div>
+            <span class="widget-badge xp-highlight">Earn XP & Badges</span>
+          </div>
+
+          <div id="badgesGridContainer" class="badges-mini-grid">
+            <!-- Badges Rendered Here -->
+          </div>
+        </div>
+
+        <!-- 30-Day Rules Quick Card -->
+        <div class="sidebar-widget-card rules-summary-card">
+          <div class="widget-header">
+            <div class="widget-title-wrap">
+              <span class="widget-icon">⚖️</span>
+              <h3>Rule #1: Continuity</h3>
+            </div>
+          </div>
+          <blockquote class="rule-quote">
+            "Never miss two days in a row. English mistakes are allowed — silence is not. Learn → Build → Explain."
+          </blockquote>
+          <button class="view-all-rules-btn" onclick="window.app.openRulesDrawer()">
+            Read All 7 Golden Rules →
+          </button>
+        </div>
+
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- ==================== MODALS & DRAWERS ==================== -->
+
+  <!-- 1. PDF IMPORT & ROUTINE PARSER MODAL -->
+  <div id="pdfImportModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">📄</span>
+          <div>
+            <h3>Schedule PDF Routine Importer</h3>
+            <p>Upload any schedule or timetable PDF to extract routine blocks automatically.</p>
+          </div>
+        </div>
+        <button id="closePdfModalBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Preset Fast Track Option -->
+        <div class="preset-cta-card">
+          <div class="preset-info">
+            <span class="preset-tag">ATTACHED DOCUMENT PRESET</span>
+            <h4>30-Day Personal Upgrade Routine</h4>
+            <p>Load the exact 26 schedule blocks, English formula, daily habits & rules from your timetable document.</p>
+          </div>
+          <button id="loadAttachedRoutineBtn" class="btn-primary glow-emerald">
+            ⚡ 1-Click Load 30-Day Upgrade
+          </button>
+        </div>
+
+        <div class="or-divider"><span>OR UPLOAD CUSTOM PDF</span></div>
+
+        <!-- Drag & Drop Zone -->
+        <div id="pdfDropzone" class="pdf-drop-zone">
+          <div class="drop-icon">📤</div>
+          <p class="drop-main-text">Drag & drop your routine PDF here, or <strong>Browse files</strong></p>
+          <p class="drop-sub-text">Supported: .pdf schedules, timetables, syllabus planners</p>
+          <input type="file" id="pdfFileInput" accept=".pdf" style="display:none">
+        </div>
+
+        <!-- Parsed Results Preview -->
+        <div id="pdfParsedPreview" class="pdf-parsed-preview-box"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="applyPdfTasksBtn" class="btn-primary" style="display: none;">
+          Apply to My Routine
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ENGLISH PRACTICE LAB & VOICE RECORDER MODAL -->
+  <div id="englishLabModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card modal-xl">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">🎙️</span>
+          <div>
+            <h3>English Practice Studio & Voice Lab</h3>
+            <p>Rule #3: Mistakes are allowed — silence is not. Record your daily 2–5 min speech practice!</p>
+          </div>
+        </div>
+        <button id="closeEnglishLabModal" class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body english-lab-body">
+        
+        <!-- Top: Audio Speech Recorder -->
+        <div class="voice-recorder-station">
+          <div class="station-header">
+            <h4>Daily Speech Recording (2–5 Minutes)</h4>
+            <span class="station-target">Task: 5:20 PM English Speaking</span>
+          </div>
+
+          <div id="voiceRecordControls" class="voice-record-card">
+            <div class="record-visualizer-orb">
+              <span class="mic-glyph">🎙️</span>
+              <div class="soundwave-rings"></div>
+            </div>
+            
+            <div class="record-timer-display" id="voiceRecordTimer">00:00</div>
+            <p class="record-hint">Speak freely about today's learnings, an AI concept, or your daily experience. Do not stop for grammar errors!</p>
+
+            <div class="record-actions-row">
+              <button id="startRecordVoiceBtn" class="btn-record start">
+                🔴 Start Recording
+              </button>
+              <button id="stopRecordVoiceBtn" class="btn-record stop">
+                ⏹ Stop & Save Practice
+              </button>
+            </div>
+
+            <!-- Audio Player after recording -->
+            <div id="voicePlaybackContainer" class="voice-playback-box"></div>
+          </div>
+        </div>
+
+        <!-- Practice Formula Cheat Sheet -->
+        <div class="formula-guide-section">
+          <h4>Daily Practice Formula</h4>
+          <div class="formula-pills-grid">
+            <div class="formula-pill-item">
+              <strong>🎧 Listening</strong>
+              <p>10–20 min English podcast; first with subtitles, then without.</p>
+            </div>
+            <div class="formula-pill-item">
+              <strong>🗣️ Shadowing</strong>
+              <p>Speaker says a sentence → immediately repeat rhythm & pauses.</p>
+            </div>
+            <div class="formula-pill-item">
+              <strong>📖 Read Aloud</strong>
+              <p>1–2 pages: slow → normal → expressive reading.</p>
+            </div>
+            <div class="formula-pill-item">
+              <strong>🧠 Thinking</strong>
+              <p>Describe simple activities mentally in English instead of translating.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Vocabulary Builder (3-5 words) -->
+        <div class="daily-vocab-station">
+          <div class="station-header">
+            <h4>Daily High-Impact Vocabulary (5–7 Words Rule)</h4>
+            <span class="vocab-badge">Learn + Speak in 3 Sentences</span>
+          </div>
+          <div id="dailyVocabContainer" class="daily-vocab-cards-grid">
+            <!-- Injected by english-lab.js -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. STUDENT BIO-WELLNESS: 20-20-20 EYE REST MODAL -->
+  <div id="eyeRestModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card modal-center eye-rest-modal-card">
+      <div class="eye-modal-header">
+        <span class="eye-glow-icon">👁️</span>
+        <h3>20-20-20 Eye Strain Break</h3>
+        <p>You have been working on screens for 20 minutes. Shift your gaze to an object <strong>20 feet away</strong> to relieve eye fatigue!</p>
+      </div>
+
+      <div class="eye-countdown-circle-wrap">
+        <svg class="progress-ring-svg" width="160" height="160">
+          <circle class="ring-bg" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="transparent" r="45" cx="80" cy="80" />
+          <circle id="eyeProgressRing" class="ring-progress" stroke="#38bdf8" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="0" stroke-linecap="round" fill="transparent" r="45" cx="80" cy="80" />
+        </svg>
+        <div class="eye-countdown-inner">
+          <span id="eyeCountdownValue" class="eye-countdown-num">20</span>
+          <span class="eye-countdown-label">seconds</span>
+        </div>
+      </div>
+
+      <div class="eye-modal-actions">
+        <button id="eyeRestDoneBtn" class="btn-primary glow-cyan">✓ Completed Break (+15 XP)</button>
+        <button id="eyeRestSkipBtn" class="btn-ghost">Snooze / Skip</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ADD / EDIT TASK MODAL -->
+  <div id="taskModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="taskModalTitle">Add Routine Task</h3>
+        <button id="closeTaskModalBtn" class="modal-close-btn">✕</button>
+      </div>
+      <form id="taskModalForm" class="modal-form">
+        <input type="hidden" id="taskIdInput">
+
+        <div class="form-group">
+          <label for="taskActivityInput">Activity Name *</label>
+          <input type="text" id="taskActivityInput" required placeholder="e.g. AI/ML Deep Study, Coding, Workout">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskStartTimeInput">Start Time *</label>
+            <input type="time" id="taskStartTimeInput" required value="09:00">
+          </div>
+          <div class="form-group">
+            <label for="taskEndTimeInput">End Time *</label>
+            <input type="time" id="taskEndTimeInput" required value="10:30">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskCategoryInput">Category</label>
+            <select id="taskCategoryInput">
+              <option value="Coding">Coding</option>
+              <option value="AI/ML">AI / ML</option>
+              <option value="English">English</option>
+              <option value="Fitness">Fitness</option>
+              <option value="Discipline">Discipline</option>
+              <option value="Wellness">Wellness</option>
+              <option value="College">College</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskPriorityInput">Priority</label>
+            <select id="taskPriorityInput">
+              <option value="high">High Priority (+45 XP)</option>
+              <option value="medium">Medium Priority (+30 XP)</option>
+              <option value="low">Low Priority (+20 XP)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="taskGoalInput">Main Goal / Target</label>
+          <input type="text" id="taskGoalInput" placeholder="e.g. Python / ML concepts, No scrolling, Recovery">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="cancelTaskModalBtn" class="btn-ghost">Cancel</button>
+          <button type="submit" class="btn-primary">Save Routine Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5. 30-DAY RULES SIDE DRAWER -->
+  <aside id="rulesDrawer" class="side-drawer" role="complementary">
+    <div class="drawer-header">
+      <div class="drawer-title-wrap">
+        <span>📜</span>
+        <h3>30-Day Rules of Discipline</h3>
+      </div>
+      <button id="closeRulesDrawerBtn" class="drawer-close-btn">✕</button>
+    </div>
+    <div class="drawer-body">
+      <p class="drawer-intro">The non-negotiable mental rules from page 2 of your upgrade protocol.</p>
+      <div id="rulesListContainer" class="rules-list-stack">
+        <!-- Injected by app.js -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- 6. HIGH-TECH FOCUS MODE OVERLAY -->
+  <div id="focusModeOverlay" class="focus-mode-overlay" role="dialog" aria-modal="true">
+    <div class="focus-top-bar">
+      <span class="focus-brand-pill">⚡ AURA DEEP FOCUS</span>
+      <button id="closeFocusModeBtn" class="focus-exit-btn">✕ Exit Focus</button>
+    </div>
+
+    <div class="focus-center-stage">
+      <div class="focus-task-indicator">
+        <span class="focus-sub-label">CURRENT OBJECTIVE</span>
+        <h2 id="focusActiveTaskName" class="focus-task-name">AI/ML Deep Study</h2>
+      </div>
+
+      <div class="focus-timer-hud">
+        <div id="focusTimerDisplay" class="focus-countdown-large">25:00</div>
+      </div>
+
+      <div class="focus-controls-row">
+        <button id="focusPlayPauseBtn" class="btn-focus-action">▶ Start Focus</button>
+      </div>
+
+      <div class="focus-ambient-sound-bar">
+        <span class="sound-bar-label">Synthesized Ambient Audio:</span>
+        <button id="binauralAudioBtn" class="sound-synth-chip">🎧 40Hz Alpha Waves</button>
+        <button id="rainAudioBtn" class="sound-synth-chip">🌧️ Soft Pink Rain</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. ACHIEVEMENT / LEVEL UP FANFARE MODAL -->
+  <div id="achievementModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card modal-center fanfare-card">
+      <div id="achievementModalIcon" class="fanfare-icon">🏆</div>
+      <h3 id="achievementModalTitle" class="fanfare-title">ACHIEVEMENT UNLOCKED!</h3>
+      <p id="achievementModalDesc" class="fanfare-desc">You conquered an essential discipline milestone.</p>
+      <button id="closeAchievementModal" class="btn-primary glow-amber">Claim Glory & Continue</button>
+    </div>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="js/routine-data.js"></script>
+  <script src="js/audio-notify.js"></script>
+  <script src="js/gamification.js"></script>
+  <script src="js/wellness.js"></script>
+  <script src="js/english-lab.js"></script>
+  <script src="js/pdf-parser.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

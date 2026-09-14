@@ -181,14 +181,15 @@ Available commands:
   📫 Reach out via <a href="mailto:aniketsingh4500@gmail.com" class="terminal-link">aniketsingh4500@gmail.com</a> or the <a href="#contact" class="terminal-link">Contact Form</a>.
 `,
         live: () => `
-<span class="cmd-text-accent">🌐 7 Live Production Applications Deployed on Vercel:</span>
+<span class="cmd-text-accent">🌐 8 Live Production Applications Deployed on Vercel:</span>
   1. <a href="https://aniketmovie.vercel.app/" target="_blank" class="terminal-link">🎬 Aniket Ka Movie</a> — Cinema Streaming Portal
   2. <a href="https://shopping-neon-iota.vercel.app/" target="_blank" class="terminal-link">🛍️ Looto</a> — Ethnic E-Commerce Platform
   3. <a href="https://dadan-handi.vercel.app/" target="_blank" class="terminal-link">🍲 Dadan Handi Mutton</a> — Vite Interactive Restaurant
   4. <a href="https://cafe-silk-psi.vercel.app/" target="_blank" class="terminal-link">☕ Cafe Skylite</a> — GSAP Animated Rooftop Lounge
-  5. <a href="https://clinic-nath-ayog.vercel.app/" target="_blank" class="terminal-link">🏥 Nath Aarogya Clinic</a> — Healthcare & Canvas Portal
+  5. <a href="https://clinic-nath-ayog.vercel.app/" target="_blank" class="terminal-link">🏥 Nath Aarogya Clinic</a> — Healthcare &amp; Canvas Portal
   6. <a href="https://wishing-birthday-ecru.vercel.app/" target="_blank" class="terminal-link">🎁 Birthday Surprise</a> — Interactive Audio Gift
   7. <a href="https://aniketsingh-portfolio-ruby.vercel.app/" target="_blank" class="terminal-link">⚡ Developer Portfolio</a> — Flagship Portfolio
+  8. <a href="https://bellybeauty-salon.vercel.app/" target="_blank" class="terminal-link">💄 Bella Beauty Studio</a> — Luxury Salon &amp; Bridal Portal
 
   🚀 <a href="live-work.html" class="terminal-link" style="color: #38bdf8; font-weight: 700;">Open Full Live Work Showcase Hub &rarr;</a>
 `,

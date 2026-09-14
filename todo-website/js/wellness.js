@@ -242,27 +242,76 @@ class WellnessSentinel {
 
   renderHydrationWidget() {
     const countElem = document.getElementById('waterCountDisplay');
+    const countElemFull = document.getElementById('waterCountDisplayFull');
     const fillBar = document.getElementById('waterProgressBar');
+    const fillBarFull = document.getElementById('waterProgressBarFull');
     const targetElem = document.getElementById('waterTargetDisplay');
+    const targetElemFull = document.getElementById('waterTargetDisplayFull');
     const eyeBreaksElem = document.getElementById('eyeBreaksDisplay');
+    const eyeBreaksElemFull = document.getElementById('eyeBreaksDisplayFull');
+    const cupsContainer = document.getElementById('waterCupsGrid');
+    const cupsContainerFull = document.getElementById('waterCupsGridFull');
 
-    if (countElem) countElem.textContent = `${this.waterGlasses} / ${this.dailyWaterTarget}`;
-    if (targetElem) targetElem.textContent = `${(this.waterGlasses * 0.25).toFixed(1)} L`;
+    const countText = `${this.waterGlasses} / ${this.dailyWaterTarget} Glasses`;
+    const targetText = `${(this.waterGlasses * 0.25).toFixed(1)}L / ${(this.dailyWaterTarget * 0.25).toFixed(1)}L`;
+
+    if (countElem) countElem.textContent = countText;
+    if (countElemFull) countElemFull.textContent = countText;
+
+    if (targetElem) targetElem.textContent = targetText;
+    if (targetElemFull) targetElemFull.textContent = targetText;
+
     if (eyeBreaksElem) eyeBreaksElem.textContent = this.eyeBreaksTaken;
+    if (eyeBreaksElemFull) eyeBreaksElemFull.textContent = this.eyeBreaksTaken;
 
-    if (fillBar) {
-      const pct = Math.min(100, Math.round((this.waterGlasses / this.dailyWaterTarget) * 100));
-      fillBar.style.width = `${pct}%`;
+    const pct = Math.min(100, Math.round((this.waterGlasses / this.dailyWaterTarget) * 100));
+    if (fillBar) fillBar.style.width = `${pct}%`;
+    if (fillBarFull) fillBarFull.style.width = `${pct}%`;
+
+    let cupsHtml = '';
+    for (let i = 1; i <= this.dailyWaterTarget; i++) {
+      const isFilled = i <= this.waterGlasses;
+      cupsHtml += `
+        <button type="button" class="water-cup-item ${isFilled ? 'filled' : 'empty'}" 
+                onclick="window.wellnessSentinel.setWaterGlasses(${i})" 
+                title="Glass ${i} (250ml) - Click to log">
+          <span class="cup-icon">${isFilled ? '💧' : '🥛'}</span>
+          <span class="cup-num">${i}</span>
+        </button>
+      `;
     }
+
+    if (cupsContainer) cupsContainer.innerHTML = cupsHtml;
+    if (cupsContainerFull) cupsContainerFull.innerHTML = cupsHtml;
+  }
+
+  setWaterGlasses(num) {
+    if (this.waterGlasses === num && num > 0) {
+      this.waterGlasses = num - 1;
+    } else {
+      this.waterGlasses = num;
+    }
+    this.saveState();
+    if (window.soundEngine) window.soundEngine.play('waterDrop');
+    if (window.gamification) {
+      window.gamification.awardXP(10, `Hydration Log: ${this.waterGlasses} Glasses`);
+      if (this.waterGlasses >= this.dailyWaterTarget) {
+        window.gamification.unlockBadge('badge-water');
+      }
+    }
+    this.renderHydrationWidget();
   }
 
   updateWellnessBadgeIndicators() {
     const eyeTimerElem = document.getElementById('eyeScreenTimerDisplay');
-    if (eyeTimerElem && this.eyeRestEnabled) {
+    const eyeTimerElemFull = document.getElementById('eyeScreenTimerDisplayFull');
+    if ((eyeTimerElem || eyeTimerElemFull) && this.eyeRestEnabled) {
       const remainingSec = Math.max(0, this.eyeIntervalSeconds - this.screenTimeSeconds);
       const mins = Math.floor(remainingSec / 60);
       const secs = remainingSec % 60;
-      eyeTimerElem.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      const timeStr = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      if (eyeTimerElem) eyeTimerElem.textContent = timeStr;
+      if (eyeTimerElemFull) eyeTimerElemFull.textContent = timeStr;
     }
   }
 }

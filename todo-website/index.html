@@ -1349,10 +1349,10 @@
                 <div class="profile-meta-details">
                   <div class="profile-name-row">
                     <h2 class="profile-hero-display-name" id="profileCardName">Aniket Singh</h2>
-                    <span class="profile-track-badge" id="profileCardTrack">AI & Machine Learning</span>
+                    <span class="profile-track-badge" id="profileCardTrack">AI &amp; Machine Learning</span>
                   </div>
-                  <p class="profile-hero-role" id="profileCardRole">AI Engineer & Student</p>
-                  <p class="profile-hero-bio" id="profileCardBio">“Discipline today builds the freedom tomorrow.”</p>
+                  <p class="profile-hero-role" id="profileCardRole">AI Engineer &amp; Student</p>
+                  <p class="profile-hero-bio" id="profileCardBio">"Discipline today builds the freedom tomorrow."</p>
                 </div>
               </div>
 
@@ -1380,8 +1380,8 @@
             <div class="profile-customizer-card bento-card">
               <div class="card-header-between" style="margin-bottom: 1.25rem;">
                 <div>
-                  <h3 style="color: #FFFFFF; font-size: 1.25rem;">⚙️ Customize Your Identity & Study Goals</h3>
-                  <p style="color: var(--text-muted); font-size: 0.85rem;">Personalize your name, professional title, avatar, study hours, and track. Changes immediately apply everywhere across the entire OS.</p>
+                  <h3 style="color: #FFFFFF; font-size: 1.25rem;">⚙️ Customize Your Identity &amp; Study Goals</h3>
+                  <p style="color: var(--text-muted); font-size: 0.85rem;">Personalize your name, professional title, avatar, study hours, and track. Changes immediately apply everywhere.</p>
                 </div>
                 <span class="task-badge-tag wellness">● Live Synchronized</span>
               </div>
@@ -1398,7 +1398,7 @@
 
                     <div class="form-field-group">
                       <label class="form-field-label" for="profileRoleInput">Professional Title / Headline *</label>
-                      <input type="text" id="profileRoleInput" class="form-field-input" placeholder="e.g. AI Engineer & Student, Full-Stack Dev" required>
+                      <input type="text" id="profileRoleInput" class="form-field-input" placeholder="e.g. AI Engineer &amp; Student, Full-Stack Dev" required>
                     </div>
 
                     <div class="form-field-group">
@@ -1414,45 +1414,61 @@
                     <div class="form-field-group">
                       <label class="form-field-label" for="profileTrackSelect">Specialization Track</label>
                       <select id="profileTrackSelect" class="form-field-input">
-                        <option value="AI & Machine Learning">🤖 AI & Machine Learning</option>
+                        <option value="AI &amp; Machine Learning">🤖 AI &amp; Machine Learning</option>
                         <option value="Full-Stack Web Development">💻 Full-Stack Web Development</option>
-                        <option value="System Design & Cloud Architecture">☁️ System Design & Cloud</option>
-                        <option value="Data Structures & Algorithms">⚡ Data Structures & Algorithms</option>
-                        <option value="Cybersecurity & Networks">🛡️ Cybersecurity & Networks</option>
-                        <option value="Academic Excellence & Research">🎓 Academic Excellence & Research</option>
+                        <option value="System Design &amp; Cloud Architecture">☁️ System Design &amp; Cloud</option>
+                        <option value="Data Structures &amp; Algorithms">⚡ Data Structures &amp; Algorithms</option>
+                        <option value="Cybersecurity &amp; Networks">🛡️ Cybersecurity &amp; Networks</option>
+                        <option value="Academic Excellence &amp; Research">🎓 Academic Excellence &amp; Research</option>
                       </select>
                     </div>
                   </div>
 
-                  <!-- Right Column: Avatar Presets, URL, Social Links -->
+                  <!-- Right Column: Avatar Upload, Presets, Social Links -->
                   <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="form-field-group">
-                      <label class="form-field-label">Choose Avatar Preset:</label>
-                      <div class="avatar-presets-track" id="avatarPresetsTrack">
-                        <button type="button" class="avatar-preset-btn active" data-avatar="assets/avatar_aniket.jpg" title="Cyber Scholar" onclick="window.app.setAvatarPreset('assets/avatar_aniket.jpg', this)">
-                          💎
-                        </button>
-                        <button type="button" class="avatar-preset-btn" data-avatar="🤖" title="AI Architect" onclick="window.app.setAvatarPreset('🤖', this)">
-                          🤖
-                        </button>
-                        <button type="button" class="avatar-preset-btn" data-avatar="🚀" title="Quantum Explorer" onclick="window.app.setAvatarPreset('🚀', this)">
-                          🚀
-                        </button>
-                        <button type="button" class="avatar-preset-btn" data-avatar="🧠" title="Deep Thinker" onclick="window.app.setAvatarPreset('🧠', this)">
-                          🧠
-                        </button>
-                        <button type="button" class="avatar-preset-btn" data-avatar="⚡" title="Lightning Speed" onclick="window.app.setAvatarPreset('⚡', this)">
-                          ⚡
-                        </button>
-                        <button type="button" class="avatar-preset-btn" data-avatar="🧘" title="Zen Scholar" onclick="window.app.setAvatarPreset('🧘', this)">
-                          🧘
-                        </button>
-                      </div>
-                    </div>
 
+                    <!-- Avatar Upload Section -->
                     <div class="form-field-group">
-                      <label class="form-field-label" for="profileAvatarUrlInput">Or Custom Avatar Image URL:</label>
-                      <input type="text" id="profileAvatarUrlInput" class="form-field-input" placeholder="https://example.com/avatar.jpg">
+                      <label class="form-field-label">Profile Photo / Avatar</label>
+                      <div class="avatar-upload-section">
+                        <div class="avatar-current-preview">
+                          <img src="assets/avatar_aniket.jpg" alt="Current Avatar Preview" class="avatar-preview-img" id="avatarPreviewImg">
+                          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label for="profileImageFileInput" class="btn-upload-avatar">
+                              📷 Upload Photo
+                            </label>
+                            <input type="file" id="profileImageFileInput" accept="image/*" style="display: none;" onchange="window.app.handleAvatarUpload(this)">
+                            <span style="font-size: 0.72rem; color: var(--text-muted);">JPG, PNG, GIF — max 5MB</span>
+                          </div>
+                        </div>
+                        
+                        <div class="form-field-group" style="margin: 0;">
+                          <label class="form-field-label" style="font-size: 0.73rem;">Or choose an emoji preset:</label>
+                          <div class="avatar-presets-track" id="avatarPresetsTrack">
+                            <button type="button" class="avatar-preset-btn active" data-avatar="assets/avatar_aniket.jpg" title="My Photo" onclick="window.app.setAvatarPreset('assets/avatar_aniket.jpg', this)">
+                              💎
+                            </button>
+                            <button type="button" class="avatar-preset-btn" data-avatar="🤖" title="AI Architect" onclick="window.app.setAvatarPreset('🤖', this)">
+                              🤖
+                            </button>
+                            <button type="button" class="avatar-preset-btn" data-avatar="🚀" title="Quantum Explorer" onclick="window.app.setAvatarPreset('🚀', this)">
+                              🚀
+                            </button>
+                            <button type="button" class="avatar-preset-btn" data-avatar="🧠" title="Deep Thinker" onclick="window.app.setAvatarPreset('🧠', this)">
+                              🧠
+                            </button>
+                            <button type="button" class="avatar-preset-btn" data-avatar="⚡" title="Lightning Speed" onclick="window.app.setAvatarPreset('⚡', this)">
+                              ⚡
+                            </button>
+                            <button type="button" class="avatar-preset-btn" data-avatar="🧘" title="Zen Scholar" onclick="window.app.setAvatarPreset('🧘', this)">
+                              🧘
+                            </button>
+                            <button type="button" class="avatar-preset-btn" data-avatar="🦁" title="Brave Learner" onclick="window.app.setAvatarPreset('🦁', this)">
+                              🦁
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="form-field-group">
@@ -1468,10 +1484,10 @@
                     <!-- Action Buttons -->
                     <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
                       <button type="submit" class="btn-primary" id="saveProfileBtn" style="flex: 2; padding: 0.75rem 1.25rem;">
-                        💾 Save & Apply Profile Everywhere
+                        💾 Save &amp; Apply Everywhere
                       </button>
                       <button type="button" class="btn-ghost" id="resetProfileBtn" style="flex: 1;" onclick="window.app.resetUserProfile()">
-                        🔄 Reset Default
+                        🔄 Reset
                       </button>
                     </div>
                   </div>
@@ -1481,16 +1497,16 @@
             </div>
 
             <!-- Gamification Level Progression & Lifetime Badges Card -->
-            <div class="bento-card" style="margin-top: 1.5rem;">
+            <div class="bento-card" style="margin-top: 1.5rem; grid-column: 1 / -1;">
               <div class="card-header-between" style="margin-bottom: 1rem;">
                 <div>
-                  <h3 style="color: #FFFFFF; font-size: 1.15rem;">🏆 Lifetime Mastery & Level Progression</h3>
+                  <h3 style="color: #FFFFFF; font-size: 1.15rem;">🏆 Lifetime Mastery &amp; Level Progression</h3>
                   <p style="color: var(--text-muted); font-size: 0.82rem;">Earn XP by completing routine blocks, reading passages, recording speeches, and drinking water.</p>
                 </div>
-                <button class="btn-ghost" onclick="window.gamification.openModal()">View All Achievements</button>
+                <button class="btn-ghost" onclick="window.gamification && window.gamification.openModal()">View All Achievements</button>
               </div>
 
-              <div class="dropdown-xp-bar-box" style="margin-bottom: 1.25rem;">
+              <div class="dropdown-xp-bar-box" style="margin-bottom: 1.5rem;">
                 <div class="dropdown-xp-row" style="margin-bottom: 0.4rem;">
                   <span id="profileXpProgressLabel" style="font-weight: 600; color: #FFFFFF;">Level 3 Progress</span>
                   <span id="profileXpProgressVal" style="color: var(--accent-cyan); font-family: var(--font-mono);">480 / 600 XP</span>
@@ -1513,7 +1529,7 @@
                   <span class="badge-mini-icon">🤖</span>
                   <div class="badge-mini-meta">
                     <span class="badge-mini-title">AI Architect</span>
-                    <span class="badge-mini-desc">Completed AI/ML & Code</span>
+                    <span class="badge-mini-desc">Completed AI/ML &amp; Code</span>
                   </div>
                 </div>
 

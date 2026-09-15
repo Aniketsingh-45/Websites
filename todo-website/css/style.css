@@ -874,3 +874,86 @@ body {
     margin-bottom: 55px;
   }
 }
+
+/* ==========================================================================
+   USER PROFILE DROPDOWN MENU
+   ========================================================================== */
+.user-profile-dropdown {
+  position: absolute;
+  top: 62px;
+  right: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  width: 260px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  display: none;
+  flex-direction: column;
+  gap: 0.85rem;
+  z-index: 100;
+  animation: fadeInModal 0.2s ease;
+}
+
+.user-profile-dropdown.show {
+  display: flex;
+}
+
+.profile-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.profile-dropdown-stats {
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg-card-secondary);
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+
+.profile-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  text-decoration: none;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--radius-xs);
+  transition: all var(--trans-fast);
+  cursor: pointer;
+}
+
+.profile-dropdown-link:hover {
+  background: rgba(22, 135, 255, 0.12);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   OPTIONAL LIGHT THEME OVERRIDES
+   ========================================================================== */
+body.light-theme {
+  --bg-canvas: #F8FAFC;
+  --bg-page: #F1F5F9;
+  --bg-surface: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-secondary: #F8FAFC;
+  --bg-card-elevated: #EDF2F7;
+  --bg-card-hover: #F1F5F9;
+  --bg-input: #FFFFFF;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-card: rgba(0, 0, 0, 0.06);
+  --border-light: rgba(22, 135, 255, 0.25);
+  --text-primary: #0F172A;
+  --text-main: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

@@ -1282,10 +1282,18 @@ class AppController {
     if (cardBio) cardBio.textContent = this.userProfile.bio;
     if (cardTrack) cardTrack.textContent = this.userProfile.track;
     if (hoursDisp) hoursDisp.textContent = `${this.userProfile.targetHours || 6.5}h`;
-    if (cardAvatar && this.userProfile.avatarUrl) {
-      if (this.userProfile.avatarUrl.startsWith('http') || this.userProfile.avatarUrl.includes('/')) {
-        cardAvatar.src = this.userProfile.avatarUrl;
-      }
+
+    // Update profile avatar image if it's a valid URL/path/data URL
+    const avatarUrl = this.userProfile.avatarUrl || '';
+    const isImageSrc = avatarUrl.startsWith('http') || avatarUrl.startsWith('data:') || avatarUrl.includes('/');
+    if (cardAvatar && avatarUrl) {
+      if (isImageSrc) { cardAvatar.src = avatarUrl; } else { cardAvatar.alt = avatarUrl; }
+    }
+
+    // Also update form preview img
+    const previewImg = document.getElementById('avatarPreviewImg');
+    if (previewImg && avatarUrl && isImageSrc) {
+      previewImg.src = avatarUrl;
     }
 
     // 5. Hero target hours
@@ -1301,7 +1309,6 @@ class AppController {
     const bioIn = document.getElementById('profileBioInput')?.value.trim();
     const hoursIn = parseFloat(document.getElementById('profileTargetHoursInput')?.value) || 6.5;
     const trackIn = document.getElementById('profileTrackSelect')?.value;
-    const avatarIn = document.getElementById('profileAvatarUrlInput')?.value.trim();
     const githubIn = document.getElementById('profileGithubInput')?.value.trim();
     const linkedinIn = document.getElementById('profileLinkedinInput')?.value.trim();
 
@@ -1316,7 +1323,7 @@ class AppController {
       bio: bioIn || 'Discipline builds freedom.',
       targetHours: hoursIn,
       track: trackIn || 'General Academics',
-      avatarUrl: avatarIn || this.userProfile.avatarUrl || 'assets/avatar_aniket.jpg',
+      avatarUrl: (this.userProfile && this.userProfile.avatarUrl) || 'assets/avatar_aniket.jpg',
       github: githubIn || '',
       linkedin: linkedinIn || ''
     };
@@ -1342,19 +1349,69 @@ class AppController {
     document.querySelectorAll('.avatar-preset-btn').forEach(b => b.classList.remove('active'));
     if (btnElem) btnElem.classList.add('active');
 
-    const avatarIn = document.getElementById('profileAvatarUrlInput');
-    if (avatarIn) avatarIn.value = avatar;
-
     if (this.userProfile) {
       this.userProfile.avatarUrl = avatar;
     }
 
+    // Update card avatar
     const cardAvatar = document.getElementById('profileCardAvatar');
-    if (cardAvatar && (avatar.startsWith('http') || avatar.includes('/'))) {
-      cardAvatar.src = avatar;
+    const previewImg = document.getElementById('avatarPreviewImg');
+    const topAvatar = document.getElementById('topbarUserAvatar');
+    const dropAvatar = document.getElementById('dropdownUserAvatar');
+
+    const isImagePath = avatar.startsWith('http') || avatar.startsWith('data:') || avatar.includes('/');
+    if (isImagePath) {
+      if (cardAvatar) { cardAvatar.src = avatar; cardAvatar.style.fontSize = ''; }
+      if (previewImg) { previewImg.src = avatar; previewImg.style.fontSize = ''; }
+      if (topAvatar) topAvatar.src = avatar;
+      if (dropAvatar) dropAvatar.src = avatar;
+    } else {
+      // Emoji preset — use alt text or textContent trick
+      if (cardAvatar) { cardAvatar.src = ''; cardAvatar.alt = avatar; }
+      if (previewImg) { previewImg.src = ''; previewImg.alt = avatar; }
     }
 
     if (window.soundEngine) window.soundEngine.play('tick');
+  }
+
+  handleAvatarUpload(inputElem) {
+    const file = inputElem.files && inputElem.files[0];
+    if (!file) return;
+
+    // Size check: 5MB max
+    if (file.size > 5 * 1024 * 1024) {
+      this.showToast('File Too Large', 'Please choose an image under 5MB.', 'error');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const dataUrl = e.target.result;
+
+      // Store in profile
+      if (this.userProfile) this.userProfile.avatarUrl = dataUrl;
+
+      // Update all avatar displays
+      const cardAvatar = document.getElementById('profileCardAvatar');
+      const previewImg = document.getElementById('avatarPreviewImg');
+      const topAvatar = document.getElementById('topbarUserAvatar');
+      const dropAvatar = document.getElementById('dropdownUserAvatar');
+
+      if (cardAvatar) { cardAvatar.src = dataUrl; }
+      if (previewImg) { previewImg.src = dataUrl; }
+      if (topAvatar) { topAvatar.src = dataUrl; }
+      if (dropAvatar) { dropAvatar.src = dataUrl; }
+
+      // Deselect all preset buttons (custom upload)
+      document.querySelectorAll('.avatar-preset-btn').forEach(b => b.classList.remove('active'));
+
+      if (window.soundEngine) window.soundEngine.play('complete');
+      this.showToast('📷 Photo Uploaded!', 'Your custom profile photo has been set. Click Save to apply everywhere.');
+    };
+    reader.onerror = () => {
+      this.showToast('Upload Failed', 'Could not read the image file.', 'error');
+    };
+    reader.readAsDataURL(file);
   }
 
   resetUserProfile() {

@@ -95,6 +95,11 @@
             <span class="nav-item-icon">⚙️</span>
             <span class="nav-item-label">Settings</span>
           </button>
+          
+          <button class="nav-item nav-view-tab" data-view="profileView" id="navItemProfile">
+            <span class="nav-item-icon">👤</span>
+            <span class="nav-item-label">Profile</span>
+          </button>
         </nav>
 
       </div>
@@ -158,21 +163,21 @@
 
           <!-- User Profile Dropdown Badge & Menu -->
           <div style="position: relative;">
-            <div class="topbar-user-badge" id="userProfileBadge" title="User Profile: Aniket Singh" role="button" tabindex="0">
-              <img src="assets/avatar_aniket.jpg" alt="Aniket Singh" class="user-avatar-img">
+            <div class="topbar-user-badge" id="userProfileBadge" title="User Profile" role="button" tabindex="0">
+              <img src="assets/avatar_aniket.jpg" alt="Profile Avatar" class="user-avatar-img" id="topbarUserAvatar">
               <div class="user-meta-col">
-                <span class="user-name-text">Aniket Singh</span>
-                <span class="user-role-label">Student</span>
+                <span class="user-name-text" id="topbarUserName">Aniket Singh</span>
+                <span class="user-role-label" id="topbarUserRole">AI Engineer & Student</span>
               </div>
               <span class="user-dropdown-arrow">▾</span>
             </div>
 
             <div class="user-profile-dropdown" id="userProfileDropdown">
               <div class="dropdown-user-header">
-                <img src="assets/avatar_aniket.jpg" alt="Aniket Singh" class="dropdown-avatar-img">
+                <img src="assets/avatar_aniket.jpg" alt="Profile Avatar" class="dropdown-avatar-img" id="dropdownUserAvatar">
                 <div class="dropdown-user-meta">
-                  <span class="dropdown-user-name">Aniket Singh</span>
-                  <span class="dropdown-user-level">Level 3 • Scholar</span>
+                  <span class="dropdown-user-name" id="dropdownUserName">Aniket Singh</span>
+                  <span class="dropdown-user-level" id="dropdownUserRole">Level 3 • Scholar</span>
                 </div>
               </div>
 
@@ -188,17 +193,20 @@
 
               <div class="dropdown-streak-badge">
                 <span>🔥</span>
-                <span>14-Day Study Streak Active</span>
+                <span id="dropdownStreakText">14-Day Study Streak Active</span>
               </div>
 
               <div class="dropdown-menu-list">
-                <button class="dropdown-menu-item" onclick="window.app.switchView('wellnessView')">
+                <button class="dropdown-menu-item" onclick="window.app.switchView('profileView'); document.getElementById('userProfileDropdown').classList.remove('active');">
+                  <span>👤</span> Edit & Customize Profile
+                </button>
+                <button class="dropdown-menu-item" onclick="window.app.switchView('wellnessView'); document.getElementById('userProfileDropdown').classList.remove('active');">
                   <span>📊</span> Focus & Bio Analytics
                 </button>
-                <button class="dropdown-menu-item" onclick="window.app.switchView('rulesView')">
+                <button class="dropdown-menu-item" onclick="window.app.switchView('rulesView'); document.getElementById('userProfileDropdown').classList.remove('active');">
                   <span>📜</span> 7 Golden Execution Rules
                 </button>
-                <button class="dropdown-menu-item" onclick="window.app.restoreDefaultRoutine()">
+                <button class="dropdown-menu-item" onclick="window.app.restoreDefaultRoutine(); document.getElementById('userProfileDropdown').classList.remove('active');">
                   <span>🔄</span> Reset to Flagship 30-Day Routine
                 </button>
               </div>
@@ -852,6 +860,7 @@
             <!-- Studio Sub-Navigation Tabs -->
             <div class="english-hub-tabs-track" role="tablist">
               <button class="english-hub-tab active" data-target="panelVocab">💎 Notes & Vocab Vault</button>
+              <button class="english-hub-tab" data-target="panelAITech">🤖 AI & Tech Architecture Lab</button>
               <button class="english-hub-tab" data-target="panelScratchpad">✍️ Lecture Scratchpad</button>
               <button class="english-hub-tab" data-target="panelReading">📚 Reading Room</button>
               <button class="english-hub-tab" data-target="panelVoice">🎙️ Speech Recording Lab</button>
@@ -878,6 +887,215 @@
               </div>
             </div>
             <div id="vocabVaultContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;"></div>
+          </section>
+
+          <!-- SUB-PANEL: AI & TECH ARCHITECTURE LAB -->
+          <section id="panelAITech" class="english-hub-panel">
+            <div class="ai-tech-dashboard">
+              
+              <!-- Top Banner -->
+              <div class="bento-card" style="margin-bottom: 1.25rem;">
+                <div class="card-header-between" style="flex-wrap: wrap; gap: 1rem;">
+                  <div>
+                    <span class="studio-super-tag">🤖 DEEP LEARNING & CS LAB</span>
+                    <h2 style="font-size: 1.4rem; color: #FFFFFF; margin-top: 0.35rem;">AI & Tech Architecture Mastery Studio</h2>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Master core LLM architectures, distributed system design, and algorithmic patterns using the Feynman Technique.</p>
+                  </div>
+                  <div style="display: flex; gap: 0.75rem;">
+                    <span class="task-badge-tag aiml" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">⚡ 4 Core Tracks</span>
+                    <span class="task-badge-tag coding" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">🎯 Feynman Studio</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Feynman Technique Interactive Explainer Studio Card -->
+              <div class="feynman-explainer-card bento-card" style="margin-bottom: 1.5rem;">
+                <div class="card-header-between" style="margin-bottom: 1rem;">
+                  <div>
+                    <span class="task-badge-tag aiml" style="margin-bottom: 0.4rem; display: inline-block;">🧠 THE FEYNMAN TECHNIQUE</span>
+                    <h3 style="color: #FFFFFF; font-size: 1.2rem;">Explain It Like I'm 8 Years Old</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.82rem;">"If you can't explain something simply, you don't understand it well enough." — Richard Feynman</p>
+                  </div>
+                  <span class="task-xp-pill">+35 XP / Review</span>
+                </div>
+
+                <div class="form-grid-2col" style="gap: 1.25rem;">
+                  <div class="form-field-group">
+                    <label class="form-field-label">Select Core Concept to Explain:</label>
+                    <select id="feynmanTopicSelect" class="form-field-input" style="cursor: pointer;">
+                      <option value="attention">Transformers: Attention Mechanism (Query, Key, Value)</option>
+                      <option value="backprop">Neural Networks: Backpropagation & Gradient Descent</option>
+                      <option value="cap">Distributed Systems: CAP Theorem</option>
+                      <option value="lru">System Design: LRU Cache Eviction</option>
+                      <option value="dp">Algorithms: Dynamic Programming Memoization</option>
+                      <option value="eventloop">Node.js: The Event Loop & Non-Blocking I/O</option>
+                    </select>
+
+                    <label class="form-field-label" style="margin-top: 0.8rem;">Your Explanation (in Plain, Simple English):</label>
+                    <textarea id="feynmanExplanationInput" class="form-field-input" rows="4" placeholder="e.g. Imagine a library with millions of books. An attention mechanism is like a smart librarian who looks at the question on your paper and instantly shines a flashlight onto the exact 3 sentences you need..."></textarea>
+                    
+                    <div style="display: flex; gap: 0.75rem; margin-top: 0.8rem;">
+                      <button class="btn-primary" id="evaluateFeynmanBtn" onclick="window.app.evaluateFeynmanExplanation()">
+                        ⚡ Evaluate Explanation (+35 XP)
+                      </button>
+                      <button class="btn-ghost" onclick="document.getElementById('feynmanExplanationInput').value = ''">
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="form-field-group">
+                    <label class="form-field-label">AI Explainer Feedback & Simplicity Score:</label>
+                    <div id="feynmanFeedbackBox" style="background: var(--bg-card-secondary); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.2rem; min-height: 180px; display: flex; flex-direction: column; justify-content: center; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                      <p style="color: var(--text-muted); font-style: italic; text-align: center;">
+                        Select a concept and write your explanation on the left. Click <strong>Evaluate Explanation</strong> to receive instant clarity analysis, jargon score, and feedback!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4 AI & Tech Architecture Deep-Dive Cards Grid -->
+              <div class="ai-concepts-grid">
+                
+                <!-- Card 1: Transformers & Self-Attention -->
+                <div class="ai-concept-card bento-card">
+                  <div class="concept-card-header">
+                    <div class="concept-meta-top">
+                      <span class="task-badge-tag aiml">DEEP LEARNING</span>
+                      <span class="concept-badge-level">⚡ Advanced</span>
+                    </div>
+                    <h3 class="concept-card-title">Transformers & Multi-Head Self-Attention</h3>
+                    <p class="concept-card-desc">The foundation of modern LLMs (GPT-4, Gemini, Claude). Replaces recurrence with parallel attention matrices.</p>
+                  </div>
+
+                  <div class="concept-math-box" style="background: var(--bg-input); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); margin: 0.8rem 0;">
+                    Attention(Q, K, V) = softmax(Q·Kᵀ / √dₖ) · V
+                  </div>
+
+                  <div class="concept-takeaways-list" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">
+                    <div>• <strong>Query & Key:</strong> Compute similarity dot products across all token pairs simultaneously.</div>
+                    <div>• <strong>Value:</strong> Weights the projected contextual meaning of each token.</div>
+                    <div>• <strong>Complexity:</strong> Standard attention is O(N²); FlashAttention optimizes GPU SRAM memory IO.</div>
+                  </div>
+
+                  <div class="concept-actions-row" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.speakText('Transformers replace recurrence with self attention. Attention of Q, K, V equals softmax of Q times K transpose divided by the square root of dimension d k, multiplied by V.')">
+                      🔊 Listen
+                    </button>
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.copyQuote('Transformers Attention(Q, K, V) = softmax(Q·Kᵀ / √dₖ)·V. Computes pairwise token context in parallel across sequence length.')">
+                      📋 Copy Summary
+                    </button>
+                    <button class="btn-primary" style="flex: 1;" onclick="window.gamification.awardXP(25, 'Mastered Transformers Architecture'); window.app.showToast('Architecture Mastered (+25 XP)', 'Transformers & Self-Attention logged.');">
+                      ✓ Mastered
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Card 2: Neural Networks & Backprop -->
+                <div class="ai-concept-card bento-card">
+                  <div class="concept-card-header">
+                    <div class="concept-meta-top">
+                      <span class="task-badge-tag aiml">FOUNDATIONS</span>
+                      <span class="concept-badge-level">⚡ Core Pillar</span>
+                    </div>
+                    <h3 class="concept-card-title">Neural Networks & Backpropagation</h3>
+                    <p class="concept-card-desc">How neural models learn: Computing loss gradient with respect to synaptic weights using the multivariable calculus chain rule.</p>
+                  </div>
+
+                  <div class="concept-math-box" style="background: var(--bg-input); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-emerald); margin: 0.8rem 0;">
+                    w := w - η · (∂L / ∂w) via Chain Rule
+                  </div>
+
+                  <div class="concept-takeaways-list" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">
+                    <div>• <strong>Forward Pass:</strong> Linear transformation z = Wx + b followed by non-linear activation σ(z).</div>
+                    <div>• <strong>Loss Function:</strong> Cross-entropy or MSE measures prediction error vs true label.</div>
+                    <div>• <strong>Optimization:</strong> Adam & SGD update weights step-by-step to reach local minima.</div>
+                  </div>
+
+                  <div class="concept-actions-row" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.speakText('Backpropagation uses the calculus chain rule to calculate the partial derivative of the loss function with respect to each weight, allowing gradient descent to iteratively minimize prediction error.')">
+                      🔊 Listen
+                    </button>
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.copyQuote('Backpropagation computes ∂L/∂w using the chain rule backwards from loss to input layer. Weights update via w := w - η·(∂L/∂w).')">
+                      📋 Copy Summary
+                    </button>
+                    <button class="btn-primary" style="flex: 1;" onclick="window.gamification.awardXP(25, 'Mastered Backpropagation'); window.app.showToast('Architecture Mastered (+25 XP)', 'Neural Networks & Backprop logged.');">
+                      ✓ Mastered
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Card 3: System Design & Scalability -->
+                <div class="ai-concept-card bento-card">
+                  <div class="concept-card-header">
+                    <div class="concept-meta-top">
+                      <span class="task-badge-tag coding">SYSTEM DESIGN</span>
+                      <span class="concept-badge-level">⚡ High Scale</span>
+                    </div>
+                    <h3 class="concept-card-title">Distributed Scalability & Caching</h3>
+                    <p class="concept-card-desc">Architecting backend services capable of serving 100k+ RPS with sub-50ms latency using load balancers and cache tiers.</p>
+                  </div>
+
+                  <div class="concept-math-box" style="background: var(--bg-input); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-gold); margin: 0.8rem 0;">
+                    Client → DNS/CDN → Nginx LB → App Nodes → Redis → DB Cluster
+                  </div>
+
+                  <div class="concept-takeaways-list" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">
+                    <div>• <strong>Stateless Nodes:</strong> Store session state in Redis or JWT so any server can handle any request.</div>
+                    <div>• <strong>Read vs Write:</strong> Read replicas offload primary DB; CQRS separates query and mutation paths.</div>
+                    <div>• <strong>Database Sharding:</strong> Partition tables horizontally across nodes by user ID hash key.</div>
+                  </div>
+
+                  <div class="concept-actions-row" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.speakText('High scale distributed systems rely on stateless application nodes behind a load balancer, with in-memory Redis caching and database read replicas to guarantee high throughput.')">
+                      🔊 Listen
+                    </button>
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.copyQuote('Distributed Architecture: DNS/CDN → Load Balancer → Stateless Microservices → Redis Cache → Sharded SQL/NoSQL Database.')">
+                      📋 Copy Summary
+                    </button>
+                    <button class="btn-primary" style="flex: 1;" onclick="window.gamification.awardXP(25, 'Mastered Distributed Systems'); window.app.showToast('Architecture Mastered (+25 XP)', 'Distributed Scalability logged.');">
+                      ✓ Mastered
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Card 4: Algorithmic Patterns & DSA -->
+                <div class="ai-concept-card bento-card">
+                  <div class="concept-card-header">
+                    <div class="concept-meta-top">
+                      <span class="task-badge-tag coding">DATA STRUCTURES</span>
+                      <span class="concept-badge-level">⚡ Problem Solving</span>
+                    </div>
+                    <h3 class="concept-card-title">Algorithmic Patterns: Two-Pointers & Sliding Window</h3>
+                    <p class="concept-card-desc">Transforming brute-force O(N²) quadratic nested loops into lightning-fast O(N) linear runtime solutions.</p>
+                  </div>
+
+                  <div class="concept-math-box" style="background: var(--bg-input); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-rose); margin: 0.8rem 0;">
+                    while (right < N) { expand(right++); while (invalid) shrink(left++); }
+                  </div>
+
+                  <div class="concept-takeaways-list" style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1rem;">
+                    <div>• <strong>Sliding Window:</strong> Maintains continuous subarrays, expanding the right boundary and shrinking left.</div>
+                    <div>• <strong>Two Pointers:</strong> Converges from opposite ends on sorted arrays or moves at fast/slow speeds for cycle detection.</div>
+                    <div>• <strong>Monotonic Stack:</strong> Solves "Next Greater Element" in linear O(N) amortized time.</div>
+                  </div>
+
+                  <div class="concept-actions-row" style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.speakText('The sliding window pattern maintains a contiguous subarray window, dynamically expanding the right boundary and contracting the left to achieve O of N linear time complexity.')">
+                      🔊 Listen
+                    </button>
+                    <button class="btn-ghost" style="flex: 1;" onclick="window.englishLab.copyQuote('Sliding Window Pattern: Reduces O(N²) subarray problems to O(N) by expanding right index and shrinking left index conditionally.')">
+                      📋 Copy Summary
+                    </button>
+                    <button class="btn-primary" style="flex: 1;" onclick="window.gamification.awardXP(25, 'Mastered Algorithmic Patterns'); window.app.showToast('Architecture Mastered (+25 XP)', 'DSA Patterns logged.');">
+                      ✓ Mastered
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </section>
 
           <!-- SUB-PANEL 2: DESIGNER LECTURE NOTES & SCRATCHPAD -->
@@ -919,13 +1137,24 @@
           <!-- SUB-PANEL 3: READING PRACTICE ROOM -->
           <section id="panelReading" class="english-hub-panel">
             <div class="bento-card" style="margin-bottom: 1rem;">
-              <h3 style="color:#FFF;">Curated Reading Library & Masterpiece Book Stories</h3>
-              <p style="color:var(--text-muted); font-size: 0.85rem;">Select any passage below. Read aloud, shadow along, and test your reading speed in WPM!</p>
+              <div class="card-header-between" style="flex-wrap: wrap; gap: 0.75rem;">
+                <div>
+                  <h3 style="color:#FFF;">Curated Reading Library & Masterpiece Book Stories</h3>
+                  <p style="color:var(--text-muted); font-size: 0.85rem;">Select any passage below. Read aloud, shadow along, and test your reading speed in WPM!</p>
+                </div>
+              </div>
+              <div class="reading-cat-pills-row" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                <button class="reading-cat-pill active" data-category="all">All Passages</button>
+                <button class="reading-cat-pill" data-category="AI">🤖 AI & Tech</button>
+                <button class="reading-cat-pill" data-category="Mindset">🧠 Mindset</button>
+                <button class="reading-cat-pill" data-category="Productivity">⚡ Productivity</button>
+                <button class="reading-cat-pill" data-category="Science">🔬 Science</button>
+              </div>
             </div>
             <div id="readingPassagesContainer" style="display: flex; flex-direction: column; gap: 1rem;"></div>
           </section>
 
-          <!-- SUB-PANEL 3: DAILY SPEECH VOICE RECORDER -->
+          <!-- SUB-PANEL 4: DAILY SPEECH VOICE RECORDER -->
           <section id="panelVoice" class="english-hub-panel">
             <div class="voice-studio-layout">
               <div class="voice-prompt-card">
@@ -940,8 +1169,8 @@
               </div>
 
               <div class="voice-recorder-cockpit">
-                <div class="voice-recorder-orb-card">
-                  <div class="record-visualizer-orb">🎙️</div>
+                <div class="voice-recorder-orb-card" id="voiceRecorderOrbCard">
+                  <div class="record-visualizer-orb" id="recordVisualizerOrb">🎙️</div>
                   <div class="record-timer-digits" id="voiceRecordTimer">00:00</div>
                   <p style="color: var(--text-muted); font-size: 0.78rem; margin-top: 0.35rem;">Target: 2 to 5 minutes continuous speech</p>
                   <div class="record-btns-row">
@@ -954,16 +1183,82 @@
             </div>
           </section>
 
-          <!-- SUB-PANEL 4: BOOK WISDOM -->
+          <!-- SUB-PANEL 5: BOOK WISDOM -->
           <section id="panelWisdom" class="english-hub-panel">
+            <div class="bento-card" style="margin-bottom: 1.25rem;">
+              <div class="card-header-between" style="flex-wrap: wrap; gap: 0.75rem;">
+                <div>
+                  <h3 style="color: #FFFFFF;">🌟 Masterpiece Book Wisdom & Mental Models</h3>
+                  <p style="color: var(--text-muted); font-size: 0.85rem;">Actionable mindsets from world-class engineering, habits, and creativity books.</p>
+                </div>
+              </div>
+              <div class="wisdom-filter-track" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                <button class="wisdom-book-filter active" data-book="all">All Books</button>
+                <button class="wisdom-book-filter" data-book="Atomic Habits">Atomic Habits</button>
+                <button class="wisdom-book-filter" data-book="Deep Work">Deep Work</button>
+                <button class="wisdom-book-filter" data-book="The Pragmatic Programmer">Pragmatic Programmer</button>
+                <button class="wisdom-book-filter" data-book="Show Your Work!">Show Your Work!</button>
+              </div>
+            </div>
             <div id="wisdomQuotesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;"></div>
           </section>
 
-          <!-- SUB-PANEL 5: 4-PART FORMULA -->
+          <!-- SUB-PANEL 6: 4-PART FORMULA -->
           <section id="panelFormula" class="english-hub-panel">
-            <div class="bento-card">
-              <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">The 4-Part Daily English Formula</h3>
-              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Listening (10-20m) → Shadowing Technique → Read Aloud (1-2 Pages) → Thinking in English.</p>
+            <div class="bento-card" style="margin-bottom: 1.25rem;">
+              <span class="studio-super-tag">🎯 DAILY FLUENCY PROTOCOL</span>
+              <h2 style="color: #FFFFFF; font-size: 1.4rem; margin-top: 0.35rem;">The 4-Part Daily English Fluency Formula</h2>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Never study English like an academic exam. Treat it like a musical instrument or sports reflex.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+              <div class="bento-card">
+                <div class="formula-card-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span class="task-badge-tag english" style="font-weight: 700;">PART 1 (15 MINS)</span>
+                  <span style="font-size: 1.4rem;">🎧</span>
+                </div>
+                <h3 style="color: #FFFFFF; font-size: 1.1rem; margin-bottom: 0.35rem;">Active Native Listening</h3>
+                <p style="color: var(--text-secondary); font-size: 0.83rem; line-height: 1.5; margin-bottom: 1rem;">
+                  Immerse your ears in natural native speech podcasts (Lex Fridman, Huberman Lab, 3Blue1Brown) without subtitles.
+                </p>
+                <button class="btn-ghost" style="width: 100%;" onclick="window.app.startFocusSession(15, 'Listening')">▶ Start 15m Listening Timer</button>
+              </div>
+
+              <div class="bento-card">
+                <div class="formula-card-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span class="task-badge-tag coding" style="font-weight: 700;">PART 2 (15 MINS)</span>
+                  <span style="font-size: 1.4rem;">🗣️</span>
+                </div>
+                <h3 style="color: #FFFFFF; font-size: 1.1rem; margin-bottom: 0.35rem;">Shadowing Technique</h3>
+                <p style="color: var(--text-secondary); font-size: 0.83rem; line-height: 1.5; margin-bottom: 1rem;">
+                  Speak simultaneously with the speaker with 0.5s delay. Match their voice pitch, vocal cadence, emphasis, and breath pauses.
+                </p>
+                <button class="btn-ghost" style="width: 100%;" onclick="window.app.switchView('englishView', 'panelReading')">📚 Open Reading Room</button>
+              </div>
+
+              <div class="bento-card">
+                <div class="formula-card-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span class="task-badge-tag aiml" style="font-weight: 700;">PART 3 (10 MINS)</span>
+                  <span style="font-size: 1.4rem;">📖</span>
+                </div>
+                <h3 style="color: #FFFFFF; font-size: 1.1rem; margin-bottom: 0.35rem;">Read Aloud Practice</h3>
+                <p style="color: var(--text-secondary); font-size: 0.83rem; line-height: 1.5; margin-bottom: 1rem;">
+                  Read 1–2 pages of high-quality engineering or philosophy texts out loud. Over-articulate every syllable to build muscle memory.
+                </p>
+                <button class="btn-ghost" style="width: 100%;" onclick="window.app.switchView('englishView', 'panelVoice')">🎙️ Open Voice Studio</button>
+              </div>
+
+              <div class="bento-card">
+                <div class="formula-card-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <span class="task-badge-tag wellness" style="font-weight: 700;">PART 4 (ALL DAY)</span>
+                  <span style="font-size: 1.4rem;">🧠</span>
+                </div>
+                <h3 style="color: #FFFFFF; font-size: 1.1rem; margin-bottom: 0.35rem;">Thinking in English</h3>
+                <p style="color: var(--text-secondary); font-size: 0.83rem; line-height: 1.5; margin-bottom: 1rem;">
+                  Stop translating thoughts from your native language. When debugging code, formulate your inner monologue directly in English.
+                </p>
+                <button class="btn-primary" style="width: 100%;" onclick="window.gamification.awardXP(20, 'Practiced Thinking in English'); window.app.showToast('🧠 Mindset Locked (+20 XP)', 'Direct English cognition activated.')">✓ Lock Daily Thought Habit</button>
+              </div>
             </div>
           </section>
         </div>
@@ -1034,6 +1329,212 @@
 
           <div id="fullRulesCardsGrid" class="full-rules-grid">
             <!-- Dynamically populated by app.js renderRulesView() -->
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             VIEW 6: CUSTOMIZABLE USER PROFILE & GAMIFICATION DASHBOARD (#profileView)
+             ========================================================================== -->
+        <div id="profileView" class="main-view-panel">
+          <div class="profile-dashboard-layout">
+            
+            <!-- Hero Profile Card Header -->
+            <div class="profile-card-header bento-card">
+              <div class="profile-header-main">
+                <div class="profile-avatar-wrapper">
+                  <img src="assets/avatar_aniket.jpg" alt="Student Profile Avatar" class="profile-hero-avatar-img" id="profileCardAvatar">
+                  <div class="profile-avatar-status-badge">⚡ Online</div>
+                </div>
+
+                <div class="profile-meta-details">
+                  <div class="profile-name-row">
+                    <h2 class="profile-hero-display-name" id="profileCardName">Aniket Singh</h2>
+                    <span class="profile-track-badge" id="profileCardTrack">AI & Machine Learning</span>
+                  </div>
+                  <p class="profile-hero-role" id="profileCardRole">AI Engineer & Student</p>
+                  <p class="profile-hero-bio" id="profileCardBio">“Discipline today builds the freedom tomorrow.”</p>
+                </div>
+              </div>
+
+              <div class="profile-quick-stats-strip">
+                <div class="pstat-item">
+                  <span class="pstat-val" id="profileXpDisplay">480 XP</span>
+                  <span class="pstat-lbl">Total Experience</span>
+                </div>
+                <div class="pstat-item">
+                  <span class="pstat-val" id="profileLevelDisplay">Level 3</span>
+                  <span class="pstat-lbl">Scholar Tier</span>
+                </div>
+                <div class="pstat-item">
+                  <span class="pstat-val" id="profileStreakDisplay">14 Days</span>
+                  <span class="pstat-lbl">Streak Fire</span>
+                </div>
+                <div class="pstat-item">
+                  <span class="pstat-val" id="profileHoursDisplay">6.5h</span>
+                  <span class="pstat-lbl">Daily Target</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Settings & Customization Grid -->
+            <div class="profile-customizer-card bento-card">
+              <div class="card-header-between" style="margin-bottom: 1.25rem;">
+                <div>
+                  <h3 style="color: #FFFFFF; font-size: 1.25rem;">⚙️ Customize Your Identity & Study Goals</h3>
+                  <p style="color: var(--text-muted); font-size: 0.85rem;">Personalize your name, professional title, avatar, study hours, and track. Changes immediately apply everywhere across the entire OS.</p>
+                </div>
+                <span class="task-badge-tag wellness">● Live Synchronized</span>
+              </div>
+
+              <form id="userProfileForm" onsubmit="event.preventDefault(); window.app.saveUserProfile();">
+                <div class="form-grid-2col" style="gap: 1.5rem;">
+                  
+                  <!-- Left Column: Name, Role, Bio, Target Hours -->
+                  <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileNameInput">Your Name *</label>
+                      <input type="text" id="profileNameInput" class="form-field-input" placeholder="e.g. Aniket Singh or your name" required>
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileRoleInput">Professional Title / Headline *</label>
+                      <input type="text" id="profileRoleInput" class="form-field-input" placeholder="e.g. AI Engineer & Student, Full-Stack Dev" required>
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileBioInput">Personal Motto / Daily Philosophy</label>
+                      <input type="text" id="profileBioInput" class="form-field-input" placeholder="e.g. Discipline today builds the freedom tomorrow.">
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileTargetHoursInput">Daily Target Study Time (Hours)</label>
+                      <input type="number" id="profileTargetHoursInput" class="form-field-input" min="1" max="16" step="0.5" value="6.5">
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileTrackSelect">Specialization Track</label>
+                      <select id="profileTrackSelect" class="form-field-input">
+                        <option value="AI & Machine Learning">🤖 AI & Machine Learning</option>
+                        <option value="Full-Stack Web Development">💻 Full-Stack Web Development</option>
+                        <option value="System Design & Cloud Architecture">☁️ System Design & Cloud</option>
+                        <option value="Data Structures & Algorithms">⚡ Data Structures & Algorithms</option>
+                        <option value="Cybersecurity & Networks">🛡️ Cybersecurity & Networks</option>
+                        <option value="Academic Excellence & Research">🎓 Academic Excellence & Research</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Right Column: Avatar Presets, URL, Social Links -->
+                  <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="form-field-group">
+                      <label class="form-field-label">Choose Avatar Preset:</label>
+                      <div class="avatar-presets-track" id="avatarPresetsTrack">
+                        <button type="button" class="avatar-preset-btn active" data-avatar="assets/avatar_aniket.jpg" title="Cyber Scholar" onclick="window.app.setAvatarPreset('assets/avatar_aniket.jpg', this)">
+                          💎
+                        </button>
+                        <button type="button" class="avatar-preset-btn" data-avatar="🤖" title="AI Architect" onclick="window.app.setAvatarPreset('🤖', this)">
+                          🤖
+                        </button>
+                        <button type="button" class="avatar-preset-btn" data-avatar="🚀" title="Quantum Explorer" onclick="window.app.setAvatarPreset('🚀', this)">
+                          🚀
+                        </button>
+                        <button type="button" class="avatar-preset-btn" data-avatar="🧠" title="Deep Thinker" onclick="window.app.setAvatarPreset('🧠', this)">
+                          🧠
+                        </button>
+                        <button type="button" class="avatar-preset-btn" data-avatar="⚡" title="Lightning Speed" onclick="window.app.setAvatarPreset('⚡', this)">
+                          ⚡
+                        </button>
+                        <button type="button" class="avatar-preset-btn" data-avatar="🧘" title="Zen Scholar" onclick="window.app.setAvatarPreset('🧘', this)">
+                          🧘
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileAvatarUrlInput">Or Custom Avatar Image URL:</label>
+                      <input type="text" id="profileAvatarUrlInput" class="form-field-input" placeholder="https://example.com/avatar.jpg">
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileGithubInput">GitHub Profile / Username</label>
+                      <input type="text" id="profileGithubInput" class="form-field-input" placeholder="e.g. github.com/username">
+                    </div>
+
+                    <div class="form-field-group">
+                      <label class="form-field-label" for="profileLinkedinInput">LinkedIn Profile URL</label>
+                      <input type="text" id="profileLinkedinInput" class="form-field-input" placeholder="e.g. linkedin.com/in/username">
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+                      <button type="submit" class="btn-primary" id="saveProfileBtn" style="flex: 2; padding: 0.75rem 1.25rem;">
+                        💾 Save & Apply Profile Everywhere
+                      </button>
+                      <button type="button" class="btn-ghost" id="resetProfileBtn" style="flex: 1;" onclick="window.app.resetUserProfile()">
+                        🔄 Reset Default
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+            <!-- Gamification Level Progression & Lifetime Badges Card -->
+            <div class="bento-card" style="margin-top: 1.5rem;">
+              <div class="card-header-between" style="margin-bottom: 1rem;">
+                <div>
+                  <h3 style="color: #FFFFFF; font-size: 1.15rem;">🏆 Lifetime Mastery & Level Progression</h3>
+                  <p style="color: var(--text-muted); font-size: 0.82rem;">Earn XP by completing routine blocks, reading passages, recording speeches, and drinking water.</p>
+                </div>
+                <button class="btn-ghost" onclick="window.gamification.openModal()">View All Achievements</button>
+              </div>
+
+              <div class="dropdown-xp-bar-box" style="margin-bottom: 1.25rem;">
+                <div class="dropdown-xp-row" style="margin-bottom: 0.4rem;">
+                  <span id="profileXpProgressLabel" style="font-weight: 600; color: #FFFFFF;">Level 3 Progress</span>
+                  <span id="profileXpProgressVal" style="color: var(--accent-cyan); font-family: var(--font-mono);">480 / 600 XP</span>
+                </div>
+                <div class="dropdown-xp-track" style="height: 10px;">
+                  <div class="dropdown-xp-fill" id="profileXpProgressBar" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="badges-4-grid" id="profileBadgesGrid">
+                <div class="badge-mini-card unlocked">
+                  <span class="badge-mini-icon">🌅</span>
+                  <div class="badge-mini-meta">
+                    <span class="badge-mini-title">Early Bird</span>
+                    <span class="badge-mini-desc">5:00 AM Conquered</span>
+                  </div>
+                </div>
+
+                <div class="badge-mini-card unlocked">
+                  <span class="badge-mini-icon">🤖</span>
+                  <div class="badge-mini-meta">
+                    <span class="badge-mini-title">AI Architect</span>
+                    <span class="badge-mini-desc">Completed AI/ML & Code</span>
+                  </div>
+                </div>
+
+                <div class="badge-mini-card unlocked">
+                  <span class="badge-mini-icon">🎙️</span>
+                  <div class="badge-mini-meta">
+                    <span class="badge-mini-title">Orator</span>
+                    <span class="badge-mini-desc">Speech Practice Recorded</span>
+                  </div>
+                </div>
+
+                <div class="badge-mini-card unlocked">
+                  <span class="badge-mini-icon">💧</span>
+                  <div class="badge-mini-meta">
+                    <span class="badge-mini-title">Hydro Master</span>
+                    <span class="badge-mini-desc">2.0L Hydration Achieved</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 

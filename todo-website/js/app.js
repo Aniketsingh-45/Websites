@@ -7,6 +7,7 @@ class AppController {
     this.routine = null;
     this.currentFilter = 'all';
     this.currentCategory = 'all';
+    this.routineCategoryFilter = 'all';
     this.homeTimelineCategory = 'all';
     this.searchQuery = '';
     this.activeTask = null;
@@ -33,8 +34,13 @@ class AppController {
   }
 
   init() {
+    this.initTheme();
     this.loadRoutine();
     this.setupEventListeners();
+    this.setupProfileDropdown();
+    this.initQuickHabits();
+    this.initSoundscape();
+    this.initScratchpad();
     this.startLiveClockTracker();
     this.updateHeaderButtonBadges();
     this.render();
@@ -46,7 +52,7 @@ class AppController {
     }
   }
 
-  switchView(viewName) {
+  switchView(viewName, subTarget) {
     this.activeView = viewName;
     try {
       localStorage.setItem('aura_active_view', viewName);
@@ -75,6 +81,10 @@ class AppController {
 
     // Sub-renders based on view
     if (viewName === 'englishView') {
+      if (subTarget) {
+        document.querySelectorAll('.english-hub-tab').forEach(t => t.classList.toggle('active', t.dataset.target === subTarget));
+        document.querySelectorAll('.english-hub-panel').forEach(p => p.classList.toggle('active', p.id === subTarget));
+      }
       if (window.englishLab) {
         window.englishLab.renderReadingLibrary();
         window.englishLab.renderVocabVault();
@@ -87,8 +97,12 @@ class AppController {
       }
     } else if (viewName === 'rulesView') {
       this.renderRulesView();
-    } else if (viewName === 'routineView' || viewName === 'homeView') {
+    } else if (viewName === 'routineView') {
       this.render();
+      this.renderStudyPlanHabits();
+    } else if (viewName === 'homeView') {
+      this.render();
+      this.renderQuickHabits();
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -161,7 +175,14 @@ class AppController {
     document.querySelectorAll('.nav-view-tab').forEach(tab => {
       tab.addEventListener('click', (e) => {
         const view = e.currentTarget.dataset.view;
-        if (view) this.switchView(view);
+        const id = e.currentTarget.id;
+        if (id === 'navItemNotes') {
+          this.switchView('englishView', 'panelVocab');
+        } else if (id === 'navItemResources') {
+          this.switchView('englishView', 'panelReading');
+        } else if (view) {
+          this.switchView(view);
+        }
       });
     });
 
@@ -172,7 +193,7 @@ class AppController {
 
     // Theme Toggle
     document.getElementById('themeToggleBtn')?.addEventListener('click', () => {
-      this.showToast("Visual Mode", "Dark Futuristic theme is optimized for deep focus.");
+      this.toggleTheme();
     });
 
     // Audio & Alerts
@@ -562,12 +583,27 @@ class AppController {
       filtered = filtered.filter(t => t.completed);
     }
 
+    if (this.routineCategoryFilter && this.routineCategoryFilter !== 'all') {
+      filtered = filtered.filter(t => t.category.toLowerCase() === this.routineCategoryFilter.toLowerCase());
+    }
+
     if (this.searchQuery) {
       filtered = filtered.filter(t =>
         t.activity.toLowerCase().includes(this.searchQuery) ||
         t.goal.toLowerCase().includes(this.searchQuery) ||
         t.timeDisplay.toLowerCase().includes(this.searchQuery)
       );
+    }
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); background: var(--bg-card); border-radius: var(--radius-xl); border: 1px dashed var(--border-subtle); margin: 0.5rem 0;">
+          <p style="font-size: 1.05rem; color: #FFFFFF; margin-bottom: 0.4rem;">🔍 No tasks found</p>
+          <p style="font-size: 0.8rem; margin-bottom: 1rem;">No tasks match the active filter or search term.</p>
+          <button class="btn-primary" onclick="window.app.filterRoutineCategory('all')" style="display: inline-block;">Reset Filter</button>
+        </div>
+      `;
+      return;
     }
 
     container.innerHTML = filtered.map((task, idx) => {
@@ -704,6 +740,8 @@ class AppController {
     this.renderHomeTimeline();
     this.renderTaskList();
     this.renderMetrics();
+    this.renderStudyPlanHabits();
+    this.renderQuickHabits();
 
     if (window.gamification) {
       window.gamification.renderHeaderUI();
@@ -1040,6 +1078,372 @@ class AppController {
       toast.classList.add('fade-out');
       setTimeout(() => toast.remove(), 400);
     }, 3800);
+  }
+
+  // ==========================================
+  // ROUTINE CATEGORY FILTERING & HABITS CHECKLIST
+  // ==========================================
+  filterRoutineCategory(cat) {
+    this.routineCategoryFilter = cat;
+    document.querySelectorAll('#routineCategoryChipsBar .category-chip').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.category === cat);
+    });
+    this.renderTaskList();
+  }
+
+  renderStudyPlanHabits() {
+    const list = document.getElementById('studyPlanHabitsList');
+    const badge = document.getElementById('studyPlanHabitsPct');
+    if (!list || !this.routine) return;
+
+    if (!this.routine.dailyChecklist) {
+      const defaultData = typeof DEFAULT_ROUTINE_DATA !== 'undefined' ? DEFAULT_ROUTINE_DATA : null;
+      this.routine.dailyChecklist = JSON.parse(JSON.stringify(defaultData?.dailyChecklist || []));
+    }
+
+    const habits = this.routine.dailyChecklist;
+    const completedCount = habits.filter(h => h.checked).length;
+    const pct = habits.length > 0 ? Math.round((completedCount / habits.length) * 100) : 0;
+
+    if (badge) {
+      badge.textContent = `${completedCount}/${habits.length} (${pct}%)`;
+    }
+
+    list.innerHTML = habits.map(h => `
+      <div class="habit-item-row ${h.checked ? 'checked' : ''}" onclick="window.app.toggleHabitCheck('${h.id}')">
+        <div class="habit-chk-box">${h.checked ? '✓' : ''}</div>
+        <span class="habit-text-label">${h.text}</span>
+      </div>
+    `).join('');
+  }
+
+  toggleHabitCheck(habitId) {
+    if (!this.routine || !this.routine.dailyChecklist) return;
+    const item = this.routine.dailyChecklist.find(h => h.id === habitId);
+    if (!item) return;
+
+    item.checked = !item.checked;
+    this.saveRoutine();
+
+    if (item.checked) {
+      if (window.soundEngine) window.soundEngine.play('complete');
+      if (window.gamification) window.gamification.awardXP(15, `Habit: ${item.text}`);
+    } else {
+      if (window.soundEngine) window.soundEngine.play('tick');
+    }
+
+    this.renderStudyPlanHabits();
+  }
+
+  // ==========================================
+  // THEME & PROFILE DROPDOWN
+  // ==========================================
+  initTheme() {
+    try {
+      const savedTheme = localStorage.getItem('aura_theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        const btn = document.getElementById('themeToggleBtn');
+        if (btn) btn.textContent = '🌙';
+      }
+    } catch (e) {}
+  }
+
+  toggleTheme() {
+    const isLight = document.body.classList.toggle('light-theme');
+    const btn = document.getElementById('themeToggleBtn');
+    if (btn) btn.textContent = isLight ? '🌙' : '☀️';
+    try {
+      localStorage.setItem('aura_theme', isLight ? 'light' : 'dark');
+    } catch (e) {}
+    this.showToast(isLight ? 'Light Theme Activated' : 'Dark Futuristic Mode', isLight ? 'Clean high-contrast daytime mode enabled.' : 'Optimized for high-contrast deep focus.');
+  }
+
+  setupProfileDropdown() {
+    const badge = document.getElementById('userProfileBadge');
+    const dropdown = document.getElementById('userProfileDropdown');
+    if (!badge || !dropdown) return;
+
+    badge.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && !badge.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  }
+
+  // ==========================================
+  // GAP FILLERS: QUICK HABITS TODAY
+  // ==========================================
+  initQuickHabits() {
+    try {
+      const saved = localStorage.getItem('aura_quick_habits_state');
+      if (saved) {
+        this.quickHabits = JSON.parse(saved);
+      } else {
+        this.quickHabits = { wake: true, workout: true, read: false, speech: false, phone: true };
+      }
+    } catch (e) {
+      this.quickHabits = { wake: true, workout: true, read: false, speech: false, phone: true };
+    }
+    this.renderQuickHabits();
+  }
+
+  renderQuickHabits() {
+    const keys = Object.keys(this.quickHabits || {});
+    let activeCount = 0;
+    keys.forEach(k => {
+      const isChecked = !!this.quickHabits[k];
+      if (isChecked) activeCount++;
+      const item = document.getElementById(`qHabitItem-${k}`);
+      const chk = document.getElementById(`qHabitChk-${k}`);
+      if (item) item.classList.toggle('checked', isChecked);
+      if (chk) chk.textContent = isChecked ? '✓' : '';
+    });
+    const badge = document.getElementById('homeHabitStreakBadge');
+    if (badge) {
+      badge.textContent = `${activeCount}/${keys.length} Active`;
+    }
+  }
+
+  toggleQuickHabit(k) {
+    if (!this.quickHabits) this.quickHabits = {};
+    this.quickHabits[k] = !this.quickHabits[k];
+    try {
+      localStorage.setItem('aura_quick_habits_state', JSON.stringify(this.quickHabits));
+    } catch (e) {}
+
+    if (this.quickHabits[k]) {
+      if (window.soundEngine) window.soundEngine.play('complete');
+      if (window.gamification) window.gamification.awardXP(15, `Streak Habit: ${k}`);
+    } else {
+      if (window.soundEngine) window.soundEngine.play('tick');
+    }
+    this.renderQuickHabits();
+  }
+
+  // ==========================================
+  // GAP FILLERS: AMBIENT FOCUS AUDIO GENERATOR
+  // ==========================================
+  initSoundscape() {
+    this.soundscapePlaying = false;
+    this.soundscapeMode = 'alpha';
+    this.soundscapeVolume = 0.5;
+    this.audioCtx = null;
+    this.soundNodes = [];
+  }
+
+  toggleSoundscape() {
+    if (this.soundscapePlaying) {
+      this.stopSoundscape();
+    } else {
+      this.startSoundscape();
+    }
+  }
+
+  startSoundscape() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!this.audioCtx) this.audioCtx = new AudioContext();
+      if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+      this.stopSoundscapeNodes();
+
+      const masterGain = this.audioCtx.createGain();
+      masterGain.gain.setValueAtTime(this.soundscapeVolume, this.audioCtx.currentTime);
+      masterGain.connect(this.audioCtx.destination);
+      this.soundMasterGain = masterGain;
+
+      if (this.soundscapeMode === 'alpha') {
+        const oscL = this.audioCtx.createOscillator();
+        const oscR = this.audioCtx.createOscillator();
+        const panL = this.audioCtx.createStereoPanner ? this.audioCtx.createStereoPanner() : null;
+        const panR = this.audioCtx.createStereoPanner ? this.audioCtx.createStereoPanner() : null;
+
+        oscL.type = 'sine';
+        oscL.frequency.setValueAtTime(432, this.audioCtx.currentTime);
+        oscR.type = 'sine';
+        oscR.frequency.setValueAtTime(442, this.audioCtx.currentTime);
+
+        const subGain = this.audioCtx.createGain();
+        subGain.gain.setValueAtTime(0.18, this.audioCtx.currentTime);
+
+        if (panL && panR) {
+          panL.pan.value = -1;
+          panR.pan.value = 1;
+          oscL.connect(panL);
+          panL.connect(subGain);
+          oscR.connect(panR);
+          panR.connect(subGain);
+        } else {
+          oscL.connect(subGain);
+          oscR.connect(subGain);
+        }
+
+        subGain.connect(masterGain);
+        oscL.start();
+        oscR.start();
+        this.soundNodes.push(oscL, oscR, subGain);
+      } else {
+        const bufferSize = 2 * this.audioCtx.sampleRate;
+        const noiseBuffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          b3 = 0.86650 * b3 + white * 0.3104856;
+          b4 = 0.55000 * b4 + white * 0.5329522;
+          b5 = -0.7616 * b5 - white * 0.0168980;
+          output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.05;
+          b6 = white * 0.115926;
+        }
+
+        const whiteNoise = this.audioCtx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+        whiteNoise.loop = true;
+
+        const filter = this.audioCtx.createBiquadFilter();
+        if (this.soundscapeMode === 'rain') {
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(800, this.audioCtx.currentTime);
+        } else if (this.soundscapeMode === 'waves') {
+          filter.type = 'bandpass';
+          filter.frequency.setValueAtTime(350, this.audioCtx.currentTime);
+          filter.Q.setValueAtTime(1.5, this.audioCtx.currentTime);
+        } else {
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(450, this.audioCtx.currentTime);
+        }
+
+        whiteNoise.connect(filter);
+        filter.connect(masterGain);
+        whiteNoise.start();
+        this.soundNodes.push(whiteNoise, filter);
+      }
+
+      this.soundscapePlaying = true;
+      const icon = document.getElementById('soundscapePlayIcon');
+      const eq = document.getElementById('soundscapeEqBars');
+      if (icon) icon.textContent = '⏹';
+      if (eq) eq.classList.add('active');
+      this.showToast('Ambient Focus Audio Active', `Playing ${this.soundscapeMode.toUpperCase()} mode.`);
+    } catch (err) {
+      console.warn('Audio context error', err);
+    }
+  }
+
+  stopSoundscapeNodes() {
+    this.soundNodes.forEach(node => {
+      try {
+        if (node.stop) node.stop();
+        node.disconnect();
+      } catch (e) {}
+    });
+    this.soundNodes = [];
+  }
+
+  stopSoundscape() {
+    this.stopSoundscapeNodes();
+    this.soundscapePlaying = false;
+    const icon = document.getElementById('soundscapePlayIcon');
+    const eq = document.getElementById('soundscapeEqBars');
+    if (icon) icon.textContent = '▶';
+    if (eq) eq.classList.remove('active');
+  }
+
+  setSoundscapeMode(mode) {
+    this.soundscapeMode = mode;
+    document.querySelectorAll('.soundscape-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.sound === mode);
+    });
+    if (this.soundscapePlaying) {
+      this.startSoundscape();
+    }
+  }
+
+  setSoundscapeVolume(val) {
+    this.soundscapeVolume = parseFloat(val);
+    if (this.soundMasterGain && this.audioCtx) {
+      this.soundMasterGain.gain.setValueAtTime(this.soundscapeVolume, this.audioCtx.currentTime);
+    }
+  }
+
+  // ==========================================
+  // DESIGNER NOTES SCRATCHPAD
+  // ==========================================
+  initScratchpad() {
+    const textarea = document.getElementById('scratchpadTextarea');
+    const preview = document.getElementById('scratchpadPreviewBox');
+    const count = document.getElementById('scratchpadCharCount');
+    const saveBtn = document.getElementById('saveScratchpadBtn');
+    const clearBtn = document.getElementById('clearScratchpadBtn');
+
+    if (!textarea) return;
+
+    try {
+      const saved = localStorage.getItem('aura_notes_scratchpad');
+      if (saved) textarea.value = saved;
+    } catch (e) {}
+
+    const renderPreview = () => {
+      const val = textarea.value;
+      if (count) count.textContent = `${val.length} chars`;
+      if (preview) {
+        if (!val.trim()) {
+          preview.innerHTML = '<p style="color:var(--text-muted); font-style:italic;">Live markdown preview will appear here as you write...</p>';
+          return;
+        }
+        let html = val
+          .replace(/^### (.*$)/gim, '<h3 style="color:#FFF; font-size:1.1rem; margin:0.6rem 0 0.3rem;">$1</h3>')
+          .replace(/^## (.*$)/gim, '<h2 style="color:var(--accent-cyan); font-size:1.25rem; margin:0.8rem 0 0.4rem;">$1</h2>')
+          .replace(/^# (.*$)/gim, '<h1 style="color:#FFF; font-size:1.4rem; font-weight:800; margin:1rem 0 0.5rem;">$1</h1>')
+          .replace(/^\> (.*$)/gim, '<blockquote style="border-left:3px solid var(--accent-gold); padding-left:0.75rem; color:var(--text-secondary); margin:0.5rem 0;">$1</blockquote>')
+          .replace(/\*\*(.*)\*\*/gim, '<strong style="color:#FFF;">$1</strong>')
+          .replace(/\*(.*)\*/gim, '<em>$1</em>')
+          .replace(/`([^`]+)`/gim, '<code style="background:rgba(120,160,255,0.15); color:var(--accent-cyan); padding:0.1rem 0.35rem; border-radius:4px; font-family:var(--font-mono); font-size:0.85em;">$1</code>')
+          .replace(/^- (.*$)/gim, '<li style="margin-left:1.2rem; color:var(--text-secondary);">$1</li>')
+          .replace(/^\d+\. (.*$)/gim, '<li style="margin-left:1.2rem; color:var(--text-secondary); list-style-type:decimal;">$1</li>')
+          .replace(/\n\n/gim, '<br><br>');
+        preview.innerHTML = html;
+      }
+    };
+
+    textarea.addEventListener('input', () => {
+      renderPreview();
+      try {
+        localStorage.setItem('aura_notes_scratchpad', textarea.value);
+      } catch (e) {}
+    });
+
+    saveBtn?.addEventListener('click', () => {
+      try {
+        localStorage.setItem('aura_notes_scratchpad', textarea.value);
+      } catch (e) {}
+      if (window.soundEngine) window.soundEngine.play('complete');
+      if (window.gamification) window.gamification.awardXP(15, 'Saved Lecture Notes');
+      this.showToast('Notes Auto-Saved (+15 XP)', 'Your notes are securely stored in your local browser vault.');
+    });
+
+    clearBtn?.addEventListener('click', () => {
+      if (confirm('Clear all scratchpad notes?')) {
+        textarea.value = '';
+        renderPreview();
+        try {
+          localStorage.removeItem('aura_notes_scratchpad');
+        } catch (e) {}
+        this.showToast('Scratchpad Cleared', 'Empty canvas ready for your next study session.');
+      }
+    });
+
+    renderPreview();
   }
 }
 

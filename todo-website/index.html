@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudyVault | Premium Student Growth & 30-Day Upgrade Routine OS</title>
-  <meta name="description" content="A premium, warm-luxury student growth dashboard. 30-Day Personal Upgrade Routine, PDF timetable parser, 20-20-20 eye rest & hydration sentinel, English speech recorder lab, and gamified XP milestones.">
+  <title>StudyVault | High-End Student Productivity & Growth OS</title>
+  <meta name="description" content="StudyVault — Dark futuristic education & productivity dashboard. 30-Day personal upgrade routine, Focus Studio, English mastery hub, and bio-wellness sentinel.">
   
-  <!-- Modern Google Typography: Outfit (Headings), Plus Jakarta Sans (UI Body), JetBrains Mono (Digital HUD) -->
+  <!-- Premium Google Fonts: Outfit (Display Headings), Plus Jakarta Sans (UI Body), JetBrains Mono (Digital HUD), Caveat (Hero Handwritten Script) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
@@ -20,9 +20,9 @@
   <!-- Canvas Confetti CDN with internal fallback -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
-<body class="dark-theme">
+<body>
 
-  <!-- Ambient Aurora Glow Orbs in Background -->
+  <!-- Ambient Subtle Aura Background Glows -->
   <div class="aurora-backdrop" aria-hidden="true">
     <div class="aurora-orb orb-1"></div>
     <div class="aurora-orb orb-2"></div>
@@ -33,742 +33,832 @@
   <div id="toastNotificationContainer" class="toast-stack-container" aria-live="polite"></div>
   <div id="xpToastContainer" class="xp-toast-container" aria-live="polite"></div>
 
-  <!-- Posture Alert Floating Banner -->
+  <!-- Ergonomic Posture Alert Banner -->
   <div id="postureBanner" class="posture-floating-banner">
     <div class="posture-banner-icon">🧘</div>
     <div class="posture-banner-body">
       <strong>Ergonomic Alignment Alert</strong>
-      <p>Roll shoulders back, straighten spine, and take a deep breath.</p>
+      <p>Roll shoulders back, straighten spine, and take a deep restorative breath.</p>
     </div>
     <button class="posture-banner-close" onclick="document.getElementById('postureBanner').classList.remove('visible')">✕</button>
   </div>
 
-  <!-- App Shell -->
-  <div class="app-container">
+  <!-- APP SHELL CONTAINER -->
+  <div class="app-shell">
     
-    <!-- COMMAND CENTER NAVIGATION BAR -->
-    <header class="app-header">
-      
-      <!-- Brand & Digital HUD -->
-      <div class="header-left">
-        <div class="brand-badge">
-          <div class="brand-logo-glow">
-            <span class="brand-icon">💎</span>
-          </div>
-          <div class="brand-text">
-            <div class="brand-title">STUDY<span class="brand-highlight">VAULT</span></div>
-            <div class="brand-subtitle"><span class="brand-sticker">30-DAY UPGRADE OS</span></div>
-          </div>
-        </div>
-
-        <!-- Live HUD Clock & Status -->
-        <div class="hud-clock-widget">
-          <span class="live-dot-pulse" title="Routine synchronization active"></span>
-          <span id="liveDigitalClock" class="hud-clock-time">00:00:00</span>
-          <span id="liveDateDisplay" class="hud-clock-date">Mon, Sep 14</span>
-        </div>
-      </div>
-
-      <!-- Center Gamification & Streak HUD -->
-      <div class="header-center">
-        <div class="user-gamification-hud" title="Complete routine blocks to level up and unlock badges">
-          <div class="rank-badge-row">
-            <div class="rank-left-meta">
-              <span id="userRankTitle" class="user-rank-title">🌱 Novice Apprentice</span>
-              <span id="userRankLevel" class="user-rank-level">LVL 1</span>
-            </div>
-            <span class="user-streak-badge" title="Rule #1: Never miss two days in a row!">
-              🔥 <span id="userStreakCount">1d</span> Streak
-            </span>
-          </div>
-
-          <div class="xp-bar-container">
-            <div id="userXpFill" class="xp-bar-fill" style="width: 0%"></div>
-          </div>
-
-          <div class="xp-labels-row">
-            <span id="userXpProgressText" class="xp-label-sub">0 / 150 XP</span>
-            <span class="next-level-label">Level Progression</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action Buttons (Categorized & Clear) -->
-      <div class="header-right">
+    <!-- ==================== LEFT SLIM NAVIGATION SIDEBAR ==================== -->
+    <aside class="app-sidebar" id="appSidebar">
+      <div class="sidebar-top">
         
-        <!-- Primary Focus Studio CTA -->
-        <button id="openFocusModeBtn" class="btn-header-glow focus-btn-glow" title="Launch Minimalist Deep Focus Workspace">
-          <span class="btn-glow-ring"></span>
-          🎯 Focus Studio
-        </button>
+        <!-- Brand Logo Header -->
+        <a href="#" class="sidebar-brand" onclick="window.app.switchView('homeView'); return false;">
+          <div class="brand-gem-icon">💎</div>
+          <div class="brand-meta">
+            <span class="brand-title-text">STUDYVAULT</span>
+            <span class="brand-tagline-text">Learn • Practice • Grow</span>
+          </div>
+        </a>
 
-        <!-- Quick Tactile Utilities -->
-        <div class="header-utility-actions">
-          <button id="densityToggleBtn" class="btn-header-util" title="Toggle Layout Density">
-            📐 Compact
+        <!-- Sidebar Navigation Menu -->
+        <nav class="sidebar-nav" aria-label="Main Navigation">
+          <button class="nav-item active nav-view-tab" data-view="homeView" id="navItemHome">
+            <span class="nav-item-icon">🏠</span>
+            <span class="nav-item-label">Home</span>
           </button>
-          <button id="soundToggleBtn" class="btn-header-util" title="Toggle Synthesized Sound Effects">
-            🔊 Sound <span class="btn-status-pill on">ON</span>
-          </button>
-          <button id="notifyPermBtn" class="btn-header-util" title="Enable Push & Audio Reminders">
-            🔔 Alerts <span class="btn-status-pill on">READY</span>
-          </button>
-          <button id="restoreRoutineBtn" class="btn-header-util reset" title="Restore Flagship 30-Day Personal Upgrade Routine">
-            🔄 Reset
-          </button>
-        </div>
-
-      </div>
-    </header>
-
-    <!-- PRIMARY COMMAND NAVIGATION BAR -->
-    <nav class="primary-nav-bar" aria-label="Main Navigation">
-      <div class="nav-tabs-track" role="tablist">
-        
-        <button class="nav-view-tab active" data-view="routineView" id="navTabRoutine" role="tab" aria-selected="true">
-          <span class="nav-tab-icon">📅</span>
-          <span class="nav-tab-label">Daily Routine</span>
-          <span class="nav-tab-badge">26 Slots</span>
-        </button>
-
-        <button class="nav-view-tab" data-view="englishView" id="navTabEnglish" role="tab" aria-selected="false">
-          <span class="nav-tab-icon">📖</span>
-          <span class="nav-tab-label">English Mastery Hub</span>
-          <span class="nav-tab-badge badge-glow-cyan">Audio • Reading • Vocab</span>
-        </button>
-
-        <button class="nav-view-tab" data-view="wellnessView" id="navTabWellness" role="tab" aria-selected="false">
-          <span class="nav-tab-icon">🧘</span>
-          <span class="nav-tab-label">Bio-Wellness Sentinel</span>
-          <span class="nav-tab-badge">20-20-20 & Water</span>
-        </button>
-
-        <button class="nav-view-tab" data-view="rulesView" id="navTabRules" role="tab" aria-selected="false">
-          <span class="nav-tab-icon">🏆</span>
-          <span class="nav-tab-label">7 Golden Rules</span>
-          <span class="nav-tab-badge">Discipline & Badges</span>
-        </button>
-
-      </div>
-
-      <div class="nav-quick-actions">
-        <button class="btn-nav-primary" onclick="window.app.openTaskModal()">
-          <span>＋</span> Add Task
-        </button>
-        <button class="btn-nav-emerald" onclick="window.app.openPdfModal()">
-          <span>📄</span> PDF Importer
-        </button>
-      </div>
-    </nav>
-
-    <!-- TAB 1: DAILY ROUTINE & SCHEDULE VIEW -->
-    <div id="routineView" class="main-view-panel active">
-      
-      <!-- BENTO GRID DASHBOARD OVERVIEW -->
-      <section class="dashboard-bento-grid">
-      
-      <!-- BENTO 1: Real-time Live Task Billboard -->
-      <div class="bento-card bento-billboard">
-        <div class="bento-header-row">
-          <div class="bento-pill-title-wrap">
-            <span class="bento-pill-title">CURRENT SCHEDULE BLOCK</span>
-            <span class="card-hint">Synced to system clock</span>
-          </div>
-          <span class="bento-live-badge"><span class="dot-pulse-green"></span> LIVE SYNC</span>
-        </div>
-        
-        <div id="liveBillboardCard" class="billboard-content-wrapper">
-          <!-- Dynamic Content Rendered in app.js -->
-        </div>
-      </div>
-
-      <!-- BENTO 2: Daily Completion & Category Progress -->
-      <div class="bento-card bento-progress">
-        <div class="bento-header-row">
-          <div class="bento-pill-title-wrap">
-            <span class="bento-pill-title">DAILY UPGRADE PROGRESS</span>
-            <span class="card-hint">Consistency over perfection</span>
-          </div>
-          <span id="dayCompletionPercent" class="bento-stat-num">0%</span>
-        </div>
-        
-        <div class="day-progress-master-bar">
-          <div id="dayProgressFillBar" class="day-progress-fill" style="width: 0%"></div>
-        </div>
-        
-        <div class="progress-sub-stats">
-          <span class="completed-summary">
-            <span class="summary-check-icon">✓</span>
-            <strong id="completedTasksCount">0</strong> of <strong id="totalTasksCount">26</strong> slots conquered
-          </span>
-          <span class="aim-note">30-Day Evolution</span>
-        </div>
-
-        <!-- Category Progress Breakdown with Distinct Vibrant Colors -->
-        <div class="category-breakdown-list">
-          <div class="cat-bar-item">
-            <span class="cat-item-name"><span class="cat-emoji">🗣️</span> English Practice</span>
-            <div class="cat-item-bar"><div id="catProgFill-english" class="cat-fill cat-english"></div></div>
-            <span id="catProgText-english" class="cat-item-val">0/7</span>
-          </div>
-          <div class="cat-bar-item">
-            <span class="cat-item-name"><span class="cat-emoji">🤖</span> AI / ML Deep Study</span>
-            <div class="cat-item-bar"><div id="catProgFill-aiml" class="cat-fill cat-aiml"></div></div>
-            <span id="catProgText-aiml" class="cat-item-val">0/2</span>
-          </div>
-          <div class="cat-bar-item">
-            <span class="cat-item-name"><span class="cat-emoji">💻</span> Coding & DSA</span>
-            <div class="cat-item-bar"><div id="catProgFill-coding" class="cat-fill cat-coding"></div></div>
-            <span id="catProgText-coding" class="cat-item-val">0/2</span>
-          </div>
-          <div class="cat-bar-item">
-            <span class="cat-item-name"><span class="cat-emoji">🏃</span> Fitness & Walking</span>
-            <div class="cat-item-bar"><div id="catProgFill-fitness" class="cat-fill cat-fitness"></div></div>
-            <span id="catProgText-fitness" class="cat-item-val">0/3</span>
-          </div>
-          <div class="cat-bar-item">
-            <span class="cat-item-name"><span class="cat-emoji">🛡️</span> Discipline & Habits</span>
-            <div class="cat-item-bar"><div id="catProgFill-discipline" class="cat-fill cat-discipline"></div></div>
-            <span id="catProgText-discipline" class="cat-item-val">0/4</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- BENTO 3: Student Bio-Wellness & Ergonomics Sentinel -->
-      <div class="bento-card bento-wellness">
-        <div class="bento-header-row">
-          <div class="bento-pill-title-wrap">
-            <span class="bento-pill-title">STUDENT BIO-WELLNESS</span>
-            <span class="card-hint">Screen & physical ergonomics</span>
-          </div>
-          <span class="bento-active-tag">SENTINEL ACTIVE</span>
-        </div>
-
-        <!-- 20-20-20 Screen Rest Engine -->
-        <div class="wellness-subcard eye-rest-card">
-          <div class="wellness-card-top">
-            <div class="wellness-icon-wrap eye">👁️</div>
-            <div class="wellness-meta">
-              <div class="wellness-title-row">
-                <strong>20-20-20 Eye Rest</strong>
-                <span class="wellness-badge-tag">20m screen limit</span>
-              </div>
-              <p>Next break in <span id="eyeScreenTimerDisplay" class="highlight-mono">20:00</span></p>
-            </div>
-            <button class="wellness-quick-btn eye-btn" onclick="window.wellnessSentinel.triggerEyeBreak()" title="Take 20s break now">
-              Rest Eyes Now
-            </button>
-          </div>
-          <div class="wellness-counter-row">
-            <span>Breaks taken today: <strong id="eyeBreaksDisplay">0</strong></span>
-            <span class="sub-tip">Look 20ft away for 20s</span>
-          </div>
-        </div>
-
-        <!-- Hydration Water Intake (with 8 Clickable Glass Cups) -->
-        <div class="wellness-subcard hydration-card">
-          <div class="wellness-card-top">
-            <div class="wellness-icon-wrap water">💧</div>
-            <div class="wellness-meta">
-              <div class="wellness-title-row">
-                <strong>Hydration Station</strong>
-                <span id="waterTargetDisplay" class="wellness-target-tag">0.0L / 2.0L</span>
-              </div>
-              <p><span id="waterCountDisplay">0 / 8 Glasses</span></p>
-            </div>
-            <div class="water-ctrl-btns">
-              <button id="waterSubBtn" class="water-step-btn" title="Remove 1 glass">-</button>
-              <button id="waterAddBtn" class="water-step-btn add" title="Drink +1 Glass">+1 Glass</button>
-            </div>
-          </div>
-
-          <!-- Interactive 8 Water Cups Grid (Click any cup to fill) -->
-          <div id="waterCupsGrid" class="water-cups-interactive-grid">
-            <!-- Rendered by wellness.js -->
-          </div>
-
-          <div class="water-bar-track">
-            <div id="waterProgressBar" class="water-bar-fill" style="width: 0%"></div>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- WEEKLY FOCUS ROADMAP & ENGLISH LAB CALLOUT -->
-    <section id="weeklyFocusBanner" class="weekly-focus-strip">
-      <!-- Injected by app.js -->
-    </section>
-
-    <!-- MAIN INTERACTIVE WORKSPACE -->
-    <main class="main-layout-grid">
-
-      <!-- LEFT COLUMN: ROUTINE TIMELINE & TASK MANAGER -->
-      <section class="routine-manager-column">
-        
-        <!-- Controls & Filter Toolbar -->
-        <div class="routine-toolbar-panel">
-          <div class="toolbar-top">
-            <div class="toolbar-heading">
-              <div class="heading-title-row">
-                <h2 class="section-title">Daily Routine Timeline</h2>
-                <span class="badge-total-slots">26 Scheduled Blocks</span>
-              </div>
-              <span class="section-tagline">Time-blocked execution slots with XP rewards</span>
-            </div>
-
-            <div class="toolbar-action-buttons">
-              <button id="openAddModalBtn" class="btn-primary-action">
-                <span class="btn-icon">＋</span> Add Custom Task
-              </button>
-              <button id="openPdfUploadBtn" class="btn-emerald-action">
-                <span class="btn-icon">📄</span> PDF Importer
-              </button>
-              <button id="printRoutineBtn" class="btn-ghost-action" title="Print Routine or Save PDF">
-                🖨️ Print
-              </button>
-            </div>
-          </div>
-
-          <!-- Search & Filter Controls -->
-          <div class="toolbar-controls-row">
-            <div class="search-input-wrap">
-              <span class="search-icon">🔍</span>
-              <input type="text" id="taskSearchInput" placeholder="Search tasks, goals, or time slots..." aria-label="Search routine tasks">
-            </div>
-
-            <div class="filter-tabs-group" role="tablist">
-              <button class="filter-tab active" data-filter="all">All Tasks <span class="tab-badge">26</span></button>
-              <button class="filter-tab" data-filter="active">Pending <span class="tab-badge">26</span></button>
-              <button class="filter-tab" data-filter="completed">Completed <span class="tab-badge">0</span></button>
-            </div>
-          </div>
-
-          <!-- Category Chips Bar with Icons -->
-          <div class="category-chips-scroll">
-            <button class="category-chip active" data-category="all">🌐 All Categories</button>
-            <button class="category-chip chip-english" data-category="English">🗣️ English</button>
-            <button class="category-chip chip-aiml" data-category="AI/ML">🤖 AI / ML</button>
-            <button class="category-chip chip-coding" data-category="Coding">💻 Coding</button>
-            <button class="category-chip chip-fitness" data-category="Fitness">🏃 Fitness</button>
-            <button class="category-chip chip-discipline" data-category="Discipline">🛡️ Discipline</button>
-            <button class="category-chip chip-wellness" data-category="Wellness">🌿 Wellness</button>
-            <button class="category-chip chip-college" data-category="College">🎓 College</button>
-          </div>
-        </div>
-
-        <!-- Routine Time-Slots List -->
-        <div id="taskListContainer" class="task-list-wrapper">
-          <!-- Dynamic Task Cards Rendered Here by app.js -->
-        </div>
-
-      </section>
-
-      <!-- RIGHT COLUMN: HABITS CHECKLIST & ACHIEVEMENT VAULT -->
-      <aside class="sidebar-column">
-
-        <!-- Daily Habit Checklist (Page 2 of document) -->
-        <div class="sidebar-widget-card habits-card">
-          <div class="widget-header">
-            <div class="widget-title-wrap">
-              <span class="widget-icon">✅</span>
-              <h3>Daily Habits Checklist</h3>
-            </div>
-            <span id="habitsProgressPercent" class="widget-badge">0% (0/14)</span>
-          </div>
-          <p class="widget-desc">14 non-negotiable daily essentials from page 2 of your upgrade plan.</p>
           
-          <div id="dailyHabitsContainer" class="habits-checklist-grid">
-            <!-- Dynamic Habits Rendered Here -->
-          </div>
-        </div>
-
-        <!-- Gamified Achievements Vault -->
-        <div class="sidebar-widget-card achievements-card">
-          <div class="widget-header">
-            <div class="widget-title-wrap">
-              <span class="widget-icon">🏆</span>
-              <h3>Milestone Badges</h3>
-            </div>
-            <span class="widget-badge xp-highlight">Earn XP & Badges</span>
-          </div>
-
-          <div id="badgesGridContainer" class="badges-mini-grid">
-            <!-- Badges Rendered Here -->
-          </div>
-        </div>
-
-        <!-- 30-Day Rules Quick Card -->
-        <div class="sidebar-widget-card rules-summary-card">
-          <div class="widget-header">
-            <div class="widget-title-wrap">
-              <span class="widget-icon">⚖️</span>
-              <h3>Rule #1: Continuity</h3>
-            </div>
-          </div>
-          <blockquote class="rule-quote">
-            "Never miss two days in a row. English mistakes are allowed — silence is not. Learn → Build → Explain."
-          </blockquote>
-          <button class="view-all-rules-btn" onclick="window.app.openRulesDrawer()">
-            Read All 7 Golden Rules →
+          <button class="nav-item nav-view-tab" data-view="routineView" id="navItemStudyPlan">
+            <span class="nav-item-icon">📋</span>
+            <span class="nav-item-label">Study Plan</span>
           </button>
-        </div>
-
-      </aside>
-
-    </main>
-    </div> <!-- Close routineView -->
-
-    <!-- TAB 2: ENGLISH MASTERY HUB (ALL IN ONE TAB: READING • VOCABULARY • VOICE RECORDER) -->
-    <div id="englishView" class="main-view-panel">
-      
-      <!-- English Studio Hero Banner -->
-      <section class="english-studio-hero">
-        <div class="studio-hero-content">
-          <div class="studio-hero-left">
-            <span class="studio-super-tag">🗣️ 30-DAY VOCAL ENGINE & FLUENCY PROTOCOL</span>
-            <h2 class="studio-title">English Fluency & Practice Studio</h2>
-            <p class="studio-quote">"Rule #3: Mistakes are allowed — silence is not. Learn → Build → Explain."</p>
-          </div>
-
-          <!-- Live Practice Metrics Bar -->
-          <div class="studio-stats-track">
-            <div class="studio-stat-box">
-              <span class="stat-num" id="engStatWordsRead">1,300+</span>
-              <span class="stat-lbl">Words in Library</span>
-            </div>
-            <div class="studio-stat-box">
-              <span class="stat-num" id="engStatSentences">0</span>
-              <span class="stat-lbl">Sentences Written</span>
-            </div>
-            <div class="studio-stat-box">
-              <span class="stat-num" id="engStatRecordings">0</span>
-              <span class="stat-lbl">Speeches Recorded</span>
-            </div>
-            <div class="studio-stat-box highlight">
-              <span class="stat-num">💎 +25-50</span>
-              <span class="stat-lbl">XP Per Activity</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Studio Sub-Navigation Tabs -->
-        <div class="english-hub-tabs-track" role="tablist">
-          <button class="english-hub-tab active" data-target="panelReading">
-            📚 Reading Practice Room
-          </button>
-          <button class="english-hub-tab" data-target="panelVocab">
-            💎 Vocabulary Vault & 3 Sentences
-          </button>
-          <button class="english-hub-tab" data-target="panelVoice">
-            🎙️ Speech Recording Lab (2–5 Min)
-          </button>
-          <button class="english-hub-tab" data-target="panelWisdom">
-            🌟 Book Wisdom & Mindset Quotes
-          </button>
-          <button class="english-hub-tab" data-target="panelFormula">
-            🎯 4-Part Daily English Formula
-          </button>
-        </div>
-      </section>
-
-      <!-- SUB-PANEL 1: READING PRACTICE ROOM -->
-      <section id="panelReading" class="english-hub-panel active">
-        
-        <div class="hub-panel-intro-row">
-          <div>
-            <h3 class="panel-section-title">Curated Reading Library & Masterpiece Book Stories</h3>
-            <p class="panel-section-sub">Select any passage below. Read aloud, shadow along with the native audio voice, or measure your reading speed in WPM!</p>
-          </div>
-
-          <!-- Category Filter Pills -->
-          <div class="reading-cat-pills-row">
-            <button class="reading-cat-pill active" data-category="all">🌐 All Passages (12)</button>
-            <button class="reading-cat-pill" data-category="Book Masterpieces">📖 Book Stories (Goggins, Rich Dad, etc.)</button>
-            <button class="reading-cat-pill" data-category="Discipline">🧠 Discipline & Habits</button>
-            <button class="reading-cat-pill" data-category="AI & Tech">🤖 AI & Tech</button>
-            <button class="reading-cat-pill" data-category="English Communication">🗣️ Communication</button>
-            <button class="reading-cat-pill" data-category="Focus">⚡ Deep Focus</button>
-            <button class="reading-cat-pill" data-category="Learning Science">🔬 Learning Science</button>
-          </div>
-        </div>
-
-        <!-- Reading Passages Rendered by english-lab.js -->
-        <div id="readingPassagesContainer" class="reading-passages-stack"></div>
-
-      </section>
-
-      <!-- SUB-PANEL 2: VOCABULARY VAULT & 3-SENTENCE BUILDER -->
-      <section id="panelVocab" class="english-hub-panel">
-        
-        <div class="hub-panel-intro-row">
-          <div>
-            <h3 class="panel-section-title">High-Impact Vocabulary Vault</h3>
-            <p class="panel-section-sub">Every word features pronunciation, meaning, 3 real-world sentences (Tech, Daily, Mindset), and your personal sentence creator!</p>
-          </div>
-
-          <div class="vocab-toolbar-actions">
-            <div class="vocab-search-wrap">
-              <span class="search-glyph">🔍</span>
-              <input type="text" id="vocabSearchInput" placeholder="Search words, meanings, or sentences..." aria-label="Search vocabulary">
-            </div>
-            <button id="openAddVocabBtn" class="btn-primary-action">
-              <span>＋</span> Add Custom Word
-            </button>
-          </div>
-        </div>
-
-        <!-- Vocabulary Cards Grid Rendered by english-lab.js -->
-        <div id="vocabVaultContainer" class="vocab-vault-grid"></div>
-
-      </section>
-
-      <!-- SUB-PANEL 3: DAILY SPEECH VOICE RECORDER -->
-      <section id="panelVoice" class="english-hub-panel">
-        
-        <div class="voice-studio-layout">
           
-          <!-- Left: Speaking Topic & Guidance -->
-          <div class="voice-prompt-card">
-            <div class="voice-card-pill">
-              <span class="live-dot-pulse"></span>
-              <span>DAILY 2–5 MINUTE SPEECH DRILL</span>
+          <button class="nav-item nav-view-tab" data-view="routineView" id="navItemTasks">
+            <span class="nav-item-icon">✅</span>
+            <span class="nav-item-label">Tasks</span>
+          </button>
+          
+          <button class="nav-item nav-view-tab" data-view="englishView" id="navItemNotes">
+            <span class="nav-item-icon">📝</span>
+            <span class="nav-item-label">Notes</span>
+          </button>
+          
+          <button class="nav-item nav-view-tab" data-view="englishView" id="navItemResources">
+            <span class="nav-item-icon">📄</span>
+            <span class="nav-item-label">Resources</span>
+          </button>
+          
+          <button class="nav-item nav-view-tab" data-view="wellnessView" id="navItemAnalytics">
+            <span class="nav-item-icon">📊</span>
+            <span class="nav-item-label">Analytics</span>
+          </button>
+          
+          <button class="nav-item nav-view-tab" data-view="rulesView" id="navItemSettings">
+            <span class="nav-item-icon">⚙️</span>
+            <span class="nav-item-label">Settings</span>
+          </button>
+        </nav>
+
+      </div>
+
+      <div class="sidebar-bottom">
+        
+        <!-- Motivational Mountain Sunset Card -->
+        <div class="sidebar-quote-card">
+          <img src="assets/sidebar_mountain.jpg" alt="Mountain summit at dusk" class="quote-card-bg">
+          <div class="quote-card-overlay"></div>
+          <div class="quote-content">
+            <p class="quote-text">“Discipline today builds the freedom tomorrow.”</p>
+            <span class="quote-author">— StudyVault</span>
+          </div>
+        </div>
+
+        <!-- Keep Going Status Card -->
+        <div class="sidebar-status-card">
+          <span class="status-mini-icon">📊</span>
+          <div class="status-meta">
+            <span class="status-title">Keep Going</span>
+            <span class="status-desc">You're doing great!</span>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN APPLICATION WRAPPER ==================== -->
+    <div class="app-main-wrapper">
+      
+      <!-- TOP COMMAND HEADER -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+            ☰
+          </button>
+        </div>
+
+        <!-- Center Command Search Bar with Ctrl+K shortcut -->
+        <div class="topbar-search-wrap">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="globalCommandSearch" class="search-command-bar" placeholder="Search tasks, topics, or anything..." aria-label="Command search">
+          <span class="search-kbd-shortcut">Ctrl K</span>
+        </div>
+
+        <!-- Right Profile & Tactical Controls -->
+        <div class="topbar-right">
+          <button class="topbar-util-btn" id="themeToggleBtn" title="Toggle Visual Mode" aria-label="Toggle Theme">
+            ☀️
+          </button>
+
+          <button class="topbar-util-btn" id="notifyPermBtn" title="Notifications & Audio Reminders" aria-label="Alerts">
+            🔔
+            <span class="notification-dot"></span>
+          </button>
+
+          <button class="topbar-util-btn" id="soundToggleBtn" title="Synthesized Audio Effects" aria-label="Sound">
+            🔊
+          </button>
+
+          <!-- User Profile Dropdown Badge -->
+          <div class="topbar-user-badge" id="userProfileBadge" title="User Profile: Aniket Singh">
+            <img src="assets/avatar_aniket.jpg" alt="Aniket Singh" class="user-avatar-img">
+            <div class="user-meta-col">
+              <span class="user-name-text">Aniket Singh</span>
+              <span class="user-role-label">Student</span>
             </div>
-            <h3 class="voice-prompt-heading">Today's Speaking Topic:</h3>
+            <span class="user-dropdown-arrow">▾</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY AREA WITH MULTI-VIEW PANELS -->
+      <main class="app-content-body">
+        
+        <!-- ==========================================================================
+             VIEW 1: PRIMARY HOME DASHBOARD (Matches Reference Image Exactly)
+             ========================================================================== -->
+        <div id="homeView" class="main-view-panel active">
+          <div class="home-dashboard-layout">
             
-            <div class="topic-display-box">
-              <p id="speakingTopicText" class="topic-text">
-                Explain how a binary search algorithm works in simple English, as if explaining to a non-technical friend.
-              </p>
-            </div>
+            <!-- TOP ROW: Cinematic Hero Panel + Quick Actions & Focus Studio -->
+            <div class="dashboard-top-grid">
+              
+              <!-- CINEMATIC HERO SECTION -->
+              <section class="hero-card-panel">
+                <div class="hero-left-content">
+                  <div>
+                    <span class="hero-greeting" id="heroGreetingText">Good Evening, Aniket! 👋</span>
+                    <div class="hero-headline">
+                      <span class="hero-headline-sub">Small Steps</span>
+                      <span class="hero-headline-main">Big Dreams</span>
+                    </div>
+                    <p class="hero-supporting-text">
+                      Plan your study. Track your progress.<br>
+                      Build the future you want.
+                    </p>
+                  </div>
 
-            <button id="rollTopicBtn" class="btn-roll-topic">
-              🎲 Roll New Speaking Topic
-            </button>
+                  <!-- 3 Stats Badges -->
+                  <div class="hero-stats-row">
+                    <div class="hero-stat-pill">
+                      <div class="hero-stat-icon-wrap time">🕒</div>
+                      <div class="hero-stat-meta">
+                        <span class="hero-stat-val" id="heroStudyTimeVal">4h 32m</span>
+                        <span class="hero-stat-lbl">Today's Study Time</span>
+                      </div>
+                    </div>
 
-            <div class="voice-rules-box">
-              <h4>Vocal Command Guidelines:</h4>
-              <ul>
-                <li><strong>Rule #3:</strong> Mistakes are allowed — silence is not.</li>
-                <li>Never pause to fix a grammar slip mid-sentence; keep your vocal momentum flowing.</li>
-                <li>Record for 2 to 5 minutes without reading from a script.</li>
-                <li>Listen back once to observe rhythm, cadence, and filler words.</li>
-              </ul>
-            </div>
-          </div>
+                    <div class="hero-stat-pill">
+                      <div class="hero-stat-icon-wrap tasks">📋</div>
+                      <div class="hero-stat-meta">
+                        <span class="hero-stat-val" id="heroPendingTasksVal">7 Tasks</span>
+                        <span class="hero-stat-lbl">Pending</span>
+                      </div>
+                    </div>
 
-          <!-- Right: Interactive Recording Station -->
-          <div class="voice-recorder-cockpit">
-            
-            <div id="voiceRecordControls" class="voice-recorder-orb-card">
-              <div class="record-visualizer-orb">
-                <span class="mic-glyph">🎙️</span>
-                <div class="soundwave-rings"></div>
+                    <div class="hero-stat-pill">
+                      <div class="hero-stat-icon-wrap goal">🎯</div>
+                      <div class="hero-stat-meta">
+                        <span class="hero-stat-val" id="heroDailyGoalVal">3/5</span>
+                        <span class="hero-stat-lbl">Daily Goal</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Hero Right Cinematic Mountain Sunset Visual -->
+                <div class="hero-right-visual">
+                  <img src="assets/hero_sunset.jpg" alt="Student on mountain summit overlooking futuristic horizon at sunset" class="hero-illustration-img">
+                  <div class="hero-visual-vignette"></div>
+                  <div class="hero-handwritten-quote">Better<br>Than<br>Yesterday</div>
+                </div>
+              </section>
+
+              <!-- RIGHT TOP COLUMN: Quick Actions & Focus Studio -->
+              <div style="display: flex; flex-direction: column;">
+                
+                <!-- 4 Quick Actions Strip -->
+                <div class="quick-actions-strip">
+                  <button class="quick-action-item" onclick="window.app.openTaskModal()">
+                    <div class="quick-action-icon blue">＋</div>
+                    <span class="quick-action-title">Add Task</span>
+                  </button>
+
+                  <button class="quick-action-item" onclick="window.app.openCustomVocabModal()">
+                    <div class="quick-action-icon purple">📝</div>
+                    <span class="quick-action-title">Add Note</span>
+                  </button>
+
+                  <button class="quick-action-item" onclick="window.app.openTaskModal()">
+                    <div class="quick-action-icon cyan">⚙️</div>
+                    <span class="quick-action-title">Custom Task</span>
+                  </button>
+
+                  <button class="quick-action-item" onclick="window.app.openPdfModal()">
+                    <div class="quick-action-icon pink">📄</div>
+                    <span class="quick-action-title">PDF Importer</span>
+                  </button>
+                </div>
+
+                <!-- FOCUS STUDIO PANEL -->
+                <section class="focus-studio-panel">
+                  <div class="card-header-between">
+                    <div class="card-title-group">
+                      <span class="card-title-icon">🎯</span>
+                      <div>
+                        <h3>Focus Studio</h3>
+                        <span class="card-header-sub">Stay focused. Get more done.</span>
+                      </div>
+                    </div>
+                    <span class="live-status-pill">
+                      <span class="live-dot-pulse"></span> Live
+                    </span>
+                  </div>
+
+                  <!-- Focus Mode Switcher Tabs -->
+                  <div class="focus-mode-tabs" role="tablist">
+                    <button class="focus-mode-tab active" data-mode="pomodoro" onclick="window.app.setDashboardFocusMode('pomodoro', 25)">Pomodoro</button>
+                    <button class="focus-mode-tab" data-mode="focus" onclick="window.app.setDashboardFocusMode('focus', 45)">Focus</button>
+                    <button class="focus-mode-tab" data-mode="relaxed" onclick="window.app.setDashboardFocusMode('relaxed', 15)">Relaxed</button>
+                    <button class="focus-mode-tab" data-mode="custom" onclick="window.app.setDashboardFocusMode('custom', 30)">Custom</button>
+                  </div>
+
+                  <!-- Circular Progress Timer Stage -->
+                  <div class="focus-timer-stage">
+                    <div class="circular-timer-wrap">
+                      <svg class="timer-svg" viewBox="0 0 140 140">
+                        <circle class="timer-track-bg" cx="70" cy="70" r="60"></circle>
+                        <circle id="dashboardTimerCircle" class="timer-track-fill" cx="70" cy="70" r="60"></circle>
+                      </svg>
+                      <div class="timer-inner-content">
+                        <span id="dashboardTimerDigits" class="timer-digits-display">25:00</span>
+                        <span id="dashboardTimerLabel" class="timer-mode-lbl">Focus Time</span>
+                        <button id="dashboardTimerPlayBtn" class="timer-play-trigger" title="Start / Pause Focus Timer" onclick="window.app.toggleDashboardTimer()">
+                          ▶
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="focus-quote-side">
+                      <span class="bolt-icon">⚡</span>
+                      <p>“Focus<br>is a superpower.”</p>
+                    </div>
+                  </div>
+                </section>
+
               </div>
 
-              <div class="record-timer-digits" id="voiceRecordTimer">00:00</div>
-              <p class="record-sub-cue">Target: 2 to 5 minutes of continuous speech</p>
+            </div>
 
-              <div class="record-btns-row">
-                <button id="startRecordVoiceBtn" class="btn-record-action start">
-                  🔴 Start Recording
-                </button>
-                <button id="stopRecordVoiceBtn" class="btn-record-action stop">
-                  ⏹ Stop & Save (+50 XP)
-                </button>
+            <!-- SECOND ROW: 3-COLUMN MAIN DASHBOARD -->
+            <div class="dashboard-main-grid">
+              
+              <!-- LEFT COLUMN: Daily Routine Timeline & Study Resources -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- DAILY ROUTINE TIMELINE -->
+                <section class="timeline-card-panel">
+                  <div class="timeline-header-row">
+                    <div class="timeline-title-wrap">
+                      <span style="font-size: 1.25rem;">📅</span>
+                      <h3>Daily Routine Timeline</h3>
+                      <span id="timelineTasksCountPill" class="timeline-task-pill">10 tasks • 4h 45m</span>
+                    </div>
+                    
+                    <div class="timeline-date-nav">
+                      <button class="date-nav-btn" onclick="window.app.changeDateNav(-1)">‹</button>
+                      <span id="timelineDateNavDisplay" class="date-display-text">Tue, Sep 15, 2025</span>
+                      <button class="date-nav-btn" onclick="window.app.changeDateNav(1)">›</button>
+                    </div>
+                  </div>
+
+                  <!-- Category Filter Chips -->
+                  <div class="timeline-chips-row">
+                    <button class="category-chip active" data-category="all" onclick="window.app.filterTimelineCategory('all')">🌐 All</button>
+                    <button class="category-chip" data-category="Daily" onclick="window.app.filterTimelineCategory('Daily')">☀️ Daily</button>
+                    <button class="category-chip" data-category="Fitness" onclick="window.app.filterTimelineCategory('Fitness')">🏃 Fitness</button>
+                    <button class="category-chip" data-category="Wellness" onclick="window.app.filterTimelineCategory('Wellness')">🌿 Wellness</button>
+                    <button class="category-chip" data-category="English" onclick="window.app.filterTimelineCategory('English')">🗣️ English</button>
+                    <button class="category-chip" data-category="AI/ML" onclick="window.app.filterTimelineCategory('AI/ML')">🤖 AI/ML</button>
+                    <button class="category-chip" data-category="Coding" onclick="window.app.filterTimelineCategory('Coding')">💻 Coding</button>
+                  </div>
+
+                  <!-- Dynamic Timeline Task Stream -->
+                  <div id="homeTimelineStream" class="timeline-vertical-stream">
+                    <!-- Injected dynamically by app.js -->
+                  </div>
+                </section>
+
+                <!-- STUDY RESOURCES CARD (HORIZONTAL ROW) -->
+                <section class="study-resources-panel">
+                  <div class="card-header-between">
+                    <div class="card-title-group">
+                      <span class="card-title-icon" style="color: #FB923C;">📁</span>
+                      <div>
+                        <h3>Study Resources</h3>
+                        <span class="card-header-sub">Curated resources for your growth</span>
+                      </div>
+                    </div>
+                    <a href="#" class="card-header-sub" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;" onclick="window.app.switchView('englishView'); return false;">
+                      View All →
+                    </a>
+                  </div>
+
+                  <div class="resources-horizontal-row">
+                    <a href="#" class="resource-item-card" onclick="window.app.switchView('englishView'); return false;">
+                      <div class="resource-icon-wrap red">▶</div>
+                      <span class="resource-item-title">YouTube Videos</span>
+                    </a>
+
+                    <a href="#" class="resource-item-card" onclick="window.app.openPdfModal(); return false;">
+                      <div class="resource-icon-wrap purple">📄</div>
+                      <span class="resource-item-title">Notes (PDF)</span>
+                    </a>
+
+                    <a href="#" class="resource-item-card" onclick="window.app.switchView('englishView'); return false;">
+                      <div class="resource-icon-wrap green">💬</div>
+                      <span class="resource-item-title">Practice Questions</span>
+                    </a>
+
+                    <a href="#" class="resource-item-card" onclick="window.app.switchView('englishView'); return false;">
+                      <div class="resource-icon-wrap orange">📖</div>
+                      <span class="resource-item-title">E-Books</span>
+                    </a>
+
+                    <a href="#" class="resource-item-card" onclick="window.app.switchView('englishView'); return false;">
+                      <div class="resource-icon-wrap blue">💎</div>
+                      <span class="resource-item-title">Web Links</span>
+                    </a>
+
+                    <a href="#" class="resource-item-card" onclick="window.app.switchView('wellnessView'); return false;">
+                      <div class="resource-icon-wrap violet">🔧</div>
+                      <span class="resource-item-title">Tools</span>
+                    </a>
+                  </div>
+                </section>
+
               </div>
 
-              <!-- Audio Player Injected on stop -->
-              <div id="voicePlaybackContainer" class="voice-playback-box"></div>
+              <!-- CENTER COLUMN: Daily Upgrade Progress & Current Schedule Block -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- DAILY UPGRADE PROGRESS -->
+                <section class="upgrade-progress-panel">
+                  <div class="card-title-group">
+                    <span class="card-title-icon" style="color: var(--accent-cyan);">📊</span>
+                    <div>
+                      <h3>Daily Upgrade Progress</h3>
+                    </div>
+                  </div>
+
+                  <div class="upgrade-top-metrics">
+                    <div class="progress-circular-stat">
+                      <svg viewBox="0 0 86 86" style="transform: rotate(-90deg); width: 86px; height: 86px;">
+                        <circle cx="43" cy="43" r="36" stroke="rgba(120, 160, 255, 0.1)" stroke-width="6" fill="transparent"></circle>
+                        <circle id="upgradeRingProgress" cx="43" cy="43" r="36" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" fill="transparent" stroke-dasharray="226" stroke-dashoffset="180" style="filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.6));"></circle>
+                      </svg>
+                      <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
+                        <span id="dayCompletionPercent" class="progress-pct-digits">20%</span>
+                      </div>
+                    </div>
+
+                    <!-- 30-Day Evolution Mini Bar Chart -->
+                    <div class="evolution-chart-box">
+                      <div class="mini-bars-row">
+                        <div class="mini-bar b1"></div>
+                        <div class="mini-bar b2"></div>
+                        <div class="mini-bar b3"></div>
+                        <div class="mini-bar b4"></div>
+                        <div class="mini-bar b5"></div>
+                        <div class="mini-bar b6"></div>
+                      </div>
+                      <span class="evolution-chart-title">30-Day Evolution</span>
+                    </div>
+                  </div>
+
+                  <!-- Category Progress Bars -->
+                  <div class="category-progress-list">
+                    <div class="cat-progress-row">
+                      <div class="cat-progress-meta">
+                        <span><span style="color:#22D3EE;">●</span> English Practices</span>
+                        <span id="catProgText-english">2 / 8</span>
+                      </div>
+                      <div class="cat-bar-track"><div id="catProgFill-english" class="cat-bar-fill cyan" style="width: 25%;"></div></div>
+                    </div>
+
+                    <div class="cat-progress-row">
+                      <div class="cat-progress-meta">
+                        <span><span style="color:#A855F7;">●</span> AI/ML Deep Study</span>
+                        <span id="catProgText-aiml">0 / 2</span>
+                      </div>
+                      <div class="cat-bar-track"><div id="catProgFill-aiml" class="cat-bar-fill purple" style="width: 0%;"></div></div>
+                    </div>
+
+                    <div class="cat-progress-row">
+                      <div class="cat-progress-meta">
+                        <span><span style="color:#818CF8;">●</span> Coding & DSA</span>
+                        <span id="catProgText-coding">0 / 3</span>
+                      </div>
+                      <div class="cat-bar-track"><div id="catProgFill-coding" class="cat-bar-fill indigo" style="width: 0%;"></div></div>
+                    </div>
+
+                    <div class="cat-progress-row">
+                      <div class="cat-progress-meta">
+                        <span><span style="color:#FB923C;">●</span> Fitness & Walking</span>
+                        <span id="catProgText-fitness">0 / 3</span>
+                      </div>
+                      <div class="cat-bar-track"><div id="catProgFill-fitness" class="cat-bar-fill orange" style="width: 0%;"></div></div>
+                    </div>
+
+                    <div class="cat-progress-row">
+                      <div class="cat-progress-meta">
+                        <span><span style="color:#34D399;">●</span> Discipline & Habits</span>
+                        <span id="catProgText-discipline">0 / 5</span>
+                      </div>
+                      <div class="cat-bar-track"><div id="catProgFill-discipline" class="cat-bar-fill emerald" style="width: 0%;"></div></div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- CURRENT SCHEDULE BLOCK -->
+                <section class="current-schedule-panel">
+                  <div class="card-header-between">
+                    <div class="card-title-group">
+                      <div>
+                        <h3 style="font-size: 0.95rem;">CURRENT SCHEDULE BLOCK</h3>
+                        <span class="card-header-sub">Schedule • Focus • Achieve</span>
+                      </div>
+                    </div>
+                    <span class="live-status-pill">
+                      <span class="live-dot-pulse"></span> LIVE
+                    </span>
+                  </div>
+
+                  <div class="schedule-block-main">
+                    <div class="schedule-timer-circle">
+                      <span id="scheduleLiveTimerDigits" class="schedule-timer-digits">3:30</span>
+                      <span class="schedule-timer-lbl">Timer</span>
+                    </div>
+
+                    <div class="schedule-info-col">
+                      <h4 id="scheduleCurrentActName" class="schedule-act-name">Project building</h4>
+                      <p id="scheduleCurrentGoalDesc" class="schedule-goal-desc">Goals: Portfolio / AI project</p>
+                      <div class="schedule-tags-row">
+                        <span class="schedule-tag-pill pink">AI/ML</span>
+                        <span class="schedule-tag-pill purple">FRONTEND</span>
+                        <span class="schedule-tag-pill cyan">WEB</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-actions-row">
+                    <button class="btn-schedule-action focus" onclick="window.app.openFocusMode()">🎯 Focus</button>
+                    <button id="scheduleCompleteBtn" class="btn-schedule-action check" onclick="window.app.completeCurrentSlot()">✓ Mark Completed</button>
+                  </div>
+                </section>
+
+              </div>
+
+              <!-- RIGHT COLUMN: Milestone Badges & Quick Stats -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- MILESTONE BADGES -->
+                <section class="milestones-panel">
+                  <div class="card-header-between">
+                    <div class="card-title-group">
+                      <span class="card-title-icon" style="color: var(--accent-gold);">🏆</span>
+                      <h3>Milestone Badges</h3>
+                    </div>
+                    <a href="#" class="card-header-sub" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;" onclick="window.app.switchView('rulesView'); return false;">
+                      View All
+                    </a>
+                  </div>
+
+                  <div class="badges-4-grid">
+                    <div class="badge-collectible-card" onclick="window.app.switchView('rulesView')">
+                      <div class="badge-shape-wrap green">🌱</div>
+                      <span class="badge-card-name">Early Riser</span>
+                      <span class="badge-card-sub">Wake 5 AM</span>
+                      <span class="badge-card-progress">3/7 days</span>
+                    </div>
+
+                    <div class="badge-collectible-card" onclick="window.app.switchView('rulesView')">
+                      <div class="badge-shape-wrap purple">✨</div>
+                      <span class="badge-card-name">Task Master</span>
+                      <span class="badge-card-sub">Complete 10</span>
+                      <span class="badge-card-progress">6/10</span>
+                    </div>
+
+                    <div class="badge-collectible-card" onclick="window.app.switchView('rulesView')">
+                      <div class="badge-shape-wrap blue">⏱️</div>
+                      <span class="badge-card-name">Focus Pro</span>
+                      <span class="badge-card-sub">25 Min Focus</span>
+                      <span class="badge-card-progress">4/8</span>
+                    </div>
+
+                    <div class="badge-collectible-card" onclick="window.app.switchView('rulesView')">
+                      <div class="badge-shape-wrap gold">⭐</div>
+                      <span class="badge-card-name">Learning Star</span>
+                      <span class="badge-card-sub">Finish Module</span>
+                      <span class="badge-card-progress">1/5</span>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- QUICK STATS -->
+                <section class="quick-stats-panel">
+                  <div class="card-title-group">
+                    <span class="card-title-icon" style="color: var(--accent-violet);">🎯</span>
+                    <div>
+                      <h3>Quick Stats</h3>
+                      <span class="card-header-sub">Your progress at a glance</span>
+                    </div>
+                  </div>
+
+                  <div class="stats-2x2-grid">
+                    <div class="stat-tile-card">
+                      <div class="stat-tile-icon-box green">✓</div>
+                      <span id="quickStatsCompleted" class="stat-tile-num">12</span>
+                      <span class="stat-tile-label">Completed Tasks</span>
+                    </div>
+
+                    <div class="stat-tile-card">
+                      <div class="stat-tile-icon-box amber">⏱️</div>
+                      <span id="quickStatsPending" class="stat-tile-num">5</span>
+                      <span class="stat-tile-label">Pending Tasks</span>
+                    </div>
+
+                    <div class="stat-tile-card">
+                      <div class="stat-tile-icon-box purple">🕒</div>
+                      <span id="quickStatsStudyTime" class="stat-tile-num">4h 32m</span>
+                      <span class="stat-tile-label">Study Time Today</span>
+                    </div>
+
+                    <div class="stat-tile-card">
+                      <div class="stat-tile-icon-box cyan">🎯</div>
+                      <span id="quickStatsWeeklyGoal" class="stat-tile-num">78%</span>
+                      <span class="stat-tile-label">Weekly Goal</span>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+
             </div>
 
           </div>
-
         </div>
 
-      </section>
+        <!-- ==========================================================================
+             VIEW 2: FULL ROUTINE MANAGER VIEW (#routineView)
+             ========================================================================== -->
+        <div id="routineView" class="main-view-panel">
+          <div class="bento-card" style="margin-bottom: 1.5rem;">
+            <div class="card-header-between" style="flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h2 style="font-size: 1.5rem; color: #FFFFFF;">Full Daily Routine Manager</h2>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">26 Scheduled Execution Blocks with XP Rewards & Live Sync</p>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="btn-primary" onclick="window.app.openTaskModal()">＋ Add Custom Task</button>
+                <button class="btn-ghost" onclick="window.app.openPdfModal()">📄 PDF Importer</button>
+                <button class="btn-ghost" onclick="window.print()">🖨️ Print</button>
+              </div>
+            </div>
 
-      <!-- SUB-PANEL 4: 4-PART DAILY ENGLISH FORMULA -->
-      <section id="panelFormula" class="english-hub-panel">
-        <div class="formula-hub-header">
-          <h3 class="panel-section-title">The 4-Part Daily English Formula</h3>
-          <p class="panel-section-sub">The proven language acceleration cycle extracted directly from page 2 of your 30-Day Upgrade protocol.</p>
-        </div>
-
-        <div class="formula-cards-grid">
-          <div class="formula-hero-card">
-            <div class="formula-icon-wrap">🎧</div>
-            <div class="formula-step-tag">PART 01</div>
-            <h4>Listening (10–20 Min)</h4>
-            <p>Listen to an English tech podcast, documentary, or interview daily. First pass with English subtitles, second pass without subtitles to train pure acoustic comprehension.</p>
-            <span class="formula-highlight-rule">Recommended: Lex Fridman, Huberman Lab, or Andrej Karpathy.</span>
+            <div style="display: flex; gap: 1rem; margin-top: 1.25rem; flex-wrap: wrap;">
+              <input type="text" id="taskSearchInput" class="search-command-bar" style="max-width: 380px;" placeholder="Search tasks, goals, or time slots...">
+              <div style="display: flex; gap: 0.5rem;" class="filter-tabs-group">
+                <button class="filter-tab category-chip active" data-filter="all">All Tasks</button>
+                <button class="filter-tab category-chip" data-filter="active">Pending</button>
+                <button class="filter-tab category-chip" data-filter="completed">Completed</button>
+              </div>
+            </div>
           </div>
 
-          <div class="formula-hero-card">
-            <div class="formula-icon-wrap">🗣️</div>
-            <div class="formula-step-tag">PART 02</div>
-            <h4>Shadowing Technique</h4>
-            <p>Listen to native audio, wait 1 second, and repeat the sentence immediately aloud. Do not merely copy words—replicate pitch, pauses, cadence, and emotional emphasis.</p>
-            <span class="formula-highlight-rule">Builds natural oral muscle memory without conscious translation.</span>
-          </div>
-
-          <div class="formula-hero-card">
-            <div class="formula-icon-wrap">📖</div>
-            <div class="formula-step-tag">PART 03</div>
-            <h4>Read Aloud (1–2 Pages)</h4>
-            <p>Read technical articles or mindset essays aloud daily. Progression: 1st read slow for articulation → 2nd read normal speed → 3rd read expressive with vocal command.</p>
-            <span class="formula-highlight-rule">Use the Reading Practice Room above to practice with WPM timer!</span>
-          </div>
-
-          <div class="formula-hero-card">
-            <div class="formula-icon-wrap">🧠</div>
-            <div class="formula-step-tag">PART 04</div>
-            <h4>Thinking in English</h4>
-            <p>Eliminate native-language translation lag. When walking, making coffee, or debugging code, mentally narrate your actions in simple English sentences.</p>
-            <span class="formula-highlight-rule">Shifts your default neural monologue into English fluency.</span>
-          </div>
-        </div>
-      <!-- SUB-PANEL 5: BOOK WISDOM & DAILY MINDSET QUOTES -->
-      <section id="panelWisdom" class="english-hub-panel">
-        <div class="hub-panel-intro-row">
-          <div>
-            <h3 class="panel-section-title">Masterpiece Book Wisdom & Famous Lines</h3>
-            <p class="panel-section-sub">Famous quotes, chapters, and core life lessons from Can't Hurt Me, Rich Dad Poor Dad, Atomic Habits, and more. Read aloud, copy, and internalize for your daily growth.</p>
-          </div>
-
-          <div class="wisdom-filter-pills-row">
-            <button class="wisdom-book-filter active" data-book="all">🌐 All Books</button>
-            <button class="wisdom-book-filter" data-book="Can't Hurt Me">Can't Hurt Me</button>
-            <button class="wisdom-book-filter" data-book="Rich Dad Poor Dad">Rich Dad Poor Dad</button>
-            <button class="wisdom-book-filter" data-book="Atomic Habits">Atomic Habits</button>
-            <button class="wisdom-book-filter" data-book="Man's Search for Meaning">Man's Search for Meaning</button>
-            <button class="wisdom-book-filter" data-book="Deep Work">Deep Work</button>
-            <button class="wisdom-book-filter" data-book="The Psychology of Money">Psychology of Money</button>
+          <!-- Master Task List Container Rendered by app.js -->
+          <div id="taskListContainer" class="timeline-vertical-stream" style="padding-left: 0;">
+            <!-- Rendered by app.js renderTaskList() -->
           </div>
         </div>
 
-        <!-- Book Wisdom Grid Rendered by english-lab.js -->
-        <div id="wisdomQuotesGrid" class="wisdom-quotes-grid"></div>
-      </section>
+        <!-- ==========================================================================
+             VIEW 3: ENGLISH MASTERY HUB (#englishView)
+             ========================================================================== -->
+        <div id="englishView" class="main-view-panel">
+          <section class="english-studio-hero">
+            <div class="studio-hero-content">
+              <div>
+                <span class="studio-super-tag">🗣️ 30-DAY VOCAL ENGINE & FLUENCY PROTOCOL</span>
+                <h2 class="studio-title">English Fluency & Practice Studio</h2>
+                <p class="studio-quote">“Rule #3: Mistakes are allowed — silence is not. Learn → Build → Explain.”</p>
+              </div>
+
+              <div class="studio-stats-track">
+                <div class="studio-stat-box">
+                  <span class="stat-num" id="engStatWordsRead">1,300+</span>
+                  <span class="stat-lbl">Words in Library</span>
+                </div>
+                <div class="studio-stat-box">
+                  <span class="stat-num" id="engStatSentences">0</span>
+                  <span class="stat-lbl">Sentences Written</span>
+                </div>
+                <div class="studio-stat-box">
+                  <span class="stat-num" id="engStatRecordings">0</span>
+                  <span class="stat-lbl">Speeches Recorded</span>
+                </div>
+                <div class="studio-stat-box highlight">
+                  <span class="stat-num">💎 +25-50</span>
+                  <span class="stat-lbl">XP Per Activity</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Studio Sub-Navigation Tabs -->
+            <div class="english-hub-tabs-track" role="tablist">
+              <button class="english-hub-tab active" data-target="panelReading">📚 Reading Practice Room</button>
+              <button class="english-hub-tab" data-target="panelVocab">💎 Vocabulary Vault</button>
+              <button class="english-hub-tab" data-target="panelVoice">🎙️ Speech Recording Lab</button>
+              <button class="english-hub-tab" data-target="panelWisdom">🌟 Book Wisdom Quotes</button>
+              <button class="english-hub-tab" data-target="panelFormula">🎯 4-Part Daily English Formula</button>
+            </div>
+          </section>
+
+          <!-- SUB-PANEL 1: READING PRACTICE ROOM -->
+          <section id="panelReading" class="english-hub-panel active">
+            <div class="bento-card" style="margin-bottom: 1rem;">
+              <h3 style="color:#FFF;">Curated Reading Library & Masterpiece Book Stories</h3>
+              <p style="color:var(--text-muted); font-size: 0.85rem;">Select any passage below. Read aloud, shadow along, and test your reading speed in WPM!</p>
+            </div>
+            <div id="readingPassagesContainer" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+          </section>
+
+          <!-- SUB-PANEL 2: VOCABULARY VAULT -->
+          <section id="panelVocab" class="english-hub-panel">
+            <div class="bento-card" style="margin-bottom: 1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 style="color:#FFF;">High-Impact Vocabulary Vault</h3>
+                <p style="color:var(--text-muted); font-size: 0.85rem;">Every word includes pronunciation, meaning, and 3 contextual practice sentences.</p>
+              </div>
+              <button class="btn-primary" onclick="window.app.openCustomVocabModal()">＋ Add Custom Word</button>
+            </div>
+            <div id="vocabVaultContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;"></div>
+          </section>
+
+          <!-- SUB-PANEL 3: DAILY SPEECH VOICE RECORDER -->
+          <section id="panelVoice" class="english-hub-panel">
+            <div class="voice-studio-layout">
+              <div class="voice-prompt-card">
+                <span class="live-status-pill" style="margin-bottom: 0.8rem;">● DAILY 2–5 MINUTE SPEECH DRILL</span>
+                <h3 style="color: #FFFFFF; font-size: 1.15rem; margin-bottom: 0.5rem;">Today's Speaking Topic:</h3>
+                <div style="background: var(--bg-input); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin: 0.8rem 0;">
+                  <p id="speakingTopicText" style="color: #FFFFFF; font-size: 0.95rem; line-height: 1.5;">
+                    Explain how a binary search algorithm works in simple English, as if explaining to a non-technical friend.
+                  </p>
+                </div>
+                <button id="rollTopicBtn" class="btn-ghost" style="margin-top: 0.5rem;">🎲 Roll New Speaking Topic</button>
+              </div>
+
+              <div class="voice-recorder-cockpit">
+                <div class="voice-recorder-orb-card">
+                  <div class="record-visualizer-orb">🎙️</div>
+                  <div class="record-timer-digits" id="voiceRecordTimer">00:00</div>
+                  <p style="color: var(--text-muted); font-size: 0.78rem; margin-top: 0.35rem;">Target: 2 to 5 minutes continuous speech</p>
+                  <div class="record-btns-row">
+                    <button id="startRecordVoiceBtn" class="btn-record-action start">🔴 Start Recording</button>
+                    <button id="stopRecordVoiceBtn" class="btn-record-action stop">⏹ Stop & Save (+50 XP)</button>
+                  </div>
+                  <div id="voicePlaybackContainer" style="margin-top: 1rem; width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SUB-PANEL 4: BOOK WISDOM -->
+          <section id="panelWisdom" class="english-hub-panel">
+            <div id="wisdomQuotesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;"></div>
+          </section>
+
+          <!-- SUB-PANEL 5: 4-PART FORMULA -->
+          <section id="panelFormula" class="english-hub-panel">
+            <div class="bento-card">
+              <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">The 4-Part Daily English Formula</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Listening (10-20m) → Shadowing Technique → Read Aloud (1-2 Pages) → Thinking in English.</p>
+            </div>
+          </section>
+        </div>
+
+        <!-- ==========================================================================
+             VIEW 4: STUDENT BIO-WELLNESS SENTINEL (#wellnessView)
+             ========================================================================== -->
+        <div id="wellnessView" class="main-view-panel">
+          <div class="wellness-full-dashboard">
+            <div class="bento-card">
+              <span class="studio-super-tag">🌿 STUDENT ERGONOMICS & BIO-WELLNESS</span>
+              <h2 style="font-size: 1.5rem; color: #FFFFFF;">Bio-Wellness Sentinel Dashboard</h2>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">20-20-20 Eye Strain Engine, Hydration Station, and Ergonomic Posture Sentry.</p>
+            </div>
+
+            <div class="wellness-bento-layout">
+              <!-- 20-20-20 Eye Strain Cockpit -->
+              <div class="wellness-feature-card">
+                <div class="card-header-between">
+                  <div>
+                    <h3 style="color: #FFFFFF;">👁️ 20-20-20 Eye Rest Engine</h3>
+                    <p style="color: var(--text-muted); font-size: 0.78rem;">Look 20 feet away for 20 seconds every 20 minutes.</p>
+                  </div>
+                  <button class="btn-primary" onclick="window.wellnessSentinel.triggerEyeBreak()">Rest Eyes Now</button>
+                </div>
+                <div style="background: var(--bg-input); padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Next Eye Break In:</span>
+                  <div id="eyeScreenTimerDisplay" style="font-size: 2.5rem; font-family: var(--font-mono); font-weight: 800; color: var(--accent-cyan);">20:00</div>
+                  <span style="font-size: 0.75rem; color: var(--text-secondary);">Breaks taken today: <strong id="eyeBreaksDisplay" style="color: #FFFFFF;">0</strong></span>
+                </div>
+              </div>
+
+              <!-- Hydration Water Station -->
+              <div class="wellness-feature-card">
+                <div class="card-header-between">
+                  <div>
+                    <h3 style="color: #FFFFFF;">💧 Hydration Station</h3>
+                    <span id="waterTargetDisplay" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">0.0L / 2.0L</span>
+                  </div>
+                  <span id="waterCountDisplay" style="color: var(--text-secondary); font-size: 0.8rem;">0 / 8 Glasses</span>
+                </div>
+
+                <div class="cat-bar-track" style="height: 10px;">
+                  <div id="waterProgressBar" class="cat-bar-fill cyan" style="width: 0%;"></div>
+                </div>
+
+                <p style="font-size: 0.75rem; color: var(--text-muted);">Click any glass below to log water intake:</p>
+                <div id="waterCupsGrid" class="water-cups-interactive-grid"></div>
+
+                <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+                  <button class="btn-ghost" style="flex: 1;" onclick="window.wellnessSentinel.removeWaterGlass()">- Remove Glass</button>
+                  <button class="btn-primary" style="flex: 1;" onclick="window.wellnessSentinel.addWaterGlass()">+ Drink 1 Glass (+15 XP)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             VIEW 5: 7 GOLDEN RULES & MILESTONES (#rulesView)
+             ========================================================================== -->
+        <div id="rulesView" class="main-view-panel">
+          <div class="bento-card" style="margin-bottom: 1.5rem;">
+            <span class="studio-super-tag">⚖️ 30-DAY DISCIPLINE PROTOCOL</span>
+            <h2 style="font-size: 1.5rem; color: #FFFFFF;">The 7 Golden Rules & Milestone Vault</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">“Never miss two days in a row. English mistakes are allowed — silence is not.”</p>
+          </div>
+
+          <div id="fullRulesCardsGrid" class="full-rules-grid">
+            <!-- Dynamically populated by app.js renderRulesView() -->
+          </div>
+        </div>
+
+      </main>
+
+      <!-- APP FOOTER STATUS BAR -->
+      <footer class="app-footer-bar">
+        <div class="footer-brand-side">
+          <span style="color: var(--accent-primary); font-size: 1.1rem;">💎</span>
+          <span>Better Learning • Brighter Future</span>
+        </div>
+
+        <div class="footer-quote-center">
+          ⭐ Progress isn't made in a day, but in consistent effort.
+        </div>
+
+        <div class="footer-version-side">
+          StudyVault v2.0
+        </div>
+      </footer>
 
     </div>
 
-    <!-- TAB 3: BIO-WELLNESS SENTINEL FULL DASHBOARD -->
-    <div id="wellnessView" class="main-view-panel">
-      <section class="wellness-full-dashboard">
-        
-        <div class="wellness-page-header">
-          <span class="studio-super-tag">🌿 STUDENT ERGONOMICS & BIO-WELLNESS</span>
-          <h2 class="studio-title">Bio-Wellness Sentinel Dashboard</h2>
-          <p class="studio-quote">"Don't sacrifice your eyes, hydration, or sleep in pursuit of short-term code. Longevity is your greatest competitive advantage."</p>
-        </div>
+  </div> <!-- Close app-shell -->
 
-        <div class="wellness-bento-layout">
-          
-          <!-- 20-20-20 Eye Strain Cockpit -->
-          <div class="wellness-feature-card eye-feature">
-            <div class="feature-card-top">
-              <div class="feature-title-wrap">
-                <span class="feature-icon">👁️</span>
-                <div>
-                  <h3>20-20-20 Screen Rest Engine</h3>
-                  <p class="feature-sub">Every 20 minutes of screen work, look at an object 20 feet away for 20 seconds.</p>
-                </div>
-              </div>
-              <button class="btn-quick-rest" onclick="window.wellnessSentinel.triggerEyeBreak()">
-                Rest Eyes Now
-              </button>
-            </div>
-
-            <div class="eye-countdown-banner">
-              <div class="countdown-stat">
-                <span class="countdown-label">Next Eye Rest In:</span>
-                <span id="eyeScreenTimerDisplayFull" class="countdown-digits highlight-mono">20:00</span>
-              </div>
-              <div class="countdown-stat">
-                <span class="countdown-label">Breaks Taken Today:</span>
-                <span id="eyeBreaksDisplayFull" class="countdown-digits">0</span>
-              </div>
-            </div>
-
-            <div class="eye-ergonomics-tips">
-              <h4>3 Quick Eye Exercises for Screen Relief:</h4>
-              <div class="tips-grid">
-                <div class="tip-card">
-                  <strong>1. 20-Foot Gaze</strong>
-                  <p>Look out a window or at the furthest wall in the room to relax ciliary eye muscles.</p>
-                </div>
-                <div class="tip-card">
-                  <strong>2. Slow Blinks</strong>
-                  <p>Blink fully 10 times slowly. Screen users blink 66% less often, causing dry eyes.</p>
-                </div>
-                <div class="tip-card">
-                  <strong>3. Palming</strong>
-                  <p>Rub hands together until warm and gently cup over closed eyes for 15 seconds.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hydration Station Full Cockpit -->
-          <div class="wellness-feature-card water-feature">
-            <div class="feature-card-top">
-              <div class="feature-title-wrap">
-                <span class="feature-icon">💧</span>
-                <div>
-                  <h3>Daily Hydration Station</h3>
-                  <p class="feature-sub">Target: 2.0 Liters (8 Glasses) across your 26 routine blocks.</p>
-                </div>
-              </div>
-
-              <div class="water-intake-counter">
-                <span id="waterTargetDisplayFull" class="target-val">0.0L / 2.0L</span>
-                <span id="waterCountDisplayFull" class="glasses-val">0 / 8 Glasses</span>
-              </div>
-            </div>
-
-            <div class="water-progress-track-luxe">
-              <div id="waterProgressBarFull" class="water-progress-fill-luxe" style="width: 0%"></div>
-            </div>
-
-            <div class="water-cups-full-stage">
-              <p class="cups-instruction">Click any glass to fill or empty:</p>
-              <div id="waterCupsGridFull" class="water-cups-interactive-grid full">
-                <!-- Rendered by wellness.js -->
-              </div>
-            </div>
-
-            <div class="water-actions-bar">
-              <button class="btn-water-action sub" onclick="window.wellnessSentinel.removeWaterGlass()">- Remove 1 Glass</button>
-              <button class="btn-water-action add" onclick="window.wellnessSentinel.addWaterGlass()">+ Drink 1 Glass (+15 XP)</button>
-            </div>
-          </div>
-
-        </div>
-
-      </section>
-    </div>
-
-    <!-- TAB 4: 7 GOLDEN RULES & MILESTONES DASHBOARD -->
-    <div id="rulesView" class="main-view-panel">
-      <section class="rules-milestones-dashboard">
-        
-        <div class="rules-page-header">
-          <span class="studio-super-tag">⚖️ 30-DAY DISCIPLINE PROTOCOL</span>
-          <h2 class="studio-title">The 7 Golden Rules & Milestone Vault</h2>
-          <p class="studio-quote">"Consistency over intensity. Small daily compounding leads to unstoppable momentum."</p>
-        </div>
-
-        <!-- 7 Rules Full Grid -->
-        <div id="fullRulesCardsGrid" class="full-rules-grid">
-          <!-- Rendered dynamically by app.js renderRulesView() -->
-        </div>
-
-      </section>
-    </div>
-
-  </div> <!-- Close app-container -->
+  <!-- MOBILE BOTTOM NAVIGATION (Small screens) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <button class="mobile-nav-tab active" onclick="window.app.switchView('homeView')">
+      <span>🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="mobile-nav-tab" onclick="window.app.switchView('routineView')">
+      <span>📋</span>
+      <span>Plan</span>
+    </button>
+    <button class="mobile-nav-tab" onclick="window.app.openTaskModal()">
+      <span>＋</span>
+      <span>Add</span>
+    </button>
+    <button class="mobile-nav-tab" onclick="window.app.openFocusMode()">
+      <span>🎯</span>
+      <span>Focus</span>
+    </button>
+    <button class="mobile-nav-tab" onclick="window.app.switchView('englishView')">
+      <span>📝</span>
+      <span>Notes</span>
+    </button>
+  </nav>
 
   <!-- ==================== MODALS & DRAWERS ==================== -->
 
@@ -776,42 +866,33 @@
   <div id="pdfImportModal" class="modal-backdrop" role="dialog" aria-modal="true">
     <div class="modal-card modal-lg">
       <div class="modal-header">
-        <div class="modal-title-wrap">
-          <span class="modal-icon">📄</span>
-          <div>
-            <h3>Schedule PDF Routine Importer</h3>
-            <p>Upload any schedule or timetable PDF to extract routine blocks automatically.</p>
-          </div>
+        <div>
+          <h3>Schedule PDF Routine Importer</h3>
+          <p style="color: var(--text-muted); font-size: 0.78rem;">Upload any timetable or schedule PDF to extract routine blocks automatically.</p>
         </div>
         <button id="closePdfModalBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
       </div>
 
       <div class="modal-body">
-        
-        <!-- Preset Fast Track Option -->
         <div class="preset-cta-card">
           <div class="preset-info">
             <span class="preset-tag">ATTACHED DOCUMENT PRESET</span>
             <h4>30-Day Personal Upgrade Routine</h4>
-            <p>Load the exact 26 schedule blocks, English formula, daily habits & rules from your timetable document.</p>
+            <p>Load the 26 schedule blocks, English formula, and daily habits from your original document.</p>
           </div>
-          <button id="loadAttachedRoutineBtn" class="btn-primary glow-emerald">
+          <button id="loadAttachedRoutineBtn" class="btn-primary">
             ⚡ 1-Click Load 30-Day Upgrade
           </button>
         </div>
 
-        <div class="or-divider"><span>OR UPLOAD CUSTOM PDF</span></div>
-
-        <!-- Drag & Drop Zone -->
         <div id="pdfDropzone" class="pdf-drop-zone">
           <div class="drop-icon">📤</div>
-          <p class="drop-main-text">Drag & drop your routine PDF here, or <strong>Browse files</strong></p>
-          <p class="drop-sub-text">Supported: .pdf schedules, timetables, syllabus planners</p>
+          <p style="color: #FFFFFF; font-weight: 600;">Drag & drop your routine PDF here, or <strong>Browse files</strong></p>
+          <p style="color: var(--text-muted); font-size: 0.74rem;">Supported: .pdf schedules, timetables, syllabus planners</p>
           <input type="file" id="pdfFileInput" accept=".pdf" style="display:none">
         </div>
 
-        <!-- Parsed Results Preview -->
-        <div id="pdfParsedPreview" class="pdf-parsed-preview-box"></div>
+        <div id="pdfParsedPreview" style="margin-top: 1rem;"></div>
       </div>
 
       <div class="modal-footer">
@@ -826,21 +907,18 @@
   <div id="customVocabModal" class="modal-backdrop" role="dialog" aria-modal="true">
     <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title-wrap">
-          <span class="modal-icon">💎</span>
-          <div>
-            <h3>Add Custom Vocabulary Word</h3>
-            <p>Add new high-impact vocabulary with 3 contextual practice sentences.</p>
-          </div>
+        <div>
+          <h3>Add Custom Vocabulary Word</h3>
+          <p style="color: var(--text-muted); font-size: 0.78rem;">Add new high-impact vocabulary with 3 contextual practice sentences.</p>
         </div>
         <button id="closeCustomVocabBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
       </div>
 
-      <form id="customVocabForm" class="modal-form">
+      <form id="customVocabForm" class="modal-form" style="padding: 1.5rem;">
         <div class="form-row">
           <div class="form-group">
             <label for="customWordInput">Word / Expression *</label>
-            <input type="text" id="customWordInput" required placeholder="e.g. Heuristic, Ubiquitous, Fortitude">
+            <input type="text" id="customWordInput" required placeholder="e.g. Heuristic, Ubiquitous">
           </div>
           <div class="form-group">
             <label for="customTypeInput">Part of Speech</label>
@@ -849,33 +927,32 @@
               <option value="verb">Verb</option>
               <option value="adj">Adjective</option>
               <option value="adverb">Adverb</option>
-              <option value="phrase">Phrase / Idiom</option>
             </select>
           </div>
         </div>
 
         <div class="form-group">
           <label for="customMeaningInput">Clear Definition / Meaning *</label>
-          <input type="text" id="customMeaningInput" required placeholder="Explain clearly in simple English">
+          <input type="text" id="customMeaningInput" required placeholder="Explain in simple English">
         </div>
 
         <div class="form-group">
           <label for="customS1Input">1. Tech / Work Context Sentence *</label>
-          <input type="text" id="customS1Input" placeholder="e.g. In software engineering, this concept is used to...">
+          <input type="text" id="customS1Input" placeholder="In software engineering...">
         </div>
 
         <div class="form-group">
           <label for="customS2Input">2. Daily Conversation Sentence</label>
-          <input type="text" id="customS2Input" placeholder="e.g. In everyday conversations, we often notice...">
+          <input type="text" id="customS2Input" placeholder="In daily conversation...">
         </div>
 
         <div class="form-group">
           <label for="customS3Input">3. Growth Mindset Sentence</label>
-          <input type="text" id="customS3Input" placeholder="e.g. Developing this discipline enables you to...">
+          <input type="text" id="customS3Input" placeholder="Developing this discipline...">
         </div>
 
-        <div class="modal-footer">
-          <button type="submit" class="btn-primary glow-cyan">Save Word (+40 XP)</button>
+        <div class="modal-footer" style="padding: 1rem 0 0 0; margin-top: 0.5rem;">
+          <button type="submit" class="btn-primary">Save Word (+40 XP)</button>
         </div>
       </form>
     </div>
@@ -883,29 +960,29 @@
 
   <!-- 3. STUDENT BIO-WELLNESS: 20-20-20 EYE REST MODAL -->
   <div id="eyeRestModal" class="modal-backdrop" role="dialog" aria-modal="true">
-    <div class="modal-card modal-center eye-rest-modal-card">
-      <div class="eye-modal-header">
-        <span class="eye-glow-icon">👁️</span>
-        <h3>20-20-20 Eye Strain Break</h3>
-        <p>You have been working on screens for 20 minutes. Shift your gaze to an object <strong>20 feet away</strong> to relieve eye fatigue!</p>
-      </div>
+    <div class="modal-card eye-rest-modal-card">
+      <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">👁️</div>
+      <h3 style="color: #FFFFFF; font-size: 1.25rem;">20-20-20 Eye Strain Break</h3>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.35rem;">
+        Look at an object <strong>20 feet away</strong> to relax ciliary eye muscles!
+      </p>
 
-      <!-- Calming Breathing Pulse Animation Circle -->
       <div class="eye-countdown-circle-wrap">
         <div class="breathing-glow-halo"></div>
-        <svg class="progress-ring-svg" width="160" height="160">
-          <circle class="ring-bg" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="transparent" r="45" cx="80" cy="80" />
-          <circle id="eyeProgressRing" class="ring-progress" stroke="#38bdf8" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="0" stroke-linecap="round" fill="transparent" r="45" cx="80" cy="80" />
+        <svg style="transform: rotate(-90deg); width: 160px; height: 160px;">
+          <circle stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="transparent" r="50" cx="80" cy="80" />
+          <circle id="eyeProgressRing" stroke="#22D3EE" stroke-width="8" stroke-dasharray="314" stroke-dashoffset="0" stroke-linecap="round" fill="transparent" r="50" cx="80" cy="80" />
         </svg>
         <div class="eye-countdown-inner">
           <span id="eyeCountdownValue" class="eye-countdown-num">20</span>
-          <span class="eye-countdown-label">seconds</span>
+          <span style="font-size: 0.72rem; color: var(--text-muted);">seconds</span>
         </div>
       </div>
-      <p class="breathing-cue-text">Breathe deeply... Focus on the far distance</p>
 
-      <div class="eye-modal-actions">
-        <button id="eyeRestDoneBtn" class="btn-primary glow-cyan">✓ Completed Break (+15 XP)</button>
+      <p style="color: var(--accent-cyan); font-size: 0.82rem; margin-bottom: 1.25rem;">Breathe deeply... Focus on the far distance</p>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button id="eyeRestDoneBtn" class="btn-primary">✓ Completed (+15 XP)</button>
         <button id="eyeRestSkipBtn" class="btn-ghost">Snooze / Skip</button>
       </div>
     </div>
@@ -918,7 +995,7 @@
         <h3 id="taskModalTitle">Add Routine Task</h3>
         <button id="closeTaskModalBtn" class="modal-close-btn">✕</button>
       </div>
-      <form id="taskModalForm" class="modal-form">
+      <form id="taskModalForm" class="modal-form" style="padding: 1.5rem;">
         <input type="hidden" id="taskIdInput">
 
         <div class="form-group">
@@ -953,19 +1030,19 @@
           <div class="form-group">
             <label for="taskPriorityInput">Priority</label>
             <select id="taskPriorityInput">
-              <option value="high">🔴 High Priority (+45 XP)</option>
-              <option value="medium">🟡 Medium Priority (+30 XP)</option>
-              <option value="low">🟢 Low Priority (+20 XP)</option>
+              <option value="high">🔴 High (+45 XP)</option>
+              <option value="medium">🟡 Medium (+30 XP)</option>
+              <option value="low">🟢 Low (+20 XP)</option>
             </select>
           </div>
         </div>
 
         <div class="form-group">
           <label for="taskGoalInput">Main Goal / Target</label>
-          <input type="text" id="taskGoalInput" placeholder="e.g. Python / ML concepts, No scrolling, Recovery">
+          <input type="text" id="taskGoalInput" placeholder="e.g. Python concepts, No scrolling, Recovery">
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer" style="padding: 1rem 0 0 0; margin-top: 0.5rem;">
           <button type="button" id="cancelTaskModalBtn" class="btn-ghost">Cancel</button>
           <button type="submit" class="btn-primary">Save Routine Task</button>
         </div>
@@ -973,24 +1050,7 @@
     </div>
   </div>
 
-  <!-- 5. 30-DAY RULES SIDE DRAWER -->
-  <aside id="rulesDrawer" class="side-drawer" role="complementary">
-    <div class="drawer-header">
-      <div class="drawer-title-wrap">
-        <span>📜</span>
-        <h3>30-Day Rules of Discipline</h3>
-      </div>
-      <button id="closeRulesDrawerBtn" class="drawer-close-btn">✕</button>
-    </div>
-    <div class="drawer-body">
-      <p class="drawer-intro">The non-negotiable mental rules from page 2 of your upgrade protocol.</p>
-      <div id="rulesListContainer" class="rules-list-stack">
-        <!-- Injected by app.js -->
-      </div>
-    </div>
-  </aside>
-
-  <!-- 6. HIGH-TECH FOCUS MODE OVERLAY -->
+  <!-- 5. HIGH-TECH FOCUS MODE OVERLAY -->
   <div id="focusModeOverlay" class="focus-mode-overlay" role="dialog" aria-modal="true">
     <div class="focus-top-bar">
       <span class="focus-brand-pill">⚡ AURA DEEP FOCUS STUDIO</span>
@@ -998,38 +1058,36 @@
     </div>
 
     <div class="focus-center-stage">
-      <div class="focus-task-indicator">
-        <span class="focus-sub-label">CURRENT OBJECTIVE</span>
-        <h2 id="focusActiveTaskName" class="focus-task-name">AI/ML Deep Study</h2>
+      <div style="margin-bottom: 0.5rem;">
+        <span style="color: var(--accent-cyan); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">CURRENT OBJECTIVE</span>
+        <h2 id="focusActiveTaskName" style="color: #FFFFFF; font-size: 2rem; font-weight: 800;">AI/ML Deep Study</h2>
       </div>
 
-      <div class="focus-timer-hud">
-        <div id="focusTimerDisplay" class="focus-countdown-large">25:00</div>
+      <div class="focus-countdown-large" id="focusTimerDisplay">25:00</div>
+
+      <div style="display: flex; gap: 1rem;">
+        <button id="focusPlayPauseBtn" class="btn-primary" style="padding: 0.85rem 2rem; font-size: 1rem;">▶ Start Focus</button>
       </div>
 
-      <div class="focus-controls-row">
-        <button id="focusPlayPauseBtn" class="btn-focus-action">▶ Start Focus</button>
-      </div>
-
-      <div class="focus-ambient-sound-bar">
-        <span class="sound-bar-label">Synthesized Ambient Audio:</span>
-        <button id="binauralAudioBtn" class="sound-synth-chip">🎧 40Hz Alpha Waves</button>
-        <button id="rainAudioBtn" class="sound-synth-chip">🌧️ Soft Pink Rain</button>
+      <div style="display: flex; gap: 0.85rem; margin-top: 2rem;">
+        <button id="binauralAudioBtn" class="btn-ghost">🎧 40Hz Alpha Waves</button>
+        <button id="rainAudioBtn" class="btn-ghost">🌧️ Soft Pink Rain</button>
       </div>
     </div>
+    <div></div>
   </div>
 
-  <!-- 7. ACHIEVEMENT / LEVEL UP FANFARE MODAL -->
+  <!-- 6. ACHIEVEMENT / LEVEL UP FANFARE MODAL -->
   <div id="achievementModal" class="modal-backdrop" role="dialog" aria-modal="true">
-    <div class="modal-card modal-center fanfare-card">
-      <div id="achievementModalIcon" class="fanfare-icon">🏆</div>
-      <h3 id="achievementModalTitle" class="fanfare-title">ACHIEVEMENT UNLOCKED!</h3>
-      <p id="achievementModalDesc" class="fanfare-desc">You conquered an essential discipline milestone.</p>
-      <button id="closeAchievementModal" class="btn-primary glow-amber">Claim Glory & Continue</button>
+    <div class="modal-card eye-rest-modal-card">
+      <div id="achievementModalIcon" style="font-size: 3rem;">🏆</div>
+      <h3 id="achievementModalTitle" style="color: #FFFFFF; font-size: 1.35rem; margin: 0.5rem 0;">ACHIEVEMENT UNLOCKED!</h3>
+      <p id="achievementModalDesc" style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem;">You conquered an essential discipline milestone.</p>
+      <button id="closeAchievementModal" class="btn-primary">Claim Glory & Continue</button>
     </div>
   </div>
 
-  <!-- Core Scripts -->
+  <!-- Core Application Scripts -->
   <script src="js/routine-data.js"></script>
   <script src="js/audio-notify.js"></script>
   <script src="js/gamification.js"></script>

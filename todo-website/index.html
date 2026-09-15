@@ -156,14 +156,53 @@
             🔊
           </button>
 
-          <!-- User Profile Dropdown Badge -->
-          <div class="topbar-user-badge" id="userProfileBadge" title="User Profile: Aniket Singh">
-            <img src="assets/avatar_aniket.jpg" alt="Aniket Singh" class="user-avatar-img">
-            <div class="user-meta-col">
-              <span class="user-name-text">Aniket Singh</span>
-              <span class="user-role-label">Student</span>
+          <!-- User Profile Dropdown Badge & Menu -->
+          <div style="position: relative;">
+            <div class="topbar-user-badge" id="userProfileBadge" title="User Profile: Aniket Singh" role="button" tabindex="0">
+              <img src="assets/avatar_aniket.jpg" alt="Aniket Singh" class="user-avatar-img">
+              <div class="user-meta-col">
+                <span class="user-name-text">Aniket Singh</span>
+                <span class="user-role-label">Student</span>
+              </div>
+              <span class="user-dropdown-arrow">▾</span>
             </div>
-            <span class="user-dropdown-arrow">▾</span>
+
+            <div class="user-profile-dropdown" id="userProfileDropdown">
+              <div class="dropdown-user-header">
+                <img src="assets/avatar_aniket.jpg" alt="Aniket Singh" class="dropdown-avatar-img">
+                <div class="dropdown-user-meta">
+                  <span class="dropdown-user-name">Aniket Singh</span>
+                  <span class="dropdown-user-level">Level 3 • Scholar</span>
+                </div>
+              </div>
+
+              <div class="dropdown-xp-bar-box">
+                <div class="dropdown-xp-row">
+                  <span>Level Progress</span>
+                  <span id="dropdownXpVal">480 / 600 XP</span>
+                </div>
+                <div class="dropdown-xp-track">
+                  <div class="dropdown-xp-fill" id="dropdownXpFill" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="dropdown-streak-badge">
+                <span>🔥</span>
+                <span>14-Day Study Streak Active</span>
+              </div>
+
+              <div class="dropdown-menu-list">
+                <button class="dropdown-menu-item" onclick="window.app.switchView('wellnessView')">
+                  <span>📊</span> Focus & Bio Analytics
+                </button>
+                <button class="dropdown-menu-item" onclick="window.app.switchView('rulesView')">
+                  <span>📜</span> 7 Golden Execution Rules
+                </button>
+                <button class="dropdown-menu-item" onclick="window.app.restoreDefaultRoutine()">
+                  <span>🔄</span> Reset to Flagship 30-Day Routine
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -514,6 +553,43 @@
                   </div>
                 </section>
 
+                <!-- QUICK HABITS TODAY PANEL (Balanced Layout Widget) -->
+                <section class="quick-habits-panel">
+                  <div class="card-header-between">
+                    <div class="card-title-group">
+                      <span class="card-title-icon" style="color: var(--accent-emerald);">⚡</span>
+                      <div>
+                        <h3 style="font-size: 0.95rem;">Today's Habit Streak</h3>
+                        <span class="card-header-sub">Daily non-negotiable consistency</span>
+                      </div>
+                    </div>
+                    <span class="habit-pct-badge" id="homeHabitStreakBadge">5/5 Active</span>
+                  </div>
+
+                  <div class="quick-habits-grid">
+                    <div class="quick-habit-pill checked" id="qHabitItem-wake" onclick="window.app.toggleQuickHabit('wake')">
+                      <span class="q-habit-chk" id="qHabitChk-wake">✓</span>
+                      <span class="q-habit-name">5:00 AM Awakening & Cold Water</span>
+                    </div>
+                    <div class="quick-habit-pill checked" id="qHabitItem-workout" onclick="window.app.toggleQuickHabit('workout')">
+                      <span class="q-habit-chk" id="qHabitChk-workout">✓</span>
+                      <span class="q-habit-name">30m Workout & Movement</span>
+                    </div>
+                    <div class="quick-habit-pill" id="qHabitItem-read" onclick="window.app.toggleQuickHabit('read')">
+                      <span class="q-habit-chk" id="qHabitChk-read"></span>
+                      <span class="q-habit-name">Read 2 Pages Aloud (Shadowing)</span>
+                    </div>
+                    <div class="quick-habit-pill" id="qHabitItem-speech" onclick="window.app.toggleQuickHabit('speech')">
+                      <span class="q-habit-chk" id="qHabitChk-speech"></span>
+                      <span class="q-habit-name">Record 2m Speech Drill</span>
+                    </div>
+                    <div class="quick-habit-pill checked" id="qHabitItem-phone" onclick="window.app.toggleQuickHabit('phone')">
+                      <span class="q-habit-chk" id="qHabitChk-phone">✓</span>
+                      <span class="q-habit-name">No Phone In Deep Study Blocks</span>
+                    </div>
+                  </div>
+                </section>
+
               </div>
 
               <!-- RIGHT COLUMN: Milestone Badges & Quick Stats -->
@@ -599,6 +675,47 @@
                   </div>
                 </section>
 
+                <!-- AMBIENT SOUNDSCAPE & FOCUS AUDIO GENERATOR (Balanced Layout Widget) -->
+                <section class="ambient-soundscape-panel">
+                  <div class="card-header-between">
+                    <div class="card-title-group">
+                      <span class="card-title-icon" style="color: var(--accent-cyan);">🎧</span>
+                      <div>
+                        <h3 style="font-size: 0.95rem;">Focus Soundscape</h3>
+                        <span class="card-header-sub">Synthesized ambient noise</span>
+                      </div>
+                    </div>
+                    <button class="soundscape-play-btn" id="soundscapeTogglePlayBtn" onclick="window.app.toggleSoundscape()" title="Play / Stop Ambient Focus Audio">
+                      <span id="soundscapePlayIcon">▶</span>
+                    </button>
+                  </div>
+
+                  <!-- Sound Mode Selector Chips -->
+                  <div class="soundscape-modes-track">
+                    <button class="soundscape-chip active" data-sound="alpha" onclick="window.app.setSoundscapeMode('alpha')">🧠 Alpha 432Hz</button>
+                    <button class="soundscape-chip" data-sound="rain" onclick="window.app.setSoundscapeMode('rain')">🌧️ Rain</button>
+                    <button class="soundscape-chip" data-sound="waves" onclick="window.app.setSoundscapeMode('waves')">🌊 Waves</button>
+                    <button class="soundscape-chip" data-sound="pink" onclick="window.app.setSoundscapeMode('pink')">📻 Brown Noise</button>
+                  </div>
+
+                  <div class="soundscape-volume-bar">
+                    <span style="font-size: 0.8rem;">🔈</span>
+                    <input type="range" id="soundscapeVolumeSlider" min="0" max="1" step="0.05" value="0.5" class="sound-slider" oninput="window.app.setSoundscapeVolume(this.value)" aria-label="Audio Volume">
+                    <span style="font-size: 0.8rem;">🔊</span>
+                  </div>
+
+                  <!-- Animated Equalizer Bars when playing -->
+                  <div class="soundscape-eq-row" id="soundscapeEqBars">
+                    <div class="eq-bar eq-1"></div>
+                    <div class="eq-bar eq-2"></div>
+                    <div class="eq-bar eq-3"></div>
+                    <div class="eq-bar eq-4"></div>
+                    <div class="eq-bar eq-5"></div>
+                    <div class="eq-bar eq-6"></div>
+                    <div class="eq-bar eq-7"></div>
+                  </div>
+                </section>
+
               </div>
 
             </div>
@@ -633,9 +750,70 @@
             </div>
           </div>
 
-          <!-- Master Task List Container Rendered by app.js -->
-          <div id="taskListContainer" class="timeline-vertical-stream" style="padding-left: 0;">
-            <!-- Rendered by app.js renderTaskList() -->
+          <!-- 2-COLUMN STUDY PLAN MASTER LAYOUT -->
+          <div class="study-plan-layout-grid">
+            <!-- Left Main Column: Category Chips + Task List Stream -->
+            <div class="study-plan-main-stream">
+              <div class="routine-category-chips" id="routineCategoryChipsBar">
+                <button class="category-chip active" data-category="all" onclick="window.app.filterRoutineCategory('all')">🌐 All (26)</button>
+                <button class="category-chip" data-category="Daily" onclick="window.app.filterRoutineCategory('Daily')">☀️ Daily</button>
+                <button class="category-chip" data-category="Fitness" onclick="window.app.filterRoutineCategory('Fitness')">🏃 Fitness</button>
+                <button class="category-chip" data-category="Wellness" onclick="window.app.filterRoutineCategory('Wellness')">🌿 Wellness</button>
+                <button class="category-chip" data-category="English" onclick="window.app.filterRoutineCategory('English')">🗣️ English</button>
+                <button class="category-chip" data-category="AI/ML" onclick="window.app.filterRoutineCategory('AI/ML')">🤖 AI/ML</button>
+                <button class="category-chip" data-category="Coding" onclick="window.app.filterRoutineCategory('Coding')">💻 Coding</button>
+              </div>
+
+              <!-- Master Task List Container Rendered by app.js -->
+              <div id="taskListContainer" class="study-plan-tasks-stack">
+                <!-- Rendered by app.js renderTaskList() -->
+              </div>
+            </div>
+
+            <!-- Right Side Stream: Habits Checklist & Weekly Focus Card -->
+            <div class="study-plan-side-stream">
+              <!-- 14 Daily Habits Checklist Panel -->
+              <div class="bento-card habits-checklist-panel">
+                <div class="card-header-between">
+                  <div class="card-title-group">
+                    <span class="card-title-icon" style="color: var(--accent-emerald);">📋</span>
+                    <div>
+                      <h3 style="font-size: 1.05rem;">14 Daily Habits</h3>
+                      <span class="card-header-sub">Atomic consistency checklist</span>
+                    </div>
+                  </div>
+                  <span class="habit-pct-badge" id="studyPlanHabitsPct">0/14 (0%)</span>
+                </div>
+
+                <div class="habits-checklist-list" id="studyPlanHabitsList">
+                  <!-- Populated dynamically with interactive checkmarks -->
+                </div>
+              </div>
+
+              <!-- Weekly Focus Theme Roadmap Card -->
+              <div class="bento-card weekly-focus-card">
+                <span class="focus-banner-tag">WEEK 3 • IMMERSION SPRINT</span>
+                <h3 class="focus-theme-title">Full-Stack AI & Vocal Fluency</h3>
+                <p class="focus-theme-desc">
+                  Focus on end-to-end execution. Complete morning code drills before 11:00 AM and record your daily English reflection without hesitation.
+                </p>
+                <span class="focus-quote-mini">“Action cures fear. Motion creates momentum.”</span>
+              </div>
+
+              <!-- Continuity Rule Card -->
+              <div class="bento-card continuity-rule-card">
+                <div class="card-title-group">
+                  <span class="card-title-icon" style="color: var(--accent-gold);">⚡</span>
+                  <div>
+                    <h4 style="color: #FFFFFF; font-size: 0.95rem;">Rule #1: The Golden Streak</h4>
+                    <span class="card-header-sub" style="color: var(--accent-gold);">Never miss two days in a row</span>
+                  </div>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.45; margin-top: 0.5rem;">
+                  Missing once is an accident. Missing twice is the beginning of a new habit. Even on low-energy days, complete at least 1 reading session and 1 focus sprint.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -673,33 +851,78 @@
 
             <!-- Studio Sub-Navigation Tabs -->
             <div class="english-hub-tabs-track" role="tablist">
-              <button class="english-hub-tab active" data-target="panelReading">📚 Reading Practice Room</button>
-              <button class="english-hub-tab" data-target="panelVocab">💎 Vocabulary Vault</button>
+              <button class="english-hub-tab active" data-target="panelVocab">💎 Notes & Vocab Vault</button>
+              <button class="english-hub-tab" data-target="panelScratchpad">✍️ Lecture Scratchpad</button>
+              <button class="english-hub-tab" data-target="panelReading">📚 Reading Room</button>
               <button class="english-hub-tab" data-target="panelVoice">🎙️ Speech Recording Lab</button>
-              <button class="english-hub-tab" data-target="panelWisdom">🌟 Book Wisdom Quotes</button>
-              <button class="english-hub-tab" data-target="panelFormula">🎯 4-Part Daily English Formula</button>
+              <button class="english-hub-tab" data-target="panelWisdom">🌟 Book Wisdom</button>
+              <button class="english-hub-tab" data-target="panelFormula">🎯 Daily Formula</button>
             </div>
           </section>
 
-          <!-- SUB-PANEL 1: READING PRACTICE ROOM -->
-          <section id="panelReading" class="english-hub-panel active">
+          <!-- SUB-PANEL 1: VOCABULARY & DESIGNER NOTES VAULT -->
+          <section id="panelVocab" class="english-hub-panel active">
+            <div class="bento-card" style="margin-bottom: 1.25rem;">
+              <div class="card-header-between" style="flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="color:#FFF; font-size: 1.25rem;">💎 Designer Vocabulary & Concept Vault</h3>
+                  <p style="color:var(--text-muted); font-size: 0.85rem;">Curated high-impact terms with audio pronunciation, precise definitions, 3 real-world sentences & interactive student sentence builder.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                  <button class="btn-primary" onclick="window.app.openCustomVocabModal()">＋ Add Custom Word</button>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; margin-top: 1.25rem; flex-wrap: wrap;">
+                <input type="text" id="vocabSearchInput" class="search-command-bar" style="max-width: 380px;" placeholder="Search words, meanings, or sample sentences...">
+              </div>
+            </div>
+            <div id="vocabVaultContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;"></div>
+          </section>
+
+          <!-- SUB-PANEL 2: DESIGNER LECTURE NOTES & SCRATCHPAD -->
+          <section id="panelScratchpad" class="english-hub-panel">
+            <div class="bento-card" style="margin-bottom: 1.25rem;">
+              <div class="card-header-between" style="flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <h3 style="color:#FFF; font-size: 1.25rem;">✍️ Designer Lecture Notes & Markdown Scratchpad</h3>
+                  <p style="color:var(--text-muted); font-size: 0.85rem;">Capture thoughts, lecture summaries, key algorithms, or study outlines. Persisted in local storage with live markdown formatting.</p>
+                </div>
+                <div style="display: flex; gap: 0.65rem;">
+                  <button class="btn-ghost" id="clearScratchpadBtn">🗑️ Clear</button>
+                  <button class="btn-primary" id="saveScratchpadBtn">💾 Save Notes</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="scratchpad-layout-grid">
+              <div class="scratchpad-editor-card">
+                <div class="card-header-between">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: var(--accent-cyan); letter-spacing: 0.05em;">MARKDOWN EDITOR</span>
+                  <span id="scratchpadCharCount" style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">0 chars</span>
+                </div>
+                <textarea id="scratchpadTextarea" class="scratchpad-textarea" placeholder="# Today's Lecture Notes&#10;&#10;## Key Concept: Attention Mechanism in Transformers&#10;- Query, Key, and Value vectors map inputs dynamically&#10;- Self-attention computes contextual relationships across tokens&#10;&#10;### Questions to Review:&#10;1. How does positional encoding preserve token sequence order?&#10;2. What is the Big-O complexity of standard multi-head attention?"></textarea>
+              </div>
+
+              <div class="scratchpad-preview-card">
+                <div class="card-header-between">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: var(--accent-emerald); letter-spacing: 0.05em;">LIVE FORMATTED PREVIEW</span>
+                  <span style="font-size: 0.72rem; color: var(--accent-emerald); background: rgba(32, 214, 160, 0.15); padding: 0.15rem 0.5rem; border-radius: var(--radius-full);">● Auto-Synced</span>
+                </div>
+                <div id="scratchpadPreviewBox" class="scratchpad-preview-box">
+                  <!-- Formatted HTML rendered live -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SUB-PANEL 3: READING PRACTICE ROOM -->
+          <section id="panelReading" class="english-hub-panel">
             <div class="bento-card" style="margin-bottom: 1rem;">
               <h3 style="color:#FFF;">Curated Reading Library & Masterpiece Book Stories</h3>
               <p style="color:var(--text-muted); font-size: 0.85rem;">Select any passage below. Read aloud, shadow along, and test your reading speed in WPM!</p>
             </div>
             <div id="readingPassagesContainer" style="display: flex; flex-direction: column; gap: 1rem;"></div>
-          </section>
-
-          <!-- SUB-PANEL 2: VOCABULARY VAULT -->
-          <section id="panelVocab" class="english-hub-panel">
-            <div class="bento-card" style="margin-bottom: 1rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-              <div>
-                <h3 style="color:#FFF;">High-Impact Vocabulary Vault</h3>
-                <p style="color:var(--text-muted); font-size: 0.85rem;">Every word includes pronunciation, meaning, and 3 contextual practice sentences.</p>
-              </div>
-              <button class="btn-primary" onclick="window.app.openCustomVocabModal()">＋ Add Custom Word</button>
-            </div>
-            <div id="vocabVaultContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;"></div>
           </section>
 
           <!-- SUB-PANEL 3: DAILY SPEECH VOICE RECORDER -->

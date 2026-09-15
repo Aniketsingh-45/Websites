@@ -38,6 +38,7 @@ class AppController {
     this.loadRoutine();
     this.setupEventListeners();
     this.setupProfileDropdown();
+    this.initUserProfile();
     this.initQuickHabits();
     this.initSoundscape();
     this.initScratchpad();
@@ -103,6 +104,8 @@ class AppController {
     } else if (viewName === 'homeView') {
       this.render();
       this.renderQuickHabits();
+    } else if (viewName === 'profileView') {
+      this.renderProfileView();
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -391,7 +394,8 @@ class AppController {
         let period = 'Evening';
         if (hours >= 5 && hours < 12) period = 'Morning';
         else if (hours >= 12 && hours < 17) period = 'Afternoon';
-        greetingElem.textContent = `Good ${period}, Aniket! 👋`;
+        const firstName = this.userProfile?.name ? this.userProfile.name.split(' ')[0] : 'Scholar';
+        greetingElem.textContent = `Good ${period}, ${firstName}! 👋`;
       }
 
       // Date Nav Display
@@ -1174,6 +1178,276 @@ class AppController {
         dropdown.classList.remove('active');
       }
     });
+  }
+
+  // ==========================================
+  // USER PROFILE CONTROLLER & CUSTOMIZATION ENGINE
+  // ==========================================
+  initUserProfile() {
+    const defaultProfile = {
+      name: "Aniket Singh",
+      role: "AI Engineer & Student",
+      bio: "“Discipline today builds the freedom tomorrow.”",
+      targetHours: 6.5,
+      track: "AI & Machine Learning",
+      avatarUrl: "assets/avatar_aniket.jpg",
+      github: "github.com/aniketsingh",
+      linkedin: "linkedin.com/in/aniketsingh"
+    };
+
+    try {
+      const saved = localStorage.getItem('aura_user_profile');
+      if (saved) {
+        this.userProfile = { ...defaultProfile, ...JSON.parse(saved) };
+      } else {
+        this.userProfile = defaultProfile;
+      }
+    } catch (e) {
+      this.userProfile = defaultProfile;
+    }
+
+    this.applyUserProfileEverywhere();
+    this.populateProfileForm();
+  }
+
+  populateProfileForm() {
+    if (!this.userProfile) return;
+    const nameIn = document.getElementById('profileNameInput');
+    const roleIn = document.getElementById('profileRoleInput');
+    const bioIn = document.getElementById('profileBioInput');
+    const hoursIn = document.getElementById('profileTargetHoursInput');
+    const trackIn = document.getElementById('profileTrackSelect');
+    const avatarIn = document.getElementById('profileAvatarUrlInput');
+    const githubIn = document.getElementById('profileGithubInput');
+    const linkedinIn = document.getElementById('profileLinkedinInput');
+
+    if (nameIn) nameIn.value = this.userProfile.name || '';
+    if (roleIn) roleIn.value = this.userProfile.role || '';
+    if (bioIn) bioIn.value = this.userProfile.bio || '';
+    if (hoursIn) hoursIn.value = this.userProfile.targetHours || 6.5;
+    if (trackIn) trackIn.value = this.userProfile.track || 'AI & Machine Learning';
+    if (avatarIn) avatarIn.value = this.userProfile.avatarUrl || '';
+    if (githubIn) githubIn.value = this.userProfile.github || '';
+    if (linkedinIn) linkedinIn.value = this.userProfile.linkedin || '';
+  }
+
+  applyUserProfileEverywhere() {
+    if (!this.userProfile) return;
+
+    // 1. Topbar Elements
+    const topName = document.getElementById('topbarUserName');
+    const topRole = document.getElementById('topbarUserRole');
+    const topAvatar = document.getElementById('topbarUserAvatar');
+    if (topName) topName.textContent = this.userProfile.name;
+    if (topRole) topRole.textContent = this.userProfile.role;
+    if (topAvatar && this.userProfile.avatarUrl) {
+      if (this.userProfile.avatarUrl.startsWith('http') || this.userProfile.avatarUrl.includes('/')) {
+        topAvatar.src = this.userProfile.avatarUrl;
+      }
+    }
+
+    // 2. Dropdown Elements
+    const dropName = document.getElementById('dropdownUserName');
+    const dropRole = document.getElementById('dropdownUserRole');
+    const dropAvatar = document.getElementById('dropdownUserAvatar');
+    if (dropName) dropName.textContent = this.userProfile.name;
+    if (dropRole) dropRole.textContent = this.userProfile.role;
+    if (dropAvatar && this.userProfile.avatarUrl) {
+      if (this.userProfile.avatarUrl.startsWith('http') || this.userProfile.avatarUrl.includes('/')) {
+        dropAvatar.src = this.userProfile.avatarUrl;
+      }
+    }
+
+    // 3. Hero Greeting
+    const greetingElem = document.getElementById('heroGreetingText');
+    if (greetingElem) {
+      const hours = new Date().getHours();
+      let period = 'Evening';
+      if (hours >= 5 && hours < 12) period = 'Morning';
+      else if (hours >= 12 && hours < 17) period = 'Afternoon';
+      const firstName = this.userProfile.name.split(' ')[0] || 'Scholar';
+      greetingElem.textContent = `Good ${period}, ${firstName}! 👋`;
+    }
+
+    // 4. Profile Dashboard Card Elements
+    const cardName = document.getElementById('profileCardName');
+    const cardRole = document.getElementById('profileCardRole');
+    const cardBio = document.getElementById('profileCardBio');
+    const cardTrack = document.getElementById('profileCardTrack');
+    const cardAvatar = document.getElementById('profileCardAvatar');
+    const hoursDisp = document.getElementById('profileHoursDisplay');
+
+    if (cardName) cardName.textContent = this.userProfile.name;
+    if (cardRole) cardRole.textContent = this.userProfile.role;
+    if (cardBio) cardBio.textContent = this.userProfile.bio;
+    if (cardTrack) cardTrack.textContent = this.userProfile.track;
+    if (hoursDisp) hoursDisp.textContent = `${this.userProfile.targetHours || 6.5}h`;
+    if (cardAvatar && this.userProfile.avatarUrl) {
+      if (this.userProfile.avatarUrl.startsWith('http') || this.userProfile.avatarUrl.includes('/')) {
+        cardAvatar.src = this.userProfile.avatarUrl;
+      }
+    }
+
+    // 5. Hero target hours
+    const heroGoal = document.getElementById('heroDailyGoalVal');
+    if (heroGoal && this.userProfile.targetHours) {
+      heroGoal.textContent = `${this.userProfile.targetHours}h`;
+    }
+  }
+
+  saveUserProfile() {
+    const nameIn = document.getElementById('profileNameInput')?.value.trim();
+    const roleIn = document.getElementById('profileRoleInput')?.value.trim();
+    const bioIn = document.getElementById('profileBioInput')?.value.trim();
+    const hoursIn = parseFloat(document.getElementById('profileTargetHoursInput')?.value) || 6.5;
+    const trackIn = document.getElementById('profileTrackSelect')?.value;
+    const avatarIn = document.getElementById('profileAvatarUrlInput')?.value.trim();
+    const githubIn = document.getElementById('profileGithubInput')?.value.trim();
+    const linkedinIn = document.getElementById('profileLinkedinInput')?.value.trim();
+
+    if (!nameIn) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    this.userProfile = {
+      name: nameIn,
+      role: roleIn || 'Student',
+      bio: bioIn || 'Discipline builds freedom.',
+      targetHours: hoursIn,
+      track: trackIn || 'General Academics',
+      avatarUrl: avatarIn || this.userProfile.avatarUrl || 'assets/avatar_aniket.jpg',
+      github: githubIn || '',
+      linkedin: linkedinIn || ''
+    };
+
+    try {
+      localStorage.setItem('aura_user_profile', JSON.stringify(this.userProfile));
+    } catch (e) {}
+
+    this.applyUserProfileEverywhere();
+
+    if (window.soundEngine) window.soundEngine.play('complete');
+    if (window.confetti) {
+      try { window.confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } }); } catch (e) {}
+    }
+    if (window.gamification) {
+      window.gamification.awardXP(25, 'Personalized User Profile');
+    }
+
+    this.showToast("✓ Profile Saved Everywhere!", `Identity updated to ${this.userProfile.name}. All views are synced.`);
+  }
+
+  setAvatarPreset(avatar, btnElem) {
+    document.querySelectorAll('.avatar-preset-btn').forEach(b => b.classList.remove('active'));
+    if (btnElem) btnElem.classList.add('active');
+
+    const avatarIn = document.getElementById('profileAvatarUrlInput');
+    if (avatarIn) avatarIn.value = avatar;
+
+    if (this.userProfile) {
+      this.userProfile.avatarUrl = avatar;
+    }
+
+    const cardAvatar = document.getElementById('profileCardAvatar');
+    if (cardAvatar && (avatar.startsWith('http') || avatar.includes('/'))) {
+      cardAvatar.src = avatar;
+    }
+
+    if (window.soundEngine) window.soundEngine.play('tick');
+  }
+
+  resetUserProfile() {
+    if (confirm("Reset profile settings to default?")) {
+      try {
+        localStorage.removeItem('aura_user_profile');
+      } catch (e) {}
+      this.initUserProfile();
+      if (window.soundEngine) window.soundEngine.play('complete');
+      this.showToast("Profile Reset", "Default profile values restored.");
+    }
+  }
+
+  renderProfileView() {
+    this.populateProfileForm();
+    this.applyUserProfileEverywhere();
+
+    // Update real XP & level from gamification engine if present
+    if (window.gamification) {
+      const xp = window.gamification.xp || 480;
+      const level = window.gamification.level || 3;
+      const xpForNext = window.gamification.getXPForLevel ? window.gamification.getXPForLevel(level + 1) : 600;
+      const prevLvlXp = window.gamification.getXPForLevel ? window.gamification.getXPForLevel(level) : 0;
+      const progressInLevel = Math.max(0, xp - prevLvlXp);
+      const neededForLevel = Math.max(1, xpForNext - prevLvlXp);
+      const pct = Math.min(100, Math.round((progressInLevel / neededForLevel) * 100));
+
+      const xpDisp = document.getElementById('profileXpDisplay');
+      const lvlDisp = document.getElementById('profileLevelDisplay');
+      const barLbl = document.getElementById('profileXpProgressLabel');
+      const barVal = document.getElementById('profileXpProgressVal');
+      const barFill = document.getElementById('profileXpProgressBar');
+
+      if (xpDisp) xpDisp.textContent = `${xp} XP`;
+      if (lvlDisp) lvlDisp.textContent = `Level ${level}`;
+      if (barLbl) barLbl.textContent = `Level ${level} Progress`;
+      if (barVal) barVal.textContent = `${progressInLevel} / ${neededForLevel} XP`;
+      if (barFill) barFill.style.width = `${pct}%`;
+    }
+  }
+
+  // ==========================================
+  // FEYNMAN AI EXPLAINER ENGINE
+  // ==========================================
+  evaluateFeynmanExplanation() {
+    const topicSelect = document.getElementById('feynmanTopicSelect');
+    const input = document.getElementById('feynmanExplanationInput');
+    const feedbackBox = document.getElementById('feynmanFeedbackBox');
+
+    if (!input || !feedbackBox) return;
+
+    const text = input.value.trim();
+    if (!text || text.length < 20) {
+      alert("Please write at least 2-3 sentences explaining the concept in simple terms.");
+      return;
+    }
+
+    const topic = topicSelect?.options[topicSelect.selectedIndex]?.text || "Selected Concept";
+    const wordCount = text.split(/\s+/).length;
+
+    // Check for high-density jargon terms
+    const jargonWords = ['polynomial', 'eigenvector', 'asymptotic', 'stochastic', 'backpropagation', 'hyperparameter', 'quadratic', 'synchronous', 'idempotent'];
+    const foundJargon = jargonWords.filter(j => text.toLowerCase().includes(j));
+    
+    let grade = 'A+';
+    let simplicityNote = 'Excellent! You used relatable everyday analogies without dense academic jargon.';
+    if (foundJargon.length > 2) {
+      grade = 'B+';
+      simplicityNote = `Good effort, but you used technical terms (${foundJargon.slice(0, 2).join(', ')}). Try replacing them with real-world analogies an 8-year-old would immediately grasp!`;
+    } else if (foundJargon.length > 0) {
+      grade = 'A';
+      simplicityNote = `Very strong explanation! Minor technical terminology detected (${foundJargon.join(', ')}), but overall very accessible.`;
+    }
+
+    feedbackBox.innerHTML = `
+      <div style="background: rgba(32, 214, 160, 0.1); border: 1px solid rgba(32, 214, 160, 0.3); border-radius: var(--radius-sm); padding: 0.8rem; margin-bottom: 0.65rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+          <strong style="color: var(--accent-emerald); font-size: 1rem;">🎯 Feynman Clarity Grade: ${grade}</strong>
+          <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.78rem;">${wordCount} Words</span>
+        </div>
+        <p style="color: #FFFFFF; font-size: 0.82rem; margin: 0;">${simplicityNote}</p>
+      </div>
+      <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5;">
+        <strong style="color: var(--accent-gold);">💡 Feynman Master Rule:</strong>
+        "The first principle is that you must not fool yourself — and you are the easiest person to fool." By articulating this in your own English words, you cement deep neural retention.
+      </div>
+    `;
+
+    if (window.soundEngine) window.soundEngine.play('complete');
+    if (window.gamification) {
+      window.gamification.awardXP(35, `Feynman Review: ${topic}`);
+    }
+    this.showToast("⚡ Feynman Review Scored! (+35 XP)", `Grade: ${grade} earned for explaining ${topic.split(':')[0]}.`);
   }
 
   // ==========================================

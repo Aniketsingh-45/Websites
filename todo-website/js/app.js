@@ -1,6 +1,6 @@
 /**
- * StudyVault — Core Application Controller
- * High-End Dark Futuristic Education & Productivity Operating System
+ * AuraRoutine — Core Application Controller & Daily Computational Engine
+ * High-End Dark Futuristic Daily Mastery & Growth Operating System
  */
 class AppController {
   constructor() {
@@ -13,6 +13,11 @@ class AppController {
     this.activeTask = null;
     this.lastNotifiedTaskId = null;
     this.density = localStorage.getItem('aura_density') || 'comfortable';
+
+    // Daily Lifecycle & Computational State
+    this.activeDate = null;
+    this.dailyHistory = {};
+    this.todayFocusMinutes = 0;
 
     // Dashboard Focus Studio state
     this.dashboardFocusMode = 'pomodoro';
@@ -36,6 +41,7 @@ class AppController {
   init() {
     this.initTheme();
     this.loadRoutine();
+    this.initDailyEngine();
     this.setupEventListeners();
     this.setupProfileDropdown();
     this.initUserProfile();
@@ -171,6 +177,514 @@ class AppController {
       if (window.soundEngine) window.soundEngine.play('complete');
       this.showToast("30-Day Routine Restored", "Loaded 26 daily slots & English formulas");
     }
+  }
+
+  // =========================================================================
+  // AURAROUTINE DAILY COMPUTATIONAL & LIFECYCLE ENGINE
+  // =========================================================================
+  initDailyEngine() {
+    this.activeDate = localStorage.getItem('aura_active_date') || this.getTodayDateString();
+    try {
+      this.dailyHistory = JSON.parse(localStorage.getItem('aura_daily_history') || '{}');
+    } catch (e) {
+      this.dailyHistory = {};
+    }
+    this.todayFocusMinutes = parseInt(localStorage.getItem(`aura_daily_focus_${this.activeDate}`) || '0', 10);
+
+    // Initial check for day rollover
+    this.checkDailyRollover();
+
+    // Check on tab focus / wake up
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        this.checkDailyRollover();
+      }
+    });
+
+    // Master background tick every 30 seconds
+    setInterval(() => {
+      this.checkDailyRollover();
+    }, 30000);
+  }
+
+  getTodayDateString(dateObj = new Date()) {
+    const y = dateObj.getFullYear();
+    const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const d = String(dateObj.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  formatDisplayDate(dateStr) {
+    if (!dateStr) return 'Today';
+    const parts = dateStr.split('-');
+    if (parts.length === 3) {
+      const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+      return d.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' });
+    }
+    return dateStr;
+  }
+
+  checkDailyRollover(forcedDate = null) {
+    const targetDateStr = forcedDate || this.getTodayDateString();
+    if (targetDateStr !== this.activeDate) {
+      const prevDate = this.activeDate;
+      // 1. Archive yesterday's performance
+      this.archiveDay(prevDate);
+
+      // 2. Evaluate streak continuity based on yesterday's performance
+      this.evaluateStreakContinuity(prevDate, targetDateStr);
+
+      // 3. Reset daily tasks, habits, and wellness for the new day
+      this.resetDailyState(targetDateStr);
+
+      // 4. Trigger awakening celebration modal
+      this.triggerAwakeningCelebration(prevDate, targetDateStr);
+    }
+  }
+
+  archiveDay(dateStr) {
+    if (!this.routine || !this.routine.tasks) return;
+    const total = this.routine.tasks.length;
+    const completed = this.routine.tasks.filter(t => t.completed).length;
+    const completionPct = total > 0 ? Math.round((completed / total) * 100) : 0;
+    
+    const habitsTotal = Object.keys(this.quickHabits || {}).length || 5;
+    const habitsDone = Object.values(this.quickHabits || {}).filter(Boolean).length;
+    const waterGlasses = window.wellnessSentinel ? window.wellnessSentinel.waterGlasses : 0;
+    const focusMins = this.todayFocusMinutes || 0;
+    const aura = this.calculateAuraScore();
+
+    this.dailyHistory[dateStr] = {
+      date: dateStr,
+      tasksCompleted: completed,
+      totalTasks: total,
+      completionRate: completionPct,
+      habitsDone: habitsDone,
+      habitsTotal: habitsTotal,
+      waterGlasses: waterGlasses,
+      focusMinutes: focusMins,
+      auraScore: aura.score,
+      auraTier: aura.tierName,
+      timestamp: Date.now()
+    };
+
+    try {
+      localStorage.setItem('aura_daily_history', JSON.stringify(this.dailyHistory));
+    } catch (e) {
+      console.warn('Failed to save daily history', e);
+    }
+  }
+
+  evaluateStreakContinuity(prevDateStr, newDateStr) {
+    const prevEntry = this.dailyHistory[prevDateStr];
+    const prevDate = new Date(prevDateStr);
+    const newDate = new Date(newDateStr);
+    const diffDays = Math.round((newDate - prevDate) / (1000 * 60 * 60 * 24));
+
+    if (window.gamification) {
+      const metCriteria = prevEntry ? (prevEntry.completionRate >= 35 || prevEntry.tasksCompleted >= 3 || prevEntry.habitsDone >= 3) : false;
+
+      if (diffDays === 1) {
+        if (metCriteria) {
+          window.gamification.streak++;
+        } else {
+          // Missed yesterday but only 1 day gap: Golden Rule #1 Grace Period!
+          if (window.notificationEngine) {
+            window.notificationEngine.notify('Rule #1 Active: Never Miss 2 Days', {
+              body: 'Yesterday was incomplete! Protect your streak & identity by conquering today\'s routine.',
+              soundType: 'alert'
+            });
+          }
+        }
+      } else if (diffDays > 1) {
+        // Missed 2+ consecutive days
+        window.gamification.streak = 1;
+      }
+      window.gamification.lastActiveDate = new Date().toDateString();
+      window.gamification.saveState();
+      window.gamification.renderHeaderUI();
+    }
+  }
+
+  resetDailyState(newDateStr) {
+    // Reset routine task checkmarks for the fresh day
+    if (this.routine && this.routine.tasks) {
+      this.routine.tasks.forEach(t => t.completed = false);
+      this.saveRoutine();
+    }
+
+    // Reset quick habits
+    this.quickHabits = { wake: false, workout: false, read: false, speech: false, phone: false };
+    try {
+      localStorage.setItem('aura_quick_habits_state', JSON.stringify(this.quickHabits));
+    } catch (e) {}
+
+    // Reset wellness sentinel
+    if (window.wellnessSentinel) {
+      window.wellnessSentinel.resetDailyWellness(newDateStr);
+    }
+
+    // Reset today's focus minutes
+    this.todayFocusMinutes = 0;
+    try {
+      localStorage.setItem(`aura_daily_focus_${newDateStr}`, '0');
+    } catch (e) {}
+
+    // Set new active date
+    this.activeDate = newDateStr;
+    try {
+      localStorage.setItem('aura_active_date', newDateStr);
+    } catch (e) {}
+
+    this.render();
+  }
+
+  triggerAwakeningCelebration(prevDateStr, newDateStr) {
+    const modal = document.getElementById('dailyRolloverModal');
+    if (!modal) return;
+
+    const prevEntry = this.dailyHistory[prevDateStr];
+    const prevAura = prevEntry ? `${prevEntry.auraScore}% ${prevEntry.auraTier}` : 'Fresh Schedule';
+    const streak = window.gamification ? window.gamification.streak : 1;
+
+    const dateTitle = document.getElementById('awakeningDateTitle');
+    const yesterdayAura = document.getElementById('awakeningYesterdayAura');
+    const streakVal = document.getElementById('awakeningStreakVal');
+
+    if (dateTitle) dateTitle.textContent = `${this.formatDisplayDate(newDateStr)} • Schedule Refreshed`;
+    if (yesterdayAura) yesterdayAura.textContent = prevAura;
+    if (streakVal) streakVal.textContent = `🔥 ${streak} Days Active`;
+
+    modal.classList.add('active');
+    if (window.soundEngine) window.soundEngine.play('complete');
+    if (window.confetti) {
+      try {
+        window.confetti({ particleCount: 70, spread: 80, origin: { y: 0.6 } });
+      } catch (e) {}
+    }
+  }
+
+  calculateAuraScore() {
+    const totalTasks = this.routine?.tasks?.length || 0;
+    const completedTasks = this.routine?.tasks?.filter(t => t.completed).length || 0;
+    const taskScore = totalTasks > 0 ? (completedTasks / totalTasks) * 40 : 0;
+
+    const habitKeys = Object.keys(this.quickHabits || {});
+    const totalHabits = habitKeys.length || 5;
+    const completedHabits = habitKeys.filter(k => !!this.quickHabits[k]).length;
+    const habitScore = totalHabits > 0 ? (completedHabits / totalHabits) * 20 : 0;
+
+    const waterGlasses = window.wellnessSentinel ? window.wellnessSentinel.waterGlasses : 0;
+    const waterScore = Math.min(1, waterGlasses / 8) * 15;
+
+    const focusMins = this.todayFocusMinutes || 0;
+    const focusScore = Math.min(1, focusMins / 60) * 15;
+
+    const eyeBreaks = window.wellnessSentinel ? (window.wellnessSentinel.eyeBreaksTaken || 0) : 0;
+    const posture = window.wellnessSentinel ? (window.wellnessSentinel.postureStretches || 0) : 0;
+    const bioScore = Math.min(1, (eyeBreaks + posture) / 4) * 10;
+
+    const totalScore = Math.min(100, Math.round(taskScore + habitScore + waterScore + focusScore + bioScore));
+
+    let tierName = 'Dormant Aura';
+    let tierClass = 'dormant';
+    let tierIcon = '🌑';
+
+    if (totalScore >= 90) {
+      tierName = 'Ascendant Grandmaster';
+      tierClass = 'ascendant';
+      tierIcon = '👑';
+    } else if (totalScore >= 75) {
+      tierName = 'Astral Aura';
+      tierClass = 'astral';
+      tierIcon = '🔮';
+    } else if (totalScore >= 50) {
+      tierName = 'Radiant Aura';
+      tierClass = 'radiant';
+      tierIcon = '🌟';
+    } else if (totalScore >= 25) {
+      tierName = 'Awakened Aura';
+      tierClass = 'awakened';
+      tierIcon = '⚡';
+    }
+
+    return {
+      score: totalScore,
+      tierName,
+      tierClass,
+      tierIcon,
+      breakdown: {
+        taskPct: Math.round(taskScore / 40 * 100),
+        taskVal: `${completedTasks}/${totalTasks}`,
+        habitPct: Math.round(habitScore / 20 * 100),
+        habitVal: `${completedHabits}/${totalHabits}`,
+        waterPct: Math.round(waterScore / 15 * 100),
+        waterVal: `${waterGlasses}/8`,
+        focusPct: Math.round(focusScore / 15 * 100),
+        focusVal: `${focusMins}m`,
+        bioPct: Math.round(bioScore / 10 * 100),
+        bioVal: `${eyeBreaks + posture}/4`
+      }
+    };
+  }
+
+  renderDailyHUD() {
+    const aura = this.calculateAuraScore();
+
+    // 1. Topbar Date & Aura badge
+    const topbarDate = document.getElementById('topbarCurrentDateDisplay');
+    const topbarAura = document.getElementById('topbarAuraScoreBadge');
+    if (topbarDate) topbarDate.textContent = `Today • ${this.formatDisplayDate(this.activeDate)}`;
+    if (topbarAura) topbarAura.textContent = `⚡ ${aura.score}% ${aura.tierName.split(' ')[0]}`;
+
+    // 2. Hero Aura Rating
+    const heroAura = document.getElementById('heroAuraScoreVal');
+    if (heroAura) heroAura.textContent = `${aura.score}% ${aura.tierName.split(' ')[0]}`;
+
+    // 3. Compute dynamic study time
+    let completedStudyMins = 0;
+    if (this.routine && this.routine.tasks) {
+      this.routine.tasks.forEach(t => {
+        if (t.completed) {
+          completedStudyMins += this.calculateDurationMinutes(t.startTime, t.endTime);
+        }
+      });
+    }
+    completedStudyMins += (this.todayFocusMinutes || 0);
+
+    const sH = Math.floor(completedStudyMins / 60);
+    const sM = completedStudyMins % 60;
+    const studyTimeStr = `${sH}h ${sM < 10 ? '0' : ''}${sM}m`;
+
+    const heroStudy = document.getElementById('heroStudyTimeVal');
+    const qsStudyTime = document.getElementById('quickStatsStudyTime');
+    if (heroStudy) heroStudy.textContent = studyTimeStr;
+    if (qsStudyTime) qsStudyTime.textContent = studyTimeStr;
+
+    // 4. Update Daily Modal if active
+    const modalAuraPct = document.getElementById('dailyModalAuraPct');
+    const modalAuraCircle = document.getElementById('dailyModalAuraCircle');
+    const modalAuraBadge = document.getElementById('dailyModalAuraTierBadge');
+    const modalAuraDesc = document.getElementById('dailyModalAuraDesc');
+    const modalDate = document.getElementById('dailyModalCurrentDate');
+    const modalStreak = document.getElementById('dailyModalStreakText');
+
+    if (modalAuraPct) modalAuraPct.textContent = `${aura.score}%`;
+    if (modalAuraCircle) {
+      const offset = 264 - (264 * aura.score) / 100;
+      modalAuraCircle.style.strokeDashoffset = offset;
+    }
+    if (modalAuraBadge) {
+      modalAuraBadge.className = `aura-tier-badge ${aura.tierClass}`;
+      modalAuraBadge.textContent = `${aura.tierIcon} ${aura.tierName}`;
+    }
+    if (modalDate) modalDate.textContent = `Active Date: ${this.formatDisplayDate(this.activeDate)} (${this.activeDate})`;
+    if (modalStreak && window.gamification) modalStreak.textContent = `🔥 ${window.gamification.streak}-Day Streak`;
+
+    // Breakdown bars
+    const b = aura.breakdown;
+    this.updateBreakdownUI('Task', b.taskVal, b.taskPct);
+    this.updateBreakdownUI('Habit', b.habitVal, b.habitPct);
+    this.updateBreakdownUI('Water', b.waterVal, b.waterPct);
+    this.updateBreakdownUI('Focus', b.focusVal, b.focusPct);
+    this.updateBreakdownUI('Bio', b.bioVal, b.bioPct);
+  }
+
+  updateBreakdownUI(key, val, pct) {
+    const valElem = document.getElementById(`breakdown${key}Val`);
+    const pctElem = document.getElementById(`breakdown${key}Pct`);
+    const fillElem = document.getElementById(`breakdown${key}Fill`);
+    if (valElem) valElem.textContent = val;
+    if (pctElem) pctElem.textContent = `${pct}%`;
+    if (fillElem) fillElem.style.width = `${pct}%`;
+  }
+
+  openDailyControlModal() {
+    this.renderDailyHUD();
+    this.renderDailyHistoryStrip();
+    document.getElementById('dailyControlModal')?.classList.add('active');
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  renderDailyHistoryStrip() {
+    const container = document.getElementById('dailyHistoryStripRow');
+    if (!container) return;
+
+    const dates = [];
+    const base = new Date(this.activeDate);
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(base);
+      d.setDate(base.getDate() - i);
+      dates.push(this.getTodayDateString(d));
+    }
+
+    container.innerHTML = dates.map(dateStr => {
+      const isToday = dateStr === this.activeDate;
+      const entry = this.dailyHistory[dateStr];
+      const displayDate = this.formatDisplayDate(dateStr);
+      const dayParts = displayDate.split(', ');
+      const dayName = dayParts[0] || 'Day';
+      const dayNum = dayParts[1] || dateStr.slice(5);
+
+      if (isToday) {
+        const aura = this.calculateAuraScore();
+        return `
+          <div class="history-strip-card today" title="Active Day: ${dateStr}">
+            <span class="history-day-name">Today</span>
+            <span class="history-day-date">${dayNum}</span>
+            <span class="history-day-aura-score" style="background: rgba(34, 211, 238, 0.2); color: #38BDF8;">${aura.score}%</span>
+          </div>
+        `;
+      }
+
+      if (entry) {
+        return `
+          <div class="history-strip-card" title="${dateStr}: ${entry.tasksCompleted}/${entry.totalTasks} Tasks, ${entry.auraScore}% Aura (${entry.auraTier})">
+            <span class="history-day-name">${dayName}</span>
+            <span class="history-day-date">${dayNum}</span>
+            <span class="history-day-aura-score" style="background: rgba(112, 71, 255, 0.2); color: #C084FC;">${entry.auraScore}%</span>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="history-strip-card" style="opacity: 0.45;" title="${dateStr}: No recorded activity">
+          <span class="history-day-name">${dayName}</span>
+          <span class="history-day-date">${dayNum}</span>
+          <span class="history-day-aura-score" style="color: var(--text-muted);">-</span>
+        </div>
+      `;
+    }).join('');
+  }
+
+  simulateNextDay() {
+    const curr = new Date(this.activeDate);
+    curr.setDate(curr.getDate() + 1);
+    const nextDateStr = this.getTodayDateString(curr);
+    this.checkDailyRollover(nextDateStr);
+    document.getElementById('dailyControlModal')?.classList.remove('active');
+    this.showToast('Simulated Next Day', `Advanced cycle to ${this.formatDisplayDate(nextDateStr)}`);
+  }
+
+  forceResetToday() {
+    if (confirm("Reset today's routine tasks, habits, and hydration targets to 0% for a clean fresh start?")) {
+      this.resetDailyState(this.activeDate);
+      this.render();
+      if (window.soundEngine) window.soundEngine.play('complete');
+      this.showToast('Today\'s State Reset', 'Fresh clean schedule ready for execution.');
+      this.renderDailyHUD();
+    }
+  }
+
+  exportDataBackup() {
+    const backupData = {
+      version: '3.0',
+      appName: 'AuraRoutine',
+      exportDate: new Date().toISOString(),
+      activeDate: this.activeDate,
+      routine: this.routine,
+      quickHabits: this.quickHabits,
+      dailyHistory: this.dailyHistory,
+      userProfile: this.userProfile,
+      gamification: localStorage.getItem('aura_gamification'),
+      wellness: localStorage.getItem('aura_wellness_data'),
+      englishSentences: localStorage.getItem('aura_english_sentences'),
+      customVocab: localStorage.getItem('aura_custom_vocab')
+    };
+
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `auraroutine-backup-${this.activeDate}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    this.showToast('Backup Exported', 'AuraRoutine JSON data archive saved.');
+  }
+
+  triggerImportData() {
+    document.getElementById('dataBackupFileInput')?.click();
+  }
+
+  handleImportData(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (data.routine) {
+          this.routine = data.routine;
+          this.saveRoutine();
+        }
+        if (data.quickHabits) {
+          this.quickHabits = data.quickHabits;
+          localStorage.setItem('aura_quick_habits_state', JSON.stringify(this.quickHabits));
+        }
+        if (data.dailyHistory) {
+          this.dailyHistory = data.dailyHistory;
+          localStorage.setItem('aura_daily_history', JSON.stringify(this.dailyHistory));
+        }
+        if (data.activeDate) {
+          this.activeDate = data.activeDate;
+          localStorage.setItem('aura_active_date', this.activeDate);
+        }
+        if (data.userProfile) {
+          this.userProfile = data.userProfile;
+          localStorage.setItem('aura_user_profile', JSON.stringify(this.userProfile));
+        }
+        if (data.gamification) {
+          localStorage.setItem('aura_gamification', typeof data.gamification === 'string' ? data.gamification : JSON.stringify(data.gamification));
+          if (window.gamification) window.gamification.loadState();
+        }
+        if (data.wellness) {
+          localStorage.setItem('aura_wellness_data', typeof data.wellness === 'string' ? data.wellness : JSON.stringify(data.wellness));
+          if (window.wellnessSentinel) window.wellnessSentinel.loadState();
+        }
+        this.render();
+        if (window.soundEngine) window.soundEngine.play('complete');
+        this.showToast('Data Restored', 'All routine, habit, and history data successfully imported.');
+        document.getElementById('dailyControlModal')?.classList.remove('active');
+      } catch (err) {
+        console.error('Import failed', err);
+        alert('Invalid JSON backup file.');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  calculateDuration(startTime, endTime) {
+    if (!startTime || !endTime) return '30m';
+    const [sH, sM] = startTime.split(':').map(Number);
+    const [eH, eM] = endTime.split(':').map(Number);
+    let diff = (eH * 60 + eM) - (sH * 60 + sM);
+    if (diff < 0) diff += 1440;
+    const h = Math.floor(diff / 60);
+    const m = diff % 60;
+    if (h > 0 && m > 0) return `${h}h ${m}m`;
+    if (h > 0) return `${h}h`;
+    return `${m}m`;
+  }
+
+  calculateDurationMinutes(startTime, endTime) {
+    if (!startTime || !endTime) return 30;
+    const [sH, sM] = startTime.split(':').map(Number);
+    const [eH, eM] = endTime.split(':').map(Number);
+    let diff = (eH * 60 + eM) - (sH * 60 + sM);
+    if (diff < 0) diff += 1440;
+    return diff;
+  }
+
+  formatTime12h(time24) {
+    if (!time24) return '';
+    const [hStr, mStr] = time24.split(':');
+    let h = parseInt(hStr, 10);
+    const m = mStr || '00';
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12;
+    if (h === 0) h = 12;
+    return `${h}:${m} ${ampm}`;
   }
 
   setupEventListeners() {
@@ -708,12 +1222,24 @@ class AppController {
       ringCircle.style.strokeDashoffset = strokeDashoffset;
     }
 
+    // Dynamic Computational Study Time
+    let completedStudyMins = 0;
+    this.routine.tasks.forEach(t => {
+      if (t.completed) {
+        completedStudyMins += this.calculateDurationMinutes(t.startTime, t.endTime);
+      }
+    });
+    completedStudyMins += (this.todayFocusMinutes || 0);
+    const sH = Math.floor(completedStudyMins / 60);
+    const sM = completedStudyMins % 60;
+    const studyTimeStr = `${sH}h ${sM < 10 ? '0' : ''}${sM}m`;
+
     // Hero Stats
     const heroStudy = document.getElementById('heroStudyTimeVal');
     const heroPending = document.getElementById('heroPendingTasksVal');
     const heroGoal = document.getElementById('heroDailyGoalVal');
 
-    if (heroStudy) heroStudy.textContent = '4h 32m';
+    if (heroStudy) heroStudy.textContent = studyTimeStr;
     if (heroPending) heroPending.textContent = `${pending} Tasks`;
     if (heroGoal) heroGoal.textContent = `${completed}/${Math.max(5, Math.ceil(total / 2))}`;
 
@@ -725,12 +1251,12 @@ class AppController {
 
     if (qsCompleted) qsCompleted.textContent = completed;
     if (qsPending) qsPending.textContent = pending;
-    if (qsStudyTime) qsStudyTime.textContent = '4h 32m';
+    if (qsStudyTime) qsStudyTime.textContent = studyTimeStr;
     if (qsWeeklyGoal) qsWeeklyGoal.textContent = `${Math.min(100, Math.max(20, pct + 35))}%`;
 
     // Timeline count pill
     const countPill = document.getElementById('timelineTasksCountPill');
-    if (countPill) countPill.textContent = `${total} tasks • 4h 45m`;
+    if (countPill) countPill.textContent = `${total} tasks • ${studyTimeStr}`;
 
     // Category progress bars
     const categories = ['English', 'AI/ML', 'Coding', 'Fitness', 'Discipline'];
@@ -752,6 +1278,7 @@ class AppController {
     this.renderMetrics();
     this.renderStudyPlanHabits();
     this.renderQuickHabits();
+    this.renderDailyHUD();
 
     if (window.gamification) {
       window.gamification.renderHeaderUI();
@@ -818,6 +1345,10 @@ class AppController {
             playBtn.innerHTML = '<i data-lucide="play" class="svg-icon"></i>';
             if (window.lucide) window.lucide.createIcons();
           }
+          const focusMinsCompleted = Math.round(this.dashboardTimerTotalSeconds / 60) || 25;
+          this.todayFocusMinutes = (this.todayFocusMinutes || 0) + focusMinsCompleted;
+          try { localStorage.setItem(`aura_daily_focus_${this.activeDate}`, this.todayFocusMinutes.toString()); } catch (e) {}
+          this.renderDailyHUD();
           if (window.soundEngine) window.soundEngine.play('levelUp');
           if (window.gamification) {
             window.gamification.awardXP(60, 'Focus Session Complete');
@@ -888,6 +1419,9 @@ class AppController {
           if (this.focusSecondsRemaining <= 0) {
             clearInterval(this.focusTimerInterval);
             this.isFocusTimerRunning = false;
+            this.todayFocusMinutes = (this.todayFocusMinutes || 0) + 25;
+            try { localStorage.setItem(`aura_daily_focus_${this.activeDate}`, this.todayFocusMinutes.toString()); } catch (e) {}
+            this.renderDailyHUD();
             if (window.soundEngine) window.soundEngine.play('levelUp');
             if (window.gamification) {
               window.gamification.awardXP(60, 'Completed 25m Focus Block');
@@ -1575,10 +2109,10 @@ class AppController {
       if (saved) {
         this.quickHabits = JSON.parse(saved);
       } else {
-        this.quickHabits = { wake: true, workout: true, read: false, speech: false, phone: true };
+        this.quickHabits = { wake: false, workout: false, read: false, speech: false, phone: false };
       }
     } catch (e) {
-      this.quickHabits = { wake: true, workout: true, read: false, speech: false, phone: true };
+      this.quickHabits = { wake: false, workout: false, read: false, speech: false, phone: false };
     }
     this.renderQuickHabits();
   }
@@ -1614,6 +2148,7 @@ class AppController {
       if (window.soundEngine) window.soundEngine.play('tick');
     }
     this.renderQuickHabits();
+    this.renderDailyHUD();
   }
 
   // ==========================================

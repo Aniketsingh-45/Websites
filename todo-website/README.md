@@ -1,9 +1,9 @@
-# ⚡ AuraRoutine & StudyVault — High-Tech Student Growth & 30-Day Upgrade Routine OS
+# ⚡ AuraRoutine — High-Tech Daily Mastery & 30-Day Growth OS
 
-> A futuristic, high-tech student productivity, discipline, and daily routine platform crafted around the **30-Day Personal Upgrade Routine**. Built with pure vanilla HTML5, modern CSS3, and JavaScript, featuring client-side schedule PDF parsing, bio-wellness ergonomic sentinels, English speaking voice recorder lab, curated personal growth podcasts, life-changing book wisdom, and gamified XP achievements.
+> A futuristic, high-tech daily routine, habit mastery, and productivity platform built around the **30-Day Personal Upgrade Routine**. Powered by pure vanilla HTML5, modern CSS3, and JavaScript, featuring an **Automated Daily Midnight Rollover Engine**, real-time **Mathematical Aura Score (0–100%)**, client-side schedule PDF parsing, bio-wellness sentinels, English speaking voice recorder lab, and gamified XP progression.
 
-![AuraRoutine](https://img.shields.io/badge/AuraRoutine-v2.0-6366f1?style=for-the-badge&logo=electron&logoColor=white)
-![Design](https://img.shields.io/badge/Design-Premium%20Light%20Theme-0ea5e9?style=for-the-badge)
+![AuraRoutine](https://img.shields.io/badge/AuraRoutine-v3.0-6366f1?style=for-the-badge&logo=electron&logoColor=white)
+![Daily Reset Engine](https://img.shields.io/badge/Engine-Automated%20Daily%20Rollover-0ea5e9?style=for-the-badge)
 ![Dependencies](https://img.shields.io/badge/Dependencies-Zero%20Backend-10b981?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge)
 
@@ -11,7 +11,14 @@
 
 ## 📸 Overview & Design Philosophy
 
-**AuraRoutine / StudyVault** transforms the rigid, boring paper timetable into an interactive, real-time command center. Designed with an eye-friendly **Premium Educational Light Theme** (inspired by Notion, Linear, Apple Education, and Duolingo), featuring glassmorphic elevation, soft pastel gradients, tactile micro-animations, and live HUD widgets.
+**AuraRoutine** is engineered for daily consistency. It transforms rigid, forgotten paper timetables into an intelligent, interactive daily command center. Designed with an eye-friendly **Dark Futuristic Aesthetic** (with optional light theme), glassmorphic elevation, animated SVG orbital aura logos, tactile micro-animations, and live HUD widgets.
+
+### 🌟 Daily Computational Engine & Midnight Rollover
+- **Automated Midnight Reset**: On each new day, routine tasks, quick habits, hydration cups, and daily focus counters automatically refresh to 0% for a clean slate.
+- **Historical Daily Archiving (`aura_daily_history`)**: Yesterday's completion metrics and final Aura rating are automatically archived so you can view your long-term consistency heat map.
+- **Daily Streak Intelligence**: Automatically evaluates whether yesterday's goals were accomplished to increment your streak, with an automatic **Golden Rule #1 Grace Period** if a single day is missed.
+- **Real-Time Aura Energy Score (0–100%)**: Dynamically computes your energetic score across Routine Tasks (40%), Daily Habits (20%), Hydration (15%), Focus Studio (15%), and Bio Breaks (10%), featuring 5 radiant aura tiers (*Dormant, Awakened, Radiant, Astral, and Ascendant Grandmaster*).
+- **Daily Simulation & Testing Tools**: Built-in simulator allowing instant testing of tomorrow's cycle, force reset, and full JSON data backup/export.
 
 ---
 

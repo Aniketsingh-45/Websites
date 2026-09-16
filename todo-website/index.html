@@ -434,6 +434,36 @@
 
           </div>
 
+          <!-- AURABRAIN COGNITIVE INTELLIGENCE & DAILY MEMORY FEED -->
+          <div class="aurabrain-home-banner" id="auraBrainHomeBanner">
+            <div class="aurabrain-home-left">
+              <div class="aurabrain-home-icon">
+                <i data-lucide="brain" style="width: 26px; height: 26px; color: #22D3EE;"></i>
+              </div>
+              <div class="aurabrain-home-content">
+                <div class="aurabrain-home-title">
+                  <span>AuraBrain Intelligence Feed</span>
+                  <span class="aurabrain-badge" id="homeBrainStatusBadge">⚡ Memory Synced</span>
+                </div>
+                <p class="aurabrain-home-quote" id="homeBrainAdviceText">
+                  Analyzing past day habits... Conquer your morning routine blocks to activate peak momentum.
+                </p>
+              </div>
+            </div>
+            <div class="aurabrain-home-stats">
+              <div class="hero-stat-pill" style="padding: 0.45rem 0.85rem;" title="7-Day Consistency Index based on past completed days">
+                <div class="hero-stat-icon-wrap" style="background: rgba(34, 211, 238, 0.2); color: #22D3EE;"><i data-lucide="activity"></i></div>
+                <div class="hero-stat-meta">
+                  <span class="hero-stat-val" id="homeBrainConsistencyVal">100%</span>
+                  <span class="hero-stat-lbl">7-Day Consistency</span>
+                </div>
+              </div>
+              <button class="btn-primary" style="padding: 0.5rem 0.95rem; font-size: 0.78rem;" onclick="window.app.openDailyControlModal()">
+                <i data-lucide="cpu" class="btn-icon-svg"></i> Open Brain HUD
+              </button>
+            </div>
+          </div>
+
           <!-- SECOND ROW: 3-COLUMN MAIN DASHBOARD -->
           <div class="dashboard-main-grid">
 
@@ -1779,6 +1809,106 @@
             </div>
           </div>
 
+          <!-- AuraBrain Cognitive Intelligence & History Memory Summary Card -->
+          <div class="bento-card" style="margin-top: 1.5rem;">
+            <div class="card-header-between" style="margin-bottom: 1rem;">
+              <div>
+                <h3 style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                  <i data-lucide="brain" class="svg-icon" style="color: #22D3EE;"></i> AuraBrain Memory &amp; Cognitive Archive
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.82rem;">Continuous longitudinal intelligence tracking your daily consistency, memory archives, and habits.</p>
+              </div>
+              <span class="aurabrain-badge" id="profileBrainStatusBadge">⚡ Neural Sync Active</span>
+            </div>
+
+            <div class="stats-counter-strip" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
+                <div class="hero-stat-icon-wrap" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;"><i data-lucide="activity"></i></div>
+                <div class="hero-stat-meta">
+                  <span class="hero-stat-val" id="profileBrainConsistencyVal">100%</span>
+                  <span class="hero-stat-lbl">7-Day Consistency</span>
+                </div>
+              </div>
+              <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
+                <div class="hero-stat-icon-wrap" style="background: rgba(112, 71, 255, 0.15); color: #C084FC;"><i data-lucide="database"></i></div>
+                <div class="hero-stat-meta">
+                  <span class="hero-stat-val" id="profileBrainDaysVal">0 Days</span>
+                  <span class="hero-stat-lbl">Archive Depth</span>
+                </div>
+              </div>
+              <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
+                <div class="hero-stat-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #34D399;"><i data-lucide="check-circle-2"></i></div>
+                <div class="hero-stat-meta">
+                  <span class="hero-stat-val" id="profileBrainTasksVal">0 Tasks</span>
+                  <span class="hero-stat-lbl">Lifetime Done</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="aurabrain-advice-text" id="profileBrainAdviceText">
+              AuraBrain is tracking your schedule execution. Conquer high-priority study blocks to maintain peak neural retention.
+            </div>
+          </div>
+
+          <!-- DANGER ZONE: SYSTEM & DATA RESET SUITE -->
+          <div class="danger-zone-card">
+            <div class="card-header-between">
+              <div>
+                <h3 style="color: #F87171; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                  <i data-lucide="shield-alert" class="svg-icon"></i> System Controls &amp; Memory Reset Suite
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.82rem;">Selective controls to refresh today's activities, reset gamification levels, purge history archives, or perform a master factory wipe.</p>
+              </div>
+              <span class="task-priority-pill high" style="font-size: 0.7rem;">⚠️ Admin Zone</span>
+            </div>
+
+            <div class="danger-action-grid">
+              <!-- Action 1: Reset Today's State -->
+              <div class="danger-action-item">
+                <div>
+                  <div class="danger-item-title"><i data-lucide="rotate-ccw" style="width:16px;height:16px;"></i> Reset Today's Activities</div>
+                  <p class="danger-item-desc">Clears today's task checkmarks, habits, hydration counter, and focus timers to 0% so you can restart today's routine fresh.</p>
+                </div>
+                <button class="btn-danger-outline" onclick="window.app.resetDailyActivities()">
+                  <i data-lucide="refresh-cw" class="btn-icon-svg"></i> Reset Today's Checkmarks
+                </button>
+              </div>
+
+              <!-- Action 2: Reset Gamification Stats -->
+              <div class="danger-action-item">
+                <div>
+                  <div class="danger-item-title"><i data-lucide="zap-off" style="width:16px;height:16px;"></i> Reset Streaks &amp; XP</div>
+                  <p class="danger-item-desc">Resets level back to Level 1, XP to 0, and streaks to 1. Your customized routine blocks and study notes are preserved.</p>
+                </div>
+                <button class="btn-danger-outline" onclick="window.app.resetGamificationStats()">
+                  <i data-lucide="award" class="btn-icon-svg"></i> Reset Level &amp; XP
+                </button>
+              </div>
+
+              <!-- Action 3: Clear History Memory Archive -->
+              <div class="danger-action-item">
+                <div>
+                  <div class="danger-item-title"><i data-lucide="trash-2" style="width:16px;height:16px;"></i> Purge AuraBrain Archive</div>
+                  <p class="danger-item-desc">Clears past day history snapshots and historical consistency logs stored in browser memory.</p>
+                </div>
+                <button class="btn-danger-outline" onclick="window.app.clearHistoryArchive()">
+                  <i data-lucide="database-zap" class="btn-icon-svg"></i> Clear Past Days Archive
+                </button>
+              </div>
+
+              <!-- Action 4: Master Factory Reset -->
+              <div class="danger-action-item">
+                <div>
+                  <div class="danger-item-title"><i data-lucide="flame" style="width:16px;height:16px;"></i> Master Factory Reset</div>
+                  <p class="danger-item-desc">Completely wipes all custom tasks, profile customizations, notes, and local storage back to fresh factory default.</p>
+                </div>
+                <button class="btn-danger-outline btn-factory-reset" onclick="window.app.masterFactoryReset()">
+                  <i data-lucide="alert-triangle" class="btn-icon-svg"></i> Master Factory Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -2070,28 +2200,52 @@
         </button>
       </div>
 
-      <!-- Live Aura Score Energy Gauge -->
-      <div class="aura-gauge-card">
-        <div class="aura-gauge-ring-wrap">
-          <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="42" stroke="rgba(255, 255, 255, 0.08)" stroke-width="8" fill="none"></circle>
-            <circle id="dailyModalAuraCircle" cx="50" cy="50" r="42" stroke="url(#auraRingGrad)" stroke-width="8" fill="none"
-              stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264" style="transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);"></circle>
-          </svg>
-          <div class="aura-gauge-center-text">
-            <span class="aura-gauge-percent-num" id="dailyModalAuraPct">0%</span>
-            <span class="aura-gauge-percent-lbl">Aura</span>
+      <!-- Computational Hero Grid: Left Gauge Card + Right AuraBrain Intelligence Card -->
+      <div class="computational-hero-grid">
+        <!-- Live Aura Score Energy Gauge -->
+        <div class="aura-gauge-card" style="margin-bottom: 0;">
+          <div class="aura-gauge-ring-wrap">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" stroke="rgba(255, 255, 255, 0.08)" stroke-width="8" fill="none"></circle>
+              <circle id="dailyModalAuraCircle" cx="50" cy="50" r="42" stroke="url(#auraRingGrad)" stroke-width="8" fill="none"
+                stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264" style="transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);"></circle>
+            </svg>
+            <div class="aura-gauge-center-text">
+              <span class="aura-gauge-percent-num" id="dailyModalAuraPct">0%</span>
+              <span class="aura-gauge-percent-lbl">Aura</span>
+            </div>
+          </div>
+
+          <div class="aura-gauge-meta">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span class="aura-tier-badge dormant" id="dailyModalAuraTierBadge">🌑 Dormant Aura</span>
+              <span style="font-size: 0.75rem; color: var(--accent-cyan);" id="dailyModalStreakText">🔥 1-Day Streak</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.3rem;" id="dailyModalAuraDesc">
+              Execute your routine, habits, hydration, and study blocks to power your daily aura energy.
+            </p>
           </div>
         </div>
 
-        <div class="aura-gauge-meta">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <span class="aura-tier-badge dormant" id="dailyModalAuraTierBadge">🌑 Dormant Aura</span>
-            <span style="font-size: 0.75rem; color: var(--accent-cyan);" id="dailyModalStreakText">🔥 1-Day Streak</span>
+        <!-- AuraBrain Cognitive Intelligence Engine Card -->
+        <div class="aurabrain-intel-card">
+          <div class="aurabrain-title-row">
+            <div style="display: flex; align-items: center; gap: 0.45rem;">
+              <i data-lucide="brain" style="width: 20px; height: 20px; color: #22D3EE;"></i>
+              <strong style="color: #FFFFFF; font-size: 0.95rem;">AuraBrain Cognitive Feed</strong>
+            </div>
+            <span class="aurabrain-badge" id="modalBrainStatusBadge">⚡ Analyzing</span>
           </div>
-          <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.3rem;" id="dailyModalAuraDesc">
-            Execute your routine, habits, hydration, and study blocks to power your daily aura energy.
-          </p>
+
+          <div class="aurabrain-advice-text" id="modalBrainAdviceText">
+            Analyzing routine velocity and historical memory... Consistent morning execution builds unstoppable momentum.
+          </div>
+
+          <div class="aurabrain-metrics-strip">
+            <div>7-Day Consistency: <span class="aurabrain-metric-val" id="modalBrainConsistencyVal">100%</span></div>
+            <div>Memory Depth: <span class="aurabrain-metric-val" id="modalBrainDaysMemoryVal">0 Days</span></div>
+            <div>Lifetime Tasks: <span class="aurabrain-metric-val" id="modalBrainLifetimeTasksVal">0 Done</span></div>
+          </div>
         </div>
       </div>
 
@@ -2157,10 +2311,25 @@
           <div style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; display: flex; align-items: center; gap: 0.4rem;">
             <i data-lucide="calendar" style="width:16px;height:16px;color:var(--accent-cyan);"></i> 14-Day Aura History Archive
           </div>
-          <span style="font-size: 0.72rem; color: var(--text-muted);">Auto-saved at midnight</span>
+          <span style="font-size: 0.72rem; color: var(--text-muted);">Click any day to inspect past performance metrics</span>
         </div>
         <div class="history-strip-row" id="dailyHistoryStripRow">
           <!-- Dynamically populated -->
+        </div>
+
+        <!-- Dynamic History Day Inspector Box -->
+        <div class="history-inspector-box" id="dailyHistoryInspectorBox" style="display: none;">
+          <div class="card-header-between" style="margin-bottom: 0.4rem;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan);" id="inspectorDateTitle">
+              📅 Past Day Breakdown
+            </div>
+            <button class="btn-ghost" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;" onclick="document.getElementById('dailyHistoryInspectorBox').style.display='none'">
+              Close Inspector
+            </button>
+          </div>
+          <div class="history-inspector-grid" id="inspectorGridContent">
+            <!-- Populated via inspectPastDay() -->
+          </div>
         </div>
       </div>
     </div>

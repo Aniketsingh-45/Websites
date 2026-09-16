@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudyVault | High-End Student Productivity & Growth OS</title>
+  <title>AuraRoutine | Daily Mastery & High-Performance Growth OS</title>
   <meta name="description"
-    content="StudyVault — Dark futuristic education & productivity dashboard. 30-Day personal upgrade routine, Focus Studio, English mastery hub, and bio-wellness sentinel.">
+    content="AuraRoutine — Dark futuristic daily mastery & productivity OS. Automated daily midnight rollover, real-time Aura Score calculation, Focus Studio, and bio-wellness sentinel.">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230F172A' stroke='%237047FF' stroke-width='2'/%3E%3Cpolygon points='16,5 24,10 24,20 16,25 8,20 8,10' fill='%231687FF'/%3E%3Cpath d='M16 9L21 21H18.2L17.2 18.5H14.8L13.8 21H11L16 9ZM16 13.5L15.3 16H16.7L16 13.5Z' fill='%23FFFFFF'/%3E%3C/svg%3E">
 
   <!-- Premium Google Fonts: Outfit (Display Headings), Plus Jakarta Sans (UI Body), JetBrains Mono (Digital HUD), Caveat (Hero Handwritten Script) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,86 +60,116 @@
     <aside class="app-sidebar" id="appSidebar">
       <div class="sidebar-top">
         
-        <!-- Brand Logo Header -->
-    <a href="#" class="sidebar-brand" onclick="window.app.switchView('homeView'); return false;">
-      <div class="brand-gem-icon"><i data-lucide="gem" class="svg-icon"></i></div>
-      <div class="brand-meta">
-        <span class="brand-title-text">STUDYVAULT</span>
-        <span class="brand-tagline-text">Learn • Practice • Grow</span>
+        <!-- Brand Logo Header with Custom AuraRoutine Animated SVG Logo -->
+        <a href="#" class="sidebar-brand" onclick="window.app.switchView('homeView'); return false;" title="AuraRoutine Daily Mastery OS">
+          <div class="aura-brand-mark" aria-label="AuraRoutine Logo">
+            <svg class="aura-logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="auraRingGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#22D3EE" />
+                  <stop offset="35%" stop-color="#1687FF" />
+                  <stop offset="70%" stop-color="#7047FF" />
+                  <stop offset="100%" stop-color="#EC4899" />
+                </linearGradient>
+                <linearGradient id="auraCoreGrad" x1="12" y1="12" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FFFFFF" />
+                  <stop offset="40%" stop-color="#38BDF8" />
+                  <stop offset="100%" stop-color="#818CF8" />
+                </linearGradient>
+                <radialGradient id="auraAmbientGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#7047FF" stop-opacity="0.5" />
+                  <stop offset="60%" stop-color="#1687FF" stop-opacity="0.2" />
+                  <stop offset="100%" stop-color="#22D3EE" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="22" cy="22" r="20" fill="url(#auraAmbientGlow)" class="aura-ambient-bg" />
+              <circle cx="22" cy="22" r="18" stroke="url(#auraRingGrad)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="85 28" class="aura-orbit-ring" />
+              <circle cx="22" cy="22" r="13" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="3 3" />
+              <polygon points="22,7 33,14 33,28 22,35 11,28 11,14" fill="rgba(15, 23, 42, 0.9)" stroke="url(#auraRingGrad)" stroke-width="1.8" />
+              <path d="M22 13L28.5 27H24.8L23.4 23.8H20.6L19.2 27H15.5L22 13ZM22 18.2L21.2 21.2H22.8L22 18.2Z" fill="url(#auraCoreGrad)" />
+              <circle cx="22" cy="3.5" r="1.6" fill="#22D3EE" class="aura-sparkle sparkle-top" />
+              <circle cx="40.5" cy="22" r="1.4" fill="#EC4899" class="aura-sparkle sparkle-right" />
+              <circle cx="22" cy="40.5" r="1.6" fill="#7047FF" class="aura-sparkle sparkle-bottom" />
+              <circle cx="3.5" cy="22" r="1.4" fill="#38BDF8" class="aura-sparkle sparkle-left" />
+            </svg>
+          </div>
+          <div class="brand-meta">
+            <span class="brand-title-text">AURAROUTINE</span>
+            <span class="brand-tagline-text">Ascend Daily • Master Routine</span>
+          </div>
+        </a>
+
+        <!-- Sidebar Navigation Menu -->
+        <nav class="sidebar-nav" aria-label="Main Navigation">
+          <button class="nav-item active nav-view-tab" data-view="homeView" id="navItemHome"
+            onclick="window.app.switchView('homeView')">
+            <span class="nav-item-icon"><i data-lucide="layout-dashboard"></i></span>
+            <span class="nav-item-label">Home Dashboard</span>
+          </button>
+
+          <button class="nav-item nav-view-tab" data-view="routineView" id="navItemStudyPlan"
+            onclick="window.app.switchView('routineView')">
+            <span class="nav-item-icon"><i data-lucide="calendar-check-2"></i></span>
+            <span class="nav-item-label">Study Plan</span>
+          </button>
+
+          <button class="nav-item nav-view-tab" data-view="englishView" id="navItemNotes"
+            onclick="window.app.switchView('englishView')">
+            <span class="nav-item-icon"><i data-lucide="file-text"></i></span>
+            <span class="nav-item-label">Notes &amp; Vocab</span>
+          </button>
+
+          <button class="nav-item nav-view-tab" data-view="englishView" id="navItemResources"
+            onclick="window.app.switchView('englishView', 'panelReading')">
+            <span class="nav-item-icon"><i data-lucide="book-open"></i></span>
+            <span class="nav-item-label">Reading &amp; AI Lab</span>
+          </button>
+
+          <div class="nav-section-divider"></div>
+
+          <button class="nav-item nav-view-tab" data-view="wellnessView" id="navItemAnalytics"
+            onclick="window.app.switchView('wellnessView')">
+            <span class="nav-item-icon"><i data-lucide="activity"></i></span>
+            <span class="nav-item-label">Wellness &amp; Health</span>
+          </button>
+
+          <button class="nav-item nav-view-tab" data-view="rulesView" id="navItemSettings"
+            onclick="window.app.switchView('rulesView')">
+            <span class="nav-item-icon"><i data-lucide="scroll"></i></span>
+            <span class="nav-item-label">7 Golden Rules</span>
+          </button>
+
+          <button class="nav-item nav-view-tab" data-view="profileView" id="navItemProfile"
+            onclick="window.app.switchView('profileView')">
+            <span class="nav-item-icon"><i data-lucide="user"></i></span>
+            <span class="nav-item-label">My Profile</span>
+          </button>
+        </nav>
+
       </div>
-    </a>
 
-    <!-- Sidebar Navigation Menu -->
-    <nav class="sidebar-nav" aria-label="Main Navigation">
-      <button class="nav-item active nav-view-tab" data-view="homeView" id="navItemHome"
-        onclick="window.app.switchView('homeView')">
-        <span class="nav-item-icon"><i data-lucide="layout-dashboard"></i></span>
-        <span class="nav-item-label">Home Dashboard</span>
-      </button>
+      <div class="sidebar-bottom">
 
-      <button class="nav-item nav-view-tab" data-view="routineView" id="navItemStudyPlan"
-        onclick="window.app.switchView('routineView')">
-        <span class="nav-item-icon"><i data-lucide="calendar-check-2"></i></span>
-        <span class="nav-item-label">Study Plan</span>
-      </button>
+        <!-- Motivational Mountain Sunset Card -->
+        <div class="sidebar-quote-card">
+          <img src="assets/sidebar_mountain.jpg" alt="Mountain summit at dusk" class="quote-card-bg">
+          <div class="quote-card-overlay"></div>
+          <div class="quote-content">
+            <p class="quote-text">"Discipline today builds the freedom tomorrow."</p>
+            <span class="quote-author">— AuraRoutine</span>
+          </div>
+        </div>
 
-      <button class="nav-item nav-view-tab" data-view="englishView" id="navItemNotes"
-        onclick="window.app.switchView('englishView')">
-        <span class="nav-item-icon"><i data-lucide="file-text"></i></span>
-        <span class="nav-item-label">Notes &amp; Vocab</span>
-      </button>
-
-      <button class="nav-item nav-view-tab" data-view="englishView" id="navItemResources"
-        onclick="window.app.switchView('englishView', 'panelReading')">
-        <span class="nav-item-icon"><i data-lucide="book-open"></i></span>
-        <span class="nav-item-label">Reading &amp; AI Lab</span>
-      </button>
-
-      <div class="nav-section-divider"></div>
-
-      <button class="nav-item nav-view-tab" data-view="wellnessView" id="navItemAnalytics"
-        onclick="window.app.switchView('wellnessView')">
-        <span class="nav-item-icon"><i data-lucide="activity"></i></span>
-        <span class="nav-item-label">Wellness &amp; Health</span>
-      </button>
-
-      <button class="nav-item nav-view-tab" data-view="rulesView" id="navItemSettings"
-        onclick="window.app.switchView('rulesView')">
-        <span class="nav-item-icon"><i data-lucide="scroll"></i></span>
-        <span class="nav-item-label">7 Golden Rules</span>
-      </button>
-
-      <button class="nav-item nav-view-tab" data-view="profileView" id="navItemProfile"
-        onclick="window.app.switchView('profileView')">
-        <span class="nav-item-icon"><i data-lucide="user"></i></span>
-        <span class="nav-item-label">My Profile</span>
-      </button>
-    </nav>
-
-  </div>
-
-  <div class="sidebar-bottom">
-
-    <!-- Motivational Mountain Sunset Card -->
-    <div class="sidebar-quote-card">
-      <img src="assets/sidebar_mountain.jpg" alt="Mountain summit at dusk" class="quote-card-bg">
-      <div class="quote-card-overlay"></div>
-      <div class="quote-content">
-        <p class="quote-text">"Discipline today builds the freedom tomorrow."</p>
-        <span class="quote-author">— StudyVault</span>
-      </div>
-    </div>
-
-    <!-- Sidebar User Profile Mini Card — click to go to Profile -->
-    <div class="sidebar-user-card" onclick="window.app.switchView('profileView')" title="Go to Profile" role="button"
-      tabindex="0">
-      <img src="assets/avatar_aniket.jpg" alt="Your Profile" class="sidebar-user-avatar" id="sidebarUserAvatar">
-      <div class="sidebar-user-meta">
-        <span class="sidebar-user-name" id="sidebarUserName">Aniket Singh</span>
-        <span class="sidebar-user-level" id="sidebarUserLevel">Level 3 Scholar</span>
-      </div>
-      <span class="sidebar-profile-arrow">→</span>
-    </div>
+        <!-- Sidebar User Profile Mini Card — click to go to Profile -->
+        <div class="sidebar-user-card" onclick="window.app.switchView('profileView')" title="Go to Profile" role="button"
+          tabindex="0">
+          <img src="assets/avatar_aniket.jpg" alt="Your Profile" class="sidebar-user-avatar" id="sidebarUserAvatar">
+          <div class="sidebar-user-meta">
+            <span class="sidebar-user-name" id="sidebarUserName">Aniket Singh</span>
+            <span class="sidebar-user-level" id="sidebarUserLevel">Level 3 Scholar</span>
+          </div>
+          <span class="sidebar-profile-arrow">→</span>
+        </div>
 
   </div>
   </aside>
@@ -163,6 +195,13 @@
 
       <!-- Right Profile & Tactical Controls -->
       <div class="topbar-right">
+        <!-- Daily Rollover & Aura Indicator Pill -->
+        <button class="topbar-daily-control-btn" id="topbarDailyControlBtn" onclick="window.app.openDailyControlModal()" title="Daily Rollover, History & Reset Engine">
+          <span class="aura-pulse-dot"></span>
+          <span class="daily-pill-date" id="topbarCurrentDateDisplay">Today • Loading...</span>
+          <span class="daily-pill-aura" id="topbarAuraScoreBadge">⚡ 0% Aura</span>
+        </button>
+
         <button class="topbar-util-btn" id="themeToggleBtn" title="Toggle Visual Mode" aria-label="Toggle Theme">
           <i data-lucide="sun"></i>
         </button>
@@ -268,12 +307,12 @@
                   </p>
                 </div>
 
-                <!-- 3 Stats Badges -->
+                <!-- 4 Interactive Stats Badges -->
                 <div class="hero-stats-row">
                   <div class="hero-stat-pill">
                     <div class="hero-stat-icon-wrap time"><i data-lucide="clock"></i></div>
                     <div class="hero-stat-meta">
-                      <span class="hero-stat-val" id="heroStudyTimeVal">4h 32m</span>
+                      <span class="hero-stat-val" id="heroStudyTimeVal">0h 00m</span>
                       <span class="hero-stat-lbl">Today's Study Time</span>
                     </div>
                   </div>
@@ -281,7 +320,7 @@
                   <div class="hero-stat-pill">
                     <div class="hero-stat-icon-wrap tasks"><i data-lucide="calendar-check-2"></i></div>
                     <div class="hero-stat-meta">
-                      <span class="hero-stat-val" id="heroPendingTasksVal">7 Tasks</span>
+                      <span class="hero-stat-val" id="heroPendingTasksVal">0 Tasks</span>
                       <span class="hero-stat-lbl">Pending</span>
                     </div>
                   </div>
@@ -289,8 +328,16 @@
                   <div class="hero-stat-pill">
                     <div class="hero-stat-icon-wrap goal"><i data-lucide="target"></i></div>
                     <div class="hero-stat-meta">
-                      <span class="hero-stat-val" id="heroDailyGoalVal">3/5</span>
+                      <span class="hero-stat-val" id="heroDailyGoalVal">0/0</span>
                       <span class="hero-stat-lbl">Daily Goal</span>
+                    </div>
+                  </div>
+
+                  <div class="hero-stat-pill" onclick="window.app.openDailyControlModal()" style="cursor: pointer;" title="View Daily Computational Aura Breakdown & History">
+                    <div class="hero-stat-icon-wrap" style="background: rgba(112, 71, 255, 0.2); color: #C084FC;"><i data-lucide="zap"></i></div>
+                    <div class="hero-stat-meta">
+                      <span class="hero-stat-val" id="heroAuraScoreVal">0% Dormant</span>
+                      <span class="hero-stat-lbl">Daily Aura Rating ⚙</span>
                     </div>
                   </div>
                 </div>
@@ -1740,16 +1787,16 @@
     <!-- APP FOOTER STATUS BAR -->
     <footer class="app-footer-bar">
       <div class="footer-brand-side">
-        <span style="color: var(--accent-primary); font-size: 1.1rem;"><i data-lucide="gem" class="svg-icon"></i></span>
-        <span>Better Learning • Brighter Future</span>
+        <span style="color: var(--accent-primary); font-size: 1.1rem;"><i data-lucide="zap" class="svg-icon"></i></span>
+        <span>AuraRoutine • Ascend Daily • Master Routine</span>
       </div>
 
       <div class="footer-quote-center">
-        <i data-lucide="star" class="svg-icon" style="color:var(--accent-gold);margin-right:0.35rem;"></i> Progress isn't made in a day, but in consistent effort.
+        <i data-lucide="star" class="svg-icon" style="color:var(--accent-gold);margin-right:0.35rem;"></i> Daily consistency compounds into extraordinary mastery.
       </div>
 
       <div class="footer-version-side">
-        StudyVault v2.0
+        AuraRoutine OS v3.0
       </div>
     </footer>
 
@@ -2007,15 +2054,157 @@
     <div></div>
   </div>
 
-  <!-- 6. ACHIEVEMENT / LEVEL UP FANFARE MODAL -->
-  <div id="achievementModal" class="modal-backdrop" role="dialog" aria-modal="true">
-    <div class="modal-card eye-rest-modal-card">
-      <div id="achievementModalIcon" style="display:flex; justify-content:center; align-items:center; margin-bottom:1rem;"><i data-lucide="trophy" style="width:64px;height:64px;color:var(--accent-gold);"></i></div>
-      <h3 id="achievementModalTitle" style="color: #FFFFFF; font-size: 1.35rem; margin: 0.5rem 0;">ACHIEVEMENT UNLOCKED!
-      </h3>
-      <p id="achievementModalDesc" style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.25rem;">You
-        conquered an essential discipline milestone.</p>
-      <button id="closeAchievementModal" class="btn-primary">Claim Glory & Continue</button>
+  <!-- 7. DAILY COMPUTATIONAL CONTROL & HISTORY MODAL -->
+  <div id="dailyControlModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card daily-control-modal-card">
+      <div class="card-header-between" style="margin-bottom: 1.25rem;">
+        <div class="card-title-group">
+          <span class="card-title-icon" style="background: rgba(112, 71, 255, 0.2); color: #C084FC;"><i data-lucide="cpu"></i></span>
+          <div>
+            <h3 style="color: #FFFFFF; font-size: 1.25rem;">Daily Computational Engine</h3>
+            <span class="card-header-sub" id="dailyModalCurrentDate">Today: Active Day</span>
+          </div>
+        </div>
+        <button id="closeDailyControlModalBtn" class="focus-exit-btn" onclick="document.getElementById('dailyControlModal').classList.remove('active')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <!-- Live Aura Score Energy Gauge -->
+      <div class="aura-gauge-card">
+        <div class="aura-gauge-ring-wrap">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" stroke="rgba(255, 255, 255, 0.08)" stroke-width="8" fill="none"></circle>
+            <circle id="dailyModalAuraCircle" cx="50" cy="50" r="42" stroke="url(#auraRingGrad)" stroke-width="8" fill="none"
+              stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264" style="transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);"></circle>
+          </svg>
+          <div class="aura-gauge-center-text">
+            <span class="aura-gauge-percent-num" id="dailyModalAuraPct">0%</span>
+            <span class="aura-gauge-percent-lbl">Aura</span>
+          </div>
+        </div>
+
+        <div class="aura-gauge-meta">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <span class="aura-tier-badge dormant" id="dailyModalAuraTierBadge">🌑 Dormant Aura</span>
+            <span style="font-size: 0.75rem; color: var(--accent-cyan);" id="dailyModalStreakText">🔥 1-Day Streak</span>
+          </div>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.3rem;" id="dailyModalAuraDesc">
+            Execute your routine, habits, hydration, and study blocks to power your daily aura energy.
+          </p>
+        </div>
+      </div>
+
+      <!-- Real-Time Computational Breakdown (40% + 20% + 15% + 15% + 10%) -->
+      <h4 style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;">
+        Real-Time Formula Breakdown
+      </h4>
+      <div class="aura-breakdown-grid">
+        <div class="aura-breakdown-item">
+          <div class="aura-breakdown-title"><span>Routine Tasks (40%)</span><span id="breakdownTaskVal">0/0</span></div>
+          <div class="aura-breakdown-val" id="breakdownTaskPct">0%</div>
+          <div class="aura-breakdown-bar"><div class="aura-breakdown-fill" id="breakdownTaskFill" style="width: 0%; background: #1687FF;"></div></div>
+        </div>
+
+        <div class="aura-breakdown-item">
+          <div class="aura-breakdown-title"><span>Daily Habits (20%)</span><span id="breakdownHabitVal">0/5</span></div>
+          <div class="aura-breakdown-val" id="breakdownHabitPct">0%</div>
+          <div class="aura-breakdown-bar"><div class="aura-breakdown-fill" id="breakdownHabitFill" style="width: 0%; background: #7047FF;"></div></div>
+        </div>
+
+        <div class="aura-breakdown-item">
+          <div class="aura-breakdown-title"><span>Hydration (15%)</span><span id="breakdownWaterVal">0/8</span></div>
+          <div class="aura-breakdown-val" id="breakdownWaterPct">0%</div>
+          <div class="aura-breakdown-bar"><div class="aura-breakdown-fill" id="breakdownWaterFill" style="width: 0%; background: #22D3EE;"></div></div>
+        </div>
+
+        <div class="aura-breakdown-item">
+          <div class="aura-breakdown-title"><span>Focus Studio (15%)</span><span id="breakdownFocusVal">0m</span></div>
+          <div class="aura-breakdown-val" id="breakdownFocusPct">0%</div>
+          <div class="aura-breakdown-bar"><div class="aura-breakdown-fill" id="breakdownFocusFill" style="width: 0%; background: #EC4899;"></div></div>
+        </div>
+
+        <div class="aura-breakdown-item">
+          <div class="aura-breakdown-title"><span>Bio Breaks (10%)</span><span id="breakdownBioVal">0/4</span></div>
+          <div class="aura-breakdown-val" id="breakdownBioPct">0%</div>
+          <div class="aura-breakdown-bar"><div class="aura-breakdown-fill" id="breakdownBioFill" style="width: 0%; background: #10B981;"></div></div>
+        </div>
+      </div>
+
+      <!-- Action Tools (Simulation, Reset, Backup) -->
+      <h4 style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;">
+        Daily Lifecycle &amp; Testing Tools
+      </h4>
+      <div class="daily-tools-action-row">
+        <button class="daily-tool-btn simulate" onclick="window.app.simulateNextDay()" title="Archive today & roll date forward for testing">
+          <i data-lucide="fast-forward" class="btn-icon-svg"></i> Simulate Next Day
+        </button>
+        <button class="daily-tool-btn reset" onclick="window.app.forceResetToday()" title="Reset today's tasks & habits clean">
+          <i data-lucide="rotate-ccw" class="btn-icon-svg"></i> Reset Today's State
+        </button>
+        <button class="daily-tool-btn backup" onclick="window.app.exportDataBackup()" title="Download full JSON backup of data">
+          <i data-lucide="download" class="btn-icon-svg"></i> Export Backup
+        </button>
+        <button class="daily-tool-btn backup" onclick="window.app.triggerImportData()" title="Import JSON backup file">
+          <i data-lucide="upload" class="btn-icon-svg"></i> Import Backup
+        </button>
+        <input type="file" id="dataBackupFileInput" accept=".json" style="display: none;">
+      </div>
+
+      <!-- 14-Day Consistency & Aura History Strip -->
+      <div class="daily-history-container">
+        <div class="card-header-between">
+          <div style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; display: flex; align-items: center; gap: 0.4rem;">
+            <i data-lucide="calendar" style="width:16px;height:16px;color:var(--accent-cyan);"></i> 14-Day Aura History Archive
+          </div>
+          <span style="font-size: 0.72rem; color: var(--text-muted);">Auto-saved at midnight</span>
+        </div>
+        <div class="history-strip-row" id="dailyHistoryStripRow">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. NEW DAY AWAKENING & CELEBRATION MODAL -->
+  <div id="dailyRolloverModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card daily-awakening-card">
+      <div class="awakening-sun-icon">
+        <i data-lucide="sun" style="width: 44px; height: 44px; color: #F59E0B;"></i>
+      </div>
+      <h2 style="font-size: 1.5rem; color: #FFFFFF; font-weight: 800; margin-bottom: 0.35rem;">
+        New Day Awakened!
+      </h2>
+      <p style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600;" id="awakeningDateTitle">
+        Wednesday • Active Day
+      </p>
+
+      <div class="awakening-stats-pill-box">
+        <div class="awakening-stat-row">
+          <span class="awakening-stat-lbl">Yesterday's Aura:</span>
+          <span class="awakening-stat-val" id="awakeningYesterdayAura">88% Radiant</span>
+        </div>
+        <div class="awakening-stat-row">
+          <span class="awakening-stat-lbl">Current Streak:</span>
+          <span class="awakening-stat-val" id="awakeningStreakVal">🔥 15 Days</span>
+        </div>
+        <div class="awakening-stat-row" style="margin-top: 0.5rem;">
+          <span class="awakening-stat-lbl">Status:</span>
+          <span class="awakening-stat-val" style="color: #34D399;">Fresh Schedule</span>
+        </div>
+        <div class="awakening-stat-row" style="margin-top: 0.5rem;">
+          <span class="awakening-stat-lbl">Daily Target:</span>
+          <span class="awakening-stat-val">100% Mastery</span>
+        </div>
+      </div>
+
+      <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        All daily tasks, habits, and hydration targets have been reset fresh for today. Attack the day with relentless focus!
+      </p>
+
+      <button class="btn-primary" style="width: 100%; padding: 0.85rem;" onclick="document.getElementById('dailyRolloverModal').classList.remove('active')">
+        🚀 Begin Today's Conquest
+      </button>
     </div>
   </div>
 

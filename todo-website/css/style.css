@@ -398,6 +398,121 @@ body {
   color: var(--text-muted);
 }
 
+/* Sidebar User Mini Profile Card */
+.sidebar-user-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(22, 135, 255, 0.1), rgba(112, 71, 255, 0.08));
+  border: 1px solid rgba(120, 160, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.sidebar-user-card:hover {
+  background: linear-gradient(135deg, rgba(22, 135, 255, 0.18), rgba(112, 71, 255, 0.14));
+  border-color: rgba(120, 160, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(22, 135, 255, 0.2);
+}
+
+.sidebar-user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+  flex-shrink: 0;
+}
+
+.sidebar-user-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar-user-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-user-level {
+  font-size: 0.67rem;
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.sidebar-profile-arrow {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: transform var(--trans-fast), color var(--trans-fast);
+}
+
+.sidebar-user-card:hover .sidebar-profile-arrow {
+  transform: translateX(3px);
+  color: var(--accent-primary);
+}
+
+/* Nav Section Divider */
+.nav-section-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0.35rem 0;
+  border-radius: 1px;
+}
+
+/* Topbar Avatar Go-Profile Button */
+.topbar-avatar-go-profile {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--trans-fast);
+}
+
+.topbar-avatar-go-profile::after {
+  content: '↗';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  font-size: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all var(--trans-fast);
+}
+
+.topbar-avatar-go-profile:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.topbar-avatar-go-profile:hover .user-avatar-img {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.5);
+  transform: scale(1.05);
+}
+
 /* ==========================================================================
    APP MAIN CONTENT WRAPPER & TOP COMMAND HEADER
    ========================================================================== */

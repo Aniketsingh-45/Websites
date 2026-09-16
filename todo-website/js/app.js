@@ -981,7 +981,8 @@ class AppController {
 
     // Audio & Alerts
     document.getElementById('soundToggleBtn')?.addEventListener('click', () => this.toggleSound());
-    document.getElementById('notifyPermBtn')?.addEventListener('click', () => this.requestNotifyPerm());
+    document.getElementById('notifyPermBtn')?.addEventListener('click', () => this.toggleNotifications());
+    window.addEventListener('notification-state-changed', () => this.updateHeaderButtonBadges());
 
     // Filter tabs in routineView
     document.querySelectorAll('.filter-tab').forEach(tab => {
@@ -1870,30 +1871,69 @@ class AppController {
   }
 
   updateHeaderButtonBadges() {
+    // Sound Button
     const soundBtn = document.getElementById('soundToggleBtn');
-    if (soundBtn && window.soundEngine) {
-      const on = window.soundEngine.soundEnabled;
-      soundBtn.innerHTML = on ? '<i data-lucide="volume-2" class="svg-icon"></i>' : '<i data-lucide="volume-x" class="svg-icon"></i>';
-      if (window.lucide) window.lucide.createIcons();
+    const soundOn = window.soundEngine ? window.soundEngine.soundEnabled : true;
+    if (soundBtn) {
+      soundBtn.innerHTML = soundOn ? '<i data-lucide="volume-2" class="svg-icon"></i>' : '<i data-lucide="volume-x" class="svg-icon"></i>';
+      soundBtn.title = soundOn ? 'Audio Synthesizer: ON (Click to mute)' : 'Audio Synthesizer: OFF (Click to unmute)';
+      soundBtn.classList.toggle('muted', !soundOn);
     }
+
+    // Notification Button
+    const notifyBtn = document.getElementById('notifyPermBtn');
+    const notifyOn = window.notificationEngine ? window.notificationEngine.enabled : true;
+    if (notifyBtn) {
+      notifyBtn.innerHTML = notifyOn
+        ? '<i data-lucide="bell" class="svg-icon"></i><span class="notification-dot"></span>'
+        : '<i data-lucide="bell-off" class="svg-icon"></i>';
+      notifyBtn.title = notifyOn ? 'Notifications: ON (Click to turn off)' : 'Notifications: OFF (Click to turn on)';
+      notifyBtn.classList.toggle('muted', !notifyOn);
+    }
+
+    // Dropdown indicators
+    const dropNotifyStatus = document.getElementById('dropdownNotifyStatus');
+    const dropSoundStatus = document.getElementById('dropdownSoundStatus');
+    if (dropNotifyStatus) dropNotifyStatus.textContent = `Notifs: ${notifyOn ? 'ON' : 'OFF'}`;
+    if (dropSoundStatus) dropSoundStatus.textContent = `Audio: ${soundOn ? 'ON' : 'OFF'}`;
+
+    // Profile page toggles if present
+    const profNotifyChk = document.getElementById('profileNotificationSwitch');
+    const profSoundChk = document.getElementById('profileSoundSwitch');
+    const notifBadge = document.getElementById('notifEngineStatusBadge');
+    if (profNotifyChk) profNotifyChk.checked = notifyOn;
+    if (profSoundChk) profSoundChk.checked = soundOn;
+    if (notifBadge) {
+      notifBadge.textContent = notifyOn ? '🔔 Sentinel Active (ON)' : '🔕 Muted (OFF)';
+      notifBadge.style.color = notifyOn ? 'var(--accent-cyan)' : '#F87171';
+      notifBadge.style.borderColor = notifyOn ? 'rgba(34, 211, 238, 0.3)' : 'rgba(239, 68, 68, 0.3)';
+    }
+
+    if (window.lucide) window.lucide.createIcons();
   }
 
-  toggleSound() {
-    const isEnabled = window.soundEngine.toggleSound();
-    const btn = document.getElementById('soundToggleBtn');
-    if (btn) {
-      btn.innerHTML = isEnabled ? '<i data-lucide="volume-2" class="svg-icon"></i>' : '<i data-lucide="volume-x" class="svg-icon"></i>';
-      if (window.lucide) window.lucide.createIcons();
+  toggleSound(forceState = null) {
+    const isEnabled = window.soundEngine ? window.soundEngine.toggleSound(forceState !== null ? forceState : undefined) : true;
+    this.updateHeaderButtonBadges();
+    this.showToast(isEnabled ? 'Audio Synthesizer Active (ON)' : 'Audio Effects Muted (OFF)', isEnabled ? 'Offline audio chimes, level-ups & cues active.' : 'All acoustic synthesized sound effects are muted.');
+  }
+
+  async toggleNotifications(forceState = null) {
+    if (window.notificationEngine) {
+      const isEnabled = await window.notificationEngine.toggleNotifications(forceState);
+      this.updateHeaderButtonBadges();
+      if (isEnabled) {
+        if (window.soundEngine) window.soundEngine.play('chime');
+        this.showToast('Notifications Active (ON)', 'System and in-app routine alerts & bio reminders are ON.');
+      } else {
+        this.showToast('Notifications Muted (OFF)', 'All notifications, routine alerts & toasts are paused.');
+      }
+      return isEnabled;
     }
   }
 
   async requestNotifyPerm() {
-    const granted = await window.notificationEngine.requestPermission();
-    if (granted) {
-      this.showToast("Notifications Enabled", "Slot alerts & wellness reminders are active.");
-    } else {
-      alert("Notification permissions were not granted.");
-    }
+    return this.toggleNotifications();
   }
 
   showToast(title, body) {

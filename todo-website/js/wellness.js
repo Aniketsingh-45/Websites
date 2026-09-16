@@ -76,9 +76,9 @@ class WellnessSentinel {
     }
   }
 
-  saveState() {
+  saveState(customDate) {
     try {
-      const today = new Date().toDateString();
+      const today = customDate || new Date().toDateString();
       localStorage.setItem('aura_wellness_data', JSON.stringify({
         date: today,
         waterGlasses: this.waterGlasses,
@@ -94,6 +94,14 @@ class WellnessSentinel {
     } catch (e) {
       console.warn('Could not save wellness state', e);
     }
+  }
+
+  resetDailyWellness(dateStr) {
+    this.waterGlasses = 0;
+    this.eyeBreaksTaken = 0;
+    this.postureStretches = 0;
+    this.saveState(dateStr);
+    this.renderHydrationWidget();
   }
 
   startMasterClock() {
@@ -189,6 +197,7 @@ class WellnessSentinel {
       window.gamification.awardXP(15, 'Completed 20-20-20 Eye Rest');
     }
     this.renderHydrationWidget();
+    if (window.app && window.app.renderDailyHUD) window.app.renderDailyHUD();
   }
 
   dismissEyeBreak() {
@@ -247,6 +256,7 @@ class WellnessSentinel {
         }
       }
       this.renderHydrationWidget();
+      if (window.app && window.app.renderDailyHUD) window.app.renderDailyHUD();
     }
   }
 
@@ -255,6 +265,7 @@ class WellnessSentinel {
       this.waterGlasses--;
       this.saveState();
       this.renderHydrationWidget();
+      if (window.app && window.app.renderDailyHUD) window.app.renderDailyHUD();
     }
   }
 

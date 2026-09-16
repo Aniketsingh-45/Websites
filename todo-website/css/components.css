@@ -3714,10 +3714,9 @@
    CUSTOMIZABLE USER PROFILE SECTION (#profileView)
    ========================================================================== */
 .profile-dashboard-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  align-items: start;
 }
 
 .profile-card-header {
@@ -4050,6 +4049,30 @@
   text-align: center;
 }
 
+.profile-avatar-overlay-camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(5, 9, 20, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  opacity: 0;
+  transition: opacity var(--trans-fast);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.profile-avatar-wrapper:hover .profile-avatar-overlay-camera {
+  opacity: 1;
+}
+
 .profile-avatar-status-badge {
   position: absolute;
   bottom: -6px;
@@ -4163,7 +4186,6 @@
   background: linear-gradient(135deg, #0a1428 0%, #0f1f3d 60%, #12183a 100%);
   border: 1px solid rgba(120, 160, 255, 0.22);
   margin-bottom: 1.5rem;
-  grid-column: 1 / -1;
 }
 
 /* Profile Customizer Card */
@@ -4337,4 +4359,200 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* ==========================================================================
+   15. PREMIUM SVG & STICKER SYSTEM
+   ========================================================================== */
+.svg-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+  stroke-width: 2px;
+  width: 1em;
+  height: 1em;
+}
+
+i[data-lucide],
+svg.lucide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  stroke-width: 2px;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nav-item-icon svg,
+.nav-item-icon i[data-lucide] {
+  width: 19px;
+  height: 19px;
+  stroke-width: 2px;
+  color: inherit;
+  transition: transform var(--trans-fast);
+}
+
+.nav-item:hover .nav-item-icon svg,
+.nav-item:hover .nav-item-icon i[data-lucide] {
+  transform: scale(1.12);
+}
+
+.btn-icon-svg {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
+
+.pill-icon-svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── Glowing 3D Vector Stickers ── */
+.sticker-gem-svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 8px rgba(34, 211, 238, 0.6));
+  animation: gemGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes gemGlowPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 2px 8px rgba(34, 211, 238, 0.6)); }
+  50% { transform: scale(1.06); filter: drop-shadow(0 3px 14px rgba(112, 71, 255, 0.8)); }
+}
+
+.sticker-fire-svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 8px rgba(255, 94, 126, 0.65));
+  animation: fireFlicker 2.5s ease-in-out infinite;
+}
+
+@keyframes fireFlicker {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1.5px) scale(1.08); filter: drop-shadow(0 3px 12px rgba(255, 150, 50, 0.85)); }
+}
+
+.sticker-bolt-svg {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 6px rgba(255, 209, 102, 0.65));
+}
+
+.sticker-trophy-svg {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 2px 8px rgba(255, 209, 102, 0.6));
+}
+
+.sticker-posture-svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 8px rgba(32, 214, 160, 0.6));
+}
+
+.sticker-water-svg {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 2px 8px rgba(34, 211, 238, 0.6));
+}
+
+/* Water Cup Glass Overhaul */
+.water-cup-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: rgba(13, 27, 48, 0.7);
+  border: 1px solid rgba(120, 160, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 0.5rem;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.water-cup-item:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  transform: translateY(-2px);
+}
+
+.water-cup-item.filled {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.15) 0%, rgba(22, 135, 255, 0.25) 100%);
+  border-color: rgba(34, 211, 238, 0.55);
+  box-shadow: 0 4px 14px rgba(34, 211, 238, 0.25);
+}
+
+.water-cup-svg {
+  width: 32px;
+  height: 38px;
+  transition: transform var(--trans-spring);
+}
+
+.water-cup-item:hover .water-cup-svg {
+  transform: scale(1.12);
+}
+
+.water-cup-item.filled .water-cup-svg {
+  filter: drop-shadow(0 2px 8px rgba(34, 211, 238, 0.65));
+}
+
+/* Level Rank Badges */
+.badge-rank-sticker {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(22, 135, 255, 0.18), rgba(112, 71, 255, 0.25));
+  border: 1px solid rgba(120, 160, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.badge-rank-sticker:hover {
+  transform: translateY(-2px) scale(1.05);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 6px 18px rgba(34, 211, 238, 0.35);
+}
+
+.badge-rank-sticker svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Checkmark SVG in task checkboxes */
+.task-chk-circle svg,
+.habit-chk-box svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.8px;
+  stroke: #FFFFFF;
+  display: block;
+}
+
+/* Date nav action buttons */
+.date-nav-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2px;
 }

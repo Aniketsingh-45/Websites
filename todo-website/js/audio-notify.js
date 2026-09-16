@@ -277,7 +277,28 @@ class NotificationEngine {
   constructor(soundEngine) {
     this.soundEngine = soundEngine;
     this.permission = 'default';
+    this.enabled = true;
+    this.loadSettings();
     this.checkPermission();
+  }
+
+  loadSettings() {
+    try {
+      const saved = localStorage.getItem('aura_notifications_enabled');
+      if (saved !== null) {
+        this.enabled = saved === 'true';
+      } else {
+        this.enabled = true;
+      }
+    } catch (e) {
+      this.enabled = true;
+    }
+  }
+
+  saveSettings() {
+    try {
+      localStorage.setItem('aura_notifications_enabled', this.enabled ? 'true' : 'false');
+    } catch (e) {}
   }
 
   checkPermission() {
@@ -300,10 +321,33 @@ class NotificationEngine {
     }
   }
 
+  async toggleNotifications(forceState = null) {
+    if (forceState !== null) {
+      this.enabled = !!forceState;
+    } else {
+      this.enabled = !this.enabled;
+    }
+
+    if (this.enabled) {
+      if ('Notification' in window && Notification.permission === 'default') {
+        await this.requestPermission();
+      }
+    }
+
+    this.saveSettings();
+    window.dispatchEvent(new CustomEvent('notification-state-changed', {
+      detail: { enabled: this.enabled }
+    }));
+    return this.enabled;
+  }
+
   notify(title, options = {}) {
+    // If notifications are turned OFF by user, do not send alerts
+    if (!this.enabled) return;
+
     const { soundType = 'chime', icon = 'favicon.ico', body = '', badge = '' } = options;
 
-    // 1. Play sound
+    // 1. Play sound if sound engine is available and active
     if (this.soundEngine) {
       this.soundEngine.play(soundType);
     }

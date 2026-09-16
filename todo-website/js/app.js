@@ -395,7 +395,7 @@ class AppController {
         if (hours >= 5 && hours < 12) period = 'Morning';
         else if (hours >= 12 && hours < 17) period = 'Afternoon';
         const firstName = this.userProfile?.name ? this.userProfile.name.split(' ')[0] : 'Scholar';
-        greetingElem.textContent = `Good ${period}, ${firstName}! 👋`;
+        greetingElem.textContent = `Good ${period}, ${firstName}!`;
       }
 
       // Date Nav Display
@@ -454,7 +454,7 @@ class AppController {
     if (matched && matched.task && matched.task.id !== this.lastNotifiedTaskId) {
       this.lastNotifiedTaskId = matched.task.id;
       if (window.notificationEngine) {
-        window.notificationEngine.notify(`⏰ Routine: ${matched.task.activity}`, {
+        window.notificationEngine.notify(`Routine: ${matched.task.activity}`, {
           body: `Time: ${matched.task.timeDisplay} | Goal: ${matched.task.goal}`,
           soundType: 'alert',
           tag: 'slot-start'
@@ -487,8 +487,9 @@ class AppController {
     if (goalDescElem) goalDescElem.textContent = `Goal: ${task.goal}`;
     if (timerElem) timerElem.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
     if (completeBtn) {
-      completeBtn.textContent = task.completed ? '✓ Completed' : '✓ Mark Completed';
+      completeBtn.innerHTML = task.completed ? '<i data-lucide="check-check" class="btn-icon-svg"></i> Completed' : '<i data-lucide="check" class="btn-icon-svg"></i> Mark Completed';
       completeBtn.classList.toggle('completed', task.completed);
+      if (window.lucide) window.lucide.createIcons();
     }
   }
 
@@ -566,13 +567,14 @@ class AppController {
             <div class="task-card-right-col">
               <span class="task-xp-pill">+${task.xp || 30} XP</span>
               <button class="task-check-circle" onclick="window.app.toggleTask('${task.id}')" title="Mark as done">
-                ${task.completed ? '✓' : ''}
+                ${task.completed ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
               </button>
             </div>
           </div>
         </div>
       `;
     }).join('');
+    if (window.lucide) window.lucide.createIcons();
   }
 
   renderTaskList() {
@@ -602,11 +604,14 @@ class AppController {
     if (filtered.length === 0) {
       container.innerHTML = `
         <div style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); background: var(--bg-card); border-radius: var(--radius-xl); border: 1px dashed var(--border-subtle); margin: 0.5rem 0;">
-          <p style="font-size: 1.05rem; color: #FFFFFF; margin-bottom: 0.4rem;">🔍 No tasks found</p>
+          <p style="font-size: 1.05rem; color: #FFFFFF; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <i data-lucide="search" class="svg-icon"></i> No tasks found
+          </p>
           <p style="font-size: 0.8rem; margin-bottom: 1rem;">No tasks match the active filter or search term.</p>
           <button class="btn-primary" onclick="window.app.filterRoutineCategory('all')" style="display: inline-block;">Reset Filter</button>
         </div>
       `;
+      if (window.lucide) window.lucide.createIcons();
       return;
     }
 
@@ -635,15 +640,16 @@ class AppController {
             <div class="task-card-right-col">
               <span class="task-xp-pill">+${task.xp} XP</span>
               <button class="task-check-circle" onclick="window.app.toggleTask('${task.id}')">
-                ${task.completed ? '✓' : ''}
+                ${task.completed ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
               </button>
-              <button class="date-nav-btn" onclick="window.app.editTask('${task.id}')" title="Edit">✏️</button>
-              <button class="date-nav-btn" onclick="window.app.deleteTask('${task.id}')" title="Delete">🗑️</button>
+              <button class="date-nav-btn" onclick="window.app.editTask('${task.id}')" title="Edit"><i data-lucide="pencil" class="svg-icon"></i></button>
+              <button class="date-nav-btn" onclick="window.app.deleteTask('${task.id}')" title="Delete"><i data-lucide="trash-2" class="svg-icon"></i></button>
             </div>
           </div>
         </div>
       `;
     }).join('');
+    if (window.lucide) window.lucide.createIcons();
   }
 
   toggleTask(taskId) {
@@ -681,7 +687,7 @@ class AppController {
     if (allDone) {
       window.gamification.unlockBadge('badge-full-day');
       window.gamification.awardXP(150, '100% Daily Routine Conquered!');
-      this.showToast('🏆 100% Day Conquered!', 'Incredible discipline! All routine tasks completed.');
+      this.showToast('100% Day Conquered!', 'Incredible discipline! All routine tasks completed.');
     }
   }
 
@@ -775,7 +781,10 @@ class AppController {
     }
 
     const playBtn = document.getElementById('dashboardTimerPlayBtn');
-    if (playBtn) playBtn.textContent = '▶';
+    if (playBtn) {
+      playBtn.innerHTML = '<i data-lucide="play" class="svg-icon"></i>';
+      if (window.lucide) window.lucide.createIcons();
+    }
 
     this.updateDashboardTimerUI();
   }
@@ -786,10 +795,16 @@ class AppController {
     if (this.isDashboardTimerRunning) {
       clearInterval(this.dashboardTimerInterval);
       this.isDashboardTimerRunning = false;
-      if (playBtn) playBtn.textContent = '▶';
+      if (playBtn) {
+        playBtn.innerHTML = '<i data-lucide="play" class="svg-icon"></i>';
+        if (window.lucide) window.lucide.createIcons();
+      }
     } else {
       this.isDashboardTimerRunning = true;
-      if (playBtn) playBtn.textContent = '⏸';
+      if (playBtn) {
+        playBtn.innerHTML = '<i data-lucide="pause" class="svg-icon"></i>';
+        if (window.lucide) window.lucide.createIcons();
+      }
       if (window.soundEngine) window.soundEngine.play('tick');
 
       this.dashboardTimerInterval = setInterval(() => {
@@ -799,13 +814,16 @@ class AppController {
         if (this.dashboardTimerSeconds <= 0) {
           clearInterval(this.dashboardTimerInterval);
           this.isDashboardTimerRunning = false;
-          if (playBtn) playBtn.textContent = '▶';
+          if (playBtn) {
+            playBtn.innerHTML = '<i data-lucide="play" class="svg-icon"></i>';
+            if (window.lucide) window.lucide.createIcons();
+          }
           if (window.soundEngine) window.soundEngine.play('levelUp');
           if (window.gamification) {
             window.gamification.awardXP(60, 'Focus Session Complete');
             window.gamification.unlockBadge('badge-zen');
           }
-          this.showToast("Focus Complete! ⚡", "Magnificent focus session. Take a 5 min break!");
+          this.showToast("Focus Complete!", "Magnificent focus session. Take a 5 min break!");
         }
       }, 1000);
     }
@@ -858,10 +876,12 @@ class AppController {
       if (this.isFocusTimerRunning) {
         clearInterval(this.focusTimerInterval);
         this.isFocusTimerRunning = false;
-        toggleTimerBtn.textContent = '▶ Resume';
+        toggleTimerBtn.innerHTML = '<i data-lucide="play" class="btn-icon-svg"></i> Resume';
+        if (window.lucide) window.lucide.createIcons();
       } else {
         this.isFocusTimerRunning = true;
-        toggleTimerBtn.textContent = '⏸ Pause';
+        toggleTimerBtn.innerHTML = '<i data-lucide="pause" class="btn-icon-svg"></i> Pause';
+        if (window.lucide) window.lucide.createIcons();
         this.focusTimerInterval = setInterval(() => {
           this.focusSecondsRemaining--;
           this.updateFocusTimerDisplay();
@@ -1012,7 +1032,7 @@ class AppController {
     if (window.englishLab) {
       window.englishLab.addCustomWord({ word, partOfSpeech: pos, definition: def, sentence1: s1, sentence2: s2, sentence3: s3 });
       this.closeCustomVocabModal();
-      this.showToast("Vocabulary Added! 💎", `"${word}" saved with +40 XP.`);
+      this.showToast("Vocabulary Added!", `"${word}" saved with +40 XP.`);
     }
   }
 
@@ -1044,14 +1064,18 @@ class AppController {
     const soundBtn = document.getElementById('soundToggleBtn');
     if (soundBtn && window.soundEngine) {
       const on = window.soundEngine.soundEnabled;
-      soundBtn.innerHTML = on ? '🔊' : '🔇';
+      soundBtn.innerHTML = on ? '<i data-lucide="volume-2" class="svg-icon"></i>' : '<i data-lucide="volume-x" class="svg-icon"></i>';
+      if (window.lucide) window.lucide.createIcons();
     }
   }
 
   toggleSound() {
     const isEnabled = window.soundEngine.toggleSound();
     const btn = document.getElementById('soundToggleBtn');
-    if (btn) btn.innerHTML = isEnabled ? '🔊' : '🔇';
+    if (btn) {
+      btn.innerHTML = isEnabled ? '<i data-lucide="volume-2" class="svg-icon"></i>' : '<i data-lucide="volume-x" class="svg-icon"></i>';
+      if (window.lucide) window.lucide.createIcons();
+    }
   }
 
   async requestNotifyPerm() {
@@ -1115,7 +1139,7 @@ class AppController {
 
     list.innerHTML = habits.map(h => `
       <div class="habit-item-row ${h.checked ? 'checked' : ''}" onclick="window.app.toggleHabitCheck('${h.id}')">
-        <div class="habit-chk-box">${h.checked ? '✓' : ''}</div>
+        <div class="habit-chk-box">${h.checked ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}</div>
         <span class="habit-text-label">${h.text}</span>
       </div>
     `).join('');
@@ -1148,7 +1172,10 @@ class AppController {
       if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
         const btn = document.getElementById('themeToggleBtn');
-        if (btn) btn.textContent = '🌙';
+        if (btn) {
+          btn.innerHTML = '<i data-lucide="moon" class="svg-icon"></i>';
+          if (window.lucide) window.lucide.createIcons();
+        }
       }
     } catch (e) {}
   }
@@ -1156,7 +1183,10 @@ class AppController {
   toggleTheme() {
     const isLight = document.body.classList.toggle('light-theme');
     const btn = document.getElementById('themeToggleBtn');
-    if (btn) btn.textContent = isLight ? '🌙' : '☀️';
+    if (btn) {
+      btn.innerHTML = isLight ? '<i data-lucide="moon" class="svg-icon"></i>' : '<i data-lucide="sun" class="svg-icon"></i>';
+      if (window.lucide) window.lucide.createIcons();
+    }
     try {
       localStorage.setItem('aura_theme', isLight ? 'light' : 'dark');
     } catch (e) {}
@@ -1234,31 +1264,39 @@ class AppController {
   applyUserProfileEverywhere() {
     if (!this.userProfile) return;
 
+    const avatarUrl = this.userProfile.avatarUrl || '';
+    const isImageSrc = avatarUrl.startsWith('http') || avatarUrl.startsWith('data:') || avatarUrl.includes('/');
+
+    const setAvatar = (id) => {
+      const el = document.getElementById(id);
+      if (el && avatarUrl && isImageSrc) el.src = avatarUrl;
+    };
+
     // 1. Topbar Elements
     const topName = document.getElementById('topbarUserName');
     const topRole = document.getElementById('topbarUserRole');
-    const topAvatar = document.getElementById('topbarUserAvatar');
     if (topName) topName.textContent = this.userProfile.name;
     if (topRole) topRole.textContent = this.userProfile.role;
-    if (topAvatar && this.userProfile.avatarUrl) {
-      if (this.userProfile.avatarUrl.startsWith('http') || this.userProfile.avatarUrl.includes('/')) {
-        topAvatar.src = this.userProfile.avatarUrl;
-      }
-    }
+    setAvatar('topbarUserAvatar');
 
     // 2. Dropdown Elements
     const dropName = document.getElementById('dropdownUserName');
     const dropRole = document.getElementById('dropdownUserRole');
-    const dropAvatar = document.getElementById('dropdownUserAvatar');
     if (dropName) dropName.textContent = this.userProfile.name;
     if (dropRole) dropRole.textContent = this.userProfile.role;
-    if (dropAvatar && this.userProfile.avatarUrl) {
-      if (this.userProfile.avatarUrl.startsWith('http') || this.userProfile.avatarUrl.includes('/')) {
-        dropAvatar.src = this.userProfile.avatarUrl;
-      }
-    }
+    setAvatar('dropdownUserAvatar');
 
-    // 3. Hero Greeting
+    // 3. Sidebar User Card
+    const sidebarName = document.getElementById('sidebarUserName');
+    const sidebarLevel = document.getElementById('sidebarUserLevel');
+    if (sidebarName) sidebarName.textContent = this.userProfile.name;
+    if (sidebarLevel) {
+      const lvl = (window.gamification && window.gamification.level) || 3;
+      sidebarLevel.textContent = `Level ${lvl} Scholar`;
+    }
+    setAvatar('sidebarUserAvatar');
+
+    // 4. Hero Greeting
     const greetingElem = document.getElementById('heroGreetingText');
     if (greetingElem) {
       const hours = new Date().getHours();
@@ -1266,15 +1304,14 @@ class AppController {
       if (hours >= 5 && hours < 12) period = 'Morning';
       else if (hours >= 12 && hours < 17) period = 'Afternoon';
       const firstName = this.userProfile.name.split(' ')[0] || 'Scholar';
-      greetingElem.textContent = `Good ${period}, ${firstName}! 👋`;
+      greetingElem.textContent = `Good ${period}, ${firstName}!`;
     }
 
-    // 4. Profile Dashboard Card Elements
+    // 5. Profile Dashboard Card Elements
     const cardName = document.getElementById('profileCardName');
     const cardRole = document.getElementById('profileCardRole');
     const cardBio = document.getElementById('profileCardBio');
     const cardTrack = document.getElementById('profileCardTrack');
-    const cardAvatar = document.getElementById('profileCardAvatar');
     const hoursDisp = document.getElementById('profileHoursDisplay');
 
     if (cardName) cardName.textContent = this.userProfile.name;
@@ -1283,20 +1320,10 @@ class AppController {
     if (cardTrack) cardTrack.textContent = this.userProfile.track;
     if (hoursDisp) hoursDisp.textContent = `${this.userProfile.targetHours || 6.5}h`;
 
-    // Update profile avatar image if it's a valid URL/path/data URL
-    const avatarUrl = this.userProfile.avatarUrl || '';
-    const isImageSrc = avatarUrl.startsWith('http') || avatarUrl.startsWith('data:') || avatarUrl.includes('/');
-    if (cardAvatar && avatarUrl) {
-      if (isImageSrc) { cardAvatar.src = avatarUrl; } else { cardAvatar.alt = avatarUrl; }
-    }
+    setAvatar('profileCardAvatar');
+    setAvatar('avatarPreviewImg');
 
-    // Also update form preview img
-    const previewImg = document.getElementById('avatarPreviewImg');
-    if (previewImg && avatarUrl && isImageSrc) {
-      previewImg.src = avatarUrl;
-    }
-
-    // 5. Hero target hours
+    // 6. Hero target hours
     const heroGoal = document.getElementById('heroDailyGoalVal');
     if (heroGoal && this.userProfile.targetHours) {
       heroGoal.textContent = `${this.userProfile.targetHours}h`;
@@ -1342,43 +1369,73 @@ class AppController {
       window.gamification.awardXP(25, 'Personalized User Profile');
     }
 
-    this.showToast("✓ Profile Saved Everywhere!", `Identity updated to ${this.userProfile.name}. All views are synced.`);
+    this.showToast("Profile Saved Everywhere!", `Identity updated to ${this.userProfile.name}. All views are synced.`);
   }
 
-  setAvatarPreset(avatar, btnElem) {
+  createVectorAvatarDataUrl(type) {
+    const iconMap = {
+      'bot': `<rect x="30" y="34" width="68" height="60" rx="14" fill="none" stroke="#22d3ee" stroke-width="6"/><circle cx="50" cy="58" r="7" fill="#22d3ee"/><circle cx="78" cy="58" r="7" fill="#22d3ee"/><line x1="64" y1="18" x2="64" y2="34" stroke="#22d3ee" stroke-width="6"/><circle cx="64" cy="16" r="6" fill="#7047ff"/>`,
+      'rocket': `<path d="M64 20c18 20 24 45 24 64H40c0-19 6-44 24-64z" fill="none" stroke="#7047ff" stroke-width="6"/><circle cx="64" cy="52" r="10" fill="#22d3ee"/><path d="M40 84l-14 18h24" stroke="#ff5e7e" stroke-width="5" fill="none"/><path d="M88 84l14 18H78" stroke="#ff5e7e" stroke-width="5" fill="none"/>`,
+      'brain': `<path d="M50 30a16 16 0 0 0-16 16c0 5 2 9 6 12-4 3-6 7-6 12 0 9 7 16 16 16h10V30H50z" fill="none" stroke="#ec4899" stroke-width="6"/><path d="M78 30a16 16 0 0 1 16 16c0 5-2 9-6 12 4 3 6 7 6 12 0 9-7 16-16 16H68V30h10z" fill="none" stroke="#ec4899" stroke-width="6"/>`,
+      'zap': `<polygon points="70 18 36 68 62 68 56 110 92 60 66 60 70 18" fill="url(#boltG)" stroke="#ffd166" stroke-width="4"/>`,
+      'zen': `<circle cx="64" cy="38" r="14" fill="none" stroke="#20d6a0" stroke-width="6"/><path d="M34 94c0-18 14-30 30-30s30 12 30 30H34z" fill="none" stroke="#20d6a0" stroke-width="6"/>`,
+      'shield': `<path d="M64 22l34 14v32c0 24-18 42-34 46-16-4-34-22-34-46V36l34-14z" fill="none" stroke="#ffd166" stroke-width="6"/>`
+    };
+    const content = iconMap[type] || iconMap['bot'];
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+      <defs>
+        <linearGradient id="bgG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0c1b32"/>
+          <stop offset="100%" stop-color="#07111f"/>
+        </linearGradient>
+        <linearGradient id="boltG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffd166"/>
+          <stop offset="100%" stop-color="#f59e0b"/>
+        </linearGradient>
+      </defs>
+      <rect width="128" height="128" rx="64" fill="url(#bgG)" stroke="#22d3ee" stroke-width="3"/>
+      ${content}
+    </svg>`;
+    return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+  }
+
+  setAvatarPreset(avatarType, btnElem) {
     document.querySelectorAll('.avatar-preset-btn').forEach(b => b.classList.remove('active'));
     if (btnElem) btnElem.classList.add('active');
 
+    let finalAvatarUrl = avatarType;
+    const isImagePath = avatarType.startsWith('http') || avatarType.startsWith('data:') || avatarType.includes('/');
+    if (!isImagePath) {
+      finalAvatarUrl = this.createVectorAvatarDataUrl(avatarType);
+    }
+
     if (this.userProfile) {
-      this.userProfile.avatarUrl = avatar;
+      this.userProfile.avatarUrl = finalAvatarUrl;
+      try {
+        localStorage.setItem('aura_user_profile', JSON.stringify(this.userProfile));
+      } catch (e) {}
     }
 
-    // Update card avatar
-    const cardAvatar = document.getElementById('profileCardAvatar');
-    const previewImg = document.getElementById('avatarPreviewImg');
-    const topAvatar = document.getElementById('topbarUserAvatar');
-    const dropAvatar = document.getElementById('dropdownUserAvatar');
+    // Update all avatar displays immediately
+    const setAvatar = (id) => {
+      const el = document.getElementById(id);
+      if (el) el.src = finalAvatarUrl;
+    };
 
-    const isImagePath = avatar.startsWith('http') || avatar.startsWith('data:') || avatar.includes('/');
-    if (isImagePath) {
-      if (cardAvatar) { cardAvatar.src = avatar; cardAvatar.style.fontSize = ''; }
-      if (previewImg) { previewImg.src = avatar; previewImg.style.fontSize = ''; }
-      if (topAvatar) topAvatar.src = avatar;
-      if (dropAvatar) dropAvatar.src = avatar;
-    } else {
-      // Emoji preset — use alt text or textContent trick
-      if (cardAvatar) { cardAvatar.src = ''; cardAvatar.alt = avatar; }
-      if (previewImg) { previewImg.src = ''; previewImg.alt = avatar; }
-    }
+    setAvatar('profileCardAvatar');
+    setAvatar('avatarPreviewImg');
+    setAvatar('topbarUserAvatar');
+    setAvatar('dropdownUserAvatar');
+    setAvatar('sidebarUserAvatar');
 
     if (window.soundEngine) window.soundEngine.play('tick');
+    this.showToast('Avatar Preset Selected', 'Avatar updated and synchronized across all views.');
   }
 
   handleAvatarUpload(inputElem) {
     const file = inputElem.files && inputElem.files[0];
     if (!file) return;
 
-    // Size check: 5MB max
     if (file.size > 5 * 1024 * 1024) {
       this.showToast('File Too Large', 'Please choose an image under 5MB.', 'error');
       return;
@@ -1388,25 +1445,28 @@ class AppController {
     reader.onload = (e) => {
       const dataUrl = e.target.result;
 
-      // Store in profile
-      if (this.userProfile) this.userProfile.avatarUrl = dataUrl;
+      if (this.userProfile) {
+        this.userProfile.avatarUrl = dataUrl;
+        try {
+          localStorage.setItem('aura_user_profile', JSON.stringify(this.userProfile));
+        } catch (e) {}
+      }
 
-      // Update all avatar displays
-      const cardAvatar = document.getElementById('profileCardAvatar');
-      const previewImg = document.getElementById('avatarPreviewImg');
-      const topAvatar = document.getElementById('topbarUserAvatar');
-      const dropAvatar = document.getElementById('dropdownUserAvatar');
+      const setAvatar = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.src = dataUrl;
+      };
 
-      if (cardAvatar) { cardAvatar.src = dataUrl; }
-      if (previewImg) { previewImg.src = dataUrl; }
-      if (topAvatar) { topAvatar.src = dataUrl; }
-      if (dropAvatar) { dropAvatar.src = dataUrl; }
+      setAvatar('profileCardAvatar');
+      setAvatar('avatarPreviewImg');
+      setAvatar('topbarUserAvatar');
+      setAvatar('dropdownUserAvatar');
+      setAvatar('sidebarUserAvatar');
 
-      // Deselect all preset buttons (custom upload)
       document.querySelectorAll('.avatar-preset-btn').forEach(b => b.classList.remove('active'));
 
       if (window.soundEngine) window.soundEngine.play('complete');
-      this.showToast('📷 Photo Uploaded!', 'Your custom profile photo has been set. Click Save to apply everywhere.');
+      this.showToast('Photo Uploaded!', 'Your custom profile photo is now active across the entire platform.');
     };
     reader.onerror = () => {
       this.showToast('Upload Failed', 'Could not read the image file.', 'error');
@@ -1429,7 +1489,6 @@ class AppController {
     this.populateProfileForm();
     this.applyUserProfileEverywhere();
 
-    // Update real XP & level from gamification engine if present
     if (window.gamification) {
       const xp = window.gamification.xp || 480;
       const level = window.gamification.level || 3;
@@ -1472,7 +1531,6 @@ class AppController {
     const topic = topicSelect?.options[topicSelect.selectedIndex]?.text || "Selected Concept";
     const wordCount = text.split(/\s+/).length;
 
-    // Check for high-density jargon terms
     const jargonWords = ['polynomial', 'eigenvector', 'asymptotic', 'stochastic', 'backpropagation', 'hyperparameter', 'quadratic', 'synchronous', 'idempotent'];
     const foundJargon = jargonWords.filter(j => text.toLowerCase().includes(j));
     
@@ -1489,22 +1547,23 @@ class AppController {
     feedbackBox.innerHTML = `
       <div style="background: rgba(32, 214, 160, 0.1); border: 1px solid rgba(32, 214, 160, 0.3); border-radius: var(--radius-sm); padding: 0.8rem; margin-bottom: 0.65rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
-          <strong style="color: var(--accent-emerald); font-size: 1rem;">🎯 Feynman Clarity Grade: ${grade}</strong>
+          <strong style="color: var(--accent-emerald); font-size: 1rem; display: inline-flex; align-items: center; gap: 0.4rem;"><i data-lucide="target" class="svg-icon"></i> Feynman Clarity Grade: ${grade}</strong>
           <span style="font-family: var(--font-mono); color: var(--accent-cyan); font-size: 0.78rem;">${wordCount} Words</span>
         </div>
         <p style="color: #FFFFFF; font-size: 0.82rem; margin: 0;">${simplicityNote}</p>
       </div>
       <div style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5;">
-        <strong style="color: var(--accent-gold);">💡 Feynman Master Rule:</strong>
+        <strong style="color: var(--accent-gold); display: inline-flex; align-items: center; gap: 0.35rem;"><i data-lucide="lightbulb" class="svg-icon"></i> Feynman Master Rule:</strong>
         "The first principle is that you must not fool yourself — and you are the easiest person to fool." By articulating this in your own English words, you cement deep neural retention.
       </div>
     `;
+    if (window.lucide) window.lucide.createIcons();
 
     if (window.soundEngine) window.soundEngine.play('complete');
     if (window.gamification) {
       window.gamification.awardXP(35, `Feynman Review: ${topic}`);
     }
-    this.showToast("⚡ Feynman Review Scored! (+35 XP)", `Grade: ${grade} earned for explaining ${topic.split(':')[0]}.`);
+    this.showToast("Feynman Review Scored! (+35 XP)", `Grade: ${grade} earned for explaining ${topic.split(':')[0]}.`);
   }
 
   // ==========================================
@@ -1533,7 +1592,7 @@ class AppController {
       const item = document.getElementById(`qHabitItem-${k}`);
       const chk = document.getElementById(`qHabitChk-${k}`);
       if (item) item.classList.toggle('checked', isChecked);
-      if (chk) chk.textContent = isChecked ? '✓' : '';
+      if (chk) chk.innerHTML = isChecked ? '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : '';
     });
     const badge = document.getElementById('homeHabitStreakBadge');
     if (badge) {
@@ -1663,7 +1722,10 @@ class AppController {
       this.soundscapePlaying = true;
       const icon = document.getElementById('soundscapePlayIcon');
       const eq = document.getElementById('soundscapeEqBars');
-      if (icon) icon.textContent = '⏹';
+      if (icon) {
+        icon.innerHTML = '<i data-lucide="square" class="svg-icon"></i>';
+        if (window.lucide) window.lucide.createIcons();
+      }
       if (eq) eq.classList.add('active');
       this.showToast('Ambient Focus Audio Active', `Playing ${this.soundscapeMode.toUpperCase()} mode.`);
     } catch (err) {
@@ -1686,7 +1748,10 @@ class AppController {
     this.soundscapePlaying = false;
     const icon = document.getElementById('soundscapePlayIcon');
     const eq = document.getElementById('soundscapeEqBars');
-    if (icon) icon.textContent = '▶';
+    if (icon) {
+      icon.innerHTML = '<i data-lucide="play" class="svg-icon"></i>';
+      if (window.lucide) window.lucide.createIcons();
+    }
     if (eq) eq.classList.remove('active');
   }
 

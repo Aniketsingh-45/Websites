@@ -3,7 +3,26 @@
  * 1. 20-20-20 Eye Rest Engine (20 min work -> 20s eye rest)
  * 2. Hydration Tracker & Water Intake Reminders
  * 3. Spine & Posture Alignment Alerts
+ * Uses Vector SVG Water Cups & Visual Indicators
  */
+
+const WELLNESS_SVGS = {
+  filledCup: `<svg class="water-cup-svg" viewBox="0 0 32 38" fill="none">
+    <path d="M7 4h18l-2.2 26.5a4 4 0 0 1-4 3.5h-5.6a4 4 0 0 1-4-3.5L7 4z" fill="url(#waterGradFill)" stroke="#22D3EE" stroke-width="1.8"/>
+    <path d="M7.8 13c2.5-1.5 5 1.5 8 0s5-1.5 8 0" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" fill="none"/>
+    <defs>
+      <linearGradient id="waterGradFill" x1="16" y1="10" x2="16" y2="34" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#22D3EE" stop-opacity="0.85"/>
+        <stop stop-color="#1687FF" stop-opacity="0.95"/>
+      </linearGradient>
+    </defs>
+  </svg>`,
+  emptyCup: `<svg class="water-cup-svg" viewBox="0 0 32 38" fill="none">
+    <path d="M7 4h18l-2.2 26.5a4 4 0 0 1-4 3.5h-5.6a4 4 0 0 1-4-3.5L7 4z" fill="rgba(120, 160, 255, 0.05)" stroke="rgba(120, 160, 255, 0.3)" stroke-width="1.6"/>
+    <line x1="6" y1="4" x2="26" y2="4" stroke="rgba(120, 160, 255, 0.5)" stroke-width="2" stroke-linecap="round"/>
+  </svg>`
+};
+
 class WellnessSentinel {
   constructor() {
     this.screenTimeSeconds = 0;
@@ -117,7 +136,7 @@ class WellnessSentinel {
     }
 
     if (window.notificationEngine) {
-      window.notificationEngine.notify('👁️ 20-20-20 Eye Rest Alert', {
+      window.notificationEngine.notify('Optic Defense: 20-20-20 Eye Rest Alert', {
         body: 'You have been on screen for 20 mins! Look 20 feet away for 20 seconds to relax ciliary eye muscles.',
         soundType: 'eyeRest',
         tag: 'eye-rest'
@@ -186,7 +205,7 @@ class WellnessSentinel {
       window.soundEngine.play('waterDrop');
     }
     if (window.notificationEngine) {
-      window.notificationEngine.notify('💧 Hydration Checkpoint', {
+      window.notificationEngine.notify('Hydration Checkpoint', {
         body: `Stay sharp! Drink a fresh glass of water. (${this.waterGlasses}/${this.dailyWaterTarget} glasses today)`,
         soundType: 'waterDrop',
         tag: 'water-alert'
@@ -200,14 +219,13 @@ class WellnessSentinel {
       window.soundEngine.play('rest');
     }
     if (window.notificationEngine) {
-      window.notificationEngine.notify('🧘 Ergonomic & Posture Alignment', {
+      window.notificationEngine.notify('Ergonomic & Posture Alignment', {
         body: 'Straighten your spine, roll shoulders back, uncross legs, and release neck tension.',
         soundType: 'rest',
         tag: 'posture-alert'
       });
     }
 
-    // Show in-app banner
     const banner = document.getElementById('postureBanner');
     if (banner) {
       banner.classList.add('visible');
@@ -275,7 +293,7 @@ class WellnessSentinel {
         <button type="button" class="water-cup-item ${isFilled ? 'filled' : 'empty'}" 
                 onclick="window.wellnessSentinel.setWaterGlasses(${i})" 
                 title="Glass ${i} (250ml) - Click to log">
-          <span class="cup-icon">${isFilled ? '💧' : '🥛'}</span>
+          ${isFilled ? WELLNESS_SVGS.filledCup : WELLNESS_SVGS.emptyCup}
           <span class="cup-num">${i}</span>
         </button>
       `;

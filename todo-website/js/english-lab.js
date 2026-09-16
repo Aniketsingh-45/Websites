@@ -198,12 +198,12 @@ class EnglishLab {
           ${isBook ? `
             <div class="book-masterpiece-banner">
               <div class="book-banner-left">
-                <span class="book-tag">📖 MASTERPIECE EXTRACT</span>
+                <span class="book-tag"><i data-lucide="book-open" class="svg-icon"></i> MASTERPIECE EXTRACT</span>
                 <span class="book-title-highlight">${passage.bookTitle}</span>
                 <span class="book-author-text">by ${passage.bookAuthor}</span>
               </div>
               <div class="book-chapter-badge">
-                <span>🔖 ${passage.chapterHighlight}</span>
+                <span style="display:inline-flex; align-items:center; gap:0.3rem;"><i data-lucide="bookmark" class="svg-icon"></i> ${passage.chapterHighlight}</span>
               </div>
             </div>
           ` : ''}
@@ -211,8 +211,8 @@ class EnglishLab {
           <div class="reading-pass-header">
             <div class="reading-pass-meta-row">
               <span class="reading-badge-cat">${passage.category}</span>
-              <span class="reading-badge-level">⚡ ${passage.level}</span>
-              <span class="reading-badge-time">⏱️ ${passage.readTime} (~${passage.wordCount} words)</span>
+              <span class="reading-badge-level"><i data-lucide="zap" class="svg-icon"></i> ${passage.level}</span>
+              <span class="reading-badge-time"><i data-lucide="clock" class="svg-icon"></i> ${passage.readTime} (~${passage.wordCount} words)</span>
             </div>
 
             <h3 class="reading-pass-title">${passage.title}</h3>
@@ -224,7 +224,7 @@ class EnglishLab {
             
             <div class="narration-left-group">
               <button class="btn-audio-listen ${isSpeaking ? 'active' : ''}" onclick="window.englishLab.togglePassageSpeech('${passage.id}')">
-                ${isSpeaking ? '⏹ Stop Audio' : '🎧 Listen Aloud (Native Voice)'}
+                ${isSpeaking ? '<i data-lucide="square" class="btn-icon-svg"></i> Stop Audio' : '<i data-lucide="headphones" class="btn-icon-svg"></i> Listen Aloud (Native Voice)'}
               </button>
 
               <div class="speed-selector-group">
@@ -241,11 +241,11 @@ class EnglishLab {
               <span class="timer-digits" id="readTimer-${passage.id}">${timerDisplay}</span>
               ${!isTimerActive ? `
                 <button class="btn-timer-toggle start" onclick="window.englishLab.startReadAloudTimer('${passage.id}')">
-                  ▶ Start Reading Aloud
+                  <i data-lucide="play" class="btn-icon-svg"></i> Start Reading Aloud
                 </button>
               ` : `
                 <button class="btn-timer-toggle stop" onclick="window.englishLab.stopReadAloudTimer('${passage.id}', ${passage.wordCount})">
-                  ⏹ Done Reading (Calculate WPM)
+                  <i data-lucide="square" class="btn-icon-svg"></i> Done Reading (Calculate WPM)
                 </button>
               `}
             </div>
@@ -256,7 +256,7 @@ class EnglishLab {
           ${passage.quotes && passage.quotes.length > 0 ? `
             <div class="book-quotes-container">
               <div class="quotes-header-row">
-                <span class="quotes-lead">💬 Iconic Lines & Quotes to Speak Aloud:</span>
+                <span class="quotes-lead"><i data-lucide="message-square" class="svg-icon"></i> Iconic Lines & Quotes to Speak Aloud:</span>
                 <span class="quotes-hint">Read aloud to build vocal authority & articulation</span>
               </div>
               <div class="quotes-grid">
@@ -267,13 +267,13 @@ class EnglishLab {
                       <p class="quote-line">${q.text}</p>
                     </div>
                     <div class="quote-context-row">
-                      <span class="quote-context">💡 <em>${q.context}</em></span>
+                      <span class="quote-context"><i data-lucide="lightbulb" class="svg-icon"></i> <em>${q.context}</em></span>
                       <div class="quote-actions">
                         <button class="btn-quote-action" onclick="window.englishLab.speakText('${q.text.replace(/'/g, "\\'")}')" title="Listen to this line">
-                          🔊 Listen
+                          <i data-lucide="volume-2" class="svg-icon"></i> Listen
                         </button>
                         <button class="btn-quote-action" onclick="window.englishLab.copyQuote('${q.text.replace(/'/g, "\\'")}')" title="Copy quote">
-                          📋 Copy
+                          <i data-lucide="copy" class="svg-icon"></i> Copy
                         </button>
                       </div>
                     </div>
@@ -287,7 +287,7 @@ class EnglishLab {
           ${passage.understandingPoints && passage.understandingPoints.length > 0 ? `
             <div class="book-understanding-container">
               <div class="understanding-header">
-                <span class="understanding-icon">🧠</span>
+                <span class="understanding-icon"><i data-lucide="brain" class="svg-icon"></i></span>
                 <h4>Deep Understanding & Mental Models (For Reading & Life):</h4>
               </div>
               <div class="understanding-cards-row">
@@ -303,11 +303,11 @@ class EnglishLab {
 
           <!-- Key Vocabulary Pills -->
           <div class="reading-vocab-pills-row">
-            <span class="vocab-lead-text">💎 Key Vocabulary:</span>
+            <span class="vocab-lead-text"><i data-lucide="gem" class="svg-icon"></i> Key Vocabulary:</span>
             <div class="vocab-tag-cluster">
               ${passage.keyVocab.map(v => `
                 <button class="vocab-jump-chip" onclick="window.englishLab.highlightVocabWord('${v}')" title="Click to view word definition & 3 sentences">
-                  ${v} ➔
+                  ${v} &rarr;
                 </button>
               `).join('')}
             </div>
@@ -321,16 +321,17 @@ class EnglishLab {
           <!-- Footer & XP Rewards -->
           <div class="reading-pass-footer">
             <div class="footer-tip">
-              💡 <em>Practice Shadowing: Read aloud simultaneously to match pitch, rhythm, and pauses.</em>
+              <i data-lucide="lightbulb" class="svg-icon"></i> <em>Practice Shadowing: Read aloud simultaneously to match pitch, rhythm, and pauses.</em>
             </div>
             <button class="btn-complete-reading" onclick="window.englishLab.markPassageRead('${passage.id}')">
-              ✓ Completed Reading Practice (+30 XP)
+              <i data-lucide="check" class="btn-icon-svg"></i> Completed Reading Practice (+30 XP)
             </button>
           </div>
 
         </article>
       `;
     }).join('');
+    if (window.lucide) window.lucide.createIcons();
   }
 
   setReadingCategory(category) {
@@ -436,7 +437,7 @@ class EnglishLab {
       window.gamification.awardXP(35, `Read aloud at ${wpm} Words Per Minute`);
     }
 
-    alert(`🎉 Great Vocal Practice!\n\nYou read ${wordCount} words in ${elapsedSeconds} seconds.\nCalculated Reading Speed: ${wpm} WPM (Words Per Minute).\n+35 XP Earned!`);
+    alert(`Great Vocal Practice!\n\nYou read ${wordCount} words in ${elapsedSeconds} seconds.\nCalculated Reading Speed: ${wpm} WPM (Words Per Minute).\n+35 XP Earned!`);
     this.renderReadingLibrary();
   }
 
@@ -455,7 +456,7 @@ class EnglishLab {
       setTimeout(() => card.classList.remove('completed-flash'), 1200);
     }
 
-    alert("✓ Reading Practice Completed! +30 XP Awarded to your profile.");
+    alert("Reading Practice Completed! +30 XP Awarded to your profile.");
   }
 
   // ==========================================
@@ -502,7 +503,7 @@ class EnglishLab {
             </div>
 
             <button class="btn-audio-pronounce" onclick="window.englishLab.speakWord('${item.word}')" title="Listen to pronunciation">
-              🔊 Pronounce
+              <i data-lucide="volume-2" class="svg-icon"></i> Pronounce
             </button>
           </div>
 
@@ -512,17 +513,17 @@ class EnglishLab {
             
             <div class="sentences-trio-list">
               <div class="sentence-box s-tech">
-                <div class="sentence-badge-pill"><span class="badge-dot"></span> 💻 Tech & Engineering</div>
+                <div class="sentence-badge-pill"><span class="badge-dot"></span> <i data-lucide="code-2" class="pill-icon-svg"></i> Tech & Engineering</div>
                 <p class="sentence-text">"${item.sentences[0] || ''}"</p>
               </div>
 
               <div class="sentence-box s-daily">
-                <div class="sentence-badge-pill"><span class="badge-dot"></span> ☕ Daily Conversation</div>
+                <div class="sentence-badge-pill"><span class="badge-dot"></span> <i data-lucide="coffee" class="pill-icon-svg"></i> Daily Conversation</div>
                 <p class="sentence-text">"${item.sentences[1] || ''}"</p>
               </div>
 
               <div class="sentence-box s-mindset">
-                <div class="sentence-badge-pill"><span class="badge-dot"></span> 🧠 Growth Mindset</div>
+                <div class="sentence-badge-pill"><span class="badge-dot"></span> <i data-lucide="brain" class="pill-icon-svg"></i> Growth Mindset</div>
                 <p class="sentence-text">"${item.sentences[2] || ''}"</p>
               </div>
             </div>
@@ -531,8 +532,8 @@ class EnglishLab {
           <!-- Interactive Student Sentence Practice Builder -->
           <div class="student-practice-panel">
             <div class="practice-heading-row">
-              <label for="input-sent-${item.word}" class="practice-label">
-                ✍️ Write Your Own Original Sentence with <strong>"${item.word}"</strong>:
+              <label for="input-sent-${item.word}" class="practice-label" style="display:inline-flex; align-items:center; gap:0.4rem;">
+                <i data-lucide="pen-tool" class="svg-icon"></i> Write Your Own Original Sentence with <strong>"${item.word}"</strong>:
               </label>
               <span class="practice-xp-tag">+25 XP</span>
             </div>
@@ -552,7 +553,7 @@ class EnglishLab {
 
             ${studentSentence ? `
               <div class="saved-sentence-flag">
-                <span class="check-glyph">✓</span>
+                <span class="check-glyph"><i data-lucide="check" class="svg-icon"></i></span>
                 <span class="flag-text"><strong>Your Mastered Sentence:</strong> "${studentSentence}"</span>
               </div>
             ` : ''}
@@ -561,6 +562,7 @@ class EnglishLab {
         </div>
       `;
     }).join('');
+    if (window.lucide) window.lucide.createIcons();
   }
 
   clearVocabSearch() {
@@ -711,7 +713,7 @@ class EnglishLab {
     this.isSimulatedRecording = true;
     this.startRecordingTimerUI();
     if (window.audioNotifier) {
-      window.audioNotifier.showToast('🎙️ Speech Session Active', 'Speak aloud now! Timer is recording your verbal drill.');
+      window.audioNotifier.showToast('Speech Session Active', 'Speak aloud now! Timer is recording your verbal drill.');
     }
   }
 
@@ -783,19 +785,20 @@ class EnglishLab {
     container.innerHTML = `
       <div class="voice-audio-playback-card">
         <div class="playback-header">
-          <span class="playback-badge">🎙️ Logged Speech Drill (${Math.max(5, this.recordingSeconds)}s)</span>
+          <span class="playback-badge"><i data-lucide="mic" class="svg-icon"></i> Logged Speech Drill (${Math.max(5, this.recordingSeconds)}s)</span>
           <span class="playback-timestamp">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
         </div>
-        <div style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-sm); margin: 0.5rem 0; font-size: 0.8rem; color: var(--accent-emerald);">
-          ✓ Speech practice session recorded! Vocal fluency and pacing drill logged.
+        <div style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-sm); margin: 0.5rem 0; font-size: 0.8rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 0.4rem;">
+          <i data-lucide="check" class="svg-icon"></i> Speech practice session recorded! Vocal fluency and pacing drill logged.
         </div>
         <div class="playback-actions-bar">
           <span class="playback-critique-hint">
-            💡 Rule #3: Mistakes are allowed — silence is not! Consistency creates natural fluency.
+            <i data-lucide="lightbulb" class="svg-icon"></i> Rule #3: Mistakes are allowed — silence is not! Consistency creates natural fluency.
           </span>
         </div>
       </div>
     `;
+    if (window.lucide) window.lucide.createIcons();
   }
 
   renderPlaybackUI() {
@@ -805,7 +808,7 @@ class EnglishLab {
     container.innerHTML = `
       <div class="voice-audio-playback-card">
         <div class="playback-header">
-          <span class="playback-badge">🎙️ Recorded Speech Practice (${this.recordingSeconds}s)</span>
+          <span class="playback-badge"><i data-lucide="mic" class="svg-icon"></i> Recorded Speech Practice (${this.recordingSeconds}s)</span>
           <span class="playback-timestamp">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
         </div>
         
@@ -813,14 +816,15 @@ class EnglishLab {
         
         <div class="playback-actions-bar">
           <a href="${this.audioUrl}" download="English_Speech_Practice_${Date.now()}.webm" class="btn-download-recording">
-            💾 Download Audio File
+            <i data-lucide="download" class="btn-icon-svg"></i> Download Audio File
           </a>
           <span class="playback-critique-hint">
-            💡 Rule #3: Mistakes are allowed — silence is not! Listen back to observe your vocal rhythm and confidence.
+            <i data-lucide="lightbulb" class="svg-icon"></i> Rule #3: Mistakes are allowed — silence is not! Listen back to observe your vocal rhythm and confidence.
           </span>
         </div>
       </div>
     `;
+    if (window.lucide) window.lucide.createIcons();
   }
 
   onRecordingCompleted() {
@@ -877,7 +881,7 @@ class EnglishLab {
     container.innerHTML = list.map(item => `
       <div class="wisdom-quote-card">
         <div class="wisdom-card-top">
-          <span class="wisdom-book-badge">📖 ${item.book}</span>
+          <span class="wisdom-book-badge"><i data-lucide="book-open" class="svg-icon"></i> ${item.book}</span>
           <span class="wisdom-author-badge">by ${item.author}</span>
         </div>
 
@@ -887,20 +891,21 @@ class EnglishLab {
         </div>
 
         <div class="wisdom-lesson-box">
-          <strong class="lesson-label">🎯 Actionable Mindset Lesson:</strong>
+          <strong class="lesson-label"><i data-lucide="target" class="svg-icon"></i> Actionable Mindset Lesson:</strong>
           <p class="lesson-text">${item.lesson}</p>
         </div>
 
         <div class="wisdom-card-footer">
           <button class="btn-wisdom-action speak" onclick="window.englishLab.speakText('${item.quote.replace(/'/g, "\\'")}')" title="Listen to this line aloud">
-            🔊 Listen
+            <i data-lucide="volume-2" class="svg-icon"></i> Listen
           </button>
           <button class="btn-wisdom-action copy" onclick="window.englishLab.copyQuote('${item.quote.replace(/'/g, "\\'")}')" title="Copy quote to clipboard">
-            📋 Copy Quote
+            <i data-lucide="copy" class="svg-icon"></i> Copy Quote
           </button>
         </div>
       </div>
     `).join('');
+    if (window.lucide) window.lucide.createIcons();
   }
 
   setWisdomFilter(book) {
@@ -927,14 +932,14 @@ class EnglishLab {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(cleanText).then(() => {
         if (window.audioNotifier) {
-          window.audioNotifier.showToast('✓ Quote copied to clipboard!', 'info');
+          window.audioNotifier.showToast('Quote copied to clipboard!', 'info');
           if (window.soundEngine) window.soundEngine.play('click');
         }
       }).catch(() => {
-        if (window.audioNotifier) window.audioNotifier.showToast('✓ Quote copied!', 'info');
+        if (window.audioNotifier) window.audioNotifier.showToast('Quote copied!', 'info');
       });
     } else {
-      if (window.audioNotifier) window.audioNotifier.showToast('✓ Quote copied!', 'info');
+      if (window.audioNotifier) window.audioNotifier.showToast('Quote copied!', 'info');
     }
   }
 }

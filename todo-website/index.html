@@ -257,6 +257,18 @@
               <span id="dropdownStreakText">14-Day Study Streak Active</span>
             </div>
 
+            <!-- Quick Notification & Audio Toggles -->
+            <div class="dropdown-quick-toggles-row">
+              <button type="button" class="dropdown-toggle-pill" id="dropdownNotifyToggleBtn" onclick="window.app.toggleNotifications()" title="Toggle Notifications ON / OFF">
+                <i data-lucide="bell" style="width:14px;height:14px;"></i>
+                <span id="dropdownNotifyStatus">Notifs: ON</span>
+              </button>
+              <button type="button" class="dropdown-toggle-pill" id="dropdownSoundToggleBtn" onclick="window.app.toggleSound()" title="Toggle Audio Synthesizer ON / OFF">
+                <i data-lucide="volume-2" style="width:14px;height:14px;"></i>
+                <span id="dropdownSoundStatus">Audio: ON</span>
+              </button>
+            </div>
+
             <div class="dropdown-menu-list">
               <button class="dropdown-menu-item"
                 onclick="window.app.switchView('profileView'); document.getElementById('userProfileDropdown').classList.remove('active');">
@@ -1749,6 +1761,72 @@
 
               </div>
             </form>
+          </div>
+
+          <!-- System Preferences & Notification Sentinels Card -->
+          <div class="bento-card" style="margin-top: 1.5rem;">
+            <div class="card-header-between" style="margin-bottom: 1rem;">
+              <div>
+                <h3 style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                  <i data-lucide="bell-ring" class="svg-icon" style="color: #22D3EE;"></i> Notification &amp; Sentinel Controls
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.82rem;">Manage real-time desktop push notifications, bio-wellness interval alerts, and synthesized sound effects.</p>
+              </div>
+              <span class="aurabrain-badge" id="notifEngineStatusBadge">🔔 Sentinel Active (ON)</span>
+            </div>
+
+            <div class="settings-switches-grid">
+              <!-- Switch 1: Notifications ON / OFF -->
+              <div class="setting-switch-item">
+                <div class="switch-item-left">
+                  <div class="switch-item-icon" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;">
+                    <i data-lucide="bell"></i>
+                  </div>
+                  <div>
+                    <span class="switch-item-title">System &amp; In-App Notifications (ON / OFF)</span>
+                    <p class="switch-item-desc">Scheduled slot alerts, streak defenses, and interval milestone notifications.</p>
+                  </div>
+                </div>
+                <label class="aura-switch">
+                  <input type="checkbox" id="profileNotificationSwitch" checked onchange="window.app.toggleNotifications(this.checked)">
+                  <span class="aura-slider"></span>
+                </label>
+              </div>
+
+              <!-- Switch 2: Sound Synthesizer ON / OFF -->
+              <div class="setting-switch-item">
+                <div class="switch-item-left">
+                  <div class="switch-item-icon" style="background: rgba(112, 71, 255, 0.15); color: #C084FC;">
+                    <i data-lucide="volume-2"></i>
+                  </div>
+                  <div>
+                    <span class="switch-item-title">Synthesized Audio Effects &amp; Chimes (ON / OFF)</span>
+                    <p class="switch-item-desc">Offline Web Audio acoustic chimes on task complete, level-ups, and streak milestones.</p>
+                  </div>
+                </div>
+                <label class="aura-switch">
+                  <input type="checkbox" id="profileSoundSwitch" checked onchange="window.app.toggleSound(this.checked)">
+                  <span class="aura-slider"></span>
+                </label>
+              </div>
+
+              <!-- Switch 3: Bio-Wellness Screen & Posture Sentinel -->
+              <div class="setting-switch-item">
+                <div class="switch-item-left">
+                  <div class="switch-item-icon" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">
+                    <i data-lucide="activity"></i>
+                  </div>
+                  <div>
+                    <span class="switch-item-title">Bio-Wellness 20-20-20 &amp; Posture Sentinel</span>
+                    <p class="switch-item-desc">Automatic 20-minute optic relief modal and spine alignment alerts during study sessions.</p>
+                  </div>
+                </div>
+                <label class="aura-switch">
+                  <input type="checkbox" id="profileBioWellnessSwitch" checked onchange="if(window.wellnessSentinel){ window.wellnessSentinel.eyeRestEnabled = this.checked; window.wellnessSentinel.postureAlertEnabled = this.checked; window.wellnessSentinel.saveState(); window.app.showToast(this.checked ? 'Bio Sentinel Active' : 'Bio Sentinel Paused', this.checked ? '20-20-20 eye & posture timers active.' : 'Health alerts paused.'); }">
+                  <span class="aura-slider"></span>
+                </label>
+              </div>
+            </div>
           </div>
 
           <!-- Gamification Level Progression & Lifetime Badges Card -->

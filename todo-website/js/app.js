@@ -969,9 +969,28 @@ class AppController {
       });
     });
 
-    // Mobile Hamburger
-    document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
-      document.getElementById('appSidebar')?.classList.toggle('mobile-open');
+    // Mobile Hamburger + Backdrop
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const appSidebar = document.getElementById('appSidebar');
+    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+    const closeMobileSidebar = () => {
+      appSidebar?.classList.remove('mobile-open');
+      sidebarBackdrop?.classList.remove('active');
+    };
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      const isOpen = appSidebar?.classList.toggle('mobile-open');
+      sidebarBackdrop?.classList.toggle('active', isOpen);
+    });
+
+    sidebarBackdrop?.addEventListener('click', closeMobileSidebar);
+
+    // Auto-close sidebar on nav item click (mobile)
+    document.querySelectorAll('.nav-view-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) closeMobileSidebar();
+      });
     });
 
     // Theme Toggle

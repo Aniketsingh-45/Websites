@@ -94,8 +94,12 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <span class="brand-title-text">AURAROUTINE</span>
-            <span class="brand-tagline-text">Ascend Daily • Master Routine</span>
+            <div class="brand-title-wrap">
+              <span class="brand-word-aura">AURA</span>
+              <span class="brand-word-sep">·</span>
+              <span class="brand-word-routine">ROUTINE</span>
+            </div>
+            <span class="brand-tagline-text">Daily Mastery &amp; Growth OS</span>
           </div>
         </a>
 
@@ -156,7 +160,7 @@
           <div class="quote-card-overlay"></div>
           <div class="quote-content">
             <p class="quote-text">"Discipline today builds the freedom tomorrow."</p>
-            <span class="quote-author">— AuraRoutine</span>
+            <span class="quote-author">— Aura Routine</span>
           </div>
         </div>
 
@@ -1822,10 +1826,121 @@
                   </div>
                 </div>
                 <label class="aura-switch">
-                  <input type="checkbox" id="profileBioWellnessSwitch" checked onchange="if(window.wellnessSentinel){ window.wellnessSentinel.eyeRestEnabled = this.checked; window.wellnessSentinel.postureAlertEnabled = this.checked; window.wellnessSentinel.saveState(); window.app.showToast(this.checked ? 'Bio Sentinel Active' : 'Bio Sentinel Paused', this.checked ? '20-20-20 eye & posture timers active.' : 'Health alerts paused.'); }">
+                  <input type="checkbox" id="profileBioWellnessSwitch" checked onchange="if(window.wellnessSentinel){ window.wellnessSentinel.eyeRestEnabled = this.checked; window.wellnessSentinel.postureAlertEnabled = this.checked; window.wellnessSentinel.saveState(); window.app.showToast(this.checked ? 'Bio Sentinel Active' : 'Bio Sentinel Paused', this.checked ? '20-20-20 eye & posture timers active.' : 'Health alerts paused.', 'wellness'); }">
                   <span class="aura-slider"></span>
                 </label>
               </div>
+            </div>
+          </div>
+
+          <!-- Sound Notification Types Previewer Studio Card -->
+          <div class="bento-card" style="margin-top: 1.5rem;">
+            <div class="card-header-between" style="margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <h3 style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                  <i data-lucide="volume-2" class="svg-icon" style="color: var(--accent-cyan);"></i> Notification Sound Synthesizer Studio
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.82rem;">100% Client-side Web Audio acoustic synthesis. Click any sound badge below to preview every notification cue.</p>
+              </div>
+              <span class="aurabrain-badge" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;">⚡ Live Acoustic Studio</span>
+            </div>
+
+            <div class="sound-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.65rem;">
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('task_complete')" title="Play Task Completion Arpeggio">
+                <span class="sound-btn-icon" style="color: var(--accent-emerald);"><i data-lucide="check-circle"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Task Complete</strong>
+                  <span>E5-G#5-B5 Chime</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('success')" title="Play Success Harmonic">
+                <span class="sound-btn-icon" style="color: #60A5FA;"><i data-lucide="sparkles"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Success Chime</strong>
+                  <span>Harmonic Triad</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('levelUp')" title="Play Grand Fanfare">
+                <span class="sound-btn-icon" style="color: var(--accent-gold);"><i data-lucide="trophy"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Level Up / Rank</strong>
+                  <span>Grand Fanfare</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('streak')" title="Play Streak Fire">
+                <span class="sound-btn-icon" style="color: #FF9632;"><i data-lucide="flame"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Streak Milestone</strong>
+                  <span>Triple Spark Glide</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('next_activity')" title="Play Next Activity Alert">
+                <span class="sound-btn-icon" style="color: var(--accent-cyan);"><i data-lucide="clock"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Next Activity Cue</strong>
+                  <span>Schedule Transition</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('timer_start')" title="Play Focus Start Double Click">
+                <span class="sound-btn-icon" style="color: #38BDF8;"><i data-lucide="play"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Focus Timer Start</strong>
+                  <span>Cyber Double Tick</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('timer_finish')" title="Play Focus Complete Bell">
+                <span class="sound-btn-icon" style="color: #A855F7;"><i data-lucide="bell"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Focus Bell Finish</strong>
+                  <span>C5-C6 Resonant Gong</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('waterDrop')" title="Play Water Drop Sound">
+                <span class="sound-btn-icon" style="color: #22D3EE;"><i data-lucide="droplet"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Hydration Log</strong>
+                  <span>Bubbling Droplet</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('eyeRest')" title="Play 432Hz Zen Bowl">
+                <span class="sound-btn-icon" style="color: #20D6A0;"><i data-lucide="eye"></i></span>
+                <div class="sound-test-meta">
+                  <strong>20-20-20 Eye Rest</strong>
+                  <span>432Hz Singing Bowl</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('warning')" title="Play Warning Tone">
+                <span class="sound-btn-icon" style="color: var(--accent-amber);"><i data-lucide="alert-circle"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Caution Alert</strong>
+                  <span>Dual Warm Ping</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('awakening')" title="Play Sunrise Dawn Chord">
+                <span class="sound-btn-icon" style="color: #FBBF24;"><i data-lucide="sun"></i></span>
+                <div class="sound-test-meta">
+                  <strong>New Day Dawn</strong>
+                  <span>Awakening Chord</span>
+                </div>
+              </button>
+
+              <button class="sound-test-btn" onclick="window.app.testNotificationSound('delete')" title="Play Discard Swoosh">
+                <span class="sound-btn-icon" style="color: #EF4444;"><i data-lucide="trash-2"></i></span>
+                <div class="sound-test-meta">
+                  <strong>Item Discard</strong>
+                  <span>Tactile Swoosh</span>
+                </div>
+              </button>
             </div>
           </div>
 
@@ -1996,7 +2111,7 @@
     <footer class="app-footer-bar">
       <div class="footer-brand-side">
         <span style="color: var(--accent-primary); font-size: 1.1rem;"><i data-lucide="zap" class="svg-icon"></i></span>
-        <span>AuraRoutine • Ascend Daily • Master Routine</span>
+        <span>Aura Routine • Ascend Daily • Master Routine</span>
       </div>
 
       <div class="footer-quote-center">
@@ -2004,7 +2119,7 @@
       </div>
 
       <div class="footer-version-side">
-        AuraRoutine OS v3.0
+        Aura Routine OS v3.0
       </div>
     </footer>
 
@@ -2451,6 +2566,27 @@
 
       <button class="btn-primary" style="width: 100%; padding: 0.85rem;" onclick="document.getElementById('dailyRolloverModal').classList.remove('active')">
         🚀 Begin Today's Conquest
+      </button>
+    </div>
+  </div>
+
+  <!-- 9. GAMIFICATION LEVEL UP & BADGE UNLOCK CELEBRATION MODAL -->
+  <div id="achievementModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card modal-achievement-card" style="text-align: center; align-items: center; padding: 2.2rem 1.8rem; max-width: 460px; border: 1px solid rgba(255, 209, 102, 0.45); box-shadow: 0 20px 60px rgba(0,0,0,0.85), 0 0 40px rgba(255, 209, 102, 0.25);">
+      <div id="achievementModalIcon" style="margin-bottom: 1.2rem; transform: scale(1.15);">
+        <div class="badge-rank-sticker" style="width: 68px; height: 68px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 209, 102, 0.15); border-radius: 50%; border: 2px solid #FFD166;">
+          <i data-lucide="trophy" style="width: 44px; height: 44px; color: #FFD166;"></i>
+        </div>
+      </div>
+      <span class="preset-tag" style="background: rgba(255, 209, 102, 0.15); color: #FFD166; border-color: rgba(255, 209, 102, 0.4); margin-bottom: 0.6rem; letter-spacing: 0.08em; font-weight: 800;">ACHIEVEMENT UNLOCKED</span>
+      <h2 id="achievementModalTitle" style="font-size: 1.55rem; color: #FFFFFF; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.2;">
+        Level Up!
+      </h2>
+      <p id="achievementModalDesc" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.6rem;">
+        Congratulations! You have advanced to a new tier in your daily mastery progression.
+      </p>
+      <button id="closeAchievementModal" class="btn-primary" style="width: 100%; padding: 0.9rem; font-size: 0.95rem; font-weight: 700;" onclick="document.getElementById('achievementModal').classList.remove('active')">
+        Claim Reward &amp; Continue ⚡
       </button>
     </div>
   </div>

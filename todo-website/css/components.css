@@ -2546,9 +2546,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(5, 9, 20, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(5, 9, 20, 0.85);
   z-index: 1000;
   align-items: center;
   justify-content: center;

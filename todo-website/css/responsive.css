@@ -1,0 +1,400 @@
+/* ==========================================================================
+   AuraRoutine — FULL RESPONSIVE MASTER STYLESHEET
+   Covers: 1280px · 1024px · 768px · 600px · 480px · 360px
+   Every section: Home, Study Plan, English Lab, Wellness,
+                  Profile, Rules, Focus Overlay, Modals, Topbar, Sidebar
+   ========================================================================== */
+
+/* ─────────────────────────────────────────────────────────────────
+   A — GLOBAL ANTI-OVERFLOW FOUNDATION
+───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+img, video, svg { max-width: 100%; }
+
+/* ─────────────────────────────────────────────────────────────────
+   B — 1280px (Large Laptop)
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .app-sidebar { width: 252px; min-width: 252px; padding: 1.1rem 0.85rem; }
+  .app-content-body { padding: 1.25rem 1.5rem 2.5rem 1.5rem; }
+  .dashboard-top-grid { grid-template-columns: 1.5fr 1fr; }
+  .dashboard-main-grid { grid-template-columns: 1.4fr 1fr; }
+  .brand-word-aura, .brand-word-routine { font-size: 1rem; letter-spacing: 0.04em; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   C — 1024px (Tablet Landscape)
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .app-sidebar {
+    width: 280px; min-width: 280px; max-width: 85vw;
+    position: fixed; left: 0; top: 0; bottom: 0; z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 4px 0 50px rgba(0,0,0,0.85);
+  }
+  .app-sidebar.mobile-open { transform: translateX(0); }
+  .mobile-menu-toggle { display: flex !important; align-items: center; justify-content: center; }
+  .app-topbar { padding: 0 1.25rem; gap: 0.75rem; }
+  .dashboard-top-grid,
+  .dashboard-main-grid { grid-template-columns: 1fr; }
+  .hero-card-panel { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right-visual { width: 100%; min-height: 200px; max-height: 250px; }
+  .study-plan-layout-grid { grid-template-columns: 1fr; }
+  .wellness-bento-layout { grid-template-columns: 1fr; }
+  .wellness-top-grid { grid-template-columns: 1fr; }
+  .voice-studio-layout { grid-template-columns: 1fr; }
+  .scratchpad-layout-grid { grid-template-columns: 1fr; }
+  .studio-stats-track { gap: 0.6rem; }
+  .studio-stat-box { min-width: 80px; padding: 0.65rem 0.85rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   D — 768px (Tablet Portrait)
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; width: 100% !important; max-width: 100vw !important; }
+  .app-shell, .app-main-wrapper, .app-content-body, .main-view-panel {
+    width: 100% !important; max-width: 100% !important; min-width: 0 !important;
+    overflow-x: hidden !important; box-sizing: border-box !important;
+  }
+  .app-content-body { padding: 0.85rem 0.65rem 5.5rem 0.65rem !important; }
+  .app-topbar { padding: 0 0.85rem; gap: 0.5rem; height: 58px; }
+  .topbar-search-wrap { max-width: none; flex: 1; }
+  .search-kbd-shortcut { display: none; }
+  .user-meta-col, .user-dropdown-arrow { display: none; }
+  .mobile-bottom-nav { display: flex !important; }
+
+  /* All major grids → 1 col */
+  .dashboard-top-grid, .dashboard-main-grid, .study-plan-layout-grid,
+  .wellness-bento-layout, .wellness-top-grid, .voice-studio-layout,
+  .scratchpad-layout-grid, .hero-card-panel, .computational-hero-grid,
+  .form-grid-2col, .form-row, .danger-action-grid,
+  .aura-breakdown-grid, .awakening-stats-pill-box {
+    grid-template-columns: 1fr !important; gap: 0.85rem !important;
+  }
+
+  /* Hero */
+  .hero-card-panel { padding: 1.25rem 1rem !important; min-height: auto; }
+  .hero-right-visual { width: 100%; min-height: 180px; max-height: 220px; }
+  .hero-headline-sub, .hero-headline-main { font-size: 1.85rem; }
+  .hero-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+
+  /* Timeline */
+  .timeline-vertical-stream, .study-plan-tasks-stack { padding-left: 0 !important; }
+  .timeline-vertical-stream::before, .study-plan-tasks-stack::before,
+  .timeline-item-row::before, .study-plan-tasks-stack .timeline-item-row::before { display: none !important; }
+  .timeline-item-row {
+    flex-direction: column !important; align-items: stretch !important;
+    gap: 0.35rem !important; width: 100% !important; box-sizing: border-box !important;
+  }
+  .timeline-time-meta {
+    width: 100% !important; flex-direction: row !important; align-items: center !important;
+    justify-content: space-between !important; background: rgba(15,23,42,0.65) !important;
+    border: 1px solid rgba(120,160,255,0.14) !important; border-radius: 8px !important;
+    padding: 0.3rem 0.65rem !important;
+  }
+  .task-item-card {
+    width: 100% !important; flex-direction: column !important; align-items: stretch !important;
+    gap: 0.55rem !important; padding: 0.85rem 0.9rem !important; box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+  .task-card-right-col, .task-card-actions-group {
+    width: 100% !important; justify-content: flex-end !important; flex-wrap: wrap !important;
+  }
+  .task-act-title { font-size: 0.88rem !important; white-space: normal !important; word-break: break-word !important; }
+  .task-goal-caption { white-space: normal !important; word-break: break-word !important; }
+
+  /* Quick Actions */
+  .quick-actions-strip { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  .quick-action-title { font-size: 0.68rem; white-space: normal; text-align: center; line-height: 1.2; }
+
+  /* Focus Studio */
+  .focus-timer-stage { flex-direction: column; align-items: center; gap: 1rem; }
+  .focus-quote-side { align-items: center; text-align: center; }
+
+  /* Grids */
+  .badges-4-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.65rem !important; }
+  .stats-2x2-grid { grid-template-columns: 1fr 1fr !important; }
+  .resources-horizontal-row { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* AuraBrain Banner */
+  .aurabrain-home-banner { flex-direction: column; align-items: flex-start; }
+  .aurabrain-home-left { min-width: 0; }
+  .aurabrain-home-stats { flex-direction: row; flex-wrap: wrap; }
+
+  /* Study Plan Header */
+  .routine-header-top { flex-direction: column !important; align-items: stretch !important; }
+  .routine-header-actions { flex-wrap: wrap; gap: 0.5rem; }
+  .routine-search-wrap { max-width: 100%; }
+  .routine-filters-bar { flex-direction: column; align-items: stretch; gap: 0.65rem; }
+
+  /* Schedule Block */
+  .schedule-block-main { flex-direction: column !important; align-items: flex-start !important; }
+  .schedule-actions-row { flex-direction: column !important; width: 100% !important; }
+  .btn-schedule-action { width: 100% !important; text-align: center; }
+
+  /* Quick Habits */
+  .quick-habit-pill { width: 100% !important; box-sizing: border-box !important; word-break: break-word !important; }
+  .q-habit-name { white-space: normal !important; word-break: break-word !important; }
+
+  /* Wellness */
+  .water-cups-interactive-grid { grid-template-columns: repeat(4, 1fr) !important; }
+  .wellness-feature-card { padding: 1.1rem 1rem; }
+
+  /* Profile */
+  .profile-card-header { padding: 1.25rem 1rem; }
+  .profile-header-main { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+  .profile-name-row { flex-direction: column !important; align-items: center !important; gap: 0.35rem !important; }
+  .profile-hero-display-name { font-size: 1.5rem; }
+  .profile-tags-strip { justify-content: center; }
+  .profile-quick-stats-strip { gap: 0.5rem; }
+  .pstat-item { min-width: 70px; padding: 0.55rem 0.35rem; }
+  .pstat-val { font-size: 0.9rem; }
+  .avatar-current-preview { flex-direction: column; align-items: center; text-align: center; }
+  .profile-edit-form-panel { padding: 1.25rem 1rem; }
+
+  /* English Studio */
+  .english-studio-hero { padding: 1.25rem 1rem 0; margin-bottom: 1.25rem; }
+  .studio-hero-content { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .studio-title { font-size: 1.45rem; }
+  .studio-stats-track { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; width: 100%; }
+  .studio-stat-box { min-width: 0; }
+  .english-hub-tabs-track { margin: 0 -1rem; padding: 0 1rem; }
+  .english-hub-tab { font-size: 0.74rem; padding: 0.75rem 0.75rem; }
+
+  /* Vocab/Notes/Rules Grids */
+  .designer-notes-grid, .vocab-vault-grid, .wisdom-quotes-grid,
+  .formula-4part-grid, .full-rules-grid, .understanding-cards-row,
+  .ai-concepts-grid {
+    grid-template-columns: 1fr !important; gap: 0.85rem !important;
+  }
+
+  /* Voice & Reading */
+  .voice-prompt-card, .voice-recorder-cockpit { padding: 1.1rem 1rem; }
+  .reading-pass-card { padding: 1.25rem 1rem; }
+  .reading-pass-title { font-size: 1.15rem; }
+  .reading-action-toolbar { flex-direction: column; align-items: flex-start; }
+  .narration-left-group, .read-aloud-timer-box { flex-wrap: wrap; gap: 0.5rem; }
+
+  /* Modals */
+  .modal-backdrop { padding: 0.75rem; }
+  .modal-card { width: 100% !important; max-width: 100% !important; border-radius: 16px; padding: 1rem; max-height: 92vh !important; overflow-y: auto !important; }
+  .modal-card.modal-lg { max-width: 100% !important; }
+  .modal-body { padding: 1rem; max-height: 70vh; }
+  .modal-header { padding: 1rem; }
+  .modal-footer { padding: 0.85rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
+  .modal-footer button { flex: 1; min-width: 0; }
+  .modal-actions-row { flex-direction: column !important; width: 100% !important; }
+  .modal-actions-row button { width: 100% !important; }
+  .daily-control-modal-card { width: 100% !important; max-width: 100% !important; padding: 1rem 0.85rem !important; max-height: 92vh !important; overflow-y: auto !important; }
+
+  /* Misc */
+  .habit-item-row { width: 100% !important; box-sizing: border-box !important; padding: 0.65rem 0.75rem !important; gap: 0.65rem !important; word-break: break-word !important; }
+  .habit-text-label { white-space: normal !important; word-break: break-word !important; }
+  .sound-preview-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.55rem !important; }
+  #profileBadgesGrid.badges-4-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .aura-breakdown-grid { grid-template-columns: 1fr 1fr !important; }
+  .history-strip-row { gap: 0.4rem; }
+  .history-strip-card { min-width: 72px; }
+  .toast-stack-container { top: 1rem; right: 0.65rem; left: 0.65rem; }
+  .in-app-toast { min-width: 0; max-width: 100%; padding: 0.75rem 0.9rem; }
+  .posture-floating-banner { width: 94%; padding: 0.7rem 1rem; bottom: 4.5rem; }
+  .app-footer-bar { flex-direction: column; text-align: center; margin-bottom: 62px; padding: 0.85rem 1rem; }
+  .upgrade-top-metrics { flex-direction: column; align-items: flex-start; }
+  .timeline-chips-row { gap: 0.35rem; padding-bottom: 0.25rem; }
+  .category-chip { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+  .focus-mode-overlay { padding: 1.25rem 1rem; }
+  .focus-countdown-large { font-size: 4rem; }
+  .pdf-drop-zone { padding: 1.5rem 1rem; }
+  .preset-cta-card { flex-direction: column; align-items: flex-start; }
+  .card-header-between { flex-wrap: wrap; gap: 0.5rem; }
+  .book-masterpiece-banner { flex-direction: column; align-items: flex-start; }
+  .daily-history-container { padding: 0.85rem 0.9rem; }
+  .danger-zone-card { padding: 1rem; }
+  .user-profile-dropdown { right: 0.5rem; width: calc(100vw - 1rem); max-width: 320px; }
+  .notes-studio-hero { padding: 1.25rem 1rem; }
+  .aurabrain-home-banner { padding: 1rem; }
+  .reading-cat-pills-row { padding: 0.35rem 0 0.85rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   E — 600px
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .resources-horizontal-row { grid-template-columns: 1fr 1fr !important; }
+  .hero-stats-row { grid-template-columns: 1fr 1fr !important; }
+  .quick-actions-strip { grid-template-columns: 1fr 1fr !important; }
+  .profile-quick-stats-strip { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; }
+  .sound-preview-grid { grid-template-columns: 1fr !important; }
+  .aura-breakdown-grid { grid-template-columns: 1fr !important; }
+  .studio-stats-track { grid-template-columns: 1fr 1fr !important; }
+  .form-grid-2col, .form-row { grid-template-columns: 1fr !important; }
+  .reading-action-toolbar { padding: 0.65rem 0.85rem; gap: 0.65rem; }
+  .task-card-actions-group { flex-wrap: wrap; justify-content: flex-end; }
+  .timeline-header-row { flex-direction: column !important; align-items: flex-start !important; gap: 0.65rem !important; }
+  .timeline-date-nav { width: 100%; justify-content: center; }
+  .scratchpad-textarea, .scratchpad-preview-box { height: 260px; }
+  .upgrade-top-metrics { align-items: center; }
+  .routine-category-chips { gap: 0.35rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   F — 480px (Small Phone)
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  .app-topbar { padding: 0 0.55rem; gap: 0.35rem; height: 52px; }
+  .topbar-search-wrap { display: none; }
+  .topbar-daily-control-btn { padding: 0.3rem 0.55rem; font-size: 0.7rem; }
+  .daily-pill-date { display: none; }
+  .topbar-util-btn { width: 34px; height: 34px; }
+  .app-content-body { padding: 0.75rem 0.5rem 5rem 0.5rem !important; }
+
+  /* Hero */
+  .hero-card-panel { padding: 1rem 0.85rem !important; }
+  .hero-headline-sub, .hero-headline-main { font-size: 1.6rem !important; }
+  .hero-stats-row { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
+  .hero-stat-pill { padding: 0.45rem 0.75rem; }
+
+  /* Quick Actions */
+  .quick-actions-strip { grid-template-columns: 1fr 1fr !important; gap: 0.45rem !important; }
+  .quick-action-item { padding: 0.7rem 0.5rem; }
+  .quick-action-icon { width: 32px; height: 32px; }
+
+  /* Badges */
+  .badges-4-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
+  .badge-collectible-card { padding: 0.75rem 0.3rem; }
+
+  /* Resources */
+  .resources-horizontal-row { grid-template-columns: 1fr 1fr 1fr !important; gap: 0.45rem !important; }
+  .resource-item-card { padding: 0.75rem 0.3rem; }
+  .resource-item-title { font-size: 0.68rem; }
+
+  /* Stats */
+  .stats-2x2-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
+
+  /* Profile */
+  .profile-hero-display-name { font-size: 1.3rem !important; }
+  .profile-quick-stats-strip { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 0.45rem !important; }
+
+  /* Habits */
+  .habits-checklist-list { max-height: 320px; }
+
+  /* Schedule */
+  .schedule-timer-circle { width: 58px; height: 58px; }
+  .schedule-timer-digits { font-size: 1rem; }
+
+  /* Focus Timer */
+  .circular-timer-wrap { width: 120px; height: 120px; }
+  .timer-svg { width: 120px; height: 120px; }
+  .timer-digits-display { font-size: 1.5rem; }
+
+  /* English Studio */
+  .studio-title { font-size: 1.25rem !important; }
+  .studio-stats-track { grid-template-columns: 1fr 1fr !important; gap: 0.4rem !important; }
+
+  /* AuraBrain */
+  .aurabrain-home-left { flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+  .aurabrain-home-stats { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+
+  /* Water */
+  .water-cups-interactive-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 0.35rem !important; }
+  .water-cup-item { padding: 0.5rem 0.25rem; }
+
+  /* Daily tools */
+  .daily-tools-action-row { flex-direction: column; }
+  .daily-tool-btn { width: 100%; }
+
+  /* Focus Overlay */
+  .focus-countdown-large { font-size: 3.2rem !important; }
+  .focus-mode-overlay { padding: 1rem 0.85rem; }
+
+  /* Dropdown */
+  .user-profile-dropdown { width: calc(100vw - 1rem); right: 0.25rem; }
+
+  /* Scratchpad */
+  .scratchpad-textarea, .scratchpad-preview-box { height: 220px; }
+
+  /* Sound */
+  .sound-preview-grid { grid-template-columns: 1fr !important; }
+
+  /* Soundscape */
+  .soundscape-modes-track { grid-template-columns: 1fr 1fr; }
+
+  /* Posture */
+  .posture-floating-banner { width: 96%; padding: 0.65rem 0.75rem; bottom: 4rem; }
+
+  /* Modal */
+  .modal-body { padding: 0.85rem; }
+
+  /* Aura */
+  .daily-pill-aura { font-size: 0.7rem; }
+
+  /* Routine header */
+  .routine-title-box h2 { font-size: 1.1rem; }
+
+  /* XP Toast */
+  .xp-toast-container { bottom: 5rem; right: 0.75rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   G — 360px (Very Small Phones)
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 360px) {
+  html { font-size: 13px; }
+  .app-content-body { padding: 0.6rem 0.4rem 4.8rem 0.4rem !important; }
+  .hero-headline-sub, .hero-headline-main { font-size: 1.4rem !important; }
+  .quick-actions-strip { grid-template-columns: 1fr 1fr !important; gap: 0.35rem !important; }
+  .badge-collectible-card { padding: 0.6rem 0.2rem; }
+  .badge-shape-wrap { width: 36px; height: 36px; font-size: 1.1rem; }
+  .badge-card-name { font-size: 0.66rem; }
+  .task-item-card { padding: 0.7rem 0.7rem !important; }
+  .focus-countdown-large { font-size: 2.8rem !important; }
+  .bento-card, .timeline-card-panel, .hero-card-panel, .focus-studio-panel,
+  .upgrade-progress-panel, .current-schedule-panel, .quick-habits-panel,
+  .milestones-panel, .quick-stats-panel, .study-resources-panel, .ambient-soundscape-panel {
+    padding: 0.85rem 0.75rem !important;
+  }
+  .card-title-group h3 { font-size: 0.92rem; }
+  .water-cups-interactive-grid { grid-template-columns: repeat(4, 1fr) !important; }
+  .resources-horizontal-row { grid-template-columns: 1fr 1fr !important; }
+  .resource-item-card { padding: 0.6rem 0.25rem; }
+  .studio-title { font-size: 1.1rem !important; }
+  .profile-hero-display-name { font-size: 1.15rem !important; }
+  .daily-control-modal-card { padding: 0.85rem 0.65rem !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   H — SIDEBAR MOBILE BACKDROP
+───────────────────────────────────────────────────────────────── */
+.sidebar-mobile-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,9,20,0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 150;
+}
+
+@media (max-width: 1024px) {
+  .sidebar-mobile-backdrop.active { display: block; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   I — PRINT
+───────────────────────────────────────────────────────────────── */
+@media print {
+  .app-sidebar, .app-topbar, .mobile-bottom-nav,
+  .toast-stack-container, .posture-floating-banner, .focus-mode-overlay { display: none !important; }
+  .app-main-wrapper { width: 100%; margin: 0; }
+  .app-content-body { padding: 1rem !important; }
+}

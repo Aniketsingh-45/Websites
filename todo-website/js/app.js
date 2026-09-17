@@ -175,7 +175,7 @@ class AppController {
       this.saveRoutine();
       this.render();
       if (window.soundEngine) window.soundEngine.play('complete');
-      this.showToast("30-Day Routine Restored", "Loaded 26 daily slots & English formulas");
+      this.showToast("30-Day Routine Restored", "Loaded 26 daily slots & English formulas", "success");
     }
   }
 
@@ -773,7 +773,7 @@ class AppController {
     const nextDateStr = this.getTodayDateString(curr);
     this.checkDailyRollover(nextDateStr);
     document.getElementById('dailyControlModal')?.classList.remove('active');
-    this.showToast('Simulated Next Day', `Advanced cycle to ${this.formatDisplayDate(nextDateStr)}`);
+    this.showToast('Simulated Next Day', `Advanced cycle to ${this.formatDisplayDate(nextDateStr)}`, "next_activity");
   }
 
   forceResetToday() {
@@ -788,7 +788,7 @@ class AppController {
       this.resetDailyState(this.activeDate);
       this.render();
       if (window.soundEngine) window.soundEngine.play('complete');
-      this.showToast("Today's Activities Reset", "All checkmarks, habits, and hydration reset to 0% for a fresh restart.");
+      this.showToast("Today's Activities Reset", "All checkmarks, habits, and hydration reset to 0% for a fresh restart.", "delete");
       this.renderDailyHUD();
     }
   }
@@ -809,7 +809,7 @@ class AppController {
       } catch (e) {}
       this.renderProfileView();
       if (window.soundEngine) window.soundEngine.play('complete');
-      this.showToast("Progression Reset", "Gamification Level 1 (0 XP) restored.");
+      this.showToast("Progression Reset", "Gamification Level 1 (0 XP) restored.", "warning");
     }
   }
 
@@ -824,7 +824,7 @@ class AppController {
       const box = document.getElementById('dailyHistoryInspectorBox');
       if (box) box.style.display = 'none';
       if (window.soundEngine) window.soundEngine.play('complete');
-      this.showToast("Memory Archive Cleared", "AuraBrain history has been wiped clean.");
+      this.showToast("Memory Archive Cleared", "AuraBrain history has been wiped clean.", "delete");
     }
   }
 
@@ -867,7 +867,7 @@ class AppController {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    this.showToast('Backup Exported', 'AuraRoutine JSON data archive saved.');
+    this.showToast('Backup Exported', 'AuraRoutine JSON data archive saved.', "success");
   }
 
   triggerImportData() {
@@ -910,7 +910,7 @@ class AppController {
         }
         this.render();
         if (window.soundEngine) window.soundEngine.play('complete');
-        this.showToast('Data Restored', 'All routine, habit, and history data successfully imported.');
+        this.showToast('Data Restored', 'All routine, habit, and history data successfully imported.', "success");
         document.getElementById('dailyControlModal')?.classList.remove('active');
       } catch (err) {
         console.error('Import failed', err);
@@ -1161,7 +1161,7 @@ class AppController {
           document.getElementById('pdfImportModal')?.classList.remove('active');
           this.render();
           if (window.soundEngine) window.soundEngine.play('complete');
-          this.showToast("PDF Routine Imported!", `Loaded ${parsedTasks.length} tasks from ${file.name}`);
+          this.showToast("PDF Routine Imported!", `Loaded ${parsedTasks.length} tasks from ${file.name}`, "success");
         };
       }
     } catch (err) {
@@ -1287,6 +1287,8 @@ class AppController {
   completeCurrentSlot() {
     if (this.activeTask) {
       this.toggleTask(this.activeTask.id);
+      if (window.soundEngine) window.soundEngine.play('next_activity');
+      this.showToast('Next Activity Connected', `Moved to the next block in schedule.`, 'next_activity');
     }
   }
 
@@ -1483,7 +1485,7 @@ class AppController {
     if (allDone) {
       window.gamification.unlockBadge('badge-full-day');
       window.gamification.awardXP(150, '100% Daily Routine Conquered!');
-      this.showToast('100% Day Conquered!', 'Incredible discipline! All routine tasks completed.');
+      this.showToast('100% Day Conquered!', 'Incredible discipline! All routine tasks completed.', "levelUp");
     }
   }
 
@@ -1851,7 +1853,7 @@ class AppController {
     if (window.englishLab) {
       window.englishLab.addCustomWord({ word, partOfSpeech: pos, definition: def, sentence1: s1, sentence2: s2, sentence3: s3 });
       this.closeCustomVocabModal();
-      this.showToast("Vocabulary Added!", `"${word}" saved with +40 XP.`);
+      this.showToast("Vocabulary Added!", `"${word}" saved with +40 XP.`, "success");
     }
   }
 
@@ -2395,7 +2397,7 @@ class AppController {
       } catch (e) {}
       this.initUserProfile();
       if (window.soundEngine) window.soundEngine.play('complete');
-      this.showToast("Profile Reset", "Default profile values restored.");
+      this.showToast("Profile Reset", "Default profile values restored.", "warning");
     }
   }
 
@@ -2478,7 +2480,7 @@ class AppController {
     if (window.gamification) {
       window.gamification.awardXP(35, `Feynman Review: ${topic}`);
     }
-    this.showToast("Feynman Review Scored! (+35 XP)", `Grade: ${grade} earned for explaining ${topic.split(':')[0]}.`);
+    this.showToast("Feynman Review Scored! (+35 XP)", `Grade: ${grade} earned for explaining ${topic.split(':')[0]}.`, "success");
   }
 
   // ==========================================

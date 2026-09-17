@@ -187,8 +187,8 @@ body {
    LEFT SLIM NAVIGATION SIDEBAR
    ========================================================================== */
 .app-sidebar {
-  width: 250px;
-  min-width: 250px;
+  width: 268px;
+  min-width: 268px;
   background: var(--bg-surface);
   border-right: 1px solid var(--border-subtle);
   position: sticky;
@@ -197,9 +197,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 0.95rem;
   z-index: 60;
   transition: transform var(--trans-smooth), width var(--trans-smooth);
+  box-sizing: border-box;
 }
 
 .sidebar-top {
@@ -212,11 +213,13 @@ body {
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.35rem 0.5rem;
+  gap: 0.75rem;
+  padding: 0.4rem 0.55rem;
   text-decoration: none;
   border-radius: var(--radius-md);
   transition: all var(--trans-fast);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .sidebar-brand:hover {
@@ -224,8 +227,8 @@ body {
 }
 
 .aura-brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   position: relative;
   display: flex;
   align-items: center;
@@ -283,6 +286,9 @@ body {
 .brand-meta {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 
 /* Logo-type Brand Typography with Radiant Aesthetics */
@@ -290,61 +296,51 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  line-height: 1.1;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .brand-word-aura {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   color: #FFFFFF;
-  text-shadow: 0 0 16px rgba(34, 211, 238, 0.45);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
 }
 
 .brand-word-sep {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 800;
   color: var(--accent-cyan);
   opacity: 0.85;
   filter: drop-shadow(0 0 6px var(--accent-cyan));
-  transform: translateY(-1px);
+  transform: translateY(-0.5px);
 }
 
 .brand-word-routine {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 14px rgba(112, 71, 255, 0.4));
-}
-
-.brand-title-text {
-  font-family: var(--font-heading);
-  font-size: 1.18rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  word-spacing: 0.25em;
-  background: linear-gradient(135deg, #FFFFFF 30%, #38BDF8 70%, #A855F7 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  line-height: 1.1;
+  filter: drop-shadow(0 0 10px rgba(112, 71, 255, 0.35));
 }
 
 .brand-tagline-text {
   font-size: 0.68rem;
   color: var(--accent-cyan);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   opacity: 0.9;
-  margin-top: 2px;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Topbar Daily Control Pill & Aura Status */
@@ -1288,9 +1284,9 @@ body {
 /* 1. Large Desktops & Laptops (1025px - 1440px) */
 @media (max-width: 1280px) {
   .app-sidebar {
-    width: 220px;
-    min-width: 220px;
-    padding: 1rem 0.75rem;
+    width: 255px;
+    min-width: 255px;
+    padding: 1.15rem 0.85rem;
   }
   .app-content-body {
     padding: 1.25rem 1.5rem 2.5rem 1.5rem;
@@ -1300,6 +1296,9 @@ body {
 /* 2. Tablets & Small Laptops (769px - 1024px) */
 @media (max-width: 1024px) {
   .app-sidebar {
+    width: 280px;
+    min-width: 280px;
+    max-width: 85vw;
     position: fixed;
     left: 0;
     top: 0;

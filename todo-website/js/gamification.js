@@ -339,6 +339,14 @@ class GamificationEngine {
       `;
     }).join('');
   }
+
+  openModal() {
+    if (window.app) {
+      window.app.switchView('profileView');
+      const el = document.getElementById('profileBadgesGrid');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 }
 
 if (typeof window !== 'undefined') {

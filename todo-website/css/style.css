@@ -302,9 +302,9 @@ body {
 
 .brand-word-aura {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #FFFFFF;
   text-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
 }
@@ -321,9 +321,9 @@ body {
 
 .brand-word-routine {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1320,6 +1320,9 @@ body {
     padding: 0 1.25rem;
   }
   .dashboard-top-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-main-grid {
     grid-template-columns: 1fr;
   }
   .study-plan-layout-grid {

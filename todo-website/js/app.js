@@ -1054,9 +1054,9 @@ class AppController {
     // Fullscreen Focus Mode
     this.setupFocusModeControls();
 
-    // In-app toast listener
+    // In-app toast listener with type support
     window.addEventListener('in-app-toast', (e) => {
-      this.showToast(e.detail.title, e.detail.body);
+      this.showToast(e.detail.title, e.detail.body, e.detail.type || 'info', false);
     });
 
     // English Hub Sub-Tabs
@@ -1242,11 +1242,12 @@ class AppController {
 
     // Notify if newly entered task
     if (matched && matched.task && matched.task.id !== this.lastNotifiedTaskId) {
+      const isFirstLoad = this.lastNotifiedTaskId === null;
       this.lastNotifiedTaskId = matched.task.id;
-      if (window.notificationEngine) {
-        window.notificationEngine.notify(`Routine: ${matched.task.activity}`, {
+      if (!isFirstLoad && window.notificationEngine) {
+        window.notificationEngine.notify(`Next Activity: ${matched.task.activity}`, {
           body: `Time: ${matched.task.timeDisplay} | Goal: ${matched.task.goal}`,
-          soundType: 'alert',
+          soundType: 'next_activity',
           tag: 'slot-start'
         });
       }
@@ -1602,13 +1603,14 @@ class AppController {
         playBtn.innerHTML = '<i data-lucide="play" class="svg-icon"></i>';
         if (window.lucide) window.lucide.createIcons();
       }
+      if (window.soundEngine) window.soundEngine.play('timer_pause');
     } else {
       this.isDashboardTimerRunning = true;
       if (playBtn) {
         playBtn.innerHTML = '<i data-lucide="pause" class="svg-icon"></i>';
         if (window.lucide) window.lucide.createIcons();
       }
-      if (window.soundEngine) window.soundEngine.play('tick');
+      if (window.soundEngine) window.soundEngine.play('timer_start');
 
       this.dashboardTimerInterval = setInterval(() => {
         this.dashboardTimerSeconds--;
@@ -1625,12 +1627,12 @@ class AppController {
           this.todayFocusMinutes = (this.todayFocusMinutes || 0) + focusMinsCompleted;
           try { localStorage.setItem(`aura_daily_focus_${this.activeDate}`, this.todayFocusMinutes.toString()); } catch (e) {}
           this.renderDailyHUD();
-          if (window.soundEngine) window.soundEngine.play('levelUp');
+          if (window.soundEngine) window.soundEngine.play('timer_finish');
           if (window.gamification) {
             window.gamification.awardXP(60, 'Focus Session Complete');
             window.gamification.unlockBadge('badge-zen');
           }
-          this.showToast("Focus Complete!", "Magnificent focus session. Take a 5 min break!");
+          this.showToast("Focus Complete! (+60 XP)", "Magnificent focus block conquered. Time for a restorative break!", "timer_finish", false);
         }
       }, 1000);
     }
@@ -1685,10 +1687,12 @@ class AppController {
         this.isFocusTimerRunning = false;
         toggleTimerBtn.innerHTML = '<i data-lucide="play" class="btn-icon-svg"></i> Resume';
         if (window.lucide) window.lucide.createIcons();
+        if (window.soundEngine) window.soundEngine.play('timer_pause');
       } else {
         this.isFocusTimerRunning = true;
         toggleTimerBtn.innerHTML = '<i data-lucide="pause" class="btn-icon-svg"></i> Pause';
         if (window.lucide) window.lucide.createIcons();
+        if (window.soundEngine) window.soundEngine.play('timer_start');
         this.focusTimerInterval = setInterval(() => {
           this.focusSecondsRemaining--;
           this.updateFocusTimerDisplay();
@@ -1698,12 +1702,12 @@ class AppController {
             this.todayFocusMinutes = (this.todayFocusMinutes || 0) + 25;
             try { localStorage.setItem(`aura_daily_focus_${this.activeDate}`, this.todayFocusMinutes.toString()); } catch (e) {}
             this.renderDailyHUD();
-            if (window.soundEngine) window.soundEngine.play('levelUp');
+            if (window.soundEngine) window.soundEngine.play('timer_finish');
             if (window.gamification) {
               window.gamification.awardXP(60, 'Completed 25m Focus Block');
               window.gamification.unlockBadge('badge-zen');
             }
-            alert("Focus Session Complete! Outstanding work.");
+            this.showToast("Focus Block Conquered! (+60 XP)", "Outstanding focus session complete. Well done!", "timer_finish", false);
             this.closeFocusMode();
           }
         }, 1000);
@@ -1936,25 +1940,81 @@ class AppController {
     return this.toggleNotifications();
   }
 
-  showToast(title, body) {
+  showToast(title, body, type = 'info', playSound = true) {
     const container = document.getElementById('toastNotificationContainer');
     if (!container) return;
 
+    if (playSound && window.soundEngine) {
+      window.soundEngine.play(type);
+    }
+
     const toast = document.createElement('div');
-    toast.className = 'in-app-toast';
+    toast.className = `in-app-toast toast-${type}`;
+
+    const iconMap = {
+      task_complete: '<i data-lucide="check-circle-2"></i>',
+      complete: '<i data-lucide="check-circle-2"></i>',
+      success: '<i data-lucide="check"></i>',
+      achievement: '<i data-lucide="trophy"></i>',
+      levelUp: '<i data-lucide="award"></i>',
+      streak: '<i data-lucide="flame"></i>',
+      next_activity: '<i data-lucide="clock"></i>',
+      timer_start: '<i data-lucide="play"></i>',
+      timer_pause: '<i data-lucide="pause"></i>',
+      timer_finish: '<i data-lucide="bell"></i>',
+      focus: '<i data-lucide="target"></i>',
+      hydration: '<i data-lucide="droplet"></i>',
+      waterDrop: '<i data-lucide="droplet"></i>',
+      wellness: '<i data-lucide="heart-pulse"></i>',
+      eyeRest: '<i data-lucide="eye"></i>',
+      rest: '<i data-lucide="eye"></i>',
+      posture: '<i data-lucide="activity"></i>',
+      warning: '<i data-lucide="alert-triangle"></i>',
+      alert: '<i data-lucide="alert-circle"></i>',
+      delete: '<i data-lucide="trash-2"></i>',
+      error: '<i data-lucide="alert-octagon"></i>',
+      awakening: '<i data-lucide="sun"></i>',
+      info: '<i data-lucide="info"></i>'
+    };
+    const iconHtml = iconMap[type] || '<i data-lucide="bell"></i>';
+
     toast.innerHTML = `
       <div class="toast-indicator"></div>
+      <div class="toast-icon-wrap">${iconHtml}</div>
       <div class="toast-content">
         <strong>${title}</strong>
         <p>${body}</p>
       </div>
     `;
     container.appendChild(toast);
+    if (window.lucide) window.lucide.createIcons();
 
     setTimeout(() => {
       toast.classList.add('fade-out');
-      setTimeout(() => toast.remove(), 400);
+      setTimeout(() => toast.remove(), 350);
     }, 3800);
+  }
+
+  testNotificationSound(type) {
+    if (window.soundEngine) {
+      window.soundEngine.play(type);
+    }
+    const labelMap = {
+      task_complete: ['Task Conquered! (+30 XP)', '30-Day Routine schedule block completed.'],
+      success: ['Operation Successful', 'Your changes and notes have been saved.'],
+      levelUp: ['Level Up / Rank Advance!', 'Earned new progression level & rank badge.'],
+      streak: ['Streak Multiplier Active!', 'Daily momentum consistency milestone reached.'],
+      next_activity: ['Next Activity Transition', 'Time to start your next scheduled routine slot.'],
+      timer_start: ['Focus Timer Initialized', '25-minute deep focus block activated.'],
+      timer_finish: ['Focus Session Complete!', 'Great discipline! Time for a restorative break.'],
+      waterDrop: ['Hydration Logged (+15 XP)', 'Target: 8 glasses (2.0 Liters) of water.'],
+      eyeRest: ['20-20-20 Optic Relief', 'Look 20 feet away to relax ciliary eye muscles.'],
+      warning: ['Attention Needed', 'Rule #1 in effect: Never miss two days in a row.'],
+      awakening: ['New Day Awakened!', 'Fresh schedule loaded for today.'],
+      delete: ['Item Removed', 'Schedule task or note cleared from memory.']
+    };
+    const info = labelMap[type] || ['Notification Sound Test', `Previewing ${type} acoustic tone.`];
+    this.showToast(info[0], info[1], type, false);
   }
 
   // ==========================================

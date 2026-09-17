@@ -20,6 +20,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
   <!-- PDF.js from Cloudflare CDN for Client-Side PDF Extraction -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -52,6 +53,9 @@
     <button class="posture-banner-close"
       onclick="document.getElementById('postureBanner').classList.remove('visible')"><i data-lucide="x" class="svg-icon"></i></button>
   </div>
+
+  <!-- Sidebar Backdrop Overlay (mobile) -->
+  <div id="sidebarBackdrop" class="sidebar-mobile-backdrop"></div>
 
   <!-- APP SHELL CONTAINER -->
   <div class="app-shell">

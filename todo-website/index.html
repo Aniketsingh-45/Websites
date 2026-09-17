@@ -64,47 +64,52 @@
     <aside class="app-sidebar" id="appSidebar">
       <div class="sidebar-top">
         
-        <!-- Brand Logo Header with Custom AuraRoutine Animated SVG Logo -->
-        <a href="#" class="sidebar-brand" onclick="window.app.switchView('homeView'); return false;" title="AuraRoutine Daily Mastery OS">
-          <div class="aura-brand-mark" aria-label="AuraRoutine Logo">
-            <svg class="aura-logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="auraRingGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#22D3EE" />
-                  <stop offset="35%" stop-color="#1687FF" />
-                  <stop offset="70%" stop-color="#7047FF" />
-                  <stop offset="100%" stop-color="#EC4899" />
-                </linearGradient>
-                <linearGradient id="auraCoreGrad" x1="12" y1="12" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#FFFFFF" />
-                  <stop offset="40%" stop-color="#38BDF8" />
-                  <stop offset="100%" stop-color="#818CF8" />
-                </linearGradient>
-                <radialGradient id="auraAmbientGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#7047FF" stop-opacity="0.5" />
-                  <stop offset="60%" stop-color="#1687FF" stop-opacity="0.2" />
-                  <stop offset="100%" stop-color="#22D3EE" stop-opacity="0" />
-                </radialGradient>
-              </defs>
-              <circle cx="22" cy="22" r="20" fill="url(#auraAmbientGlow)" class="aura-ambient-bg" />
-              <circle cx="22" cy="22" r="18" stroke="url(#auraRingGrad)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="85 28" class="aura-orbit-ring" />
-              <circle cx="22" cy="22" r="13" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="3 3" />
-              <polygon points="22,7 33,14 33,28 22,35 11,28 11,14" fill="rgba(15, 23, 42, 0.9)" stroke="url(#auraRingGrad)" stroke-width="1.8" />
-              <path d="M22 13L28.5 27H24.8L23.4 23.8H20.6L19.2 27H15.5L22 13ZM22 18.2L21.2 21.2H22.8L22 18.2Z" fill="url(#auraCoreGrad)" />
-              <circle cx="22" cy="3.5" r="1.6" fill="#22D3EE" class="aura-sparkle sparkle-top" />
-              <circle cx="40.5" cy="22" r="1.4" fill="#EC4899" class="aura-sparkle sparkle-right" />
-              <circle cx="22" cy="40.5" r="1.6" fill="#7047FF" class="aura-sparkle sparkle-bottom" />
-              <circle cx="3.5" cy="22" r="1.4" fill="#38BDF8" class="aura-sparkle sparkle-left" />
-            </svg>
-          </div>
-          <div class="brand-meta">
-            <div class="brand-title-wrap">
-              <span class="brand-word-aura">AURA</span>
-              <span class="brand-word-routine">ROUTINE</span>
+        <!-- Sidebar Header with Brand and Mobile Close Button -->
+        <div class="sidebar-header-row">
+          <a href="#" class="sidebar-brand" onclick="window.app.switchView('homeView'); return false;" title="AuraRoutine Daily Mastery OS">
+            <div class="aura-brand-mark" aria-label="AuraRoutine Logo">
+              <svg class="aura-logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="auraRingGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#22D3EE" />
+                    <stop offset="35%" stop-color="#1687FF" />
+                    <stop offset="70%" stop-color="#7047FF" />
+                    <stop offset="100%" stop-color="#EC4899" />
+                  </linearGradient>
+                  <linearGradient id="auraCoreGrad" x1="12" y1="12" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="40%" stop-color="#38BDF8" />
+                    <stop offset="100%" stop-color="#818CF8" />
+                  </linearGradient>
+                  <radialGradient id="auraAmbientGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#7047FF" stop-opacity="0.5" />
+                    <stop offset="60%" stop-color="#1687FF" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="#22D3EE" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <circle cx="22" cy="22" r="20" fill="url(#auraAmbientGlow)" class="aura-ambient-bg" />
+                <circle cx="22" cy="22" r="18" stroke="url(#auraRingGrad)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="85 28" class="aura-orbit-ring" />
+                <circle cx="22" cy="22" r="13" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="3 3" />
+                <polygon points="22,7 33,14 33,28 22,35 11,28 11,14" fill="rgba(15, 23, 42, 0.9)" stroke="url(#auraRingGrad)" stroke-width="1.8" />
+                <path d="M22 13L28.5 27H24.8L23.4 23.8H20.6L19.2 27H15.5L22 13ZM22 18.2L21.2 21.2H22.8L22 18.2Z" fill="url(#auraCoreGrad)" />
+                <circle cx="22" cy="3.5" r="1.6" fill="#22D3EE" class="aura-sparkle sparkle-top" />
+                <circle cx="40.5" cy="22" r="1.4" fill="#EC4899" class="aura-sparkle sparkle-right" />
+                <circle cx="22" cy="40.5" r="1.6" fill="#7047FF" class="aura-sparkle sparkle-bottom" />
+                <circle cx="3.5" cy="22" r="1.4" fill="#38BDF8" class="aura-sparkle sparkle-left" />
+              </svg>
             </div>
-            <span class="brand-tagline-text">Daily Mastery OS</span>
-          </div>
-        </a>
+            <div class="brand-meta">
+              <div class="brand-title-wrap">
+                <span class="brand-word-aura">AURA</span>
+                <span class="brand-word-routine">ROUTINE</span>
+              </div>
+              <span class="brand-tagline-text">Daily Mastery OS</span>
+            </div>
+          </a>
+          <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar" title="Close Sidebar">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
 
         <!-- Sidebar Navigation Menu -->
         <nav class="sidebar-nav" aria-label="Main Navigation">

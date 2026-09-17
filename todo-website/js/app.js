@@ -65,8 +65,10 @@ class AppController {
       localStorage.setItem('aura_active_view', viewName);
     } catch (e) {}
 
-    // Close mobile menu if open
+    // Close mobile menu and backdrop if open
     document.getElementById('appSidebar')?.classList.remove('mobile-open');
+    document.getElementById('sidebarBackdrop')?.classList.remove('active');
+    document.body.style.overflow = '';
 
     // Update sidebar and nav buttons
     document.querySelectorAll('.nav-view-tab').forEach(tab => {
@@ -969,29 +971,61 @@ class AppController {
       });
     });
 
-    // Mobile Hamburger + Backdrop
+    // Mobile Hamburger + Sidebar Drawer Controls
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
     const appSidebar = document.getElementById('appSidebar');
     const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+    const openMobileSidebar = () => {
+      appSidebar?.classList.add('mobile-open');
+      sidebarBackdrop?.classList.add('active');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
 
     const closeMobileSidebar = () => {
       appSidebar?.classList.remove('mobile-open');
       sidebarBackdrop?.classList.remove('active');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     };
 
-    mobileMenuBtn?.addEventListener('click', () => {
-      const isOpen = appSidebar?.classList.toggle('mobile-open');
-      sidebarBackdrop?.classList.toggle('active', isOpen);
+    mobileMenuBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (appSidebar?.classList.contains('mobile-open')) {
+        closeMobileSidebar();
+      } else {
+        openMobileSidebar();
+      }
     });
 
-    sidebarBackdrop?.addEventListener('click', closeMobileSidebar);
+    sidebarCloseBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileSidebar();
+    });
 
-    // Auto-close sidebar on nav item click (mobile)
-    document.querySelectorAll('.nav-view-tab').forEach(btn => {
+    sidebarBackdrop?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileSidebar();
+    });
+
+    // Auto-close sidebar on nav item click or user card click (mobile)
+    document.querySelectorAll('.app-sidebar .nav-item, .app-sidebar .sidebar-brand, .sidebar-user-card').forEach(btn => {
       btn.addEventListener('click', () => {
         if (window.innerWidth <= 1024) closeMobileSidebar();
       });
     });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && appSidebar?.classList.contains('mobile-open')) {
+        closeMobileSidebar();
+      }
+    });
+
+    // Expose drawer controls
+    this.openSidebar = openMobileSidebar;
+    this.closeSidebar = closeMobileSidebar;
 
     // Theme Toggle
     document.getElementById('themeToggleBtn')?.addEventListener('click', () => {

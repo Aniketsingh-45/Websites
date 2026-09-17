@@ -1341,7 +1341,7 @@ class AppController {
       return `
         <div class="timeline-item-row">
           <div class="timeline-time-meta">
-            <span class="timeline-time-val">${startTimeFormatted}</span>
+            <span class="timeline-time-val"><i data-lucide="clock" class="pill-icon-svg"></i>${startTimeFormatted}</span>
             <span class="timeline-dur-val">${duration}</span>
           </div>
 
@@ -1357,9 +1357,11 @@ class AppController {
 
             <div class="task-card-right-col">
               <span class="task-xp-pill">+${task.xp || 30} XP</span>
-              <button class="task-check-circle" onclick="window.app.toggleTask('${task.id}')" title="Mark as done">
-                ${task.completed ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
-              </button>
+              <div class="task-card-actions-group">
+                <button class="task-check-circle" onclick="window.app.toggleTask('${task.id}')" title="Mark as done">
+                  ${task.completed ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1408,33 +1410,36 @@ class AppController {
 
     container.innerHTML = filtered.map((task, idx) => {
       const borderClass = this.getCategoryBorderClass(task.category);
+      const catClass = (task.category || 'daily').toLowerCase().replace(/[^a-z0-9]/g, '');
       const duration = this.calculateDuration(task.startTime, task.endTime);
       const startTimeFormatted = this.formatTime12h(task.startTime);
 
       return `
         <div class="timeline-item-row">
           <div class="timeline-time-meta">
-            <span class="timeline-time-val">${startTimeFormatted}</span>
+            <span class="timeline-time-val"><i data-lucide="clock" class="pill-icon-svg"></i>${startTimeFormatted}</span>
             <span class="timeline-dur-val">${duration}</span>
           </div>
 
-          <div class="task-item-card ${borderClass} ${task.completed ? 'completed' : ''}" style="width: 100%;">
+          <div class="task-item-card ${borderClass} ${task.completed ? 'completed' : ''}">
             <div class="task-card-main-col">
               <div class="task-card-title-row">
                 <h4 class="task-act-title">${idx + 1}. ${task.activity}</h4>
-                <span class="task-badge-tag">${task.category}</span>
-                <span class="task-priority-tag">${task.priority.toUpperCase()}</span>
+                <span class="task-badge-tag ${catClass}">${task.category}</span>
+                <span class="task-priority-tag">${(task.priority || 'MED').toUpperCase()}</span>
               </div>
               <span class="task-goal-caption">Goal: ${task.goal}</span>
             </div>
 
             <div class="task-card-right-col">
               <span class="task-xp-pill">+${task.xp} XP</span>
-              <button class="task-check-circle" onclick="window.app.toggleTask('${task.id}')">
-                ${task.completed ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
-              </button>
-              <button class="date-nav-btn" onclick="window.app.editTask('${task.id}')" title="Edit"><i data-lucide="pencil" class="svg-icon"></i></button>
-              <button class="date-nav-btn" onclick="window.app.deleteTask('${task.id}')" title="Delete"><i data-lucide="trash-2" class="svg-icon"></i></button>
+              <div class="task-card-actions-group">
+                <button class="task-check-circle" onclick="window.app.toggleTask('${task.id}')" title="${task.completed ? 'Mark pending' : 'Mark completed'}">
+                  ${task.completed ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+                </button>
+                <button class="date-nav-btn" onclick="window.app.editTask('${task.id}')" title="Edit Task"><i data-lucide="pencil" class="svg-icon"></i></button>
+                <button class="date-nav-btn" onclick="window.app.deleteTask('${task.id}')" title="Delete Task"><i data-lucide="trash-2" class="svg-icon"></i></button>
+              </div>
             </div>
           </div>
         </div>

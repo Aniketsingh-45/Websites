@@ -309,11 +309,11 @@ class AppController {
   }
 
   resetDailyState(newDateStr) {
-    // Reset routine task checkmarks for the fresh day
-    if (this.routine && this.routine.tasks) {
-      this.routine.tasks.forEach(t => t.completed = false);
-      this.saveRoutine();
-    }
+    // The user requested to NOT reset the routine automatically on a new day.
+    // if (this.routine && this.routine.tasks) {
+    //   this.routine.tasks.forEach(t => t.completed = false);
+    //   this.saveRoutine();
+    // }
 
     // Reset quick habits
     this.quickHabits = { wake: false, workout: false, read: false, speech: false, phone: false };

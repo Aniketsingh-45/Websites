@@ -234,14 +234,6 @@ class WellnessSentinel {
         tag: 'posture-alert'
       });
     }
-
-    const banner = document.getElementById('postureBanner');
-    if (banner) {
-      banner.classList.add('visible');
-      setTimeout(() => {
-        banner.classList.remove('visible');
-      }, 9000);
-    }
   }
 
   addWaterGlass() {

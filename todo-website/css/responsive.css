@@ -805,6 +805,11 @@ img, video, svg {
     right: 10px !important;
     bottom: 4.8rem !important;
     padding: 0.65rem 0.85rem !important;
+    transform: translateY(120%) !important;
+  }
+  
+  .posture-floating-banner.visible {
+    transform: translateY(0) !important;
   }
 
   .toast-stack-container {

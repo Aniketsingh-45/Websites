@@ -214,8 +214,10 @@ svg {
 
   .topbar-mobile-brand {
     display: flex !important;
-    align-items: center;
-    gap: 0.25rem;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    min-width: 0 !important;
   }
 
   .app-topbar {
@@ -921,13 +923,29 @@ svg {
     font-size: 0.7rem !important;
   }
 
-  /* Shrink mobile brand further on tiny screens */
-  .topbar-mobile-brand .brand-word-aura,
-  .topbar-mobile-brand .brand-word-routine {
-    font-size: 0.78rem !important;
+  /* Mobile brand on phones */
+  .topbar-mobile-brand {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    min-width: 0 !important;
   }
 
-  .topbar-mobile-brand .brand-creator-badge {
+  .topbar-mobile-brand .brand-word-aura,
+  .topbar-mobile-brand .brand-word-routine {
+    font-size: 0.84rem !important;
+  }
+
+  .topbar-mobile-brand .mobile-brand-author {
+    font-size: 0.52rem !important;
+    margin-top: 1px !important;
+    line-height: 1 !important;
+  }
+
+  /* Prevent topbar squishing on phones: hide audio & notification icon buttons */
+  #notifyPermBtn,
+  #soundToggleBtn {
     display: none !important;
   }
 

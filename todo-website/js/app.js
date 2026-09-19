@@ -309,11 +309,11 @@ class AppController {
   }
 
   resetDailyState(newDateStr) {
-    // The user requested to NOT reset the routine automatically on a new day.
-    // if (this.routine && this.routine.tasks) {
-    //   this.routine.tasks.forEach(t => t.completed = false);
-    //   this.saveRoutine();
-    // }
+    // Reset all checklist tasks to uncompleted for the new day
+    if (this.routine && this.routine.tasks) {
+      this.routine.tasks.forEach(t => t.completed = false);
+      this.saveRoutine();
+    }
 
     // Reset quick habits
     this.quickHabits = { wake: false, workout: false, read: false, speech: false, phone: false };

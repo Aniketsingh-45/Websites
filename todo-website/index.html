@@ -168,9 +168,12 @@
               <div class="brand-title-wrap">
                 <span class="brand-word-aura">AURA</span>
                 <span class="brand-word-routine">ROUTINE</span>
-                <span class="brand-creator-badge" title="Created by Aniket Singh">by Aniket</span>
               </div>
-              <span class="brand-tagline-text">Aniket Singh • Daily Mastery OS</span>
+              <div class="brand-tagline-text">
+                <span class="brand-tagline-author">by Aniket Singh</span>
+                <span class="brand-tagline-sep">·</span>
+                <span class="brand-tagline-desc">Daily Mastery OS</span>
+              </div>
             </div>
           </a>
           <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar" title="Close Sidebar">
@@ -263,10 +266,12 @@
             <i data-lucide="menu"></i>
           </button>
           <!-- Mobile brand shown only on small screens -->
-          <div class="topbar-mobile-brand" role="button" tabindex="0"
+          <div class="topbar-mobile-brand" id="topbarMobileBrand" role="button" tabindex="0"
             onclick="window.app.switchView('homeView')" title="AuraRoutine by Aniket Singh">
-            <span class="brand-word-aura">AURA</span><span class="brand-word-routine">ROUTINE</span>
-            <span class="brand-creator-badge">by Aniket</span>
+            <div class="mobile-brand-title">
+              <span class="brand-word-aura">AURA</span><span class="brand-word-routine">ROUTINE</span>
+            </div>
+            <div class="mobile-brand-author">by Aniket Singh</div>
           </div>
         </div>
 

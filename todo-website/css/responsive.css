@@ -1587,7 +1587,12 @@ svg {
    Ensures hero header, customizer form, sound studio, badges, neural memory,
    and danger zone scale cleanly across all screens (1024px, 768px, 600px, 440px, 360px, 320px).
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
+  .profile-dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
   .profile-dashboard-layout {
     gap: 1.25rem;
   }
@@ -1602,6 +1607,16 @@ svg {
     gap: 1rem !important;
   }
 
+  .profile-dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .profile-grid-col-primary,
+  .profile-grid-col-secondary {
+    gap: 1rem !important;
+  }
+
   /* Hero Profile Card Header */
   .profile-card-header {
     padding: 1.25rem 1rem !important;
@@ -1612,12 +1627,12 @@ svg {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 1.15rem !important;
+    gap: 1.25rem !important;
     width: 100% !important;
   }
 
   .profile-avatar-wrapper {
-    margin: 0 auto !important;
+    margin: 0 auto 0.45rem auto !important;
   }
 
   .profile-meta-details {
@@ -1772,20 +1787,35 @@ svg {
 
 @media (max-width: 440px) {
   .profile-card-header {
-    padding: 1rem 0.75rem !important;
+    padding: 1.15rem 0.85rem !important;
+  }
+
+  .profile-avatar-wrapper,
+  .profile-hero-avatar-img,
+  .profile-avatar-overlay-camera {
+    width: 86px !important;
+    height: 86px !important;
   }
 
   .profile-hero-avatar-img {
-    width: 80px !important;
-    height: 80px !important;
-    line-height: 80px !important;
+    line-height: 86px !important;
     font-size: 2rem !important;
   }
 
   .profile-avatar-overlay-camera {
-    width: 80px !important;
-    height: 80px !important;
     font-size: 0.7rem !important;
+  }
+
+  .profile-avatar-status-badge {
+    bottom: -6px !important;
+    padding: 0.18rem 0.55rem !important;
+    font-size: 0.6rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .profile-avatar-status-badge .online-status-dot {
+    width: 6px !important;
+    height: 6px !important;
   }
 
   .profile-hero-display-name {
@@ -1838,8 +1868,20 @@ svg {
   }
 
   .avatar-current-preview {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.75rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-quick-stats-strip {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .profile-hero-display-name {
+    font-size: 1.25rem !important;
   }
 }

@@ -1787,9 +1787,14 @@
                   title="Click to upload/change photo" style="cursor: pointer;">
                   <img src="assets/avatar_aniket.jpg" alt="Student Profile Avatar" class="profile-hero-avatar-img"
                     id="profileCardAvatar">
-                  <div class="profile-avatar-overlay-camera"><i data-lucide="camera" class="btn-icon-svg"></i> Change
+                  <div class="profile-avatar-overlay-camera">
+                    <i data-lucide="camera" class="btn-icon-svg" style="margin: 0 0 0.2rem 0;"></i>
+                    <span>Change</span>
                   </div>
-                  <div class="profile-avatar-status-badge"><i data-lucide="zap" class="btn-icon-svg"></i> Online</div>
+                  <div class="profile-avatar-status-badge">
+                    <span class="online-status-dot"></span>
+                    <span class="online-status-text">Online</span>
+                  </div>
                 </div>
 
                 <div class="profile-meta-details">
@@ -1822,132 +1827,142 @@
               </div>
             </div>
 
-            <!-- Profile Settings & Customization Grid -->
-            <div class="profile-customizer-card bento-card">
-              <div class="card-header-between" style="margin-bottom: 1.25rem;">
-                <div>
-                  <h3
-                    style="color: #FFFFFF; font-size: 1.25rem; display: inline-flex; align-items: center; gap: 0.45rem;">
-                    <i data-lucide="settings" class="svg-icon"></i> Customize Your Identity &amp; Study Goals</h3>
-                  <p style="color: var(--text-muted); font-size: 0.85rem;">Personalize your name, professional title,
-                    avatar, study hours, and track. Changes immediately apply everywhere.</p>
-                </div>
-                <span class="task-badge-tag wellness">● Live Synchronized</span>
-              </div>
+            <!-- Profile Dashboard Two-Column Bento Architecture -->
+            <div class="profile-dashboard-grid">
 
-              <form id="userProfileForm" onsubmit="event.preventDefault(); window.app.saveUserProfile();">
-                <div class="form-grid-2col" style="gap: 1.5rem;">
+              <!-- Left / Primary Column -->
+              <div class="profile-grid-col-primary">
 
-                  <!-- Left Column: Name, Role, Bio, Target Hours -->
-                  <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileNameInput">Your Name *</label>
-                      <input type="text" id="profileNameInput" class="form-field-input"
-                        placeholder="e.g. Aniket Singh or your name" required>
+                <!-- Profile Settings & Customization Grid -->
+                <div class="profile-customizer-card bento-card">
+                  <div class="card-header-between" style="margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <div>
+                      <h3
+                        style="color: #FFFFFF; font-size: 1.25rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                        <i data-lucide="settings" class="svg-icon"></i> Customize Your Identity &amp; Study Goals</h3>
+                      <p style="color: var(--text-muted); font-size: 0.85rem;">Personalize your name, professional title,
+                        avatar, study hours, and track. Changes immediately apply everywhere.</p>
                     </div>
-
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileRoleInput">Professional Title / Headline *</label>
-                      <input type="text" id="profileRoleInput" class="form-field-input"
-                        placeholder="e.g. AI Engineer &amp; Student, Full-Stack Dev" required>
-                    </div>
-
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileBioInput">Personal Motto / Daily Philosophy</label>
-                      <input type="text" id="profileBioInput" class="form-field-input"
-                        placeholder="e.g. Discipline today builds the freedom tomorrow.">
-                    </div>
-
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileTargetHoursInput">Daily Target Study Time
-                        (Hours)</label>
-                      <input type="number" id="profileTargetHoursInput" class="form-field-input" min="1" max="16"
-                        step="0.5" value="6.5">
-                    </div>
-
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileTrackSelect">Specialization Track</label>
-                      <select id="profileTrackSelect" class="form-field-input">
-                        <option value="AI &amp; Machine Learning">AI &amp; Machine Learning</option>
-                        <option value="Full-Stack Web Development">Full-Stack Web Development</option>
-                        <option value="System Design &amp; Cloud Architecture">System Design &amp; Cloud</option>
-                        <option value="Data Structures &amp; Algorithms">Data Structures &amp; Algorithms</option>
-                        <option value="Cybersecurity &amp; Networks">Cybersecurity &amp; Networks</option>
-                        <option value="Academic Excellence &amp; Research">Academic Excellence &amp; Research</option>
-                      </select>
-                    </div>
+                    <span class="task-badge-tag wellness">● Live Synchronized</span>
                   </div>
 
-                  <!-- Right Column: Avatar Upload, Presets, Social Links -->
-                  <div style="display: flex; flex-direction: column; gap: 1rem;">
+                  <form id="userProfileForm" onsubmit="event.preventDefault(); window.app.saveUserProfile();">
+                    <div class="form-grid-2col" style="gap: 1.25rem;">
 
-                    <!-- Avatar Upload Section -->
-                    <div class="form-field-group">
-                      <label class="form-field-label">Profile Photo / Avatar</label>
-                      <div class="avatar-upload-section">
-                        <div class="avatar-current-preview">
-                          <img src="assets/avatar_aniket.jpg" alt="Current Avatar Preview" class="avatar-preview-img"
-                            id="avatarPreviewImg">
-                          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <label for="profileImageFileInput" class="btn-upload-avatar">
-                              <i data-lucide="camera" class="btn-icon-svg"></i> Upload Photo
-                            </label>
-                            <input type="file" id="profileImageFileInput" accept="image/*" style="display: none;"
-                              onchange="window.app.handleAvatarUpload(this)">
-                            <span style="font-size: 0.72rem; color: var(--text-muted);">JPG, PNG, GIF — max 5MB</span>
-                          </div>
+                      <!-- Left Column: Name, Role, Bio, Target Hours -->
+                      <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileNameInput">Your Name *</label>
+                          <input type="text" id="profileNameInput" class="form-field-input"
+                            placeholder="e.g. Aniket Singh or your name" required>
                         </div>
 
-                        <div class="form-field-group" style="margin: 0;">
-                          <label class="form-field-label" style="font-size: 0.73rem;">Or choose an emoji preset:</label>
-                          <div class="avatar-presets-track" id="avatarPresetsTrack">
-                            <button type="button" class="avatar-preset-btn active"
-                              data-avatar="assets/avatar_aniket.jpg" title="My Photo"
-                              onclick="window.app.setAvatarPreset('assets/avatar_aniket.jpg', this)">
-                              <i data-lucide="user"></i>
-                            </button>
-                            <button type="button" class="avatar-preset-btn" data-avatar="bot" title="AI Architect"
-                              onclick="window.app.setAvatarPreset('bot', this)">
-                              <i data-lucide="bot"></i>
-                            </button>
-                            <button type="button" class="avatar-preset-btn" data-avatar="rocket"
-                              title="Quantum Explorer" onclick="window.app.setAvatarPreset('rocket', this)">
-                              <i data-lucide="rocket"></i>
-                            </button>
-                            <button type="button" class="avatar-preset-btn" data-avatar="brain" title="Deep Thinker"
-                              onclick="window.app.setAvatarPreset('brain', this)">
-                              <i data-lucide="brain"></i>
-                            </button>
-                            <button type="button" class="avatar-preset-btn" data-avatar="zap" title="Lightning Speed"
-                              onclick="window.app.setAvatarPreset('zap', this)">
-                              <i data-lucide="zap"></i>
-                            </button>
-                            <button type="button" class="avatar-preset-btn" data-avatar="zen" title="Zen Scholar"
-                              onclick="window.app.setAvatarPreset('zen', this)">
-                              <i data-lucide="sparkles"></i>
-                            </button>
-                            <button type="button" class="avatar-preset-btn" data-avatar="shield" title="Brave Learner"
-                              onclick="window.app.setAvatarPreset('shield', this)">
-                              <i data-lucide="shield-check"></i>
-                            </button>
-                          </div>
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileRoleInput">Professional Title / Headline *</label>
+                          <input type="text" id="profileRoleInput" class="form-field-input"
+                            placeholder="e.g. AI Engineer &amp; Student, Full-Stack Dev" required>
+                        </div>
+
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileBioInput">Personal Motto / Daily Philosophy</label>
+                          <input type="text" id="profileBioInput" class="form-field-input"
+                            placeholder="e.g. Discipline today builds the freedom tomorrow.">
+                        </div>
+
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileTargetHoursInput">Daily Target Study Time
+                            (Hours)</label>
+                          <input type="number" id="profileTargetHoursInput" class="form-field-input" min="1" max="16"
+                            step="0.5" value="6.5">
+                        </div>
+
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileTrackSelect">Specialization Track</label>
+                          <select id="profileTrackSelect" class="form-field-input">
+                            <option value="AI &amp; Machine Learning">AI &amp; Machine Learning</option>
+                            <option value="Full-Stack Web Development">Full-Stack Web Development</option>
+                            <option value="System Design &amp; Cloud Architecture">System Design &amp; Cloud</option>
+                            <option value="Data Structures &amp; Algorithms">Data Structures &amp; Algorithms</option>
+                            <option value="Cybersecurity &amp; Networks">Cybersecurity &amp; Networks</option>
+                            <option value="Academic Excellence &amp; Research">Academic Excellence &amp; Research</option>
+                          </select>
                         </div>
                       </div>
+
+                      <!-- Right Column: Avatar Upload, Presets, Social Links -->
+                      <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+                        <!-- Avatar Upload Section -->
+                        <div class="form-field-group">
+                          <label class="form-field-label">Profile Photo / Avatar</label>
+                          <div class="avatar-upload-section">
+                            <div class="avatar-current-preview">
+                              <img src="assets/avatar_aniket.jpg" alt="Current Avatar Preview" class="avatar-preview-img"
+                                id="avatarPreviewImg">
+                              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label for="profileImageFileInput" class="btn-upload-avatar">
+                                  <i data-lucide="camera" class="btn-icon-svg"></i> Upload Photo
+                                </label>
+                                <input type="file" id="profileImageFileInput" accept="image/*" style="display: none;"
+                                  onchange="window.app.handleAvatarUpload(this)">
+                                <span style="font-size: 0.72rem; color: var(--text-muted);">JPG, PNG, GIF — max 5MB</span>
+                              </div>
+                            </div>
+
+                            <div class="form-field-group" style="margin: 0;">
+                              <label class="form-field-label" style="font-size: 0.73rem;">Or choose an emoji preset:</label>
+                              <div class="avatar-presets-track" id="avatarPresetsTrack">
+                                <button type="button" class="avatar-preset-btn active"
+                                  data-avatar="assets/avatar_aniket.jpg" title="My Photo"
+                                  onclick="window.app.setAvatarPreset('assets/avatar_aniket.jpg', this)">
+                                  <i data-lucide="user"></i>
+                                </button>
+                                <button type="button" class="avatar-preset-btn" data-avatar="bot" title="AI Architect"
+                                  onclick="window.app.setAvatarPreset('bot', this)">
+                                  <i data-lucide="bot"></i>
+                                </button>
+                                <button type="button" class="avatar-preset-btn" data-avatar="rocket"
+                                  title="Quantum Explorer" onclick="window.app.setAvatarPreset('rocket', this)">
+                                  <i data-lucide="rocket"></i>
+                                </button>
+                                <button type="button" class="avatar-preset-btn" data-avatar="brain" title="Deep Thinker"
+                                  onclick="window.app.setAvatarPreset('brain', this)">
+                                  <i data-lucide="brain"></i>
+                                </button>
+                                <button type="button" class="avatar-preset-btn" data-avatar="zap" title="Lightning Speed"
+                                  onclick="window.app.setAvatarPreset('zap', this)">
+                                  <i data-lucide="zap"></i>
+                                </button>
+                                <button type="button" class="avatar-preset-btn" data-avatar="zen" title="Zen Scholar"
+                                  onclick="window.app.setAvatarPreset('zen', this)">
+                                  <i data-lucide="sparkles"></i>
+                                </button>
+                                <button type="button" class="avatar-preset-btn" data-avatar="shield" title="Brave Learner"
+                                  onclick="window.app.setAvatarPreset('shield', this)">
+                                  <i data-lucide="shield-check"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileGithubInput">GitHub Profile / Username</label>
+                          <input type="text" id="profileGithubInput" class="form-field-input"
+                            placeholder="e.g. github.com/username">
+                        </div>
+
+                        <div class="form-field-group">
+                          <label class="form-field-label" for="profileLinkedinInput">LinkedIn Profile URL</label>
+                          <input type="text" id="profileLinkedinInput" class="form-field-input"
+                            placeholder="e.g. linkedin.com/in/username">
+                        </div>
+
+                      </div>
+
                     </div>
 
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileGithubInput">GitHub Profile / Username</label>
-                      <input type="text" id="profileGithubInput" class="form-field-input"
-                        placeholder="e.g. github.com/username">
-                    </div>
-
-                    <div class="form-field-group">
-                      <label class="form-field-label" for="profileLinkedinInput">LinkedIn Profile URL</label>
-                      <input type="text" id="profileLinkedinInput" class="form-field-input"
-                        placeholder="e.g. linkedin.com/in/username">
-                    </div>
-
-                    <!-- Action Buttons -->
+                    <!-- Dedicated Full-Width Action Buttons -->
                     <div class="profile-form-actions-row">
                       <button type="submit" class="btn-primary" id="saveProfileBtn">
                         <i data-lucide="save" class="btn-icon-svg"></i> Save &amp; Apply Everywhere
@@ -1957,327 +1972,348 @@
                         <i data-lucide="refresh-cw" class="btn-icon-svg"></i> Reset
                       </button>
                     </div>
-                  </div>
-
+                  </form>
                 </div>
-              </form>
-            </div>
 
-            <!-- System Preferences & Notification Sentinels Card -->
-            <div class="profile-preferences-card bento-card">
-              <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                <div>
-                  <h3
-                    style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
-                    <i data-lucide="bell-ring" class="svg-icon" style="color: #22D3EE;"></i> Notification &amp; Sentinel
-                    Controls
-                  </h3>
-                  <p style="color: var(--text-muted); font-size: 0.82rem;">Manage real-time desktop push notifications,
-                    bio-wellness interval alerts, and synthesized sound effects.</p>
-                </div>
-                <span class="aurabrain-badge" id="notifEngineStatusBadge">🔔 Sentinel Active (ON)</span>
-              </div>
-              <div class="settings-switches-grid">
-                <!-- Switch 1: Notifications ON / OFF -->
-                <div class="setting-switch-item">
-                  <div class="switch-item-left">
-                    <div class="switch-item-icon" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;">
-                      <i data-lucide="bell"></i>
-                    </div>
+                <!-- AuraBrain Cognitive Intelligence & History Memory Summary Card -->
+                <div class="profile-intel-card bento-card">
+                  <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                     <div>
-                      <span class="switch-item-title">System &amp; In-App Notifications (ON / OFF)</span>
-                      <p class="switch-item-desc">Scheduled slot alerts, streak defenses, and interval milestone
-                        notifications.</p>
+                      <h3
+                        style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                        <i data-lucide="brain" class="svg-icon" style="color: #22D3EE;"></i> AuraBrain Memory &amp;
+                        Cognitive Archive
+                      </h3>
+                      <p style="color: var(--text-muted); font-size: 0.82rem;">Continuous longitudinal intelligence tracking
+                        your daily consistency, memory archives, and habits.</p>
+                    </div>
+                    <span class="aurabrain-badge" id="profileBrainStatusBadge">⚡ Neural Sync Active</span>
+                  </div>
+
+                  <div class="stats-counter-strip">
+                    <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
+                      <div class="hero-stat-icon-wrap" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;"><i
+                          data-lucide="activity"></i></div>
+                      <div class="hero-stat-meta">
+                        <span class="hero-stat-val" id="profileBrainConsistencyVal">100%</span>
+                        <span class="hero-stat-lbl">7-Day Consistency</span>
+                      </div>
+                    </div>
+                    <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
+                      <div class="hero-stat-icon-wrap" style="background: rgba(112, 71, 255, 0.15); color: #C084FC;"><i
+                          data-lucide="database"></i></div>
+                      <div class="hero-stat-meta">
+                        <span class="hero-stat-val" id="profileBrainDaysVal">0 Days</span>
+                        <span class="hero-stat-lbl">Archive Depth</span>
+                      </div>
+                    </div>
+                    <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
+                      <div class="hero-stat-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #34D399;"><i
+                          data-lucide="check-circle-2"></i></div>
+                      <div class="hero-stat-meta">
+                        <span class="hero-stat-val" id="profileBrainTasksVal">0 Tasks</span>
+                        <span class="hero-stat-lbl">Lifetime Done</span>
+                      </div>
                     </div>
                   </div>
-                  <label class="aura-switch">
-                    <input type="checkbox" id="profileNotificationSwitch" checked
-                      onchange="window.app.toggleNotifications(this.checked)">
-                    <span class="aura-slider"></span>
-                  </label>
+
+                  <div class="aurabrain-advice-text" id="profileBrainAdviceText">
+                    AuraBrain is tracking your schedule execution. Conquer high-priority study blocks to maintain peak
+                    neural retention.
+                  </div>
                 </div>
 
-                <!-- Switch 2: Sound Synthesizer ON / OFF -->
-                <div class="setting-switch-item">
-                  <div class="switch-item-left">
-                    <div class="switch-item-icon" style="background: rgba(112, 71, 255, 0.15); color: #C084FC;">
-                      <i data-lucide="volume-2"></i>
-                    </div>
+              </div>
+              <!-- End Left / Primary Column -->
+
+              <!-- Right / Secondary Column -->
+              <div class="profile-grid-col-secondary">
+
+                <!-- System Preferences & Notification Sentinels Card -->
+                <div class="profile-preferences-card bento-card">
+                  <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                     <div>
-                      <span class="switch-item-title">Synthesized Audio Effects &amp; Chimes (ON / OFF)</span>
-                      <p class="switch-item-desc">Offline Web Audio acoustic chimes on task complete, level-ups, and
-                        streak milestones.</p>
+                      <h3
+                        style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                        <i data-lucide="bell-ring" class="svg-icon" style="color: #22D3EE;"></i> Notification &amp; Sentinel
+                        Controls
+                      </h3>
+                      <p style="color: var(--text-muted); font-size: 0.82rem;">Manage real-time desktop push notifications,
+                        bio-wellness interval alerts, and synthesized sound effects.</p>
+                    </div>
+                    <span class="aurabrain-badge" id="notifEngineStatusBadge">🔔 Sentinel Active (ON)</span>
+                  </div>
+                  <div class="settings-switches-grid">
+                    <!-- Switch 1: Notifications ON / OFF -->
+                    <div class="setting-switch-item">
+                      <div class="switch-item-left">
+                        <div class="switch-item-icon" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;">
+                          <i data-lucide="bell"></i>
+                        </div>
+                        <div>
+                          <span class="switch-item-title">System &amp; In-App Notifications (ON / OFF)</span>
+                          <p class="switch-item-desc">Scheduled slot alerts, streak defenses, and interval milestone
+                            notifications.</p>
+                        </div>
+                      </div>
+                      <label class="aura-switch">
+                        <input type="checkbox" id="profileNotificationSwitch" checked
+                          onchange="window.app.toggleNotifications(this.checked)">
+                        <span class="aura-slider"></span>
+                      </label>
+                    </div>
+
+                    <!-- Switch 2: Sound Synthesizer ON / OFF -->
+                    <div class="setting-switch-item">
+                      <div class="switch-item-left">
+                        <div class="switch-item-icon" style="background: rgba(112, 71, 255, 0.15); color: #A78BFA;">
+                          <i data-lucide="volume-2"></i>
+                        </div>
+                        <div>
+                          <span class="switch-item-title">Aura Acoustic Synthesizer (Sound FX)</span>
+                          <p class="switch-item-desc">Synthesized Web Audio API soundscapes on completion, streak defense,
+                            and clicks.</p>
+                        </div>
+                      </div>
+                      <label class="aura-switch">
+                        <input type="checkbox" id="profileSoundSwitch" checked
+                          onchange="window.app.toggleSound(this.checked)">
+                        <span class="aura-slider"></span>
+                      </label>
+                    </div>
+
+                    <!-- Switch 3: Bio-Wellness Reminders ON / OFF -->
+                    <div class="setting-switch-item">
+                      <div class="switch-item-left">
+                        <div class="switch-item-icon" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">
+                          <i data-lucide="heart-pulse"></i>
+                        </div>
+                        <div>
+                          <span class="switch-item-title">Bio-Wellness Periodic Sentinel</span>
+                          <p class="switch-item-desc">Hourly 20-20-20 eye strain release, posture correction, and hydration
+                            pings.</p>
+                        </div>
+                      </div>
+                      <label class="aura-switch">
+                        <input type="checkbox" id="profileBioWellnessSwitch" checked
+                          onchange="window.app.toggleBioWellness(this.checked)">
+                        <span class="aura-slider"></span>
+                      </label>
                     </div>
                   </div>
-                  <label class="aura-switch">
-                    <input type="checkbox" id="profileSoundSwitch" checked
-                      onchange="window.app.toggleSound(this.checked)">
-                    <span class="aura-slider"></span>
-                  </label>
                 </div>
 
-                <!-- Switch 3: Bio-Wellness Screen & Posture Sentinel -->
-                <div class="setting-switch-item">
-                  <div class="switch-item-left">
-                    <div class="switch-item-icon" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">
-                      <i data-lucide="activity"></i>
-                    </div>
+                <!-- Sound Notification Types Previewer Studio Card -->
+                <div class="profile-sound-card bento-card">
+                  <div class="card-header-between" style="margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
                     <div>
-                      <span class="switch-item-title">Bio-Wellness 20-20-20 &amp; Posture Sentinel</span>
-                      <p class="switch-item-desc">Automatic 20-minute optic relief modal and spine alignment alerts
-                        during study sessions.</p>
+                      <h3
+                        style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                        <i data-lucide="volume-2" class="svg-icon" style="color: #38BDF8;"></i> Synthesized Audio
+                        Soundboard
+                      </h3>
+                      <p style="color: var(--text-muted); font-size: 0.82rem;">Interactive preview of all audio synthesized
+                        events and celebratory chimes.</p>
+                    </div>
+                    <span class="task-badge-tag wellness" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">●
+                      Acoustic Studio</span>
+                  </div>
+
+                  <div class="sound-preview-grid">
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('task_complete')"
+                      title="Play Task Completion Arpeggio">
+                      <span class="sound-btn-icon" style="color: var(--accent-emerald);"><i
+                          data-lucide="check-circle"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Task Complete</span>
+                        <span class="sound-btn-sub">Arpeggio Ascend</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('level_up')"
+                      title="Play Level Up Fanfare">
+                      <span class="sound-btn-icon" style="color: var(--accent-gold);"><i data-lucide="award"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Level Up Fanfare</span>
+                        <span class="sound-btn-sub">Heroic Multi-Chord</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('streak_freeze')"
+                      title="Play Streak Shield Sound">
+                      <span class="sound-btn-icon" style="color: var(--accent-cyan);"><i
+                          data-lucide="shield-check"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Streak Shield</span>
+                        <span class="sound-btn-sub">Resonant Chime</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('pomodoro_end')"
+                      title="Play Deep Focus Gong">
+                      <span class="sound-btn-icon" style="color: var(--accent-purple);"><i data-lucide="bell"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Focus Bell</span>
+                        <span class="sound-btn-sub">Zen Singing Bowl</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('break_start')"
+                      title="Play Break Relaxation Tone">
+                      <span class="sound-btn-icon" style="color: #6EE7B7;"><i data-lucide="coffee"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Rest Interval</span>
+                        <span class="sound-btn-sub">Soothing Descend</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('hydration_ping')"
+                      title="Play Water Drop Chime">
+                      <span class="sound-btn-icon" style="color: #38BDF8;"><i data-lucide="droplet"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Hydration Ping</span>
+                        <span class="sound-btn-sub">Dual Water Drop</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('feynman_pass')"
+                      title="Play AI Feynman Success">
+                      <span class="sound-btn-icon" style="color: #F472B6;"><i data-lucide="sparkles"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Cognitive Victory</span>
+                        <span class="sound-btn-sub">Triple Harp Glissando</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('audio_record')"
+                      title="Play Microphone Beep">
+                      <span class="sound-btn-icon" style="color: #FB7185;"><i data-lucide="mic"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Acoustic Sentinel</span>
+                        <span class="sound-btn-sub">Crisp Radio Click</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('schedule_transition')"
+                      title="Play Routine Transition Alert">
+                      <span class="sound-btn-icon" style="color: #FBBF24;"><i data-lucide="clock"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Slot Transition</span>
+                        <span class="sound-btn-sub">Binaural Pulsar</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('golden_rule')"
+                      title="Play Golden Rule Reflection Chime">
+                      <span class="sound-btn-icon" style="color: #F59E0B;"><i data-lucide="compass"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Golden Axiom</span>
+                        <span class="sound-btn-sub">Harmonic Octave</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('reset_warning')"
+                      title="Play Danger Alert">
+                      <span class="sound-btn-icon" style="color: #EF4444;"><i data-lucide="alert-triangle"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">System Caution</span>
+                        <span class="sound-btn-sub">Dual Low Tone</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+
+                    <button class="sound-test-btn" onclick="window.app.testNotificationSound('all_blocks_done')"
+                      title="Play Daily Grand Triumph Finale">
+                      <span class="sound-btn-icon" style="color: #A855F7;"><i data-lucide="crown"></i></span>
+                      <div class="sound-btn-text">
+                        <span class="sound-btn-title">Grand Triumph</span>
+                        <span class="sound-btn-sub">Full Symphony Climax</span>
+                      </div>
+                      <i data-lucide="volume-2" class="sound-play-icon"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Gamification Level Progression & Lifetime Badges Card -->
+                <div class="profile-gamification-card bento-card">
+                  <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <div>
+                      <h3
+                        style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                        <i data-lucide="trophy" class="svg-icon"></i> Lifetime Mastery &amp; Level Progression</h3>
+                      <p style="color: var(--text-muted); font-size: 0.82rem;">Earn XP by completing routine blocks, reading
+                        passages, recording speeches, and drinking water.</p>
+                    </div>
+                    <button class="btn-ghost" onclick="window.gamification && window.gamification.openModal()">View All
+                      Achievements</button>
+                  </div>
+
+                  <div class="dropdown-xp-bar-box" style="margin-bottom: 1.5rem;">
+                    <div class="dropdown-xp-row" style="margin-bottom: 0.4rem;">
+                      <span id="profileXpProgressLabel" style="font-weight: 600; color: #FFFFFF;">Level 3 Progress</span>
+                      <span id="profileXpProgressVal" style="color: var(--accent-cyan); font-family: var(--font-mono);">480
+                        /
+                        600 XP</span>
+                    </div>
+                    <div class="dropdown-xp-track" style="height: 10px;">
+                      <div class="dropdown-xp-fill" id="profileXpProgressBar" style="width: 80%;"></div>
                     </div>
                   </div>
-                  <label class="aura-switch">
-                    <input type="checkbox" id="profileBioWellnessSwitch" checked
-                      onchange="if(window.wellnessSentinel){ window.wellnessSentinel.eyeRestEnabled = this.checked; window.wellnessSentinel.postureAlertEnabled = this.checked; window.wellnessSentinel.saveState(); window.app.showToast(this.checked ? 'Bio Sentinel Active' : 'Bio Sentinel Paused', this.checked ? '20-20-20 eye & posture timers active.' : 'Health alerts paused.', 'wellness'); }">
-                    <span class="aura-slider"></span>
-                  </label>
+
+                  <div class="badges-4-grid" id="profileBadgesGrid">
+                    <div class="badge-mini-card unlocked">
+                      <span class="badge-mini-icon"><i data-lucide="sunrise"></i></span>
+                      <div class="badge-mini-meta">
+                        <span class="badge-mini-title">Early Bird</span>
+                        <span class="badge-mini-desc">5:00 AM Conquered</span>
+                      </div>
+                    </div>
+
+                    <div class="badge-mini-card unlocked">
+                      <span class="badge-mini-icon"><i data-lucide="bot"></i></span>
+                      <div class="badge-mini-meta">
+                        <span class="badge-mini-title">AI Architect</span>
+                        <span class="badge-mini-desc">Completed AI/ML &amp; Code</span>
+                      </div>
+                    </div>
+
+                    <div class="badge-mini-card unlocked">
+                      <span class="badge-mini-icon"><i data-lucide="mic"></i></span>
+                      <div class="badge-mini-meta">
+                        <span class="badge-mini-title">Orator</span>
+                        <span class="badge-mini-desc">Speech Practice Recorded</span>
+                      </div>
+                    </div>
+
+                    <div class="badge-mini-card unlocked">
+                      <span class="badge-mini-icon"><i data-lucide="droplet"></i></span>
+                      <div class="badge-mini-meta">
+                        <span class="badge-mini-title">Hydro Master</span>
+                        <span class="badge-mini-desc">2.0L Hydration Achieved</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
               </div>
+              <!-- End Right / Secondary Column -->
+
             </div>
-
-            <!-- Sound Notification Types Previewer Studio Card -->
-            <div class="profile-sound-card bento-card">
-              <div class="card-header-between" style="margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
-                <div>
-                  <h3
-                    style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
-                    <i data-lucide="volume-2" class="svg-icon" style="color: var(--accent-cyan);"></i> Notification
-                    Sound Synthesizer Studio
-                  </h3>
-                  <p style="color: var(--text-muted); font-size: 0.82rem;">100% Client-side Web Audio acoustic
-                    synthesis. Click any sound badge below to preview every notification cue.</p>
-                </div>
-                <span class="aurabrain-badge" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;">⚡ Live
-                  Acoustic Studio</span>
-              </div>
-
-              <div class="sound-preview-grid">
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('task_complete')"
-                  title="Play Task Completion Arpeggio">
-                  <span class="sound-btn-icon" style="color: var(--accent-emerald);"><i
-                      data-lucide="check-circle"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Task Complete</strong>
-                    <span>E5-G#5-B5 Chime</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('success')"
-                  title="Play Success Harmonic">
-                  <span class="sound-btn-icon" style="color: #60A5FA;"><i data-lucide="sparkles"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Success Chime</strong>
-                    <span>Harmonic Triad</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('levelUp')"
-                  title="Play Grand Fanfare">
-                  <span class="sound-btn-icon" style="color: var(--accent-gold);"><i data-lucide="trophy"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Level Up / Rank</strong>
-                    <span>Grand Fanfare</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('streak')"
-                  title="Play Streak Fire">
-                  <span class="sound-btn-icon" style="color: #FF9632;"><i data-lucide="flame"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Streak Milestone</strong>
-                    <span>Triple Spark Glide</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('next_activity')"
-                  title="Play Next Activity Alert">
-                  <span class="sound-btn-icon" style="color: var(--accent-cyan);"><i data-lucide="clock"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Next Activity Cue</strong>
-                    <span>Schedule Transition</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('timer_start')"
-                  title="Play Focus Start Double Click">
-                  <span class="sound-btn-icon" style="color: #38BDF8;"><i data-lucide="play"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Focus Timer Start</strong>
-                    <span>Cyber Double Tick</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('timer_finish')"
-                  title="Play Focus Complete Bell">
-                  <span class="sound-btn-icon" style="color: #A855F7;"><i data-lucide="bell"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Focus Bell Finish</strong>
-                    <span>C5-C6 Resonant Gong</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('waterDrop')"
-                  title="Play Water Drop Sound">
-                  <span class="sound-btn-icon" style="color: #22D3EE;"><i data-lucide="droplet"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Hydration Log</strong>
-                    <span>Bubbling Droplet</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('eyeRest')"
-                  title="Play 432Hz Zen Bowl">
-                  <span class="sound-btn-icon" style="color: #20D6A0;"><i data-lucide="eye"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>20-20-20 Eye Rest</strong>
-                    <span>432Hz Singing Bowl</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('warning')"
-                  title="Play Warning Tone">
-                  <span class="sound-btn-icon" style="color: var(--accent-amber);"><i
-                      data-lucide="alert-circle"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Caution Alert</strong>
-                    <span>Dual Warm Ping</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('awakening')"
-                  title="Play Sunrise Dawn Chord">
-                  <span class="sound-btn-icon" style="color: #FBBF24;"><i data-lucide="sun"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>New Day Dawn</strong>
-                    <span>Awakening Chord</span>
-                  </div>
-                </button>
-
-                <button class="sound-test-btn" onclick="window.app.testNotificationSound('delete')"
-                  title="Play Discard Swoosh">
-                  <span class="sound-btn-icon" style="color: #EF4444;"><i data-lucide="trash-2"></i></span>
-                  <div class="sound-test-meta">
-                    <strong>Item Discard</strong>
-                    <span>Tactile Swoosh</span>
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            <!-- Gamification Level Progression & Lifetime Badges Card -->
-            <div class="profile-gamification-card bento-card">
-              <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                <div>
-                  <h3
-                    style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
-                    <i data-lucide="trophy" class="svg-icon"></i> Lifetime Mastery &amp; Level Progression</h3>
-                  <p style="color: var(--text-muted); font-size: 0.82rem;">Earn XP by completing routine blocks, reading
-                    passages, recording speeches, and drinking water.</p>
-                </div>
-                <button class="btn-ghost" onclick="window.gamification && window.gamification.openModal()">View All
-                  Achievements</button>
-              </div>
-
-              <div class="dropdown-xp-bar-box" style="margin-bottom: 1.5rem;">
-                <div class="dropdown-xp-row" style="margin-bottom: 0.4rem;">
-                  <span id="profileXpProgressLabel" style="font-weight: 600; color: #FFFFFF;">Level 3 Progress</span>
-                  <span id="profileXpProgressVal" style="color: var(--accent-cyan); font-family: var(--font-mono);">480
-                    /
-                    600 XP</span>
-                </div>
-                <div class="dropdown-xp-track" style="height: 10px;">
-                  <div class="dropdown-xp-fill" id="profileXpProgressBar" style="width: 80%;"></div>
-                </div>
-              </div>
-
-              <div class="badges-4-grid" id="profileBadgesGrid">
-                <div class="badge-mini-card unlocked">
-                  <span class="badge-mini-icon"><i data-lucide="sunrise"></i></span>
-                  <div class="badge-mini-meta">
-                    <span class="badge-mini-title">Early Bird</span>
-                    <span class="badge-mini-desc">5:00 AM Conquered</span>
-                  </div>
-                </div>
-
-                <div class="badge-mini-card unlocked">
-                  <span class="badge-mini-icon"><i data-lucide="bot"></i></span>
-                  <div class="badge-mini-meta">
-                    <span class="badge-mini-title">AI Architect</span>
-                    <span class="badge-mini-desc">Completed AI/ML &amp; Code</span>
-                  </div>
-                </div>
-
-                <div class="badge-mini-card unlocked">
-                  <span class="badge-mini-icon"><i data-lucide="mic"></i></span>
-                  <div class="badge-mini-meta">
-                    <span class="badge-mini-title">Orator</span>
-                    <span class="badge-mini-desc">Speech Practice Recorded</span>
-                  </div>
-                </div>
-
-                <div class="badge-mini-card unlocked">
-                  <span class="badge-mini-icon"><i data-lucide="droplet"></i></span>
-                  <div class="badge-mini-meta">
-                    <span class="badge-mini-title">Hydro Master</span>
-                    <span class="badge-mini-desc">2.0L Hydration Achieved</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- AuraBrain Cognitive Intelligence & History Memory Summary Card -->
-            <div class="profile-intel-card bento-card">
-              <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                <div>
-                  <h3
-                    style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
-                    <i data-lucide="brain" class="svg-icon" style="color: #22D3EE;"></i> AuraBrain Memory &amp;
-                    Cognitive Archive
-                  </h3>
-                  <p style="color: var(--text-muted); font-size: 0.82rem;">Continuous longitudinal intelligence tracking
-                    your daily consistency, memory archives, and habits.</p>
-                </div>
-                <span class="aurabrain-badge" id="profileBrainStatusBadge">⚡ Neural Sync Active</span>
-              </div>
-
-              <div class="stats-counter-strip">
-                <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
-                  <div class="hero-stat-icon-wrap" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;"><i
-                      data-lucide="activity"></i></div>
-                  <div class="hero-stat-meta">
-                    <span class="hero-stat-val" id="profileBrainConsistencyVal">100%</span>
-                    <span class="hero-stat-lbl">7-Day Consistency</span>
-                  </div>
-                </div>
-                <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
-                  <div class="hero-stat-icon-wrap" style="background: rgba(112, 71, 255, 0.15); color: #C084FC;"><i
-                      data-lucide="database"></i></div>
-                  <div class="hero-stat-meta">
-                    <span class="hero-stat-val" id="profileBrainDaysVal">0 Days</span>
-                    <span class="hero-stat-lbl">Archive Depth</span>
-                  </div>
-                </div>
-                <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
-                  <div class="hero-stat-icon-wrap" style="background: rgba(16, 185, 129, 0.15); color: #34D399;"><i
-                      data-lucide="check-circle-2"></i></div>
-                  <div class="hero-stat-meta">
-                    <span class="hero-stat-val" id="profileBrainTasksVal">0 Tasks</span>
-                    <span class="hero-stat-lbl">Lifetime Done</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="aurabrain-advice-text" id="profileBrainAdviceText">
-                AuraBrain is tracking your schedule execution. Conquer high-priority study blocks to maintain peak
-                neural retention.
-              </div>
-            </div>
+            <!-- End profile-dashboard-grid -->
 
             <!-- DANGER ZONE: SYSTEM & DATA RESET SUITE -->
             <div class="danger-zone-card">
-              <div class="card-header-between">
+              <div class="card-header-between" style="flex-wrap: wrap; gap: 0.5rem;">
                 <div>
                   <h3
                     style="color: #F87171; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">

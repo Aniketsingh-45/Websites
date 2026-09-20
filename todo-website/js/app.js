@@ -1139,8 +1139,24 @@ class AppController {
     const closePdfBtn = document.getElementById('closePdfModalBtn');
     const pdfModal = document.getElementById('pdfImportModal');
     const presetBtn = document.getElementById('loadAttachedRoutineBtn');
+    const sampleBtn = document.getElementById('testSamplePdfBtn');
 
     closePdfBtn?.addEventListener('click', () => pdfModal?.classList.remove('active'));
+
+    // Close on backdrop click
+    pdfModal?.addEventListener('click', (e) => {
+      if (e.target === pdfModal) {
+        pdfModal.classList.remove('active');
+      }
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && pdfModal?.classList.contains('active')) {
+        pdfModal.classList.remove('active');
+      }
+    });
+
     dropzone?.addEventListener('click', () => fileInput?.click());
 
     dropzone?.addEventListener('dragover', (e) => {
@@ -1161,6 +1177,7 @@ class AppController {
     fileInput?.addEventListener('change', (e) => {
       if (e.target.files.length) {
         this.processPdfFile(e.target.files[0]);
+        e.target.value = ''; // Reset so the same file can be re-uploaded
       }
     });
 
@@ -1168,11 +1185,39 @@ class AppController {
       this.restoreDefaultRoutine();
       pdfModal?.classList.remove('active');
     });
+
+    sampleBtn?.addEventListener('click', async () => {
+      try {
+        const previewContainer = document.getElementById('pdfParsedPreview');
+        if (previewContainer) {
+          previewContainer.innerHTML = `
+            <div style="text-align: center; padding: 1.25rem;">
+              <div style="display: inline-block; width: 28px; height: 28px; border: 3px solid rgba(56,189,248,0.2); border-top-color: var(--accent-cyan); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+              <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.5rem; font-size: 0.85rem;">Loading sample routine PDF...</p>
+            </div>
+          `;
+        }
+        const res = await fetch('assets/sample-routine.pdf');
+        if (!res.ok) throw new Error("Could not load sample PDF asset");
+        const blob = await res.blob();
+        const file = new File([blob], '30-Day-Personal-Upgrade-Sample.pdf', { type: 'application/pdf' });
+        await this.processPdfFile(file);
+      } catch (err) {
+        console.error("Failed to load sample PDF", err);
+        this.showToast("Sample Load Failed", "Could not fetch sample PDF asset. Please browse your own file.", "warning");
+      }
+    });
   }
 
   async processPdfFile(file) {
-    if (!file || file.type !== 'application/pdf') {
-      alert("Please upload a valid .pdf file.");
+    const isPdf = file && (
+      file.type === 'application/pdf' ||
+      file.type === 'application/x-pdf' ||
+      (file.name && file.name.toLowerCase().endsWith('.pdf'))
+    );
+
+    if (!isPdf) {
+      this.showToast("Invalid File Type", "Please upload a valid .pdf schedule file.", "warning");
       return;
     }
 
@@ -1180,48 +1225,100 @@ class AppController {
     const importBtn = document.getElementById('applyPdfTasksBtn');
 
     if (previewContainer) {
-      previewContainer.innerHTML = `<p style="color: var(--accent-cyan);">Extracting timetable schedule from <strong>${file.name}</strong>...</p>`;
+      previewContainer.innerHTML = `
+        <div style="text-align: center; padding: 1.5rem; background: rgba(10, 20, 38, 0.6); border-radius: var(--radius-md); border: 1px solid rgba(56,189,248,0.2);">
+          <div style="display: inline-block; width: 32px; height: 32px; border: 3px solid rgba(56,189,248,0.2); border-top-color: var(--accent-cyan); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+          <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.75rem; font-size: 0.9rem;">Extracting schedule from <strong>${file.name}</strong>...</p>
+          <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.25rem;">Spatial line reconstruction & slot parsing in progress</p>
+        </div>
+      `;
     }
 
     try {
-      const parsedTasks = await window.pdfRoutineParser.parsePdfFile(file);
+      const parser = window.pdfRoutineParser;
+      if (!parser) {
+        throw new Error("PDF Routine Parser module is not loaded.");
+      }
+
+      const parseFn = parser.parsePdfFile || parser.parsePDFFile;
+      const parsedTasks = await parseFn.call(parser, file);
+
       if (!parsedTasks || parsedTasks.length === 0) {
         if (previewContainer) {
-          previewContainer.innerHTML = `<p style="color: var(--accent-rose);">No valid schedule blocks found. Using standard 30-Day preset.</p>`;
+          previewContainer.innerHTML = `
+            <div style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
+              <p style="color: var(--accent-rose); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem;">No timetable schedule blocks found in "${file.name}"</p>
+              <p style="color: var(--text-muted); font-size: 0.78rem; line-height: 1.4;">Ensure your PDF contains time intervals (e.g., <code>06:00 AM – 06:15 AM</code> or <code>14:00 - 15:30</code>), or use the 1-Click Attached 30-Day preset above.</p>
+            </div>
+          `;
         }
+        if (importBtn) importBtn.style.display = 'none';
         return;
       }
 
+      const totalXp = parsedTasks.reduce((acc, t) => acc + (t.xp || 25), 0);
+
       if (previewContainer) {
         previewContainer.innerHTML = `
-          <div style="background: var(--bg-input); padding: 1rem; border-radius: 10px; max-height: 200px; overflow-y: auto;">
-            <strong style="color: #FFFFFF;">Extracted ${parsedTasks.length} Schedule Blocks:</strong>
-            ${parsedTasks.slice(0, 5).map(t => `
-              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem;">
-                <span style="color: var(--accent-cyan); font-family: monospace;">${t.timeDisplay}</span> — ${t.activity}
+          <div style="background: rgba(10, 20, 38, 0.75); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--radius-md); padding: 1rem; max-height: 260px; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.6rem; margin-bottom: 0.6rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="background: rgba(56,189,248,0.15); color: var(--accent-cyan); font-weight: 700; font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid rgba(56,189,248,0.3);">
+                  ${parsedTasks.length} BLOCKS FOUND
+                </span>
+                <span style="color: #FFFFFF; font-size: 0.85rem; font-weight: 600;">Extracted from ${file.name}</span>
               </div>
-            `).join('')}
-            ${parsedTasks.length > 5 ? `<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem;">+ ${parsedTasks.length - 5} more blocks</div>` : ''}
+              <span style="color: var(--accent-amber); font-size: 0.75rem; font-weight: 600;">+${totalXp} XP Available</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+              ${parsedTasks.map((t) => `
+                <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; background: rgba(255,255,255,0.03); padding: 0.5rem 0.65rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04);">
+                  <div style="display: flex; flex-direction: column; gap: 0.15rem; min-width: 0;">
+                    <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+                      <span style="font-family: var(--font-mono, monospace); font-size: 0.72rem; color: var(--accent-cyan); font-weight: 600; background: rgba(56,189,248,0.08); padding: 0.1rem 0.35rem; border-radius: 3px;">
+                        ${t.timeDisplay}
+                      </span>
+                      <strong style="color: #FFFFFF; font-size: 0.82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        ${t.activity}
+                      </strong>
+                    </div>
+                    ${t.goal ? `<span style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.3;">Goal: ${t.goal}</span>` : ''}
+                  </div>
+                  <span style="font-size: 0.68rem; font-weight: 600; padding: 0.15rem 0.4rem; border-radius: 4px; text-transform: uppercase; background: rgba(255,255,255,0.06); color: var(--text-secondary); white-space: nowrap;">
+                    ${t.category}
+                  </span>
+                </div>
+              `).join('')}
+            </div>
           </div>
         `;
       }
 
       if (importBtn) {
         importBtn.style.display = 'inline-flex';
+        importBtn.innerHTML = `<i data-lucide="check" class="btn-icon-svg"></i> Apply ${parsedTasks.length} Blocks to Routine`;
+        if (window.lucide) window.lucide.createIcons();
+
         importBtn.onclick = () => {
           this.routine.tasks = parsedTasks;
           this.saveRoutine();
           document.getElementById('pdfImportModal')?.classList.remove('active');
           this.render();
           if (window.soundEngine) window.soundEngine.play('complete');
-          this.showToast("PDF Routine Imported!", `Loaded ${parsedTasks.length} tasks from ${file.name}`, "success");
+          this.showToast("Routine Imported!", `Successfully loaded ${parsedTasks.length} schedule tasks from ${file.name}`, "success");
         };
       }
     } catch (err) {
-      console.error(err);
+      console.error("PDF Processing Error:", err);
       if (previewContainer) {
-        previewContainer.innerHTML = `<p style="color: var(--accent-rose);">Failed to extract PDF text. Use the 1-Click Attached preset.</p>`;
+        previewContainer.innerHTML = `
+          <div style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
+            <p style="color: var(--accent-rose); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem;">Failed to extract PDF timetable</p>
+            <p style="color: var(--text-muted); font-size: 0.78rem; line-height: 1.4;">${err.message || 'An error occurred during extraction.'} Try using the 1-Click Attached 30-Day Routine preset.</p>
+          </div>
+        `;
       }
+      if (importBtn) importBtn.style.display = 'none';
     }
   }
 
@@ -2814,6 +2911,9 @@ class AppController {
   }
 }
 
+window.AppController = AppController;
+
 window.addEventListener('DOMContentLoaded', () => {
   window.app = new AppController();
 });
+

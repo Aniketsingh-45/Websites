@@ -343,7 +343,6 @@ svg {
   .full-rules-grid,
   .understanding-cards-row,
   .ai-concepts-grid,
-  .sound-preview-grid,
   .study-plan-side-stream,
   .study-plan-main-stream {
     grid-template-columns: 1fr !important;
@@ -1580,5 +1579,267 @@ svg {
   .cat-progress-meta span {
     white-space: normal !important;
     word-wrap: break-word !important;
+  }
+}
+
+/* ==========================================================================
+   PROFILE SECTION (#profileView) — MASTER RESPONSIVE SUITE
+   Ensures hero header, customizer form, sound studio, badges, neural memory,
+   and danger zone scale cleanly across all screens (1024px, 768px, 600px, 440px, 360px, 320px).
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .profile-dashboard-layout {
+    gap: 1.25rem;
+  }
+
+  #profileBadgesGrid.badges-4-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-dashboard-layout {
+    gap: 1rem !important;
+  }
+
+  /* Hero Profile Card Header */
+  .profile-card-header {
+    padding: 1.25rem 1rem !important;
+    gap: 0 !important;
+  }
+
+  .profile-header-main {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.15rem !important;
+    width: 100% !important;
+  }
+
+  .profile-avatar-wrapper {
+    margin: 0 auto !important;
+  }
+
+  .profile-meta-details {
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    gap: 0.45rem !important;
+  }
+
+  .profile-name-row {
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+
+  .profile-hero-display-name {
+    font-size: 1.65rem !important;
+    text-align: center !important;
+  }
+
+  .profile-hero-bio {
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  /* Quick Stats Strip in Header */
+  .profile-quick-stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    margin-top: 1.25rem !important;
+    padding-top: 1rem !important;
+  }
+
+  .pstat-item {
+    padding: 0.75rem 0.6rem !important;
+  }
+
+  .pstat-val {
+    font-size: 1.15rem !important;
+  }
+
+  /* Form & Identity Customizer */
+  .profile-customizer-card {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .form-grid-2col {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .avatar-upload-section {
+    width: 100% !important;
+  }
+
+  .avatar-presets-track {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 0.35rem 0.15rem 0.65rem !important;
+  }
+
+  .avatar-preset-btn {
+    scroll-snap-align: start !important;
+  }
+
+  /* Sound preview studio grid */
+  .sound-preview-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+  }
+
+  .sound-test-btn {
+    padding: 0.65rem 0.75rem !important;
+    gap: 0.55rem !important;
+  }
+
+  /* Gamification Badges */
+  #profileBadgesGrid.badges-4-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+  }
+
+  /* AuraBrain Cognitive Intelligence Strip */
+  .stats-counter-strip {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.65rem !important;
+  }
+
+  /* Danger Zone Reset Suite */
+  .danger-zone-card {
+    padding: 1.25rem 1rem !important;
+  }
+
+  .danger-action-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .danger-action-item {
+    padding: 0.95rem !important;
+    gap: 0.85rem !important;
+  }
+
+  .btn-danger-outline {
+    width: 100% !important;
+    padding: 0.65rem 1rem !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Profile Form Actions Row */
+  .profile-form-actions-row {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+  }
+
+  .profile-form-actions-row .btn-primary,
+  .profile-form-actions-row .btn-ghost {
+    width: 100% !important;
+    flex: none !important;
+    justify-content: center !important;
+  }
+
+  /* Settings switches */
+  .setting-switch-item {
+    padding: 0.75rem 0.85rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .switch-item-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .switch-item-title {
+    font-size: 0.84rem !important;
+  }
+
+  .switch-item-desc {
+    font-size: 0.7rem !important;
+  }
+
+  /* AuraBrain 3-column stats into clean stack */
+  .stats-counter-strip {
+    grid-template-columns: 1fr !important;
+    gap: 0.55rem !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .profile-card-header {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .profile-hero-avatar-img {
+    width: 80px !important;
+    height: 80px !important;
+    line-height: 80px !important;
+    font-size: 2rem !important;
+  }
+
+  .profile-avatar-overlay-camera {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 0.7rem !important;
+  }
+
+  .profile-hero-display-name {
+    font-size: 1.4rem !important;
+  }
+
+  .profile-track-badge {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.5rem !important;
+  }
+
+  .pstat-item {
+    padding: 0.6rem 0.45rem !important;
+  }
+
+  .pstat-val {
+    font-size: 1.05rem !important;
+  }
+
+  .pstat-lbl {
+    font-size: 0.6rem !important;
+  }
+
+  .sound-preview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .sound-btn-title {
+    font-size: 0.78rem !important;
+  }
+
+  .sound-btn-sub {
+    font-size: 0.65rem !important;
+  }
+
+  #profileBadgesGrid.badges-4-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.55rem !important;
+  }
+
+  .badge-mini-card {
+    padding: 0.75rem 0.85rem !important;
+  }
+
+  .avatar-preset-btn {
+    width: 46px !important;
+    height: 46px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .avatar-current-preview {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
   }
 }

@@ -2642,17 +2642,22 @@
   <!-- 7. DAILY COMPUTATIONAL CONTROL & HISTORY MODAL -->
   <div id="dailyControlModal" class="modal-backdrop" role="dialog" aria-modal="true">
     <div class="modal-card daily-control-modal-card">
-      <div class="card-header-between" style="margin-bottom: 1.25rem;">
-        <div class="card-title-group">
-          <span class="card-title-icon" style="background: rgba(112, 71, 255, 0.2); color: #C084FC;"><i
-              data-lucide="cpu"></i></span>
-          <div>
-            <h3 style="color: #FFFFFF; font-size: 1.25rem;">Daily Computational Engine</h3>
-            <span class="card-header-sub" id="dailyModalCurrentDate">Today: Active Day</span>
+      <div class="daily-modal-header">
+        <div class="daily-modal-title-group">
+          <div class="daily-modal-icon-badge">
+            <i data-lucide="cpu"></i>
+          </div>
+          <div class="daily-modal-title-meta">
+            <div class="daily-modal-heading-row">
+              <h3 class="daily-modal-title">Daily Computational Engine</h3>
+              <span class="daily-modal-kernel-badge">Aura Core v2.5</span>
+            </div>
+            <span class="daily-modal-subtitle" id="dailyModalCurrentDate">Today: Active Day</span>
           </div>
         </div>
         <button id="closeDailyControlModalBtn" class="focus-exit-btn"
-          onclick="document.getElementById('dailyControlModal').classList.remove('active')">
+          onclick="document.getElementById('dailyControlModal').classList.remove('active')"
+          title="Close Daily Engine Console" aria-label="Close">
           <i data-lucide="x"></i>
         </button>
       </div>
@@ -2660,36 +2665,46 @@
       <!-- Computational Hero Grid: Left Gauge Card + Right AuraBrain Intelligence Card -->
       <div class="computational-hero-grid">
         <!-- Live Aura Score Energy Gauge -->
-        <div class="aura-gauge-card" style="margin-bottom: 0;">
+        <div class="aura-gauge-card">
           <div class="aura-gauge-ring-wrap">
             <svg viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="modalAuraRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#22D3EE" />
+                  <stop offset="50%" stop-color="#1687FF" />
+                  <stop offset="100%" stop-color="#7047FF" />
+                </linearGradient>
+              </defs>
               <circle cx="50" cy="50" r="42" stroke="rgba(255, 255, 255, 0.08)" stroke-width="8" fill="none"></circle>
-              <circle id="dailyModalAuraCircle" cx="50" cy="50" r="42" stroke="url(#auraRingGrad)" stroke-width="8"
+              <circle id="dailyModalAuraCircle" cx="50" cy="50" r="42" stroke="url(#modalAuraRingGrad)" stroke-width="8"
                 fill="none" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="264"
                 style="transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);"></circle>
             </svg>
             <div class="aura-gauge-center-text">
               <span class="aura-gauge-percent-num" id="dailyModalAuraPct">0%</span>
-              <span class="aura-gauge-percent-lbl">Aura</span>
+              <span class="aura-gauge-percent-lbl">Aura Energy</span>
             </div>
           </div>
 
           <div class="aura-gauge-meta">
-            <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="aura-meta-top-row">
               <span class="aura-tier-badge dormant" id="dailyModalAuraTierBadge">🌑 Dormant Aura</span>
-              <span style="font-size: 0.75rem; color: var(--accent-cyan);" id="dailyModalStreakText">🔥 1-Day
-                Streak</span>
+              <span class="aura-streak-pill" id="dailyModalStreakText">🔥 1-Day Streak</span>
             </div>
-            <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.3rem;" id="dailyModalAuraDesc">
+            <p class="aura-gauge-desc" id="dailyModalAuraDesc">
               Execute your routine, habits, hydration, and study blocks to power your daily aura energy.
             </p>
+            <div class="aura-gauge-footer-note">
+              <i data-lucide="shield-check" style="width: 13px; height: 13px; color: var(--accent-cyan);"></i>
+              <span>Midnight Rollover at 00:00 • Auto-Archive Enabled</span>
+            </div>
           </div>
         </div>
 
         <!-- AuraBrain Cognitive Intelligence Engine Card -->
         <div class="aurabrain-intel-card">
           <div class="aurabrain-title-row">
-            <div style="display: flex; align-items: center; gap: 0.45rem;">
+            <div class="aurabrain-heading">
               <i data-lucide="brain" style="width: 20px; height: 20px; color: #22D3EE;"></i>
               <strong style="color: #FFFFFF; font-size: 0.95rem;">AuraBrain Cognitive Feed</strong>
             </div>
@@ -2702,54 +2717,99 @@
           </div>
 
           <div class="aurabrain-metrics-strip">
-            <div>7-Day Consistency: <span class="aurabrain-metric-val" id="modalBrainConsistencyVal">100%</span></div>
-            <div>Memory Depth: <span class="aurabrain-metric-val" id="modalBrainDaysMemoryVal">0 Days</span></div>
-            <div>Lifetime Tasks: <span class="aurabrain-metric-val" id="modalBrainLifetimeTasksVal">0 Done</span></div>
+            <div class="brain-metric-tile">
+              <span class="brain-metric-lbl">7-Day Consistency</span>
+              <span class="aurabrain-metric-val" id="modalBrainConsistencyVal">100%</span>
+            </div>
+            <div class="brain-metric-tile">
+              <span class="brain-metric-lbl">Memory Depth</span>
+              <span class="aurabrain-metric-val" id="modalBrainDaysMemoryVal">0 Days</span>
+            </div>
+            <div class="brain-metric-tile">
+              <span class="brain-metric-lbl">Lifetime Tasks</span>
+              <span class="aurabrain-metric-val" id="modalBrainLifetimeTasksVal">0 Done</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Real-Time Computational Breakdown (40% + 20% + 15% + 15% + 10%) -->
-      <h4
-        style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;">
-        Real-Time Formula Breakdown
-      </h4>
+      <div class="computational-section-header">
+        <div>
+          <h4 class="computational-section-title">
+            <i data-lucide="activity" style="width: 15px; height: 15px; color: var(--accent-cyan);"></i> Real-Time Computational Formula Breakdown
+          </h4>
+          <span class="computational-section-sub">Weighted daily performance formula totaling 100% Aura Energy</span>
+        </div>
+        <span class="formula-weight-pill">Σ = 100% Core</span>
+      </div>
+
       <div class="aura-breakdown-grid">
-        <div class="aura-breakdown-item">
-          <div class="aura-breakdown-title"><span>Routine Tasks (40%)</span><span id="breakdownTaskVal">0/0</span></div>
-          <div class="aura-breakdown-val" id="breakdownTaskPct">0%</div>
+        <div class="aura-breakdown-item pillar-tasks">
+          <div class="aura-breakdown-top">
+            <span class="pillar-tag"><i data-lucide="check-circle-2" style="width:13px; height:13px; color:#38BDF8;"></i> Routine Tasks</span>
+            <span class="weight-badge">40% WT</span>
+          </div>
+          <div class="aura-breakdown-main">
+            <span class="aura-breakdown-val" id="breakdownTaskVal">0/0</span>
+            <span class="aura-breakdown-pct" id="breakdownTaskPct">0%</span>
+          </div>
           <div class="aura-breakdown-bar">
             <div class="aura-breakdown-fill" id="breakdownTaskFill" style="width: 0%; background: #1687FF;"></div>
           </div>
         </div>
 
-        <div class="aura-breakdown-item">
-          <div class="aura-breakdown-title"><span>Daily Habits (20%)</span><span id="breakdownHabitVal">0/5</span></div>
-          <div class="aura-breakdown-val" id="breakdownHabitPct">0%</div>
+        <div class="aura-breakdown-item pillar-habits">
+          <div class="aura-breakdown-top">
+            <span class="pillar-tag"><i data-lucide="flame" style="width:13px; height:13px; color:#C084FC;"></i> Daily Habits</span>
+            <span class="weight-badge">20% WT</span>
+          </div>
+          <div class="aura-breakdown-main">
+            <span class="aura-breakdown-val" id="breakdownHabitVal">0/5</span>
+            <span class="aura-breakdown-pct" id="breakdownHabitPct">0%</span>
+          </div>
           <div class="aura-breakdown-bar">
             <div class="aura-breakdown-fill" id="breakdownHabitFill" style="width: 0%; background: #7047FF;"></div>
           </div>
         </div>
 
-        <div class="aura-breakdown-item">
-          <div class="aura-breakdown-title"><span>Hydration (15%)</span><span id="breakdownWaterVal">0/8</span></div>
-          <div class="aura-breakdown-val" id="breakdownWaterPct">0%</div>
+        <div class="aura-breakdown-item pillar-water">
+          <div class="aura-breakdown-top">
+            <span class="pillar-tag"><i data-lucide="droplet" style="width:13px; height:13px; color:#22D3EE;"></i> Hydration</span>
+            <span class="weight-badge">15% WT</span>
+          </div>
+          <div class="aura-breakdown-main">
+            <span class="aura-breakdown-val" id="breakdownWaterVal">0/8</span>
+            <span class="aura-breakdown-pct" id="breakdownWaterPct">0%</span>
+          </div>
           <div class="aura-breakdown-bar">
             <div class="aura-breakdown-fill" id="breakdownWaterFill" style="width: 0%; background: #22D3EE;"></div>
           </div>
         </div>
 
-        <div class="aura-breakdown-item">
-          <div class="aura-breakdown-title"><span>Focus Studio (15%)</span><span id="breakdownFocusVal">0m</span></div>
-          <div class="aura-breakdown-val" id="breakdownFocusPct">0%</div>
+        <div class="aura-breakdown-item pillar-focus">
+          <div class="aura-breakdown-top">
+            <span class="pillar-tag"><i data-lucide="timer" style="width:13px; height:13px; color:#F472B6;"></i> Focus Studio</span>
+            <span class="weight-badge">15% WT</span>
+          </div>
+          <div class="aura-breakdown-main">
+            <span class="aura-breakdown-val" id="breakdownFocusVal">0m</span>
+            <span class="aura-breakdown-pct" id="breakdownFocusPct">0%</span>
+          </div>
           <div class="aura-breakdown-bar">
             <div class="aura-breakdown-fill" id="breakdownFocusFill" style="width: 0%; background: #EC4899;"></div>
           </div>
         </div>
 
-        <div class="aura-breakdown-item">
-          <div class="aura-breakdown-title"><span>Bio Breaks (10%)</span><span id="breakdownBioVal">0/4</span></div>
-          <div class="aura-breakdown-val" id="breakdownBioPct">0%</div>
+        <div class="aura-breakdown-item pillar-bio">
+          <div class="aura-breakdown-top">
+            <span class="pillar-tag"><i data-lucide="heart-pulse" style="width:13px; height:13px; color:#34D399;"></i> Bio Breaks</span>
+            <span class="weight-badge">10% WT</span>
+          </div>
+          <div class="aura-breakdown-main">
+            <span class="aura-breakdown-val" id="breakdownBioVal">0/4</span>
+            <span class="aura-breakdown-pct" id="breakdownBioPct">0%</span>
+          </div>
           <div class="aura-breakdown-bar">
             <div class="aura-breakdown-fill" id="breakdownBioFill" style="width: 0%; background: #10B981;"></div>
           </div>
@@ -2757,53 +2817,80 @@
       </div>
 
       <!-- Action Tools (Simulation, Reset, Backup) -->
-      <h4
-        style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;">
-        Daily Lifecycle &amp; Testing Tools
-      </h4>
-      <div class="daily-tools-action-row">
-        <button class="daily-tool-btn simulate" onclick="window.app.simulateNextDay()"
+      <div class="computational-section-header">
+        <div>
+          <h4 class="computational-section-title">
+            <i data-lucide="sliders" style="width: 15px; height: 15px; color: var(--accent-violet);"></i> Daily Lifecycle &amp; State Controls
+          </h4>
+          <span class="computational-section-sub">Engine simulation, midnight rollover, and offline data vault sync</span>
+        </div>
+      </div>
+
+      <div class="daily-tools-action-grid">
+        <button class="daily-tool-card simulate" onclick="window.app.simulateNextDay()"
           title="Archive today & roll date forward for testing">
-          <i data-lucide="fast-forward" class="btn-icon-svg"></i> Simulate Next Day
+          <div class="tool-card-icon-wrap"><i data-lucide="fast-forward"></i></div>
+          <div class="tool-card-meta">
+            <span class="tool-card-title">Simulate Next Day</span>
+            <span class="tool-card-desc">Advance rollover & archive</span>
+          </div>
         </button>
-        <button class="daily-tool-btn reset" onclick="window.app.forceResetToday()"
+
+        <button class="daily-tool-card reset" onclick="window.app.forceResetToday()"
           title="Reset today's tasks & habits clean">
-          <i data-lucide="rotate-ccw" class="btn-icon-svg"></i> Reset Today's State
+          <div class="tool-card-icon-wrap"><i data-lucide="rotate-ccw"></i></div>
+          <div class="tool-card-meta">
+            <span class="tool-card-title">Reset Today's State</span>
+            <span class="tool-card-desc">Clear current day checks</span>
+          </div>
         </button>
-        <button class="daily-tool-btn backup" onclick="window.app.exportDataBackup()"
+
+        <button class="daily-tool-card backup-export" onclick="window.app.exportDataBackup()"
           title="Download full JSON backup of data">
-          <i data-lucide="download" class="btn-icon-svg"></i> Export Backup
+          <div class="tool-card-icon-wrap"><i data-lucide="download"></i></div>
+          <div class="tool-card-meta">
+            <span class="tool-card-title">Export Backup</span>
+            <span class="tool-card-desc">Download complete JSON vault</span>
+          </div>
         </button>
-        <button class="daily-tool-btn backup" onclick="window.app.triggerImportData()" title="Import JSON backup file">
-          <i data-lucide="upload" class="btn-icon-svg"></i> Import Backup
+
+        <button class="daily-tool-card backup-import" onclick="window.app.triggerImportData()"
+          title="Import JSON backup file">
+          <div class="tool-card-icon-wrap"><i data-lucide="upload"></i></div>
+          <div class="tool-card-meta">
+            <span class="tool-card-title">Import Backup</span>
+            <span class="tool-card-desc">Restore state from JSON file</span>
+          </div>
         </button>
         <input type="file" id="dataBackupFileInput" accept=".json" style="display: none;">
       </div>
 
       <!-- 14-Day Consistency & Aura History Strip -->
       <div class="daily-history-container">
-        <div class="card-header-between">
-          <div
-            style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; display: flex; align-items: center; gap: 0.4rem;">
-            <i data-lucide="calendar" style="width:16px;height:16px;color:var(--accent-cyan);"></i> 14-Day Aura History
-            Archive
+        <div class="history-container-header">
+          <div class="history-title-wrap">
+            <div class="history-icon-badge"><i data-lucide="calendar"></i></div>
+            <div>
+              <h4 class="history-main-heading">14-Day Aura History Archive</h4>
+              <span class="history-sub-heading">Click any day tile to inspect comprehensive telemetry metrics</span>
+            </div>
           </div>
-          <span style="font-size: 0.72rem; color: var(--text-muted);">Click any day to inspect past performance
-            metrics</span>
+          <span class="history-legend-badge">⚡ Real-Time Audit</span>
         </div>
+
         <div class="history-strip-row" id="dailyHistoryStripRow">
-          <!-- Dynamically populated -->
+          <!-- Dynamically populated via renderDailyHistoryStrip() -->
         </div>
 
         <!-- Dynamic History Day Inspector Box -->
         <div class="history-inspector-box" id="dailyHistoryInspectorBox" style="display: none;">
-          <div class="card-header-between" style="margin-bottom: 0.4rem;">
-            <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan);" id="inspectorDateTitle">
+          <div class="inspector-box-header">
+            <div class="inspector-title" id="inspectorDateTitle">
               📅 Past Day Breakdown
             </div>
-            <button class="btn-ghost" style="padding: 0.2rem 0.5rem; font-size: 0.72rem;"
+            <button class="inspector-close-btn"
               onclick="document.getElementById('dailyHistoryInspectorBox').style.display='none'">
-              Close Inspector
+              <i data-lucide="x" style="width:13px; height:13px;"></i> Close Inspector
             </button>
           </div>
           <div class="history-inspector-grid" id="inspectorGridContent">

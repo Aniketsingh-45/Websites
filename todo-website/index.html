@@ -92,8 +92,13 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
 
-  <!-- PDF.js from Cloudflare CDN for Client-Side PDF Extraction -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <!-- PDF.js Local Engine with CDN Fallback for Client-Side PDF Extraction -->
+  <script src="js/pdf.min.js"></script>
+  <script>
+    if (!window.pdfjsLib && !window['pdfjs-dist/build/pdf']) {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"><\/script>');
+    }
+  </script>
   <!-- Canvas Confetti CDN with internal fallback -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <!-- Lucide Icons Vector System -->
@@ -2428,6 +2433,13 @@
           <p style="color: var(--text-muted); font-size: 0.74rem;">Supported: .pdf schedules, timetables, syllabus
             planners</p>
           <input type="file" id="pdfFileInput" accept=".pdf" style="display:none">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; padding: 0.5rem 0.85rem; background: rgba(255,255,255,0.03); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.06);">
+          <span style="color: var(--text-muted); font-size: 0.74rem;">Want to test the parser first?</span>
+          <button id="testSamplePdfBtn" type="button" class="btn-ghost" style="padding: 0.25rem 0.6rem; font-size: 0.72rem; color: var(--accent-cyan); display: inline-flex; align-items: center; gap: 4px;">
+            <i data-lucide="file-check" style="width: 14px; height: 14px;"></i> Test with Sample Routine PDF
+          </button>
         </div>
 
         <div id="pdfParsedPreview" style="margin-top: 1rem;"></div>

@@ -1017,6 +1017,10 @@ As an ambitious student, recognize that technical acumen without emotional self-
   ]
 };
 
+if (typeof window !== 'undefined') {
+  window.DEFAULT_ROUTINE_DATA = DEFAULT_ROUTINE_DATA;
+}
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { DEFAULT_ROUTINE_DATA };
 }
+

@@ -5428,8 +5428,17 @@ svg.lucide {
 }
 
 @media (max-width: 768px) {
+  .computational-hero-grid {
+    grid-template-columns: 1fr;
+  }
   .aura-breakdown-grid {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .aura-breakdown-item.pillar-bio {
+    grid-column: 1 / -1;
+  }
+  .daily-tools-action-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

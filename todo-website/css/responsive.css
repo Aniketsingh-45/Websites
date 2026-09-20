@@ -801,12 +801,356 @@ svg {
     min-width: 0 !important;
   }
 
+  /* =========================================================================
+     DAILY COMPUTATIONAL ENGINE & MODAL — MOBILE OPTIMIZATIONS (<= 480px)
+     ========================================================================= */
   .daily-control-modal-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 1rem 0.85rem !important;
-    max-height: 90vh !important;
+    width: 96% !important;
+    max-width: 96% !important;
+    margin: auto !important;
+    padding: 1rem 0.85rem 1.25rem 0.85rem !important;
+    max-height: 88vh !important;
+    border-radius: 18px !important;
     overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .daily-modal-header {
+    margin-bottom: 0.95rem !important;
+    padding-bottom: 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .daily-modal-title-group {
+    gap: 0.65rem !important;
+    min-width: 0 !important;
+    flex: 1 !important;
+  }
+
+  .daily-modal-icon-badge {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 10px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .daily-modal-icon-badge svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .daily-modal-heading-row {
+    gap: 0.4rem !important;
+  }
+
+  .daily-modal-title {
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .daily-modal-kernel-badge {
+    font-size: 0.62rem !important;
+    padding: 0.1rem 0.4rem !important;
+  }
+
+  .daily-modal-subtitle {
+    font-size: 0.72rem !important;
+  }
+
+  #closeDailyControlModalBtn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Computational Hero Grid Stacking on Mobile */
+  .computational-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .aura-gauge-card {
+    padding: 1rem 0.85rem !important;
+    gap: 0.95rem !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  .aura-gauge-ring-wrap {
+    width: 82px !important;
+    height: 82px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .aura-gauge-percent-num {
+    font-size: 1.35rem !important;
+  }
+
+  .aura-gauge-percent-lbl {
+    font-size: 0.6rem !important;
+  }
+
+  .aura-meta-top-row {
+    gap: 0.35rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .aura-tier-badge {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.55rem !important;
+  }
+
+  .aura-streak-pill {
+    font-size: 0.68rem !important;
+    padding: 0.18rem 0.5rem !important;
+  }
+
+  .aura-gauge-desc {
+    font-size: 0.73rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .aura-gauge-footer-note {
+    font-size: 0.67rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .aurabrain-intel-card {
+    padding: 1rem 0.85rem !important;
+    gap: 0.75rem !important;
+    min-height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  .aurabrain-heading strong {
+    font-size: 0.88rem !important;
+  }
+
+  .aurabrain-badge {
+    font-size: 0.68rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+
+  .aurabrain-advice-text {
+    font-size: 0.76rem !important;
+    line-height: 1.4 !important;
+    padding: 0.6rem 0.75rem !important;
+  }
+
+  .aurabrain-metrics-strip {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.35rem !important;
+  }
+
+  .brain-metric-tile {
+    padding: 0.4rem 0.25rem !important;
+  }
+
+  .brain-metric-lbl {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.15 !important;
+  }
+
+  .aurabrain-metric-val {
+    font-size: 0.82rem !important;
+  }
+
+  /* Section Header on Mobile */
+  .computational-section-header {
+    margin-bottom: 0.6rem !important;
+    padding-top: 0.2rem !important;
+  }
+
+  .computational-section-title {
+    font-size: 0.76rem !important;
+    gap: 0.35rem !important;
+  }
+
+  .computational-section-sub {
+    font-size: 0.67rem !important;
+  }
+
+  .formula-weight-pill {
+    font-size: 0.64rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+
+  /* Formula Breakdown Grid on Mobile */
+  .aura-breakdown-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .aura-breakdown-item {
+    padding: 0.65rem 0.75rem !important;
+    border-radius: 12px !important;
+  }
+
+  .pillar-tag {
+    font-size: 0.72rem !important;
+  }
+
+  .weight-badge {
+    font-size: 0.62rem !important;
+    padding: 0.1rem 0.3rem !important;
+  }
+
+  .aura-breakdown-val {
+    font-size: 0.9rem !important;
+  }
+
+  .aura-breakdown-pct {
+    font-size: 0.74rem !important;
+  }
+
+  /* Daily Tools Action Grid on Mobile */
+  .daily-tools-action-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .daily-tool-card {
+    padding: 0.65rem 0.6rem !important;
+    gap: 0.45rem !important;
+    min-height: 48px !important;
+    border-radius: 12px !important;
+  }
+
+  .tool-card-icon-wrap {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+  }
+
+  .tool-card-title {
+    font-size: 0.74rem !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+  }
+
+  .tool-card-desc {
+    display: none !important;
+  }
+
+  /* Daily History Strip on Mobile */
+  .daily-history-container {
+    padding: 0.85rem 0.8rem !important;
+    border-radius: 14px !important;
+  }
+
+  .history-container-header {
+    margin-bottom: 0.6rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+  }
+
+  .history-icon-badge {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .history-main-heading {
+    font-size: 0.8rem !important;
+  }
+
+  .history-sub-heading {
+    font-size: 0.66rem !important;
+  }
+
+  .history-legend-badge {
+    font-size: 0.62rem !important;
+    padding: 0.1rem 0.4rem !important;
+  }
+
+  .history-strip-row {
+    padding: 0.25rem 0.1rem 0.65rem 0.1rem !important;
+    gap: 0.45rem !important;
+  }
+
+  .history-strip-card {
+    min-width: 72px !important;
+    padding: 0.5rem 0.35rem !important;
+    gap: 0.2rem !important;
+    border-radius: 10px !important;
+  }
+
+  .history-day-name {
+    font-size: 0.62rem !important;
+  }
+
+  .history-day-date {
+    font-size: 0.82rem !important;
+  }
+
+  .history-day-aura-score {
+    font-size: 0.66rem !important;
+    padding: 0.1rem 0.35rem !important;
+  }
+
+  /* History Inspector Box on Mobile */
+  .history-inspector-box {
+    padding: 0.75rem 0.85rem !important;
+    margin-top: 0.75rem !important;
+    border-radius: 12px !important;
+  }
+
+  .inspector-title {
+    font-size: 0.78rem !important;
+  }
+
+  .inspector-close-btn {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  .history-inspector-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.45rem !important;
+  }
+
+  .history-stat-bubble {
+    padding: 0.5rem 0.55rem !important;
+    border-radius: 8px !important;
+  }
+
+  .history-stat-bubble .lbl {
+    font-size: 0.62rem !important;
+  }
+
+  .history-stat-bubble .val {
+    font-size: 0.85rem !important;
+  }
+
+  /* Daily Awakening Modal on Mobile */
+  .daily-awakening-card {
+    width: 95% !important;
+    padding: 1.5rem 1.15rem !important;
+    border-radius: 18px !important;
+  }
+
+  .awakening-sun-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-bottom: 0.95rem !important;
+  }
+
+  .daily-awakening-card h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .awakening-stats-pill-box {
+    padding: 0.75rem !important;
+    gap: 0.5rem !important;
+    margin: 1rem 0 1.25rem 0 !important;
   }
 
   /* Footers & Toasts */

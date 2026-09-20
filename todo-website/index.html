@@ -1948,12 +1948,11 @@
                     </div>
 
                     <!-- Action Buttons -->
-                    <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
-                      <button type="submit" class="btn-primary" id="saveProfileBtn"
-                        style="flex: 2; padding: 0.75rem 1.25rem;">
+                    <div class="profile-form-actions-row">
+                      <button type="submit" class="btn-primary" id="saveProfileBtn">
                         <i data-lucide="save" class="btn-icon-svg"></i> Save &amp; Apply Everywhere
                       </button>
-                      <button type="button" class="btn-ghost" id="resetProfileBtn" style="flex: 1;"
+                      <button type="button" class="btn-ghost" id="resetProfileBtn"
                         onclick="window.app.resetUserProfile()">
                         <i data-lucide="refresh-cw" class="btn-icon-svg"></i> Reset
                       </button>
@@ -1965,8 +1964,8 @@
             </div>
 
             <!-- System Preferences & Notification Sentinels Card -->
-            <div class="bento-card" style="margin-top: 1.5rem;">
-              <div class="card-header-between" style="margin-bottom: 1rem;">
+            <div class="profile-preferences-card bento-card">
+              <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                 <div>
                   <h3
                     style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
@@ -1978,7 +1977,6 @@
                 </div>
                 <span class="aurabrain-badge" id="notifEngineStatusBadge">🔔 Sentinel Active (ON)</span>
               </div>
-
               <div class="settings-switches-grid">
                 <!-- Switch 1: Notifications ON / OFF -->
                 <div class="setting-switch-item">
@@ -2040,7 +2038,7 @@
             </div>
 
             <!-- Sound Notification Types Previewer Studio Card -->
-            <div class="bento-card" style="margin-top: 1.5rem;">
+            <div class="profile-sound-card bento-card">
               <div class="card-header-between" style="margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
                 <div>
                   <h3
@@ -2055,8 +2053,7 @@
                   Acoustic Studio</span>
               </div>
 
-              <div class="sound-preview-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.65rem;">
+              <div class="sound-preview-grid">
                 <button class="sound-test-btn" onclick="window.app.testNotificationSound('task_complete')"
                   title="Play Task Completion Arpeggio">
                   <span class="sound-btn-icon" style="color: var(--accent-emerald);"><i
@@ -2170,8 +2167,8 @@
             </div>
 
             <!-- Gamification Level Progression & Lifetime Badges Card -->
-            <div class="bento-card" style="margin-top: 1.5rem;">
-              <div class="card-header-between" style="margin-bottom: 1rem;">
+            <div class="profile-gamification-card bento-card">
+              <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                 <div>
                   <h3
                     style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
@@ -2231,8 +2228,8 @@
             </div>
 
             <!-- AuraBrain Cognitive Intelligence & History Memory Summary Card -->
-            <div class="bento-card" style="margin-top: 1.5rem;">
-              <div class="card-header-between" style="margin-bottom: 1rem;">
+            <div class="profile-intel-card bento-card">
+              <div class="card-header-between" style="margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
                 <div>
                   <h3
                     style="color: #FFFFFF; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.45rem;">
@@ -2245,8 +2242,7 @@
                 <span class="aurabrain-badge" id="profileBrainStatusBadge">⚡ Neural Sync Active</span>
               </div>
 
-              <div class="stats-counter-strip"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 1rem;">
+              <div class="stats-counter-strip">
                 <div class="hero-stat-pill" style="padding: 0.65rem 0.95rem;">
                   <div class="hero-stat-icon-wrap" style="background: rgba(34, 211, 238, 0.15); color: #22D3EE;"><i
                       data-lucide="activity"></i></div>

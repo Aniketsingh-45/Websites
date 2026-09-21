@@ -1,0 +1,24 @@
+{
+  "name": "AuraRoutine — Daily Mastery & High-Performance Growth OS",
+  "short_name": "AuraRoutine",
+  "description": "Futuristic daily routine, habit mastery, and productivity platform with auto midnight rollover and Aura Score.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "productivity",
+    "lifestyle",
+    "education"
+  ]
+}

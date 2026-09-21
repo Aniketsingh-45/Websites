@@ -111,20 +111,61 @@ todo-website/
 
 ---
 
-## 💻 Getting Started
+## 💻 Getting Started & Vercel Development
 
-### Option 1: Open Directly
-Simply double-click `index.html` in your file explorer to launch the app in any modern web browser (Chrome, Edge, Firefox, Brave, Safari).
+### ⚡ Option 1: Vercel Local Development (Recommended)
 
-### Option 2: Run via Local Server
+Run locally with the Vercel CLI to simulate Vercel's Edge headers, routing, and clean URLs:
+
 ```bash
-# Using Python
-python -m http.server 8080
+# Install dependencies (Vercel CLI & Serve)
+npm install
 
-# Or using Node http-server / npx serve
-npx serve .
+# Run with Vercel Dev server
+npm run dev
+# or: npx vercel dev
 ```
-Navigate to `http://localhost:8080/` in your browser.
+Navigate to `http://localhost:3000/`.
+
+---
+
+### 🚀 Option 2: Deploying to Vercel
+
+#### 1. Instant Preview Deployment (CLI)
+```bash
+# Login to Vercel (first time only)
+npx vercel login
+
+# Deploy a preview build
+npm run deploy
+# or: npx vercel
+```
+
+#### 2. Deploy to Production
+```bash
+npm run deploy:prod
+# or: npx vercel --prod
+```
+
+#### 3. Continuous Deployment via GitHub
+1. Push your repository to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new) and import your repository.
+3. If this is in a monorepo, set the **Root Directory** to `todo-website`.
+4. Framework Preset: **Other** (Zero-configuration static build).
+5. Click **Deploy**. Vercel will automatically deploy on every `git push` with automatic preview branch deployments!
+
+---
+
+### 🌐 Option 3: Local Static Server / Open Directly
+```bash
+# Using Node serve
+npm start
+
+# Or using Python
+python -m http.server 3000
+```
+Or simply double-click `index.html` to run locally without a server.
+
 
 ---
 

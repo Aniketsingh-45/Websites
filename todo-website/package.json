@@ -4,12 +4,12 @@
   "private": true,
   "description": "Futuristic Daily Mastery & 30-Day Growth OS",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "npx vercel dev",
     "serve": "serve . -p 3000",
     "start": "serve . -p 3000",
     "build": "echo \"Static assets ready for Vercel deployment\"",
-    "deploy": "vercel",
-    "deploy:prod": "vercel --prod"
+    "deploy": "npx vercel",
+    "deploy:prod": "npx vercel --prod"
   },
   "keywords": [
     "productivity",
@@ -23,7 +23,6 @@
   "author": "Aniket Singh",
   "license": "MIT",
   "devDependencies": {
-    "serve": "^14.2.4",
-    "vercel": "^41.3.0"
+    "serve": "^14.2.4"
   }
 }

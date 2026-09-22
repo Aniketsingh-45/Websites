@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "description": "Futuristic Daily Mastery & 30-Day Growth OS",
+  "homepage": "https://aura-routine-todo-eight.vercel.app",
   "scripts": {
     "dev": "npx vercel dev",
     "serve": "serve . -p 3000",

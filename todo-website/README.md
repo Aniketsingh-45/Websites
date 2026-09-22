@@ -2,10 +2,16 @@
 
 > A futuristic, high-tech daily routine, habit mastery, and productivity platform built around the **30-Day Personal Upgrade Routine**. Powered by pure vanilla HTML5, modern CSS3, and JavaScript, featuring an **Automated Daily Midnight Rollover Engine**, real-time **Mathematical Aura Score (0–100%)**, client-side schedule PDF parsing, bio-wellness sentinels, English speaking voice recorder lab, and gamified XP progression.
 
+[![Live Production](https://img.shields.io/badge/Live%20Production-aura--routine--todo--eight.vercel.app-00dfa2?style=for-the-badge&logo=vercel&logoColor=white)](https://aura-routine-todo-eight.vercel.app/)
 ![AuraRoutine](https://img.shields.io/badge/AuraRoutine-v3.0-6366f1?style=for-the-badge&logo=electron&logoColor=white)
 ![Daily Reset Engine](https://img.shields.io/badge/Engine-Automated%20Daily%20Rollover-0ea5e9?style=for-the-badge)
 ![Dependencies](https://img.shields.io/badge/Dependencies-Zero%20Backend-10b981?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge)
+
+<br/>
+
+> 🚀 **Live Production Deployment**: [**https://aura-routine-todo-eight.vercel.app/**](https://aura-routine-todo-eight.vercel.app/)  
+> 🌐 **Live Domain**: `aura-routine-todo-eight.vercel.app` &bull; 🟢 **Status**: Deployed &amp; Active on Vercel Anycast Edge CDN
 
 ---
 
@@ -153,6 +159,8 @@ npm run deploy:prod
 3. If this is in a monorepo, set the **Root Directory** to `todo-website`.
 4. Framework Preset: **Other** (Zero-configuration static build).
 5. Click **Deploy**. Vercel will automatically deploy on every `git push` with automatic preview branch deployments!
+
+Live Production URL: [**https://aura-routine-todo-eight.vercel.app/**](https://aura-routine-todo-eight.vercel.app/)
 
 ---
 

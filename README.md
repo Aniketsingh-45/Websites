@@ -2,13 +2,13 @@
 
 # 🌐 Websites Workspace & Monorepo
 
-> **A curated ecosystem of 8 modern web applications, interactive digital portals, and creative front-end experiences engineered by [Aniket Singh](https://aniketsingh-portfolio-ruby.vercel.app/).** 🚀
+> **A curated ecosystem of 9 modern web applications, interactive digital portals, and creative front-end experiences engineered by [Aniket Singh](https://aniketsingh-portfolio-ruby.vercel.app/).** 🚀
 
 <br/>
 
 [![GitHub Monorepo](https://img.shields.io/badge/Repository-Websites%20Monorepo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketsingh-45/Websites)
 [![Deployed with Vercel](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
-[![Status: All Systems Live](https://img.shields.io/badge/Production-8%20Apps%20Live-10b981?style=for-the-badge&logo=statuspage&logoColor=white)](https://github.com/Aniketsingh-45/Websites)
+[![Status: All Systems Live](https://img.shields.io/badge/Production-9%20Apps%20Live-10b981?style=for-the-badge&logo=statuspage&logoColor=white)](https://github.com/Aniketsingh-45/Websites)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Aniket%20Singh-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketsingh45/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -34,9 +34,10 @@ Every application in this monorepo is deployed live on **Vercel** with global An
 | **6** | **🏥 Nath Aarogya Clinic** | [**clinic-nath-ayog.vercel.app**](https://clinic-nath-ayog.vercel.app/) | [`/clinic`](./clinic) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://clinic-nath-ayog.vercel.app/) | `HTML5 Canvas` `CSS3` `JavaScript` `GSAP 3` |
 | **7** | **💄 Bella Beauty Makeup Studio** | [**bellybeauty-salon.vercel.app**](https://bellybeauty-salon.vercel.app/) | [`/Parlour`](./Parlour) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://bellybeauty-salon.vercel.app/) | `Three.js` `WebGL` `CSS3` `Vanilla JS` `PWA` |
 | **8** | **🎁 Kiara Birthday Surprise** | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | [`/gift`](./gift) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://wishing-birthday-ecru.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Audio API` `Confetti` |
+| **9** | **⚡ AuraRoutine Daily Mastery** | [**aura-routine-todo-eight.vercel.app**](https://aura-routine-todo-eight.vercel.app/) | [`/todo-website`](./todo-website) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aura-routine-todo-eight.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Web Audio` `PDF.js` `PWA` |
 
 > [!TIP]
-> **Experience the Master Launchpad**: The interactive project showcase ([`/showcase`](./showcase)) serves as a unified launchpad showcasing all 8 applications with real-time category filtering and live preview links!
+> **Experience the Master Launchpad**: The interactive project showcase ([`/showcase`](./showcase)) serves as a unified launchpad showcasing all 9 applications with real-time category filtering and live preview links!
 
 ---
 
@@ -153,6 +154,20 @@ Explore in-depth specifications, key feature breakdowns, and tech architectures 
 
 ---
 
+### 9. ⚡ AuraRoutine — Daily Mastery & 30-Day Growth OS
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://aura-routine-todo-eight.vercel.app/)
+* **Directory**: [`/todo-website`](./todo-website)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Web Audio](https://img.shields.io/badge/Web%20Audio-Sound%20FX-ec4899?style=flat-square)](#) [![PWA](https://img.shields.io/badge/PWA-Ready-5A0FC8?style=flat-square)](#)
+* **Description**: A futuristic, high-tech daily routine, habit mastery, and productivity platform built around the 30-Day Personal Upgrade Routine with automated midnight rollover and real-time Aura Score engine.
+* **Key Features**:
+  - 🌟 **Automated Midnight Reset & Historical Archiving**: Daily checklists, habits, water trackers, and focus counters refresh cleanly at midnight with persistent `localStorage` daily metrics archiving (`aura_daily_history`).
+  - ⚡ **Mathematical Aura Energy Score (0–100%)**: Dynamically computes energetic score across Routine Tasks (40%), Daily Habits (20%), Hydration (15%), Focus Studio (15%), and Bio Breaks (10%) across 5 radiant aura tiers.
+  - 🎙️ **English Mastery Hub & Communication Lab**: In-browser speech voice recorder (`MediaRecorder` API), 1-minute impromptu speaking drills, tongue twisters, and 50+ audio vocabulary builder.
+  - 🧘 **Student Bio-Wellness Sentinel**: 20-20-20 eye rest engine with zen gong alerts, 8-glass visual hydration tracker, and ergonomic spine posture reminders.
+  - 📄 **Client-Side Schedule PDF Parser**: Powered by Mozilla `pdf.js` for instant timetable parsing and zero server requirements.
+
+---
+
 ## 📊 Complete Projects Summary Matrix
 
 | # | Project Name | Directory | Category | Live Production Link | Build Stack |
@@ -165,6 +180,7 @@ Explore in-depth specifications, key feature breakdowns, and tech architectures 
 | 6 | **🏥 Nath Aarogya Clinic** | [`/clinic`](./clinic) | Healthcare / Medical | [**clinic-nath-ayog.vercel.app**](https://clinic-nath-ayog.vercel.app/) | HTML5 Canvas, CSS3, JS, GSAP 3 |
 | 7 | **💄 Bella Beauty Studio** | [`/Parlour`](./Parlour) | Beauty / Luxury Salon | [**bellybeauty-salon.vercel.app**](https://bellybeauty-salon.vercel.app/) | Three.js WebGL, CSS3, JS, PWA |
 | 8 | **🎁 Birthday Surprise** | [`/gift`](./gift) | Interactive / Celebration | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | HTML5, CSS3, JS, Audio API |
+| 9 | **⚡ AuraRoutine** | [`/todo-website`](./todo-website) | Productivity / Self-Mastery | [**aura-routine-todo-eight.vercel.app**](https://aura-routine-todo-eight.vercel.app/) | HTML5, CSS3, JS, Web Audio, PDF.js |
 
 ---
 
@@ -176,7 +192,7 @@ git clone https://github.com/Aniketsingh-45/Websites.git
 cd Websites
 ```
 
-### 2. Static Zero-Build Apps (`portfolio`, `movie-website`, `shopping`, `cafe`, `clinic`, `Parlour`, `gift`)
+### 2. Static Zero-Build Apps (`portfolio`, `movie-website`, `shopping`, `cafe`, `clinic`, `Parlour`, `gift`, `todo-website`)
 These require zero compilation steps and can be run immediately:
 
 * **Method A (Direct Browser)**: Double-click any project's `index.html` file in your preferred web browser.
@@ -210,11 +226,11 @@ Every project in this repository is configured with dedicated production `vercel
 1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
 2. Under **Root Directory**, click **Edit** and select `showcase`.
 3. Framework Preset: **Other** (zero build required).
-4. Click **Deploy**. Vercel will deploy the master showcase hub (`showcase/index.html` and `showcase/vercel.json`), providing unified access to all 8 web applications!
+4. Click **Deploy**. Vercel will deploy the master showcase hub (`showcase/index.html` and `showcase/vercel.json`), providing unified access to all 9 web applications!
 
 ### Option B: Deploy Individual Subprojects (Standalone Apps)
 1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
-2. Under **Root Directory**, click **Edit** and select the folder you want to deploy (e.g. `cafe`, `clinic`, `gift`, `shopping`, `portfolio`, `Parlour`, or `movie-website`).
+2. Under **Root Directory**, click **Edit** and select the folder you want to deploy (e.g. `todo-website`, `cafe`, `clinic`, `gift`, `shopping`, `portfolio`, `Parlour`, or `movie-website`).
 3. For static projects, leave **Build Command** empty. For `dadan-handi`, Vercel auto-detects Vite (`npm run build` → `dist`).
 4. Click **Deploy**!
 

@@ -1,0 +1,2029 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cafe De-Light — Danapur &amp; Saguna More, Patna | Multicuisine Restaurant &amp; Lounge</title>
+  <meta name="description"
+    content="Welcome to Cafe De-Light, Danapur, Patna. Indulge in authentic Steamed &amp; Kurkure Momos, Chilli Chicken, Dum Biryani, Continental Pastas, Pizzas, and handcrafted coffee in a cozy ambiance." />
+  <meta name="keywords"
+    content="Cafe De-Light, Cafe Delight Patna, cafe Danapur, Saguna More cafe, restaurants in Danapur, momos Patna, biryani Danapur, family restaurant Saguna More, best cafe in Patna" />
+  <meta name="theme-color" content="#F59E0B" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="Cafe De-Light — Danapur &amp; Saguna More, Patna" />
+  <meta property="og:description"
+    content="Danapur's favorite culinary spot for Steamed Momos, Slow-Cooked Biryani, Continental Pastas &amp; Artisan Cold Coffee. Air-conditioned cozy dining." />
+  <meta property="og:image" content="images/interior_main.jpg" />
+  <meta property="og:url" content="https://www.eazydiner.com/patna/cafe-de-light-danapur-patna-689708" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cafe De-Light — Danapur &amp; Saguna More, Patna" />
+  <meta name="twitter:description" content="Authentic multicuisine restaurant &amp; cafe located at Saguna Khagaul Road, Danapur, Patna." />
+  <meta name="twitter:image" content="images/interior_main.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/cafe_delight_logo.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP & Animation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="cafe.css">
+
+  <!-- JSON-LD Structured Data for Local Restaurant SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Cafe De-Light",
+    "image": [
+      "images/interior_main.jpg",
+      "images/food_signature_dish.jpg",
+      "images/interior_lighting.jpg"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Balaji Nagar, Kaliket Nagar, Danapur, Saguna Khagaul Road",
+      "addressLocality": "Saguna More, Danapur",
+      "addressRegion": "Patna, Bihar",
+      "postalCode": "801503",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.620249,
+      "longitude": 85.0417412
+    },
+    "telephone": ["+917903029008", "+918862984404"],
+    "servesCuisine": ["Chinese", "North Indian", "Mughlai", "Continental", "Fast Food", "Coffee"],
+    "priceRange": "₹650 - ₹800 for two approx.",
+    "openingHours": "Mo-Su 11:00-23:00",
+    "paymentAccepted": "Cash, Credit Card, Debit Card, UPI",
+    "currenciesAccepted": "INR",
+    "acceptsReservations": true,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "3.9",
+      "reviewCount": "250"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ═══════ CUSTOM CURSOR ═══════ -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-follower" id="customCursorFollower"></div>
+
+  <!-- ═══════ SCROLL PROGRESS BAR ═══════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar">
+        <div class="preloader-fill" id="preloaderFill"></div>
+      </div>
+      <div class="preloader-pct" id="preloaderPct">0%</div>
+    </div>
+    <div class="preloader-tip" id="preloaderTip">Preparing your delightful experience...</div>
+  </div>
+
+  <!-- ═══════ HEADER ═══════ -->
+  <header id="siteHeader">
+    <div class="header-progress-glow"></div>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <img src="images/cafe_delight_logo.svg" alt="Cafe De-Light logo" class="brand-logo-img" />
+        <div>
+          <h1>Cafe De-Light</h1>
+          <span class="tagline">Danapur • Saguna More</span>
+        </div>
+      </a>
+
+      <!-- Live Status Pill in Header -->
+      <div class="header-status-wrap">
+        <span class="live-status-pill is-open" id="headerStatusPill">
+          <span class="status-dot open"></span> Open Now • 11 AM - 11 PM
+        </span>
+      </div>
+
+      <nav id="mainNav" aria-label="Primary navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#video-sec" class="nav-link">Video Tour</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#amenities" class="nav-link">Amenities</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button class="nav-cta" id="openBookingBtn" type="button">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px;">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg> Reserve Table
+        </button>
+      </nav>
+
+      <div class="header-controls">
+        <button class="ctrl-btn" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
+          <span class="sound-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+          </span>
+        </button>
+        <button class="ctrl-btn" id="darkModeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="theme-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="brand">
+        <img src="images/cafe_delight_logo.svg" alt="Cafe De-Light" class="brand-logo-img" />
+        <div>
+          <h3>Cafe De-Light</h3>
+          <span class="tagline">Danapur, Patna</span>
+        </div>
+      </div>
+      <button class="close-drawer" id="closeDrawer" aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About Us</a>
+      <a href="#video-sec" class="mobile-link">Video Tour</a>
+      <a href="#menu" class="mobile-link">Culinary Menu</a>
+      <a href="#gallery" class="mobile-link">Photo Gallery</a>
+      <a href="#reviews" class="mobile-link">Customer Reviews</a>
+      <a href="#amenities" class="mobile-link">Features &amp; Amenities</a>
+      <a href="#contact" class="mobile-link">Contact &amp; Location</a>
+      <button class="btn btn-primary btn-block" id="mobileReserveBtn" style="margin-top:16px;">Reserve a Table</button>
+      <a href="tel:+917903029008" class="btn btn-secondary btn-block" style="margin-top:10px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.19 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg> Call: +91 79030 29008
+      </a>
+    </nav>
+  </div>
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- ═══════ HERO SECTION ═══════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg" style="background-image: url('images/interior_main.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+
+    <div class="container hero-content">
+      <div class="hero-text">
+        <!-- Verified Listing Badges -->
+        <div class="hero-badge-row sr">
+          <span class="hero-badge rating-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#F59E0B" stroke="#F59E0B" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <strong>3.9 ★</strong> Justdial (250+ Ratings)
+          </span>
+          <span class="hero-badge google-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#4285F4"><path d="M21.35 11.1h-9.17v2.73h5.27c-.23 1.2-1.39 3.51-5.27 3.51-3.17 0-5.76-2.61-5.76-5.84s2.59-5.84 5.76-5.84c1.8 0 3.01.77 3.7 1.43l2.16-2.08C22.18 3.5 17.5 2 12.18 2 6.56 2 2 6.56 2 12.18s4.56 10.18 10.18 10.18c5.87 0 9.77-4.13 9.77-9.94 0-.67-.07-1.18-.18-1.52z"/></svg>
+            <strong>3.8 ★</strong> Google (218+ Reviews)
+          </span>
+          <span class="hero-badge verified-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Danapur • Saguna Khagaul Road
+          </span>
+        </div>
+
+        <h1 class="hero-title sr">
+          Where Flavors Meet <span class="highlight-gold">Warm Delight</span>
+        </h1>
+
+        <p class="hero-subtitle sr" id="typedSubtitle">
+          Danapur's Favorite Multicuisine Cafe &amp; Lounge
+        </p>
+
+        <p class="hero-desc sr">
+          Experience mouth-watering Steamed &amp; Kurkure Momos, sizzling Chilli Chicken, aromatic Dum Biryani, cheesy Pizzas, and handcrafted beverages in an ambient, air-conditioned bistro designed for laughter, dates, and family celebrations.
+        </p>
+
+        <div class="hero-actions sr">
+          <a href="#bookingModal" class="btn btn-primary" id="heroReserveBtn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg> Reserve a Table
+          </a>
+          <a href="#menu" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/>
+              <path d="M7 2v20"/>
+              <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+            </svg> Explore Menu
+          </a>
+          <a href="#video-sec" class="btn btn-glass-video" title="Watch authentic video tour">
+            <span class="play-mini-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </span>
+            Watch Video Tour
+          </a>
+        </div>
+
+        <div class="hero-features-list sr">
+          <div class="h-feat">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Avg ₹650–₹800 for two</span>
+          </div>
+          <div class="h-feat">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Air Conditioned Comfort</span>
+          </div>
+          <div class="h-feat">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#F59E0B" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Dine-In • Takeaway • Delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / 3D Card -->
+      <div class="hero-visual" id="heroVisual">
+        <div class="hero-tilt-card" id="heroTiltCard">
+          <div class="tilt-card-inner">
+            <img src="images/food_signature_dish.jpg" alt="Signature Dish at Cafe De-Light" class="tilt-img" />
+            <div class="tilt-tag">⭐ Chef's Signature</div>
+            <div class="tilt-info">
+              <h3>Crispy Special &amp; Sizzlers</h3>
+              <p>Wok-tossed perfection &amp; freshly steamed momos</p>
+              <div class="tilt-meta">
+                <span class="price-pill">From ₹120</span>
+                <span class="rating-pill">4.9 ★ Bestseller</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Floating Ambiance Badge -->
+        <div class="floating-badge fb-top">
+          <img src="images/interior_lighting.jpg" alt="Ambiance thumbnail" class="fb-thumb" />
+          <div>
+            <div class="fb-title">Cozy Neon Ambience</div>
+            <div class="fb-sub">Perfect for Dates &amp; Parties</div>
+          </div>
+        </div>
+        <!-- Floating Review Badge -->
+        <div class="floating-badge fb-bottom">
+          <div class="fb-stars">★★★★★</div>
+          <div class="fb-title">"Superb food &amp; prompt service"</div>
+          <div class="fb-sub">— Ajay Anand (Google Verified)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ KEY STATS BAR ═══════ -->
+  <section class="stats-bar" id="stats">
+    <div class="container stats-grid">
+      <div class="stat-card sr">
+        <div class="stat-num counter" data-target="3.9">3.9</div>
+        <div class="stat-meta">
+          <span class="stat-label">Justdial Rating</span>
+          <span class="stat-sub">Based on 250+ Verified Reviews</span>
+        </div>
+      </div>
+      <div class="stat-card sr">
+        <div class="stat-num counter" data-target="100">100+</div>
+        <div class="stat-meta">
+          <span class="stat-label">Multicuisine Dishes</span>
+          <span class="stat-sub">Momos, Biryani, Chinese &amp; Pizza</span>
+        </div>
+      </div>
+      <div class="stat-card sr">
+        <div class="stat-num">₹700</div>
+        <div class="stat-meta">
+          <span class="stat-label">Pocket-Friendly</span>
+          <span class="stat-sub">Average Price For Two Approx.</span>
+        </div>
+      </div>
+      <div class="stat-card sr">
+        <div class="stat-num">2022</div>
+        <div class="stat-meta">
+          <span class="stat-label">Serving Saguna More</span>
+          <span class="stat-sub">Danapur's Go-To Hangout Spot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ ABOUT US ═══════ -->
+  <section class="section-light" id="about">
+    <div class="container about-wrapper">
+      <div class="about-visual sr">
+        <div class="about-img-grid">
+          <div class="about-img-item a-img-1">
+            <img src="images/interior_main.jpg" alt="Cafe De-Light Interior Hall" loading="lazy" />
+          </div>
+          <div class="about-img-item a-img-2">
+            <img src="images/interior_lighting.jpg" alt="Warm Neon Decor & Ambiance" loading="lazy" />
+          </div>
+          <div class="about-img-item a-img-3">
+            <img src="images/interior_cozy.jpg" alt="Cozy Dining Corner" loading="lazy" />
+          </div>
+          <div class="about-experience-badge">
+            <div class="exp-num">Danapur</div>
+            <div class="exp-text">Patna's Favorite Multicuisine Spot</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-info sr">
+        <span class="label">Our Story &amp; Hospitality</span>
+        <h2>Welcome to <span class="highlight-gold">Cafe De-Light</span></h2>
+        <p class="about-lead">
+          Nestled on <strong>Saguna Khagaul Road (Balaji Nagar, Danapur)</strong>, Cafe De-Light was founded in 2022 to provide young food lovers, college students, working professionals, and families with a warm, air-conditioned, and pocket-friendly sanctuary.
+        </p>
+        <p class="about-body">
+          Whether you crave spicy street-style steamed momos with fiery red chutney, richly layered chicken dum biryani, sizzling wok-tossed Hakka noodles, or handcrafted hazelnut cold coffees, every dish at Cafe De-Light is prepared fresh to order using quality spices and ingredients.
+        </p>
+
+        <div class="about-highlights-grid">
+          <div class="a-highlight">
+            <div class="ah-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h4>Fresh Food Cooked Daily</h4>
+              <p>Authentic recipes cooked with pure oils and fresh produce.</p>
+            </div>
+          </div>
+          <div class="a-highlight">
+            <div class="ah-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <div>
+              <h4>Group &amp; Party Friendly</h4>
+              <p>Celebration booths ready for birthdays, anniversaries &amp; reunions.</p>
+            </div>
+          </div>
+          <div class="a-highlight">
+            <div class="ah-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/></svg>
+            </div>
+            <div>
+              <h4>Relaxing &amp; Vibrant Ambience</h4>
+              <p>Air-conditioned halls, ambient lighting &amp; soothing music.</p>
+            </div>
+          </div>
+          <div class="a-highlight">
+            <div class="ah-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div>
+              <h4>Easy Digital Payments</h4>
+              <p>UPI, Credit/Debit cards &amp; Cash accepted without hassle.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-cta-row">
+          <a href="#menu" class="btn btn-primary">Check Full Menu</a>
+          <a href="tel:+917903029008" class="btn btn-outline">Call +91 79030 29008</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ VIDEO TOUR SPOTLIGHT (AUTHENTIC HD VIDEO) ═══════ -->
+  <section class="video-section" id="video-sec">
+    <div class="container video-wrapper">
+      <div class="section-header text-center sr">
+        <span class="label">Live Visual Experience</span>
+        <h2>Watch the <span class="highlight-gold">Cafe De-Light</span> Video Tour</h2>
+        <p class="muted">Take a look inside our lively space on Saguna Khagaul Road — cozy seating, soothing warm lighting, and happy moments.</p>
+      </div>
+
+      <div class="video-container sr" id="videoCard">
+        <video id="showcaseVideo" poster="images/video_thumbnail.jpg" preload="metadata" playsinline muted loop class="cafe-video-player">
+          <source src="videos/cafe_delight_tour.mp4" type="video/mp4">
+          Your browser does not support HTML5 video playback.
+        </video>
+
+        <!-- Video Overlay UI -->
+        <div class="video-overlay-ui" id="videoOverlayUI">
+          <div class="video-play-btn" id="videoPlayBtn" role="button" aria-label="Play Cafe De-Light Video">
+            <div class="play-ring play-ring-1"></div>
+            <div class="play-ring play-ring-2"></div>
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <h3>Step Inside Cafe De-Light</h3>
+          <p>Tap to play with full sound and explore our ambiance</p>
+        </div>
+
+        <!-- Custom Controls Bar -->
+        <div class="video-custom-controls" id="videoControls">
+          <div class="video-progress-bar" id="videoProgressBar">
+            <div class="video-progress-fill"></div>
+            <div class="video-thumb"></div>
+          </div>
+          <div class="video-ctrls-row">
+            <div class="ctrls-left">
+              <button class="vid-btn" id="vidPlayPause" aria-label="Play/Pause" type="button">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <button class="vid-btn" id="vidMute" aria-label="Mute/Unmute" type="button">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              </button>
+              <span class="vid-time">0:00 / 0:28</span>
+            </div>
+            <div class="ctrls-right">
+              <span class="vid-badge">HD Authentic Tour</span>
+              <button class="vid-btn" id="vidPip" aria-label="Picture in Picture" type="button" title="Picture in picture">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Video Highlights -->
+      <div class="video-features-strip sr">
+        <div class="vf-item">
+          <span class="vf-icon">✨</span>
+          <div>
+            <strong>Cozy Seating Booths</strong>
+            <span>Generous spacing for intimate conversations and privacy</span>
+          </div>
+        </div>
+        <div class="vf-item">
+          <span class="vf-icon">❄️</span>
+          <div>
+            <strong>Full Air Conditioning</strong>
+            <span>Escape the Patna heat in cool, refreshing comfort</span>
+          </div>
+        </div>
+        <div class="vf-item">
+          <span class="vf-icon">🎶</span>
+          <div>
+            <strong>Relaxing Music &amp; Vibes</strong>
+            <span>Pleasant background soundtrack for a memorable dine-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SIGNATURE SPECIALTIES (3D FLIP CARDS) ═══════ -->
+  <section class="section-dark" id="specialties">
+    <div class="container">
+      <div class="section-header text-center sr">
+        <span class="label">Chef's Recommendations</span>
+        <h2>Signature <span class="highlight-gold">Delicacies</span></h2>
+        <p class="muted">Hover or tap the cards to discover secret ingredients, spice levels and prep time!</p>
+      </div>
+
+      <div class="flip-cards-grid">
+        <!-- 3D Flip Card 1: Momos -->
+        <div class="flip-card sr" id="fc1">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img src="images/food_signature_dish.jpg" alt="Signature Kurkure Momos" loading="lazy" />
+                <span class="food-tag best">★ Danapur Bestseller</span>
+              </div>
+              <div class="food-card-info">
+                <h4>Kurkure &amp; Steamed Momos</h4>
+                <p>Crispy breaded outer crust with juicy minced chicken/veg core served with spicy schezwan dip.</p>
+                <div class="food-meta">
+                  <span class="food-price">₹140 - ₹180</span>
+                  <span class="food-rating">★ 4.9 (480+ Orders)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Kurkure &amp; Steamed Momos</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Key Highlights</div>
+                <div class="ingredient-pills">
+                  <span>Juicy Filling</span><span>Crispy Crust</span><span>Fiery Red Chutney</span><span>Mayonnaise</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span>🌶️</span> Spice Level: Medium Hot</div>
+                <div><span>⏱️</span> Prep Time: 12-15 mins</div>
+                <div><span>🥗</span> Veg &amp; Non-Veg Available</div>
+                <div><span>👥</span> Serves: 1-2 People</div>
+              </div>
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Kurkure%20Momos" class="btn btn-primary btn-sm" target="_blank">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card 2: Biryani -->
+        <div class="flip-card sr" id="fc2">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img src="images/food_meals_rg.jpg" alt="Cafe De-Light Special Dum Biryani" loading="lazy" />
+                <span class="food-tag special">🔥 Royal Mughlai</span>
+              </div>
+              <div class="food-card-info">
+                <h4>Special Chicken Dum Biryani</h4>
+                <p>Long-grain fragrant basmati rice slow-cooked with tender spiced chicken, saffron, and fried onions.</p>
+                <div class="food-meta">
+                  <span class="food-price">₹240</span>
+                  <span class="food-rating">★ 4.9 (320+ Orders)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Chicken Dum Biryani</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Ingredients &amp; Spices</div>
+                <div class="ingredient-pills">
+                  <span>Basmati Rice</span><span>Marinated Chicken</span><span>Saffron &amp; Ghee</span><span>Raita &amp; Salan</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span>🌶️</span> Spice Level: Rich &amp; Aromatic</div>
+                <div><span>⏱️</span> Prep Time: 15-20 mins</div>
+                <div><span>🍗</span> Non-Vegetarian Special</div>
+                <div><span>👥</span> Generous Portion (1-2)</div>
+              </div>
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Chicken%20Dum%20Biryani" class="btn btn-primary btn-sm" target="_blank">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card 3: Chinese Chilli Chicken -->
+        <div class="flip-card sr" id="fc3">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img src="images/food_dishes_rg.jpg" alt="Chilli Chicken & Hakka Noodles" loading="lazy" />
+                <span class="food-tag spicy">🥢 Wok Sizzler</span>
+              </div>
+              <div class="food-card-info">
+                <h4>Chilli Chicken &amp; Hakka Noodles</h4>
+                <p>Crispy batter-fried chicken bites tossed with capsicum, onion, garlic, and dark soy glaze.</p>
+                <div class="food-meta">
+                  <span class="food-price">₹180 - ₹260</span>
+                  <span class="food-rating">★ 4.8 (500+ Orders)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Chilli Chicken &amp; Noodles</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Wok Ingredients</div>
+                <div class="ingredient-pills">
+                  <span>Crispy Chicken</span><span>Bell Peppers</span><span>Spring Onions</span><span>Dark Soya &amp; Garlic</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span>🌶️</span> Spice Level: Spicy &amp; Tangy</div>
+                <div><span>⏱️</span> Prep Time: 15 mins</div>
+                <div><span>🥡</span> Dry &amp; Gravy Options</div>
+                <div><span>👥</span> Serves: 2 People</div>
+              </div>
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Chilli%20Chicken" class="btn btn-primary btn-sm" target="_blank">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card 4: Artisan Beverages -->
+        <div class="flip-card sr" id="fc4">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="food-card-img">
+                <img src="images/beverage_special.jpg" alt="Signature Iced Cold Coffee & Mocktails" loading="lazy" />
+                <span class="food-tag cool">❄️ Chilled Delight</span>
+              </div>
+              <div class="food-card-info">
+                <h4>Signature Cold Coffee &amp; Mojitos</h4>
+                <p>Creamy thick iced coffee topped with chocolate drizzle, vanilla ice cream, and refreshing mint mojitos.</p>
+                <div class="food-meta">
+                  <span class="food-price">₹120 - ₹150</span>
+                  <span class="food-rating">★ 4.9 (600+ Orders)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card-back">
+              <h4>Artisan Cold Coffee</h4>
+              <div class="flip-ingredients">
+                <div class="flip-section-label">Ingredients</div>
+                <div class="ingredient-pills">
+                  <span>Brewed Arabica</span><span>Full Cream Milk</span><span>Vanilla Ice Cream</span><span>Dark Chocolate</span>
+                </div>
+              </div>
+              <div class="flip-info">
+                <div><span>❄️</span> Taste: Chilled &amp; Velvety</div>
+                <div><span>⏱️</span> Prep Time: 6-8 mins</div>
+                <div><span>🌱</span> 100% Vegetarian</div>
+                <div><span>🥤</span> 350ml Tall Glass</div>
+              </div>
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Cold%20Coffee" class="btn btn-primary btn-sm" target="_blank">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CULINARY MENU ═══════ -->
+  <section class="section-light" id="menu">
+    <div class="container">
+      <div class="section-header text-center sr">
+        <span class="label">Authentic Kitchen</span>
+        <h2>Explore Our <span class="highlight-gold">Complete Menu</span></h2>
+        <p class="muted">All dishes are freshly prepared using authentic recipes and priced transparently for Danapur foodies.</p>
+      </div>
+
+      <!-- Menu Category Tabs -->
+      <div class="menu-tabs-wrap sr">
+        <button class="menu-tab-btn active" data-category="all">All Specialties</button>
+        <button class="menu-tab-btn" data-category="momos">🥟 Momos &amp; Starters</button>
+        <button class="menu-tab-btn" data-category="chinese">🥢 Pan-Asian &amp; Chinese</button>
+        <button class="menu-tab-btn" data-category="indian">🍛 North Indian &amp; Biryani</button>
+        <button class="menu-tab-btn" data-category="continental">🍕 Continental &amp; Pizza</button>
+        <button class="menu-tab-btn" data-category="beverages">☕ Coffee &amp; Drinks</button>
+      </div>
+
+      <!-- Menu Cards Grid -->
+      <div class="menu-items-grid" id="menuGrid">
+
+        <!-- Item 1 -->
+        <div class="menu-item-card sr" data-category="momos">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+            <span class="menu-tag">Bestseller</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Steamed Veg Momos (6 Pcs)</h4>
+            <p>Delicate thin wrappers filled with minced vegetables, paneer &amp; spring onions served with spicy red chutney.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹110</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Steamed%20Veg%20Momos" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item-card sr" data-category="momos">
+          <div class="menu-item-top">
+            <span class="diet-badge non-veg">▲ Non-Veg</span>
+            <span class="menu-tag hot">Customer Favorite</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Steamed Chicken Momos (6 Pcs)</h4>
+            <p>Juicy minced chicken dumpling bursting with aromatic spices and accompanied by garlic chili dip.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹150</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Steamed%20Chicken%20Momos" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item-card sr" data-category="momos">
+          <div class="menu-item-top">
+            <span class="diet-badge non-veg">▲ Non-Veg</span>
+            <span class="menu-tag">Crunchy Delight</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Kurkure Chicken Momos (6 Pcs)</h4>
+            <p>Super-crunchy battered outer shell with seasoned chicken core, tossed with chaat masala and creamy mayo.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹180</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Kurkure%20Chicken%20Momos" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="menu-item-card sr" data-category="momos">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Crispy Chilli Baby Corn</h4>
+            <p>Golden fried tender baby corn fingers tossed in wok with bell peppers, garlic and chili sauce.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹170</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Crispy%20Chilli%20Baby%20Corn" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-item-card sr" data-category="chinese">
+          <div class="menu-item-top">
+            <span class="diet-badge non-veg">▲ Non-Veg</span>
+            <span class="menu-tag hot">Top Star</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Chilli Chicken Dry / Gravy</h4>
+            <p>Boneless chicken pieces stir-fried with onion chunks, green chilies, bell peppers &amp; dark soy glaze.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹260</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Chilli%20Chicken" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="menu-item-card sr" data-category="chinese">
+          <div class="menu-item-top">
+            <span class="diet-badge non-veg">▲ Non-Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Chicken Hakka Noodles</h4>
+            <p>Wok-tossed long wheat noodles loaded with shredded chicken, crunchy cabbage, carrots and spring onions.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹180</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Chicken%20Hakka%20Noodles" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="menu-item-card sr" data-category="chinese">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Veg Manchurian Gravy</h4>
+            <p>Deep-fried vegetable florets simmered in thick Indo-Chinese ginger-garlic gravy.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹170</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Veg%20Manchurian" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="menu-item-card sr" data-category="chinese">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Schezwan Fried Rice</h4>
+            <p>Aromatic steamed rice wok-tossed with house-made Schezwan chili paste and chopped garden veggies.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹160</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Schezwan%20Fried%20Rice" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="menu-item-card sr" data-category="indian">
+          <div class="menu-item-top">
+            <span class="diet-badge non-veg">▲ Non-Veg</span>
+            <span class="menu-tag">Signature</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Cafe De-Light Special Chicken Dum Biryani</h4>
+            <p>Authentic dum-cooked fragrant basmati rice with succulent chicken cuts, served with creamy onion raita.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹240</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Chicken%20Biryani" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 10 -->
+        <div class="menu-item-card sr" data-category="indian">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Paneer Butter Masala</h4>
+            <p>Fresh malai paneer cubes cooked in rich, silky tomato and cashew butter gravy infused with kasuri methi.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹230</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Paneer%20Butter%20Masala" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 11 -->
+        <div class="menu-item-card sr" data-category="indian">
+          <div class="menu-item-top">
+            <span class="diet-badge non-veg">▲ Non-Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Kadhai Chicken Special</h4>
+            <p>Tender chicken cooked with freshly pounded coriander seeds, dried red chilies, capsicum and tomato gravy.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹270</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Kadhai%20Chicken" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 12 -->
+        <div class="menu-item-card sr" data-category="indian">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Butter Garlic Naan</h4>
+            <p>Clay-oven baked leavened bread brushed with melted butter and fresh minced garlic.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹60</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Garlic%20Naan" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 13 -->
+        <div class="menu-item-card sr" data-category="continental">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+            <span class="menu-tag">Italian Special</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Farmhouse Special Pizza (8-Inch)</h4>
+            <p>Loaded with golden sweet corn, bell peppers, diced onions, black olives &amp; 100% mozzarella cheese.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹240</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Farmhouse%20Pizza" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 14 -->
+        <div class="menu-item-card sr" data-category="continental">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Creamy Alfredo White Pasta</h4>
+            <p>Penne pasta tossed in rich parmesan and cream sauce with sautéed mushrooms, herbs and garlic toast.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹210</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Alfredo%20Pasta" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 15 -->
+        <div class="menu-item-card sr" data-category="continental">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Cheese Garlic Bread (4 Pcs)</h4>
+            <p>Crispy toasted French baguette slices infused with garlic butter and gratinated with gooey melted cheese.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹130</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Cheese%20Garlic%20Bread" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 16 -->
+        <div class="menu-item-card sr" data-category="beverages">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+            <span class="menu-tag hot">Must Try</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Signature Cold Coffee with Ice Cream</h4>
+            <p>Chilled double-shot espresso blended with rich milk, vanilla ice cream scoop and chocolate curls.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹130</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Cold%20Coffee%20with%20Ice%20Cream" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 17 -->
+        <div class="menu-item-card sr" data-category="beverages">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Blue Ocean Sparkling Lagoon</h4>
+            <p>Refreshing chilled curacao soda mocktail infused with lime juice, mint leaves and crushed ice.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹130</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Blue%20Lagoon" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+        <!-- Item 18 -->
+        <div class="menu-item-card sr" data-category="beverages">
+          <div class="menu-item-top">
+            <span class="diet-badge veg">● Veg</span>
+          </div>
+          <div class="menu-item-details">
+            <h4>Thick Oreo Chocolate Shake</h4>
+            <p>Creamy blended shake with whole Oreo biscuits, chocolate fudge syrup and whipped topping.</p>
+          </div>
+          <div class="menu-item-bottom">
+            <div class="m-price">₹150</div>
+            <a href="https://wa.me/917903029008?text=Hi!%20I%20want%20to%20order%20Oreo%20Shake" target="_blank" class="m-add-btn">+ Order</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Menu Card Showcase Banner -->
+      <div class="menu-showcase-banner sr">
+        <div class="msb-img">
+          <img src="images/menu_showcase.jpg" alt="Official Menu Card of Cafe De-Light" loading="lazy" />
+        </div>
+        <div class="msb-info">
+          <span class="label">Printed In-House Menu</span>
+          <h3>Looking for More Varieties?</h3>
+          <p>We serve over 100+ items including Chinese Combos, North Indian Thalis, Sizzlers, Mocktails &amp; Desserts right here at Saguna More.</p>
+          <div class="msb-actions">
+            <a href="tel:+917903029008" class="btn btn-primary">Call For Special Dishes</a>
+            <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20Please%20share%20the%20full%20menu%20card." target="_blank" class="btn btn-outline">WhatsApp Menu PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ═══════ AUTHENTIC PHOTO GALLERY ═══════ -->
+  <section class="section-light gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header text-center sr">
+        <span class="label">Atmosphere &amp; Delights</span>
+        <h2>Inside <span class="highlight-gold">Cafe De-Light</span></h2>
+        <p class="muted">Explore authentic high-resolution snapshots of our cozy neon-lit interior, private booths, handcrafted dishes, and welcoming Danapur vibes.</p>
+      </div>
+
+      <div class="gallery-filters sr">
+        <button class="filter-btn active" data-filter="all">
+          <span>All Highlights</span>
+          <span class="filter-count">18</span>
+        </button>
+        <button class="filter-btn" data-filter="interior">
+          <span>Interior &amp; Ambience</span>
+          <span class="filter-count">11</span>
+        </button>
+        <button class="filter-btn" data-filter="food">
+          <span>Signature Food</span>
+          <span class="filter-count">5</span>
+        </button>
+        <button class="filter-btn" data-filter="drinks">
+          <span>Beverages &amp; Shakes</span>
+          <span class="filter-count">2</span>
+        </button>
+      </div>
+
+      <!-- Luxury Bento Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-card span-tall sr" data-category="interior" data-src="images/interior_main.jpg" data-title="Grand Dining Hall & Seating" data-badge="Interior" data-desc="Spacious air-conditioned dining with elegant ambient lighting and comfortable seating.">
+          <div class="gallery-img-box">
+            <img src="images/interior_main.jpg" alt="Grand Dining Hall & Seating - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> <span>Interior</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Grand Dining Hall & Seating to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Interior</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Grand Dining Hall & Seating</h4>
+            <p class="gallery-hover-desc">Spacious air-conditioned dining with elegant ambient lighting and comfortable seating.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="interior" data-src="images/interior_lighting.jpg" data-title="Warm Neon Glow & Decor" data-badge="Ambience" data-desc="Signature neon aesthetics creating a cozy, Instagrammable evening vibe.">
+          <div class="gallery-img-box">
+            <img src="images/interior_lighting.jpg" alt="Warm Neon Glow & Decor - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg> <span>Ambience</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Warm Neon Glow & Decor to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Ambience</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Warm Neon Glow & Decor</h4>
+            <p class="gallery-hover-desc">Signature neon aesthetics creating a cozy, Instagrammable evening vibe.</p>
+          </div>
+        </div>
+        <div class="gallery-card span-tall sr" data-category="food" data-src="images/food_signature_dish.jpg" data-title="Steamed & Crispy Kurkure Momos" data-badge="Chef Special" data-desc="Danapur’s favorite piping-hot momos with homemade fiery red chili dip and creamy garlic mayo.">
+          <div class="gallery-img-box">
+            <img src="images/food_signature_dish.jpg" alt="Steamed & Crispy Kurkure Momos - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> <span>Chef Special</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Steamed & Crispy Kurkure Momos to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Chef Special</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Steamed & Crispy Kurkure Momos</h4>
+            <p class="gallery-hover-desc">Danapur’s favorite piping-hot momos with homemade fiery red chili dip and creamy garlic mayo.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="interior" data-src="images/interior_seating.jpg" data-title="Intimate Dining Corners" data-badge="Cozy Seating" data-desc="Comfortable seating niches designed for friends, couples, and relaxed dining.">
+          <div class="gallery-img-box">
+            <img src="images/interior_seating.jpg" alt="Intimate Dining Corners - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> <span>Cozy Seating</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Intimate Dining Corners to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Cozy Seating</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Intimate Dining Corners</h4>
+            <p class="gallery-hover-desc">Comfortable seating niches designed for friends, couples, and relaxed dining.</p>
+          </div>
+        </div>
+        <div class="gallery-card span-wide sr" data-category="interior" data-src="images/interior_cozy.jpg" data-title="Relaxed Sofa Lounge Zone" data-badge="Lounge" data-desc="Plush cushioned seating for slow coffee sessions and casual catchups.">
+          <div class="gallery-img-box">
+            <img src="images/interior_cozy.jpg" alt="Relaxed Sofa Lounge Zone - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/></svg> <span>Lounge</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Relaxed Sofa Lounge Zone to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Lounge</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Relaxed Sofa Lounge Zone</h4>
+            <p class="gallery-hover-desc">Plush cushioned seating for slow coffee sessions and casual catchups.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="interior" data-src="images/interior_lounge.jpg" data-title="Evening Bistro Lighting" data-badge="Ambience" data-desc="Warm golden hues set the mood for a soothing dining experience in Danapur.">
+          <div class="gallery-img-box">
+            <img src="images/interior_lounge.jpg" alt="Evening Bistro Lighting - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg> <span>Ambience</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Evening Bistro Lighting to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Ambience</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Evening Bistro Lighting</h4>
+            <p class="gallery-hover-desc">Warm golden hues set the mood for a soothing dining experience in Danapur.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="food" data-src="images/food_meals_rg.jpg" data-title="Special Dum Biryani & Thali" data-badge="Signature" data-desc="Aromatic spices, slow-cooked long-grain basmati rice, and tender succulent flavors.">
+          <div class="gallery-img-box">
+            <img src="images/food_meals_rg.jpg" alt="Special Dum Biryani & Thali - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> <span>Signature</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Special Dum Biryani & Thali to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Signature</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Special Dum Biryani & Thali</h4>
+            <p class="gallery-hover-desc">Aromatic spices, slow-cooked long-grain basmati rice, and tender succulent flavors.</p>
+          </div>
+        </div>
+        <div class="gallery-card span-tall sr" data-category="interior" data-src="images/interior_dining_jd.jpg" data-title="Family Dining Section" data-badge="Interior" data-desc="Spotlessly clean tables and family-friendly atmosphere on Saguna Khagaul Road.">
+          <div class="gallery-img-box">
+            <img src="images/interior_dining_jd.jpg" alt="Family Dining Section - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> <span>Interior</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Family Dining Section to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Interior</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Family Dining Section</h4>
+            <p class="gallery-hover-desc">Spotlessly clean tables and family-friendly atmosphere on Saguna Khagaul Road.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="food" data-src="images/food_dishes_rg.jpg" data-title="Chilli Chicken & Hakka Noodles" data-badge="Wok Special" data-desc="Wok-tossed Indo-Chinese favorites made fresh on order with sizzling flavor.">
+          <div class="gallery-img-box">
+            <img src="images/food_dishes_rg.jpg" alt="Chilli Chicken & Hakka Noodles - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <span>Wok Special</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Chilli Chicken & Hakka Noodles to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Wok Special</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Chilli Chicken & Hakka Noodles</h4>
+            <p class="gallery-hover-desc">Wok-tossed Indo-Chinese favorites made fresh on order with sizzling flavor.</p>
+          </div>
+        </div>
+        <div class="gallery-card span-wide sr" data-category="interior" data-src="images/interior_wall_art.jpg" data-title="Artistic Feature Wall" data-badge="Decor" data-desc="Modern graphic wall art providing a stunning photo backdrop for celebrations.">
+          <div class="gallery-img-box">
+            <img src="images/interior_wall_art.jpg" alt="Artistic Feature Wall - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg> <span>Decor</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Artistic Feature Wall to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Decor</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Artistic Feature Wall</h4>
+            <p class="gallery-hover-desc">Modern graphic wall art providing a stunning photo backdrop for celebrations.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="drinks" data-src="images/beverage_special.jpg" data-title="Thick Cold Coffee & Shakes" data-badge="Beverage" data-desc="Rich, creamy blended cold brew topped with chocolate drizzle and vanilla cream.">
+          <div class="gallery-img-box">
+            <img src="images/beverage_special.jpg" alt="Thick Cold Coffee & Shakes - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> <span>Beverage</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Thick Cold Coffee & Shakes to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Beverage</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Thick Cold Coffee & Shakes</h4>
+            <p class="gallery-hover-desc">Rich, creamy blended cold brew topped with chocolate drizzle and vanilla cream.</p>
+          </div>
+        </div>
+        <div class="gallery-card span-wide sr" data-category="interior" data-src="images/interior_booth.jpg" data-title="Private Celebration Booths" data-badge="Party Booth" data-desc="Reserved booths ideal for birthday parties, anniversaries, and family celebrations.">
+          <div class="gallery-img-box">
+            <img src="images/interior_booth.jpg" alt="Private Celebration Booths - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <span>Party Booth</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Private Celebration Booths to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Party Booth</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Private Celebration Booths</h4>
+            <p class="gallery-hover-desc">Reserved booths ideal for birthday parties, anniversaries, and family celebrations.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="food" data-src="images/food_curry_rg.jpg" data-title="Butter Paneer & Rich Curries" data-badge="North Indian" data-desc="Richly spiced velvet gravy paired with freshly baked butter garlic naans.">
+          <div class="gallery-img-box">
+            <img src="images/food_curry_rg.jpg" alt="Butter Paneer & Rich Curries - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> <span>North Indian</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Butter Paneer & Rich Curries to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">North Indian</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Butter Paneer & Rich Curries</h4>
+            <p class="gallery-hover-desc">Richly spiced velvet gravy paired with freshly baked butter garlic naans.</p>
+          </div>
+        </div>
+        <div class="gallery-card span-wide sr" data-category="interior" data-src="images/interior_night.jpg" data-title="Starlit Night Dining Experience" data-badge="Night Mood" data-desc="Magical nighttime illumination making dinner dates warm and memorable.">
+          <div class="gallery-img-box">
+            <img src="images/interior_night.jpg" alt="Starlit Night Dining Experience - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> <span>Night Mood</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Starlit Night Dining Experience to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Night Mood</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Starlit Night Dining Experience</h4>
+            <p class="gallery-hover-desc">Magical nighttime illumination making dinner dates warm and memorable.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="food" data-src="images/food_platter_rg.jpg" data-title="Chef’s Tasting Platter" data-badge="Platters" data-desc="Crispy starters, sizzling fries, and assorted appetizers perfect for sharing.">
+          <div class="gallery-img-box">
+            <img src="images/food_platter_rg.jpg" alt="Chef’s Tasting Platter - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <span>Platters</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Chef’s Tasting Platter to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Platters</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Chef’s Tasting Platter</h4>
+            <p class="gallery-hover-desc">Crispy starters, sizzling fries, and assorted appetizers perfect for sharing.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="interior" data-src="images/interior_rg.jpg" data-title="Cozy Window Seating" data-badge="Quiet Nook" data-desc="Bright and airy daytime corner perfect for reading or working on your laptop.">
+          <div class="gallery-img-box">
+            <img src="images/interior_rg.jpg" alt="Cozy Window Seating - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> <span>Quiet Nook</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Cozy Window Seating to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Quiet Nook</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Cozy Window Seating</h4>
+            <p class="gallery-hover-desc">Bright and airy daytime corner perfect for reading or working on your laptop.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="drinks" data-src="images/menu_showcase.jpg" data-title="Craft Coolers & Fresh Mojitos" data-badge="Mocktail" data-desc="Refreshing mint lime coolers and iced fruit quenchers to beat the Patna heat.">
+          <div class="gallery-img-box">
+            <img src="images/menu_showcase.jpg" alt="Craft Coolers & Fresh Mojitos - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> <span>Mocktail</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Craft Coolers & Fresh Mojitos to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Mocktail</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Craft Coolers & Fresh Mojitos</h4>
+            <p class="gallery-hover-desc">Refreshing mint lime coolers and iced fruit quenchers to beat the Patna heat.</p>
+          </div>
+        </div>
+        <div class="gallery-card sr" data-category="interior" data-src="images/exterior_rg.jpg" data-title="Cafe De-Light Entrance" data-badge="Facade" data-desc="Welcoming facade on Saguna Khagaul Road, Danapur with convenient roadside access.">
+          <div class="gallery-img-box">
+            <img src="images/exterior_rg.jpg" alt="Cafe De-Light Entrance - Cafe De-Light Danapur" loading="eager" />
+            <div class="gallery-overlay-gradient"></div>
+          </div>
+          <span class="gallery-badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> <span>Facade</span></span>
+          <button class="gallery-heart-btn" aria-label="Add Cafe De-Light Entrance to favorites" title="Like photo">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <div class="gallery-hover-card">
+            <div class="gallery-hover-top">
+              <span class="hover-tag">Facade</span>
+              <span class="hover-zoom">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                Enlarge
+              </span>
+            </div>
+            <h4 class="gallery-hover-title">Cafe De-Light Entrance</h4>
+            <p class="gallery-hover-desc">Welcoming facade on Saguna Khagaul Road, Danapur with convenient roadside access.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Action Ribbon -->
+      <div class="gallery-cta-row sr">
+        <div class="gallery-count-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>18 Verified Authentic Photos</span>
+        </div>
+        <a href="https://www.justdial.com/Patna/Cafe-De-Light-Saguna-More/0612PX612-X612-220330201538-K7H7_BZDET" target="_blank" rel="noopener" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View More on Justdial
+        </a>
+        <a href="https://maps.app.goo.gl/cafe-delight" target="_blank" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Visit Us in Danapur
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ LUXURY PHOTO LIGHTBOX MODAL ═══════ -->
+  <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Photo lightbox preview">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-container">
+      <div class="lightbox-top-bar">
+        <div class="lightbox-meta-pill">
+          <span class="lightbox-tag" id="lightboxBadge">Interior</span>
+          <span class="lightbox-counter" id="lightboxCounter">1 / 18</span>
+        </div>
+        <div class="lightbox-actions">
+          <button class="lightbox-btn-action" id="lightboxReserveBtn" title="Reserve a table at Cafe De-Light">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            <span>Book Table</span>
+          </button>
+          <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox" title="Close (Esc)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="lightbox-media-wrapper">
+        <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous photo" title="Previous (←)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        
+        <div class="lightbox-img-frame" id="lightboxImgFrame">
+          <img id="lightboxImg" src="" alt="Cafe De-Light Photo Preview" />
+        </div>
+
+        <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next photo" title="Next (→)">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="lightbox-bottom-bar">
+        <div class="lightbox-info">
+          <h3 class="lightbox-title" id="lightboxCaption">Grand Dining Hall &amp; Seating</h3>
+          <p class="lightbox-desc" id="lightboxDesc">Spacious air-conditioned dining with elegant ambient lighting and comfortable seating.</p>
+        </div>
+        <div class="lightbox-nav-hint">
+          <span>&larr; &rarr; Navigate</span>
+          <span>&bull;</span>
+          <span>Esc to Close</span>
+        </div>
+      </div>
+
+      <!-- Interactive Thumbnail Carousel Strip -->
+      <div class="lightbox-thumbnails-wrap" id="lightboxThumbnailsWrap" aria-label="Gallery thumbnails">
+        <div class="lightbox-thumbnails-track" id="lightboxThumbnails">
+          <!-- Populated dynamically by cafe.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ CUSTOMER REVIEWS (AUTHENTIC GOOGLE & JUSTDIAL) ═══════ -->
+  <section class="section-dark" id="reviews">
+    <div class="container">
+      <div class="section-header text-center sr">
+        <span class="label">Verified Feedback</span>
+        <h2>What Guests Say About <span class="highlight-gold">Cafe De-Light</span></h2>
+        <p class="muted">Genuine testimonials published by real diners across Google, Justdial, and Zomato.</p>
+      </div>
+
+      <!-- Ratings Summary Row -->
+      <div class="ratings-summary-row sr">
+        <div class="rs-box">
+          <div class="rs-score">3.9 ★</div>
+          <div class="rs-platform">Justdial</div>
+          <div class="rs-count">250+ Verified Ratings</div>
+        </div>
+        <div class="rs-box">
+          <div class="rs-score">3.8 ★</div>
+          <div class="rs-platform">Google Maps</div>
+          <div class="rs-count">218+ Reviews</div>
+        </div>
+        <div class="rs-box">
+          <div class="rs-score">3.6 ★</div>
+          <div class="rs-platform">Zomato</div>
+          <div class="rs-count">Food &amp; Dining Reviews</div>
+        </div>
+        <div class="rs-box">
+          <div class="rs-score">Top 11</div>
+          <div class="rs-platform">Restaurant Guru</div>
+          <div class="rs-count">Best Cafes in Danapur</div>
+        </div>
+      </div>
+
+      <!-- Reviews Carousel / Grid -->
+      <div class="reviews-grid sr">
+
+        <!-- Review 1: Ajay Anand (Google) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rev-avatar">A</div>
+            <div>
+              <h4>Ajay Anand</h4>
+              <span class="rev-source">Google Review • 5.0 ★</span>
+            </div>
+            <span class="verified-tick" title="Verified Customer">✓ Verified</span>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">
+            "Fascinating experience. Superb food, prompt service. Not heavy on the pocket. One of the best spots near Saguna More for evening food."
+          </p>
+          <div class="rev-breakdown">
+            <span>Food: <strong>5/5</strong></span>
+            <span>Service: <strong>5/5</strong></span>
+            <span>Atmosphere: <strong>5/5</strong></span>
+          </div>
+          <div class="owner-reply">
+            <strong>Response from Team Cafe De-Light:</strong>
+            <p>"Thank you so much Ajay! We are so happy you enjoyed our superb food and found us affordable. Looking forward to welcoming you back soon!"</p>
+          </div>
+        </div>
+
+        <!-- Review 2: Gopal (Zomato) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rev-avatar" style="background:#B45309;">G</div>
+            <div>
+              <h4>Gopal</h4>
+              <span class="rev-source">Zomato Review • 5.0 ★</span>
+            </div>
+            <span class="verified-tick">✓ Verified</span>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">
+            "Not tasted so delicious Biryani and Momos yet before Cafe De-Light. Service was also good. Staffs are so polite and humble. Highly recommended in Danapur!"
+          </p>
+          <div class="rev-breakdown">
+            <span>Must Try: <strong>Chicken Biryani &amp; Momos</strong></span>
+          </div>
+        </div>
+
+        <!-- Review 3: Astha (Restaurant Guru) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rev-avatar" style="background:#D97706;">A</div>
+            <div>
+              <h4>Astha</h4>
+              <span class="rev-source">Restaurant Guru • 5.0 ★</span>
+            </div>
+            <span class="verified-tick">✓ Verified</span>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">
+            "Good food, good service ❤️❤️ Loved it!! Very clean ambiance and great taste."
+          </p>
+          <div class="rev-breakdown">
+            <span>Vibe: <strong>Cozy &amp; Clean</strong></span>
+          </div>
+        </div>
+
+        <!-- Review 4: Pooja Kumari (Justdial) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rev-avatar" style="background:#92400E;">P</div>
+            <div>
+              <h4>Pooja Kumari</h4>
+              <span class="rev-source">Justdial Review • 4.8 ★</span>
+            </div>
+            <span class="verified-tick">✓ Verified</span>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">
+            "Beautiful interior lighting and peaceful ambiance. Perfect spot at Saguna More for chilling with friends and family. Chicken Hakka noodles were top notch!"
+          </p>
+          <div class="rev-breakdown">
+            <span>Ambience: <strong>5/5</strong></span>
+          </div>
+        </div>
+
+        <!-- Review 5: Ritesh Kumar (Google) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rev-avatar" style="background:#78350F;">R</div>
+            <div>
+              <h4>Ritesh Kumar</h4>
+              <span class="rev-source">Google Review • 4.5 ★</span>
+            </div>
+            <span class="verified-tick">✓ Verified</span>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">
+            "Their chicken momos and cold coffee are a must-try. Affordable rates and great quality in Danapur. The staff is polite and attentive."
+          </p>
+          <div class="rev-breakdown">
+            <span>Value For Money: <strong>10/10</strong></span>
+          </div>
+        </div>
+
+        <!-- Review 6: Saurabh Verma (Justdial) -->
+        <div class="review-card">
+          <div class="review-header">
+            <div class="rev-avatar" style="background:#C8853A;">S</div>
+            <div>
+              <h4>Saurabh Verma</h4>
+              <span class="rev-source">Justdial Review • 5.0 ★</span>
+            </div>
+            <span class="verified-tick">✓ Verified</span>
+          </div>
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">
+            "Celebrated my friend's birthday party here. The balloon decoration and private booth setup made it so memorable. Food arrived sizzling hot!"
+          </p>
+          <div class="rev-breakdown">
+            <span>Parties: <strong>Recommended</strong></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Links to Original Listings -->
+      <div class="external-reviews-cta sr">
+        <a href="https://www.justdial.com/Patna/Cafe-De-Light-Saguna-More/0612PX612-X612-220330201538-K7H7_BZDET" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          Read Justdial Reviews (250+) ↗
+        </a>
+        <a href="https://restaurant-guru.in/Cafe-DeLight-Danapur" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          Read Restaurant Guru (249+) ↗
+        </a>
+        <a href="https://www.eazydiner.com/patna/cafe-de-light-danapur-patna-689708" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          View on EazyDiner ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ AMENITIES & FEATURES ═══════ -->
+  <section class="section-light" id="amenities">
+    <div class="container">
+      <div class="section-header text-center sr">
+        <span class="label">Comfort &amp; Facilities</span>
+        <h2>Why Guests Prefer <span class="highlight-gold">Cafe De-Light</span></h2>
+        <p class="muted">Designed to deliver hassle-free casual dining, celebratory comfort, and top-tier hospitality.</p>
+      </div>
+
+      <div class="amenities-grid">
+        <div class="amenity-card sr">
+          <div class="amenity-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/></svg>
+          </div>
+          <h4>Air Conditioned Comfort</h4>
+          <p>Fully chilled indoor dining hall so you can enjoy your meals away from the humid Patna weather.</p>
+        </div>
+
+        <div class="amenity-card sr">
+          <div class="amenity-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path></svg>
+          </div>
+          <h4>Birthday &amp; Party Celebrations</h4>
+          <p>Private corner booths with balloon decor packages for birthdays, anniversaries, and reunions.</p>
+        </div>
+
+        <div class="amenity-card sr">
+          <div class="amenity-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+          </div>
+          <h4>Free High-Speed Wi-Fi</h4>
+          <p>Seamless connectivity for remote workers, college students, and live social media sharing.</p>
+        </div>
+
+        <div class="amenity-card sr">
+          <div class="amenity-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8l-8 8M8 8l8 8"/></svg>
+          </div>
+          <h4>Dine-In, Takeaway &amp; Delivery</h4>
+          <p>Order fresh takeaway packs or enjoy express doorstep deliveries via Zomato and Swiggy.</p>
+        </div>
+
+        <div class="amenity-card sr">
+          <div class="amenity-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          </div>
+          <h4>Cashless UPI &amp; Cards</h4>
+          <p>Google Pay, PhonePe, Paytm, RuPay, Visa, and Mastercard accepted with instant receipts.</p>
+        </div>
+
+        <div class="amenity-card sr">
+          <div class="amenity-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h4>Kids &amp; Family Friendly</h4>
+          <p>Comfortable sofa seating, gentle lighting, non-spicy kid menu options, and courteous staff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ OFFERS & ORDER SECTION ═══════ -->
+  <section class="order-section" id="offers">
+    <div class="container order-box sr">
+      <div class="order-content">
+        <span class="label">Special Deals &amp; Online Orders</span>
+        <h2>Hungry Right Now? <span class="highlight-gold">Order or Reserve!</span></h2>
+        <p>Get food delivered hot to your doorstep in Danapur or reserve your preferred table in advance with a flat 10% booking perk.</p>
+        
+        <div class="order-actions-row">
+          <button class="btn btn-primary" id="openBookingBtn2" type="button">
+            Reserve Table Advance
+          </button>
+          <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light,%20I%20would%20like%20to%20order%20food%20for%20delivery" target="_blank" class="btn btn-outline" id="whatsappOrderBtn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg> WhatsApp Instant Order
+          </a>
+          <a href="tel:+917903029008" class="btn btn-glass-call">
+            Direct Dial: +91 79030 29008
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONTACT & LOCATION ═══════ -->
+  <section class="section-light" id="contact">
+    <div class="container contact-container">
+      <!-- Contact Info -->
+      <div class="contact-info sr">
+        <span class="label">Find Us In Danapur</span>
+        <h2>Location &amp; <span class="highlight-gold">Timings</span></h2>
+        <p class="muted">We are conveniently situated on <strong>Saguna Khagaul Road, Saguna More</strong>, easily accessible from Danapur Station, Bailey Road, and RPS More.</p>
+
+        <div class="contact-details-list">
+          <div class="cd-item">
+            <div class="cd-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Exact Address</strong>
+              <p>Balaji Nagar, Kaliket Nagar, Danapur, Saguna Khagaul Road, Saguna More, Patna - 801503, Bihar</p>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=25.620249,85.0417412" target="_blank" rel="noopener noreferrer" class="map-link">Get Google Maps Directions ↗</a>
+            </div>
+          </div>
+
+          <div class="cd-item">
+            <div class="cd-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong>Operating Hours</strong>
+              <p>Monday to Sunday: <strong>11:00 AM – 11:00 PM</strong> (Open All 7 Days)</p>
+              <span class="live-status-pill is-open" id="contactStatusPill">
+                <span class="status-dot open"></span> Currently Open
+              </span>
+            </div>
+          </div>
+
+          <div class="cd-item">
+            <div class="cd-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 5.19 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Direct Phone Numbers</strong>
+              <p><a href="tel:+917903029008" class="phone-link">+91 79030 29008</a> / <a href="tel:+918862984404" class="phone-link">+91 88629 84404</a></p>
+              <span class="phone-note">Call for table booking, party setups, and bulk food orders</span>
+            </div>
+          </div>
+
+          <div class="cd-item">
+            <div class="cd-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div>
+              <strong>Social Media</strong>
+              <p><a href="https://www.facebook.com/cafedelightsaguna/" target="_blank" rel="noopener noreferrer" class="phone-link">facebook.com/cafedelightsaguna</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Message / Inquiry Form -->
+      <div class="contact-form-wrap sr">
+        <form id="contactForm" class="contact-form">
+          <h3>Send Us A Message</h3>
+          <p class="form-desc">Inquiries for birthday celebrations, group bookings, or feedback.</p>
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Aniket Singh" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email or Phone</label>
+            <input type="text" id="email" name="email" placeholder="e.g. +91 98765 43210" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Inquiry</label>
+            <textarea id="message" name="message" rows="4" maxlength="300" placeholder="Tell us what you need (party date, guest count, or food query)..." required></textarea>
+            <div class="char-count-wrap">
+              <svg viewBox="0 0 36 36" width="20" height="20" class="char-ring">
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="rgba(200,133,58,0.2)" stroke-width="3"></circle>
+                <circle id="charRingFill" cx="18" cy="18" r="15.915" fill="none" stroke="#F59E0B" stroke-width="3" stroke-dasharray="100" stroke-dashoffset="100" stroke-linecap="round"></circle>
+              </svg>
+              <span id="charCount">0/300</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+            <span>Send Message</span>
+          </button>
+
+          <div class="form-message" id="formMessage"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Embedded Interactive Map View -->
+    <div class="container map-embed-wrap sr">
+      <div class="map-card">
+        <iframe
+          title="Cafe De-Light Location Map"
+          src="https://maps.google.com/maps?q=25.620249,85.0417412&hl=en&z=16&output=embed"
+          width="100%"
+          height="380"
+          style="border:0; border-radius: 16px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-overlay-badge">
+          <strong>📍 Cafe De-Light</strong>
+          <span>Saguna Khagaul Rd, Danapur, Patna</span>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=25.620249,85.0417412" target="_blank" class="btn btn-primary btn-xs">Navigate GPS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="brand">
+          <img src="images/cafe_delight_logo.svg" alt="Cafe De-Light logo" class="brand-logo-img" />
+          <div>
+            <h3>Cafe De-Light</h3>
+            <span class="tagline">Danapur • Saguna More</span>
+          </div>
+        </div>
+        <p class="footer-about-text">
+          Danapur's premier multicuisine casual dining cafe. Savor authentic Momos, Dum Biryani, Sizzling Chinese, and Artisan Brews with warm hospitality.
+        </p>
+        <div class="footer-social-row">
+          <a href="https://www.facebook.com/cafedelightsaguna/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.justdial.com/Patna/Cafe-De-Light-Saguna-More/0612PX612-X612-220330201538-K7H7_BZDET" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Justdial">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=25.620249,85.0417412" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Google Maps">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Our Story</a></li>
+          <li><a href="#video-sec">Video Walkthrough</a></li>
+          <li><a href="#menu">Dishes &amp; Prices</a></li>
+          <li><a href="#gallery">Ambiance Gallery</a></li>
+          <li><a href="#reviews">Customer Ratings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Specialties</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Steamed &amp; Kurkure Momos</a></li>
+          <li><a href="#menu">Chicken Dum Biryani</a></li>
+          <li><a href="#menu">Chilli Chicken &amp; Noodles</a></li>
+          <li><a href="#menu">Farmhouse Cheesy Pizza</a></li>
+          <li><a href="#menu">Signature Iced Cold Coffee</a></li>
+          <li><a href="#amenities">Birthday Party Celebrations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact &amp; Hours</h4>
+        <p class="f-contact-item"><strong>Location:</strong> Balaji Nagar, Danapur, Saguna Khagaul Rd, Patna - 801503</p>
+        <p class="f-contact-item"><strong>Hours:</strong> Mon - Sun: 11:00 AM – 11:00 PM</p>
+        <p class="f-contact-item"><strong>Phone:</strong> <a href="tel:+917903029008">+91 79030 29008</a> / <a href="tel:+918862984404">+91 88629 84404</a></p>
+        <p class="f-contact-item"><strong>Cost:</strong> ₹650 – ₹800 for two</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2022–2026 Cafe De-Light, Danapur, Patna. All rights reserved.</p>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          Top
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════ TABLE RESERVATION MODAL ═══════ -->
+  <div class="booking-modal-backdrop" id="bookingModal">
+    <div class="booking-modal-card">
+      <button class="close-modal-btn" id="closeBookingModal" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <img src="images/cafe_delight_logo.svg" alt="Logo" class="modal-logo" />
+        <h3>Reserve A Table at Cafe De-Light</h3>
+        <p>Get instant confirmation with priority seating &amp; 10% booking perk.</p>
+      </div>
+
+      <form id="tableBookingForm" class="booking-form">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="bookName">Your Name</label>
+            <input type="text" id="bookName" required placeholder="e.g. Abhishek Kumar" />
+          </div>
+          <div class="form-group">
+            <label for="bookPhone">Phone (WhatsApp)</label>
+            <input type="tel" id="bookPhone" required placeholder="e.g. 9876543210" />
+          </div>
+        </div>
+
+        <div class="form-row-3">
+          <div class="form-group">
+            <label for="bookGuests">Guests</label>
+            <select id="bookGuests">
+              <option value="2 Guests">2 Guests (Couple)</option>
+              <option value="3-4 Guests">3 - 4 Guests (Small Group)</option>
+              <option value="5-8 Guests">5 - 8 Guests (Family)</option>
+              <option value="9+ Guests">9+ Guests (Party Celebration)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookDate">Date</label>
+            <input type="date" id="bookDate" required />
+          </div>
+          <div class="form-group">
+            <label for="bookTime">Preferred Time</label>
+            <select id="bookTime">
+              <option value="12:00 PM">12:00 PM (Lunch)</option>
+              <option value="01:30 PM">01:30 PM (Lunch)</option>
+              <option value="04:00 PM">04:00 PM (Snacks &amp; Coffee)</option>
+              <option value="06:00 PM">06:00 PM (Evening)</option>
+              <option value="08:00 PM" selected>08:00 PM (Dinner)</option>
+              <option value="09:30 PM">09:30 PM (Late Dinner)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bookSpecial">Occasion / Special Request (Optional)</label>
+          <input type="text" id="bookSpecial" placeholder="e.g. Birthday Celebration, Candle Light, Booth Seating..." />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="bookSubmitBtn">
+          Confirm Table via WhatsApp
+        </button>
+        <p class="modal-disclaimer">⚡ Your request will open WhatsApp to confirm with Cafe De-Light directly: +91 79030 29008</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════ INTELLIGENT CHATBOT ═══════ -->
+  <div class="chatbot-container" id="chatbot">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open Chat Assistant">
+      <span class="chat-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <span class="chat-close-icon" style="display:none;">&times;</span>
+      <span class="chatbot-badge">Help</span>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow" style="display:none;">
+      <div class="chatbot-header">
+        <div class="cb-info">
+          <span class="cb-dot"></span>
+          <div>
+            <strong>Cafe De-Light Assistant</strong>
+            <span>Danapur, Patna • Instant Answers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-msg bot">
+          <span>Hello! Welcome to <strong>Cafe De-Light</strong> on Saguna Khagaul Road, Danapur. How can I help you today?</span>
+        </div>
+      </div>
+
+      <div class="chat-quick-replies">
+        <button class="quick-reply" data-msg="timings">Timings</button>
+        <button class="quick-reply" data-msg="menu">Top Dishes</button>
+        <button class="quick-reply" data-msg="price">Price For 2</button>
+        <button class="quick-reply" data-msg="address">Location</button>
+        <button class="quick-reply" data-msg="reserve">Book Table</button>
+      </div>
+
+      <div class="chatbot-input-bar">
+        <input type="text" id="chatInput" placeholder="Type your question..." />
+        <button id="chatSend" aria-label="Send message" type="button">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="cafe.js"></script>
+</body>
+
+</html>

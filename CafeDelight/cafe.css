@@ -9688,3 +9688,360 @@ header {
 .about-wrapper {
   padding: 60px 0 !important;
 }
+
+/* ============================================================
+   MOBILE PHONE OPTIMIZATION MODULE
+   Minimal Luxury Aesthetic, Seamless Clarity & Zero Overlapping
+   ============================================================ */
+
+/* Disable desktop cursor dot on mobile and touch devices */
+@media (hover: none) and (pointer: coarse), (max-width: 1024px) {
+  .custom-cursor,
+  .custom-cursor-follower {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Tablet & Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Header */
+  header {
+    padding: 10px 16px !important;
+  }
+
+  .brand h1 {
+    font-size: 1.25rem !important;
+  }
+
+  .brand .tagline {
+    font-size: 0.65rem !important;
+  }
+
+  .header-status-wrap {
+    display: none !important;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: auto !important;
+    padding-top: 70px !important;
+  }
+
+  .hero-content {
+    padding: 30px 16px 40px !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: center !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7.5vw, 2.75rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-badge-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: center !important;
+    margin-bottom: 16px !important;
+  }
+
+  .hero-badge {
+    font-size: 0.76rem !important;
+    padding: 6px 12px !important;
+  }
+
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+  }
+
+  .hero-tilt-card {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+  }
+
+  .tilt-card-inner {
+    height: 300px !important;
+  }
+
+  .floating-badge {
+    display: none !important;
+  }
+
+  /* Stats & Counter Bar */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .stat-card {
+    padding: 18px 12px !important;
+  }
+
+  .stat-num {
+    font-size: 1.65rem !important;
+  }
+
+  .stat-label {
+    font-size: 0.78rem !important;
+  }
+
+  /* Signature Delicacies (Cards) */
+  .flip-cards-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    gap: 20px !important;
+  }
+
+  .flip-card {
+    height: 480px !important;
+  }
+
+  .food-card-img {
+    height: 210px !important;
+  }
+
+  .food-card-info {
+    padding: 16px 18px !important;
+  }
+
+  .flip-card-back {
+    padding: 20px 18px !important;
+  }
+
+  /* Menu Explorer */
+  .menu-tabs-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 6px 4px 14px !important;
+    gap: 8px !important;
+    display: flex !important;
+    scrollbar-width: none !important;
+  }
+
+  .menu-tabs-wrap::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .menu-tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .menu-items-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .menu-item-card {
+    padding: 18px !important;
+  }
+
+  /* Ambience Video Tour */
+  .video-container,
+  .video-wrapper {
+    height: 250px !important;
+    border-radius: 16px !important;
+  }
+
+  .video-overlay-ui h3 {
+    font-size: 1.6rem !important;
+  }
+
+  .video-overlay-ui p {
+    font-size: 0.88rem !important;
+  }
+
+  .video-play-btn {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  /* Photo Gallery */
+  .gallery-filters {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding-bottom: 12px !important;
+    scrollbar-width: none !important;
+  }
+
+  .gallery-filters::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 180px !important;
+    gap: 12px !important;
+  }
+
+  .gallery-card.span-tall,
+  .gallery-card.span-wide {
+    grid-row: span 1 !important;
+    grid-column: span 1 !important;
+  }
+
+  .gallery-card:first-child {
+    grid-column: span 2 !important;
+    grid-row: span 2 !important;
+  }
+
+  /* Customer Reviews */
+  .reviews-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .review-card {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 20px 18px !important;
+  }
+
+  .rev-text {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Party Booths & Booking Form */
+  .booking-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .booking-card {
+    padding: 24px 18px !important;
+  }
+
+  /* Contact & Map */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .contact-form-wrap,
+  .contact-details {
+    padding: 24px 18px !important;
+  }
+
+  /* Inputs — Prevent iOS 16px auto-zoom */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Chatbot & Floating Elements on Mobile */
+  .chatbot-container {
+    bottom: 16px !important;
+    right: 16px !important;
+  }
+
+  .chatbot-toggle {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .chatbot-window {
+    position: fixed !important;
+    bottom: 80px !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    height: calc(100dvh - 120px) !important;
+    max-height: 480px !important;
+    border-radius: 20px !important;
+    z-index: 10000 !important;
+  }
+
+  .chatbot-messages {
+    height: calc(100% - 130px) !important;
+  }
+
+  .back-to-top {
+    bottom: 78px !important;
+    right: 18px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 40px 0 24px !important;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+}
+
+/* Compact Mobile Phone Breakpoint (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.85rem, 8vw, 2.35rem) !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 220px !important;
+  }
+
+  .gallery-card:first-child {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .tilt-card-inner {
+    height: 260px !important;
+  }
+
+  .flip-cards-grid {
+    max-width: 100% !important;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

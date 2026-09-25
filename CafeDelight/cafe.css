@@ -874,6 +874,13 @@ nav#mainNav {
   color: #B8860B;
 }
 
+.ctrl-btn.active {
+  background: var(--gradient-gold) !important;
+  color: #0A0908 !important;
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45) !important;
+}
+
 .hamburger {
   display: none;
   width: 42px;

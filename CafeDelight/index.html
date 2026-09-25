@@ -93,7 +93,8 @@
   <!-- ═══════ SCROLL PROGRESS BAR ═══════ -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  
+  <!-- ═══════ PRELOADER ═══════ -->
+  <div class="preloader" id="preloader">
     <div class="preloader-bar-wrap">
       <div class="preloader-bar">
         <div class="preloader-fill" id="preloaderFill"></div>
@@ -512,14 +513,18 @@
         <p class="muted">Hover or tap the cards to discover secret ingredients, spice levels and prep time!</p>
       </div>
 
-      <div class="flip-cards-grid">
+      <div class="flip-cards-grid food-showcase">
         <!-- 3D Flip Card 1: Momos -->
-        <div class="flip-card sr" id="fc1">
+        <div class="flip-card sr" id="fc1" tabindex="0" role="region" aria-label="Kurkure and Steamed Momos card, hover or tap to reveal secret ingredients">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="food-card-img">
                 <img src="images/food_signature_dish.jpg" alt="Signature Kurkure Momos" loading="lazy" />
                 <span class="food-tag best">★ Danapur Bestseller</span>
+                <div class="flip-hint-badge" title="Tap or hover to reveal recipe">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Secret Recipe</span>
+                </div>
               </div>
               <div class="food-card-info">
                 <h4>Kurkure &amp; Steamed Momos</h4>
@@ -531,6 +536,13 @@
               </div>
             </div>
             <div class="flip-card-back">
+              <div class="flip-back-top">
+                <span class="flip-back-tag">Chef's Secret Recipe</span>
+                <button type="button" class="flip-back-btn" aria-label="Flip card back to front">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                  <span>Back</span>
+                </button>
+              </div>
               <h4>Kurkure &amp; Steamed Momos</h4>
               <div class="flip-ingredients">
                 <div class="flip-section-label">Key Highlights</div>
@@ -539,25 +551,30 @@
                 </div>
               </div>
               <div class="flip-info">
-                <div><span>🌶️</span> Spice Level: Medium Hot</div>
-                <div><span>⏱️</span> Prep Time: 12-15 mins</div>
-                <div><span>🥗</span> Veg &amp; Non-Veg Available</div>
-                <div><span>👥</span> Serves: 1-2 People</div>
+                <div><span>🌶️</span> <span><strong>Spice:</strong> Medium Hot</span></div>
+                <div><span>⏱️</span> <span><strong>Prep:</strong> 12-15 mins</span></div>
+                <div><span>🥗</span> <span><strong>Diet:</strong> Veg &amp; Non-Veg</span></div>
+                <div><span>👥</span> <span><strong>Serves:</strong> 1-2 People</span></div>
               </div>
-              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Kurkure%20Momos" class="btn btn-primary btn-sm" target="_blank">
-                Order via WhatsApp
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Kurkure%20Momos" class="flip-order-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.96.524 1.777.818 2.792.818 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.768-5.768-5.768zm0 10.368c-.91 0-1.742-.257-2.482-.733l-.178-.114-1.841.483.491-1.794-.12-.191c-.517-.822-.843-1.637-.843-2.449 0-2.536 2.064-4.6 4.602-4.6 2.538 0 4.602 2.064 4.602 4.6 0 2.537-2.064 4.6-4.602 4.6z"/></svg>
+                <span>Order via WhatsApp</span>
               </a>
             </div>
           </div>
         </div>
 
         <!-- 3D Flip Card 2: Biryani -->
-        <div class="flip-card sr" id="fc2">
+        <div class="flip-card sr" id="fc2" tabindex="0" role="region" aria-label="Special Chicken Dum Biryani card, hover or tap to reveal secret ingredients">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="food-card-img">
                 <img src="images/food_meals_rg.jpg" alt="Cafe De-Light Special Dum Biryani" loading="lazy" />
                 <span class="food-tag special">🔥 Royal Mughlai</span>
+                <div class="flip-hint-badge" title="Tap or hover to reveal recipe">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Secret Recipe</span>
+                </div>
               </div>
               <div class="food-card-info">
                 <h4>Special Chicken Dum Biryani</h4>
@@ -569,6 +586,13 @@
               </div>
             </div>
             <div class="flip-card-back">
+              <div class="flip-back-top">
+                <span class="flip-back-tag">Chef's Secret Recipe</span>
+                <button type="button" class="flip-back-btn" aria-label="Flip card back to front">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                  <span>Back</span>
+                </button>
+              </div>
               <h4>Chicken Dum Biryani</h4>
               <div class="flip-ingredients">
                 <div class="flip-section-label">Ingredients &amp; Spices</div>
@@ -577,25 +601,30 @@
                 </div>
               </div>
               <div class="flip-info">
-                <div><span>🌶️</span> Spice Level: Rich &amp; Aromatic</div>
-                <div><span>⏱️</span> Prep Time: 15-20 mins</div>
-                <div><span>🍗</span> Non-Vegetarian Special</div>
-                <div><span>👥</span> Generous Portion (1-2)</div>
+                <div><span>🌶️</span> <span><strong>Spice:</strong> Rich &amp; Aromatic</span></div>
+                <div><span>⏱️</span> <span><strong>Prep:</strong> 15-20 mins</span></div>
+                <div><span>🍗</span> <span><strong>Diet:</strong> Non-Veg Special</span></div>
+                <div><span>👥</span> <span><strong>Portion:</strong> Generous (1-2)</span></div>
               </div>
-              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Chicken%20Dum%20Biryani" class="btn btn-primary btn-sm" target="_blank">
-                Order via WhatsApp
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Chicken%20Dum%20Biryani" class="flip-order-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.96.524 1.777.818 2.792.818 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.768-5.768-5.768zm0 10.368c-.91 0-1.742-.257-2.482-.733l-.178-.114-1.841.483.491-1.794-.12-.191c-.517-.822-.843-1.637-.843-2.449 0-2.536 2.064-4.6 4.602-4.6 2.538 0 4.602 2.064 4.602 4.6 0 2.537-2.064 4.6-4.602 4.6z"/></svg>
+                <span>Order via WhatsApp</span>
               </a>
             </div>
           </div>
         </div>
 
         <!-- 3D Flip Card 3: Chinese Chilli Chicken -->
-        <div class="flip-card sr" id="fc3">
+        <div class="flip-card sr" id="fc3" tabindex="0" role="region" aria-label="Chilli Chicken and Hakka Noodles card, hover or tap to reveal secret ingredients">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="food-card-img">
                 <img src="images/food_dishes_rg.jpg" alt="Chilli Chicken & Hakka Noodles" loading="lazy" />
                 <span class="food-tag spicy">🥢 Wok Sizzler</span>
+                <div class="flip-hint-badge" title="Tap or hover to reveal recipe">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Secret Recipe</span>
+                </div>
               </div>
               <div class="food-card-info">
                 <h4>Chilli Chicken &amp; Hakka Noodles</h4>
@@ -607,6 +636,13 @@
               </div>
             </div>
             <div class="flip-card-back">
+              <div class="flip-back-top">
+                <span class="flip-back-tag">Chef's Secret Recipe</span>
+                <button type="button" class="flip-back-btn" aria-label="Flip card back to front">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                  <span>Back</span>
+                </button>
+              </div>
               <h4>Chilli Chicken &amp; Noodles</h4>
               <div class="flip-ingredients">
                 <div class="flip-section-label">Wok Ingredients</div>
@@ -615,25 +651,30 @@
                 </div>
               </div>
               <div class="flip-info">
-                <div><span>🌶️</span> Spice Level: Spicy &amp; Tangy</div>
-                <div><span>⏱️</span> Prep Time: 15 mins</div>
-                <div><span>🥡</span> Dry &amp; Gravy Options</div>
-                <div><span>👥</span> Serves: 2 People</div>
+                <div><span>🌶️</span> <span><strong>Spice:</strong> Spicy &amp; Tangy</span></div>
+                <div><span>⏱️</span> <span><strong>Prep:</strong> 15 mins</span></div>
+                <div><span>🥡</span> <span><strong>Style:</strong> Dry &amp; Gravy</span></div>
+                <div><span>👥</span> <span><strong>Serves:</strong> 2 People</span></div>
               </div>
-              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Chilli%20Chicken" class="btn btn-primary btn-sm" target="_blank">
-                Order via WhatsApp
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Chilli%20Chicken" class="flip-order-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.96.524 1.777.818 2.792.818 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.768-5.768-5.768zm0 10.368c-.91 0-1.742-.257-2.482-.733l-.178-.114-1.841.483.491-1.794-.12-.191c-.517-.822-.843-1.637-.843-2.449 0-2.536 2.064-4.6 4.602-4.6 2.538 0 4.602 2.064 4.602 4.6 0 2.537-2.064 4.6-4.602 4.6z"/></svg>
+                <span>Order via WhatsApp</span>
               </a>
             </div>
           </div>
         </div>
 
         <!-- 3D Flip Card 4: Artisan Beverages -->
-        <div class="flip-card sr" id="fc4">
+        <div class="flip-card sr" id="fc4" tabindex="0" role="region" aria-label="Signature Cold Coffee and Mojitos card, hover or tap to reveal secret ingredients">
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <div class="food-card-img">
                 <img src="images/beverage_special.jpg" alt="Signature Iced Cold Coffee & Mocktails" loading="lazy" />
                 <span class="food-tag cool">❄️ Chilled Delight</span>
+                <div class="flip-hint-badge" title="Tap or hover to reveal recipe">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Secret Recipe</span>
+                </div>
               </div>
               <div class="food-card-info">
                 <h4>Signature Cold Coffee &amp; Mojitos</h4>
@@ -645,6 +686,13 @@
               </div>
             </div>
             <div class="flip-card-back">
+              <div class="flip-back-top">
+                <span class="flip-back-tag">Chef's Secret Recipe</span>
+                <button type="button" class="flip-back-btn" aria-label="Flip card back to front">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+                  <span>Back</span>
+                </button>
+              </div>
               <h4>Artisan Cold Coffee</h4>
               <div class="flip-ingredients">
                 <div class="flip-section-label">Ingredients</div>
@@ -653,13 +701,14 @@
                 </div>
               </div>
               <div class="flip-info">
-                <div><span>❄️</span> Taste: Chilled &amp; Velvety</div>
-                <div><span>⏱️</span> Prep Time: 6-8 mins</div>
-                <div><span>🌱</span> 100% Vegetarian</div>
-                <div><span>🥤</span> 350ml Tall Glass</div>
+                <div><span>❄️</span> <span><strong>Taste:</strong> Chilled &amp; Velvety</span></div>
+                <div><span>⏱️</span> <span><strong>Prep:</strong> 6-8 mins</span></div>
+                <div><span>🌱</span> <span><strong>Diet:</strong> 100% Vegetarian</span></div>
+                <div><span>🥤</span> <span><strong>Size:</strong> 350ml Tall Glass</span></div>
               </div>
-              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Cold%20Coffee" class="btn btn-primary btn-sm" target="_blank">
-                Order via WhatsApp
+              <a href="https://wa.me/917903029008?text=Hello%20Cafe%20De-Light!%20I%20want%20to%20order%20Cold%20Coffee" class="flip-order-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.668-.699c.96.524 1.777.818 2.792.818 3.181 0 5.767-2.586 5.768-5.768 0-3.18-2.587-5.768-5.768-5.768zm0 10.368c-.91 0-1.742-.257-2.482-.733l-.178-.114-1.841.483.491-1.794-.12-.191c-.517-.822-.843-1.637-.843-2.449 0-2.536 2.064-4.6 4.602-4.6 2.538 0 4.602 2.064 4.602 4.6 0 2.537-2.064 4.6-4.602 4.6z"/></svg>
+                <span>Order via WhatsApp</span>
               </a>
             </div>
           </div>

@@ -3373,9 +3373,9 @@ button:focus-visible {
 
 .review-card:hover {
   transform: translateY(-6px) scale(1.015);
-  background: rgba(34, 22, 13, 0.96);
-  border-color: rgba(245, 158, 11, 0.65);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(245, 158, 11, 0.22);
+  background: linear-gradient(165deg, rgba(20, 15, 11, 0.98) 0%, rgba(12, 9, 7, 0.98) 100%);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(245, 158, 11, 0.15);
 }
 
 .review-card::before {
@@ -7481,9 +7481,9 @@ img {
 }
 .review-card:hover {
   transform: translateY(-6px) scale(1.015);
-  background: rgba(34, 22, 13, 0.96) !important;
-  border-color: rgba(245, 158, 11, 0.65) !important;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.65), 0 0 25px rgba(245, 158, 11, 0.25) !important;
+  background: linear-gradient(165deg, rgba(20, 15, 11, 0.98) 0%, rgba(12, 9, 7, 0.98) 100%) !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(245, 158, 11, 0.15) !important;
 }
 .review-card:hover .rev-avatar {
   transform: scale(1.08);

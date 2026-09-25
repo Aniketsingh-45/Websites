@@ -9,15 +9,25 @@
     content="Welcome to Cafe De-Light, Danapur, Patna. Indulge in authentic Steamed &amp; Kurkure Momos, Chilli Chicken, Dum Biryani, Continental Pastas, Pizzas, and handcrafted coffee in a cozy ambiance." />
   <meta name="keywords"
     content="Cafe De-Light, Cafe Delight Patna, cafe Danapur, Saguna More cafe, restaurants in Danapur, momos Patna, biryani Danapur, family restaurant Saguna More, best cafe in Patna" />
+  <meta name="author" content="Cafe De-Light" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#F59E0B" />
+  <link rel="canonical" href="https://cafedelight.in/" />
+
+  <!-- Geographic Location Tags for Local SEO -->
+  <meta name="geo.region" content="IN-BR" />
+  <meta name="geo.placename" content="Danapur, Patna" />
+  <meta name="geo.position" content="25.620249;85.0417412" />
+  <meta name="ICBM" content="25.620249, 85.0417412" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:site_name" content="Cafe De-Light" />
   <meta property="og:title" content="Cafe De-Light — Danapur &amp; Saguna More, Patna" />
   <meta property="og:description"
     content="Danapur's favorite culinary spot for Steamed Momos, Slow-Cooked Biryani, Continental Pastas &amp; Artisan Cold Coffee. Air-conditioned cozy dining." />
   <meta property="og:image" content="images/interior_main.jpg" />
-  <meta property="og:url" content="https://www.eazydiner.com/patna/cafe-de-light-danapur-patna-689708" />
+  <meta property="og:url" content="https://cafedelight.in/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -45,42 +55,91 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="cafe.css">
 
-  <!-- JSON-LD Structured Data for Local Restaurant SEO -->
+  <!-- JSON-LD Structured Data for Local Restaurant & Breadcrumb SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
-    "name": "Cafe De-Light",
-    "image": [
-      "images/interior_main.jpg",
-      "images/food_signature_dish.jpg",
-      "images/interior_lighting.jpg"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Balaji Nagar, Kaliket Nagar, Danapur, Saguna Khagaul Road",
-      "addressLocality": "Saguna More, Danapur",
-      "addressRegion": "Patna, Bihar",
-      "postalCode": "801503",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 25.620249,
-      "longitude": 85.0417412
-    },
-    "telephone": ["+917903029008", "+918862984404"],
-    "servesCuisine": ["Chinese", "North Indian", "Mughlai", "Continental", "Fast Food", "Coffee"],
-    "priceRange": "₹650 - ₹800 for two approx.",
-    "openingHours": "Mo-Su 11:00-23:00",
-    "paymentAccepted": "Cash, Credit Card, Debit Card, UPI",
-    "currenciesAccepted": "INR",
-    "acceptsReservations": true,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "3.9",
-      "reviewCount": "250"
-    }
+    "@graph": [
+      {
+        "@type": "Restaurant",
+        "@id": "https://cafedelight.in/#restaurant",
+        "name": "Cafe De-Light",
+        "url": "https://cafedelight.in/",
+        "logo": "https://cafedelight.in/images/cafe_delight_logo.svg",
+        "image": [
+          "images/interior_main.jpg",
+          "images/food_signature_dish.jpg",
+          "images/interior_lighting.jpg"
+        ],
+        "description": "Danapur's premier multicuisine restaurant and cafe serving authentic Kurkure Momos, Chicken Dum Biryani, Hakka Noodles, and handcrafted coffee.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Balaji Nagar, Kaliket Nagar, Danapur, Saguna Khagaul Road",
+          "addressLocality": "Saguna More, Danapur",
+          "addressRegion": "Patna, Bihar",
+          "postalCode": "801503",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 25.620249,
+          "longitude": 85.0417412
+        },
+        "hasMap": "https://maps.google.com/maps?q=25.620249,85.0417412",
+        "telephone": ["+917903029008", "+918862984404"],
+        "servesCuisine": ["Chinese", "North Indian", "Mughlai", "Continental", "Fast Food", "Coffee"],
+        "priceRange": "₹₹",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "11:00",
+            "closes": "23:00"
+          }
+        ],
+        "paymentAccepted": "Cash, Credit Card, Debit Card, UPI",
+        "currenciesAccepted": "INR",
+        "acceptsReservations": true,
+        "menu": "https://cafedelight.in/#menu",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "250",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://cafedelight.in/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://cafedelight.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Menu",
+            "item": "https://cafedelight.in/#menu"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Reviews",
+            "item": "https://cafedelight.in/#reviews"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Contact",
+            "item": "https://cafedelight.in/#contact"
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>

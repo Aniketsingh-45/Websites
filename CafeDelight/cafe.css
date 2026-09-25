@@ -1150,10 +1150,10 @@ nav#mainNav {
 
 /* Smooth word-by-word title reveal */
 .hero-title {
-  font-size: 3.8rem;
+  font-size: 4.5rem;
   color: var(--text-primary);
-  line-height: 1.05;
-  letter-spacing: -1px;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
 }
 
 /* Line-by-line smooth reveal — clean, premium */
@@ -1216,10 +1216,10 @@ nav#mainNav {
 }
 
 .hero-subtitle {
-  font-size: 1.08rem;
+  font-size: 1.25rem;
   color: var(--text-secondary);
   line-height: 1.8;
-  max-width: 480px;
+  max-width: 520px;
   min-height: 60px;
   font-family: 'Outfit', sans-serif;
   opacity: 0;
@@ -2144,7 +2144,7 @@ button:focus-visible {
 
 .flip-card {
   position: relative;
-  height: 480px;
+  height: 520px;
   perspective: 1400px;
   -webkit-perspective: 1400px;
   cursor: pointer;
@@ -2255,10 +2255,10 @@ button:focus-visible {
   position: absolute;
   top: 14px;
   left: 14px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 9999px;
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   z-index: 5;
@@ -2342,12 +2342,12 @@ button:focus-visible {
 }
 
 .food-card-info h4 {
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   color: #FAF7F2;
-  margin: 0 0 6px 0;
-  line-height: 1.35;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
   letter-spacing: 0.2px;
   transition: color 0.3s ease;
 }
@@ -2357,10 +2357,10 @@ button:focus-visible {
 }
 
 .food-card-info p {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   color: #B8ADA0;
-  line-height: 1.55;
-  margin: 0 0 12px 0;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -2377,7 +2377,7 @@ button:focus-visible {
 }
 
 .food-price {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #FBBF24;
   font-family: 'Playfair Display', serif;
@@ -2432,14 +2432,14 @@ button:focus-visible {
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.32);
   color: #FDE68A;
-  padding: 4px 11px;
+  padding: 6px 14px;
   border-radius: 9999px;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   transition: all 0.25s ease;
 }
 
@@ -2450,10 +2450,10 @@ button:focus-visible {
 }
 
 .flip-card-back h4 {
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   font-family: 'Playfair Display', serif;
   color: #FAF7F2;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   line-height: 1.3;
 }
 
@@ -2462,15 +2462,15 @@ button:focus-visible {
 }
 
 .flip-section-label {
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   color: #F59E0B;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .flip-section-label::after {
@@ -2487,11 +2487,11 @@ button:focus-visible {
 }
 
 .ingredient-pills span {
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 8px;
   background: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: #FAF7F2;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -2515,16 +2515,16 @@ button:focus-visible {
 }
 
 .flip-info div {
-  font-size: 0.76rem;
+  font-size: 0.85rem;
   color: #D8D0C5;
   display: flex;
   align-items: center;
-  gap: 6px;
-  line-height: 1.3;
+  gap: 8px;
+  line-height: 1.4;
 }
 
 .flip-info span {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
 }
 
@@ -2537,10 +2537,10 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
-  padding: 12px 18px;
-  font-size: 0.85rem;
+  padding: 14px 20px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 12px;
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
@@ -3637,29 +3637,33 @@ button:focus-visible {
 }
 
 /* ═══ CONTACT ═══ */
-.contact-grid {
+.contact-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  max-width: 980px;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
 /* Quick Inquiry Contact Form Card & Wrap */
 .contact-form-wrap,
 .contact-form-card {
-  background: rgba(22, 16, 11, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 36px;
-  border-radius: var(--radius-xl, 24px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(245, 158, 11, 0.08);
-  border: 1.5px solid rgba(245, 158, 11, 0.28);
-  transition: all 0.35s ease;
+  background: rgba(22, 16, 11, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 42px;
+  border-radius: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .contact-form-wrap:hover,
 .contact-form-card:hover {
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 35px rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 45px rgba(245, 158, 11, 0.12);
+  transform: translateY(-4px);
 }
 
 .contact-form-wrap h3,
@@ -3705,13 +3709,13 @@ button:focus-visible {
 .contact-form .form-group input,
 .contact-form .form-group textarea {
   width: 100%;
-  padding: 14px 18px;
-  border: 1.5px solid rgba(245, 158, 11, 0.25);
-  border-radius: 12px;
-  background: rgba(14, 10, 7, 0.9);
+  padding: 16px 20px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 16px;
+  background: rgba(10, 7, 5, 0.6);
   color: #FAF7F2;
   font-family: 'Outfit', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.5;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   outline: none;
@@ -3770,26 +3774,26 @@ button:focus-visible {
 
 /* Contact submit button */
 #submitBtn {
-  margin-top: 6px;
-  padding: 15px 28px;
-  font-size: 1rem;
+  margin-top: 10px;
+  padding: 16px 32px;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  border-radius: 12px;
+  border-radius: 100px;
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   color: #0A0908 !important;
   border: none;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.38);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.25);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
 #submitBtn:hover {
   background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 40%, #D97706 100%) !important;
-  box-shadow: 0 12px 32px rgba(245, 158, 11, 0.55), 0 0 25px rgba(245, 158, 11, 0.35) !important;
-  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4) !important;
+  transform: translateY(-3px) scale(1.02);
   color: #000000 !important;
 }
 
@@ -4034,13 +4038,13 @@ button:focus-visible {
 }
 
 .contact-details {
-  background: rgba(22, 16, 11, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 36px;
-  border-radius: var(--radius-xl, 24px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-  border: 1.5px solid rgba(245, 158, 11, 0.28);
+  background: rgba(22, 16, 11, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 42px;
+  border-radius: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(245, 158, 11, 0.15);
   flex: 1;
 }
 
@@ -4055,9 +4059,9 @@ button:focus-visible {
 .contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px dashed rgba(245, 158, 11, 0.15);
 }
 
 .contact-item:last-of-type {
@@ -4095,16 +4099,17 @@ button:focus-visible {
 }
 
 .contact-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(200, 133, 58, 0.12), rgba(232, 168, 76, 0.12));
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 1rem;
-  color: var(--crimson);
+  font-size: 1.15rem;
+  color: #F59E0B;
 }
 
 .contact-item-text strong {
@@ -5111,7 +5116,7 @@ footer::before {
     margin: 0 auto;
   }
 
-  .contact-grid {
+  .contact-container {
     grid-template-columns: 1fr;
   }
 
@@ -5998,7 +6003,7 @@ footer::before {
 
 /* Fix 8: Contact Section Mobile */
 @media (max-width: 768px) {
-  .contact-grid {
+  .contact-container {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }
@@ -9960,7 +9965,7 @@ header {
   }
 
   /* Contact & Map */
-  .contact-grid {
+  .contact-container {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
   }

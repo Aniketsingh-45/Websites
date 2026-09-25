@@ -35,8 +35,14 @@
   <meta name="twitter:description" content="Authentic multicuisine restaurant &amp; cafe located at Saguna Khagaul Road, Danapur, Patna." />
   <meta name="twitter:image" content="images/interior_main.jpg" />
 
-  <!-- Favicon -->
+  <!-- Favicon & PWA Manifest -->
   <link rel="icon" type="image/svg+xml" href="images/cafe_delight_logo.svg" />
+  <link rel="apple-touch-icon" href="images/cafe_delight_logo.svg" />
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Preload Critical Hero Assets for LCP Performance -->
+  <link rel="preload" as="image" href="images/interior_main.jpg" />
+  <link rel="preload" as="image" href="images/cafe_delight_logo.svg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

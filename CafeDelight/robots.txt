@@ -1,0 +1,8 @@
+# Robots.txt for Cafe De-Light Danapur, Patna
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: https://cafedelight.in/sitemap.xml

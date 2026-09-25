@@ -1,0 +1,19 @@
+{
+  "name": "Cafe De-Light — Restaurant & Lounge",
+  "short_name": "Cafe De-Light",
+  "description": "Danapur's favorite spot for Momos, Dum Biryani, Indo-Chinese & handcrafted coffee on Saguna Khagaul Road.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0A0908",
+  "theme_color": "#F59E0B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/cafe_delight_logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "restaurant", "lifestyle"]
+}

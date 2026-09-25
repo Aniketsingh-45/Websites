@@ -607,23 +607,60 @@
   }
 
   // ════════════════════════════════════════════════════════
-  // MODULE 14 — SOUND TOGGLE (AMBIENT AUDIO)
+  // MODULE 14 — SOUND TOGGLE (AMBIENT AUDIO & MICRO-FEEDBACK)
   // ════════════════════════════════════════════════════════
   function initSoundToggle() {
     const btn = document.getElementById('soundToggle');
     if (!btn) return;
     const icon = btn.querySelector('.sound-icon');
-    let soundOn = false;
+    let soundOn = localStorage.getItem('cdl_sound') === 'true';
 
-    btn.addEventListener('click', () => {
-      soundOn = !soundOn;
+    let audioCtx = null;
+    function playChime(freq = 520, type = 'sine', duration = 0.12) {
+      if (!soundOn) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function updateUI() {
       if (icon) {
         icon.innerHTML = soundOn
           ? `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>`
           : `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>`;
       }
       btn.classList.toggle('active', soundOn);
+      btn.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+    }
+    updateUI();
+
+    btn.addEventListener('click', () => {
+      soundOn = !soundOn;
+      localStorage.setItem('cdl_sound', soundOn);
+      updateUI();
+      if (soundOn) playChime(660, 'sine', 0.2);
     });
+
+    // Attach gentle acoustic clicks to interactive components
+    document.addEventListener('click', (e) => {
+      if (!soundOn) return;
+      const target = e.target.closest('.filter-btn, .menu-tab-btn, .flip-card, .gallery-card, .quick-reply, .nav-cta, .btn-primary');
+      if (target && target !== btn) {
+        playChime(440, 'triangle', 0.1);
+        if (navigator.vibrate) navigator.vibrate(10);
+      }
+    }, { passive: true });
   }
 
   // ════════════════════════════════════════════════════════

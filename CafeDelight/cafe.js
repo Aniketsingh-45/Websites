@@ -1064,6 +1064,55 @@
   }
 
   // ════════════════════════════════════════════════════════
+  // MODULE: SIGNATURE DELICACIES (3D FLIP CARDS CONTROLLER)
+  // ════════════════════════════════════════════════════════
+  function initSignatureDelicacies() {
+    const cards = document.querySelectorAll('.flip-card');
+    if (!cards.length) return;
+
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    cards.forEach(card => {
+      // Click or tap to toggle flipped state
+      card.addEventListener('click', (e) => {
+        // Do not intercept if clicking external WhatsApp order button or child link
+        if (e.target.closest('a') || e.target.closest('.flip-order-btn')) {
+          return;
+        }
+
+        // Handle explicit flip back button
+        if (e.target.closest('.flip-back-btn')) {
+          e.stopPropagation();
+          card.classList.remove('is-flipped');
+          return;
+        }
+
+        // Toggle card flip
+        card.classList.toggle('is-flipped');
+      });
+
+      // Accessible keyboard control
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (!e.target.closest('a') && !e.target.closest('button')) {
+            e.preventDefault();
+            card.classList.toggle('is-flipped');
+          }
+        }
+      });
+    });
+
+    // Close flipped cards when clicking outside on touch devices
+    if (isTouch) {
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.flip-card')) {
+          cards.forEach(c => c.classList.remove('is-flipped'));
+        }
+      });
+    }
+  }
+
+  // ════════════════════════════════════════════════════════
   // BOOTSTRAP ALL MODULES
   // ════════════════════════════════════════════════════════
   function boot() {
@@ -1075,6 +1124,7 @@
     setInterval(updateLiveStatus, 60000);
     initCounters();
     initVideoPlayer();
+    initSignatureDelicacies();
     initMenuTabs();
     initGallery();
     initBookingModal();

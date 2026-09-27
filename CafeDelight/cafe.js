@@ -486,7 +486,7 @@
             particleCount: 120,
             spread: 90,
             origin: { y: 0.5 },
-            colors: ['#F59E0B', '#D97706', '#10B981', '#EAB308', '#FFFFFF']
+            colors: ['#D97743', '#ED8A56', '#10B981', '#E11D48', '#FFFFFF']
           });
         }
 
@@ -536,7 +536,7 @@
         const offset = CIRCUMFERENCE - pct * CIRCUMFERENCE;
         charRing.style.strokeDashoffset = offset;
         charCount.textContent = `${len}/${MAX_CHARS}`;
-        charRing.style.stroke = pct > 0.9 ? '#EF4444' : pct > 0.7 ? '#F59E0B' : '#10B981';
+        charRing.style.stroke = pct > 0.9 ? '#EF4444' : pct > 0.7 ? '#D97743' : '#10B981';
       });
     }
 
@@ -563,7 +563,7 @@
           particleCount: 70,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ['#F59E0B', '#D97706', '#10B981']
+          colors: ['#D97743', '#ED8A56', '#10B981']
         });
       }
 

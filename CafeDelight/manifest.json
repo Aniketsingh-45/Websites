@@ -4,8 +4,8 @@
   "description": "Danapur's favorite spot for Momos, Dum Biryani, Indo-Chinese & handcrafted coffee on Saguna Khagaul Road.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0A0908",
-  "theme_color": "#F59E0B",
+  "background_color": "#0A1118",
+  "theme_color": "#D97743",
   "orientation": "portrait-primary",
   "icons": [
     {

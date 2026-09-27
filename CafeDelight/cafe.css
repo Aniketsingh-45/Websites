@@ -464,7 +464,7 @@ nav#mainNav {
   font-family: 'Outfit', sans-serif;
 }
 
-.nav-link::after {
+.nav-link::after { display: block !important;
   content: '';
   position: absolute;
   bottom: 2px;
@@ -5974,7 +5974,7 @@ a:active {
     border: none !important;
   }
   
-  nav#mainNav.is-open .nav-link::after {
+  nav#mainNav.is-open .nav-link::after { display: block !important;
     display: none !important;
   }
 }
@@ -12390,7 +12390,7 @@ h1, h2, h3, h4, h5, .brand-title, .stat-num {
   color: var(--text-primary) !important;
   background: rgba(44, 36, 27, 0.05) !important;
 }
-.nav-link::after {
+.nav-link::after { display: block !important;
   display: none !important; /* Hide old underline animation for a cleaner pill hover */
 }
 
@@ -12517,7 +12517,7 @@ h1, h2, h3, h4, h5, .brand-title, .stat-num {
   align-items: center;
   gap: 36px;
 }
-.n-link {
+.nav-link {
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 500;
@@ -12528,10 +12528,10 @@ h1, h2, h3, h4, h5, .brand-title, .stat-num {
   transition: color 0.3s ease;
   text-decoration: none;
 }
-.n-link:hover, .n-link.active {
+.nav-link:hover, .nav-link.active {
   color: var(--primary);
 }
-.n-link::after {
+.nav-link::after { display: block !important;
   content: '';
   position: absolute;
   bottom: -4px;
@@ -12542,7 +12542,7 @@ h1, h2, h3, h4, h5, .brand-title, .stat-num {
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
-.n-link:hover::after, .n-link.active::after {
+.nav-link:hover::after, .nav-link.active::after {
   width: 100%;
 }
 

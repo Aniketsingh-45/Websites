@@ -170,68 +170,37 @@
   </div>
 
   <!-- ═══════ REVAMPED LUXURY FLOATING NAVBAR ═══════ -->
-  <header id="siteHeader" class="floating-header">
-    <div class="nav-floating-island">
-      <!-- Brand Logo & Name -->
-      <a href="#home" class="brand" aria-label="Cafe De-Light Home">
-        <div class="brand-logo-badge">
-          <img src="images/cafe_delight_logo.svg" alt="Cafe De-Light logo" class="brand-logo-img" width="38" height="38" />
-        </div>
-        <div class="brand-text-block">
-          <h1 class="brand-title">Cafe De-Light</h1>
-          <div class="brand-sub">
-            <span class="brand-dot"></span>
-            <span>Danapur • Saguna More</span>
-          </div>
-        </div>
+    <!-- ═══════ MINIMAL & UNIQUE NAVBAR ═══════ -->
+  <header id="siteHeader" class="minimal-header">
+    <div class="container minimal-header-container">
+      
+      <!-- Left: Brand -->
+      <a href="#home" class="brand-minimal">
+        <span class="brand-icon">✨</span>
+        <span class="brand-text">Cafe De-Light</span>
       </a>
 
-      <!-- Center Desktop Navigation Links -->
-      <nav id="mainNav" class="nav-links-wrap" aria-label="Primary navigation">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#video-sec" class="nav-link">Tour</a>
-        <a href="#menu" class="nav-link">Menu</a>
-        <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#reviews" class="nav-link">Reviews</a>
-        <a href="#contact" class="nav-link">Contact</a>
+      <!-- Center: Navigation -->
+      <nav class="nav-minimal-links">
+        <a href="#about" class="n-link">About</a>
+        <a href="#video-sec" class="n-link">Tour</a>
+        <a href="#menu" class="n-link">Menu</a>
+        <a href="#gallery" class="n-link">Gallery</a>
+        <a href="#reviews" class="n-link">Reviews</a>
       </nav>
 
-      <!-- Right Actions: Live Status, Reserve CTA, Theme & Sound Toggles -->
-      <div class="header-actions-group">
-        <!-- Live Open Status Micro-Pill -->
-        <div class="live-status-pill is-open" id="headerStatusPill" title="Open Today 11:00 AM - 11:00 PM">
-          <span class="status-pulse-dot"></span>
-          <span class="status-text">Open • 11am-11pm</span>
-        </div>
-
-        <!-- Reserve CTA Button -->
-        <button class="nav-cta-pill" id="openBookingBtn" type="button" aria-label="Reserve a Table">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-          </svg>
-          <span>Book Table</span>
-        </button>
-
-        <!-- Sound Control -->
-        <button class="ctrl-circle-btn" id="soundToggle" aria-label="Toggle ambient sound" title="Toggle sound">
-          <span class="sound-icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-              <line x1="23" y1="9" x2="17" y2="15" />
-              <line x1="17" y1="9" x2="23" y2="15" />
-            </svg>
-          </span>
-        </button>
-
-        <!-- Cute Mobile Menu Hamburger -->
-        <button class="menu-toggle-cute" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+      <!-- Right: Action -->
+      <div class="minimal-header-actions">
+        <a href="#bookingModal" class="btn-minimal-reserve">Reserve Table</a>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle-cute" id="menuToggle" aria-label="Open navigation menu">
           <span class="burger-bar"></span>
           <span class="burger-bar"></span>
           <span class="burger-bar"></span>
         </button>
       </div>
+
     </div>
   </header>
 

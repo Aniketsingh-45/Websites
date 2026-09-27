@@ -119,23 +119,18 @@
   function initSmartHeader() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
-    let lastY = 0;
 
     function onScroll() {
       const y = window.scrollY;
-      if (y > 60) {
+      if (y > 40) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-      if (y > 250 && y > lastY) {
-        header.classList.add('header-hidden');
-      } else {
-        header.classList.remove('header-hidden');
-      }
-      lastY = y;
+      header.classList.remove('header-hidden');
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     // Highlight active nav links
     const sections = document.querySelectorAll('section[id]');
@@ -170,7 +165,6 @@
     const mobileDrawer = document.getElementById('mobileDrawer');
     const closeDrawer = document.getElementById('closeDrawer');
     const backdrop = document.getElementById('drawerBackdrop');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
 
     function toggleMobile(open) {
       if (mobileDrawer) mobileDrawer.classList.toggle('active', open);
@@ -179,12 +173,15 @@
       document.body.style.overflow = open ? 'hidden' : '';
     }
 
-    if (menuToggle) menuToggle.addEventListener('click', () => toggleMobile(true));
-    if (closeDrawer) closeDrawer.addEventListener('click', () => toggleMobile(false));
-    if (backdrop) backdrop.addEventListener('click', () => toggleMobile(false));
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMobile(false));
+    if (menuToggle) menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobile(true);
     });
+    if (closeDrawer) closeDrawer.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobile(false);
+    });
+    if (backdrop) backdrop.addEventListener('click', () => toggleMobile(false));
   }
 
   // ════════════════════════════════════════════════════════
@@ -434,13 +431,50 @@
     const modal = document.getElementById('bookingModal');
     const closeBtn = document.getElementById('closeBookingModal');
     const form = document.getElementById('tableBookingForm');
-    const openBtns = [
-      document.getElementById('openBookingBtn'),
-      document.getElementById('openBookingBtn2'),
-      document.getElementById('heroReserveBtn'),
-      document.getElementById('mobileReserveBtn'),
-      document.getElementById('mobileBottomBookBtn')
-    ].filter(Boolean);
+
+    function openModal(e) {
+      if (e) e.preventDefault();
+      if (!modal) return;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // Close mobile drawer if active
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+        mobileDrawer.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
+      }
+    }
+
+    function closeModal() {
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Direct event listeners on all booking triggers
+    const triggerSelector = '#openBookingBtn, #openBookingBtn2, #heroReserveBtn, #mobileReserveBtn, #mobileBottomBookBtn, .btn-minimal-reserve, a[href="#bookingModal"]';
+    document.querySelectorAll(triggerSelector).forEach(btn => {
+      btn.addEventListener('click', openModal);
+    });
+
+    // Global document-level click interceptor for any reserve trigger
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest(triggerSelector);
+      if (trigger) {
+        openModal(e);
+      }
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
+    });
 
     // Default booking date to tomorrow
     const bookDate = document.getElementById('bookDate');
@@ -453,29 +487,6 @@
       bookDate.value = `${yyyy}-${mm}-${dd}`;
       bookDate.min = `${yyyy}-${mm}-${dd}`;
     }
-
-    openBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (modal) modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    function closeModal() {
-      if (modal) modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-      });
-    }
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
-    });
 
     // Form submit -> WhatsApp redirect & confetti burst
     if (form) {
@@ -520,6 +531,51 @@
         }, 600);
       });
     }
+  }
+
+  // ════════════════════════════════════════════════════════
+  // MODULE: SMOOTH NAVIGATION SCROLL WITH NAVBAR OFFSET
+  // ════════════════════════════════════════════════════════
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#' || href === '#!') return;
+        if (href === '#bookingModal') return; // Handled by booking modal
+
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+
+          // Close mobile drawer if active
+          const mobileDrawer = document.getElementById('mobileDrawer');
+          const backdrop = document.getElementById('drawerBackdrop');
+          if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+            mobileDrawer.classList.remove('active');
+            if (backdrop) backdrop.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+
+          const header = document.getElementById('siteHeader');
+          const headerHeight = header ? header.getBoundingClientRect().height : 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - (headerHeight + 14);
+
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: 'smooth'
+          });
+
+          if (header) {
+            header.classList.remove('header-hidden');
+          }
+
+          if (history.pushState) {
+            history.pushState(null, null, href);
+          }
+        }
+      });
+    });
   }
 
   // ════════════════════════════════════════════════════════
@@ -1147,6 +1203,7 @@
     initCursor();
     initScrollProgress();
     initSmartHeader();
+    initSmoothScroll();
     updateLiveStatus();
     setInterval(updateLiveStatus, 60000);
     initCounters();

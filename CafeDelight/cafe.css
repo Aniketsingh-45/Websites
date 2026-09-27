@@ -12612,3 +12612,10 @@ h1, h2, h3, h4, h5, .brand-title, .stat-num {
 .brand-minimal:hover .brand-logo-minimal {
   transform: scale(1.05) rotate(5deg);
 }
+
+/* ═══════ CRITICAL HEADER FIX ═══════ */
+header#siteHeader,
+header#siteHeader.minimal-header,
+#siteHeader {
+  pointer-events: auto !important;
+}

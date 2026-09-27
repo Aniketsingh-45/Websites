@@ -328,6 +328,7 @@
 
     function playVideo() {
       video.play().then(() => {
+        if (playBtn) playBtn.classList.add('playing');
         if (overlay) overlay.classList.add('playing');
         if (playPauseBtn) {
           playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
@@ -337,16 +338,25 @@
 
     function pauseVideo() {
       video.pause();
+      if (playBtn) playBtn.classList.remove('playing');
       if (overlay) overlay.classList.remove('playing');
       if (playPauseBtn) {
         playPauseBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
       }
     }
 
-    if (playBtn) playBtn.addEventListener('click', (e) => { e.stopPropagation(); playVideo(); });
-    if (overlay) overlay.addEventListener('click', () => playVideo());
+    if (playBtn) playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (video.paused) playVideo(); else pauseVideo();
+    });
+    if (overlay) overlay.addEventListener('click', () => {
+      if (video.paused) playVideo(); else pauseVideo();
+    });
     video.addEventListener('click', () => { if (video.paused) playVideo(); else pauseVideo(); });
-    video.addEventListener('ended', () => { if (overlay) overlay.classList.remove('playing'); });
+    video.addEventListener('ended', () => {
+      if (playBtn) playBtn.classList.remove('playing');
+      if (overlay) overlay.classList.remove('playing');
+    });
 
     // Update progress
     video.addEventListener('timeupdate', () => {

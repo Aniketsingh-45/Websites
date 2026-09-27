@@ -12597,3 +12597,18 @@ h1, h2, h3, h4, h5, .brand-title, .stat-num {
     padding: 16px 0;
   }
 }
+
+/* ═══════ MINIMAL HEADER FIXES ═══════ */
+.minimal-header {
+  pointer-events: auto !important;
+}
+.brand-logo-minimal {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 6px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.brand-minimal:hover .brand-logo-minimal {
+  transform: scale(1.05) rotate(5deg);
+}

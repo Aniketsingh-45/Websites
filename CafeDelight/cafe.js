@@ -153,6 +153,13 @@
               link.classList.add('active');
             }
           });
+          const mbLinks = document.querySelectorAll('.mobile-bottom-appbar .mb-item');
+          mbLinks.forEach(mb => {
+            if (mb.getAttribute('href') === `#${id}`) {
+              mbLinks.forEach(m => m.classList.remove('active'));
+              mb.classList.add('active');
+            }
+          });
         }
       });
     }
@@ -200,14 +207,14 @@
 
     if (headerPill) {
       headerPill.innerHTML = isOpen 
-        ? '<span class="status-dot open"></span> Open Now • 11 AM - 11 PM'
-        : '<span class="status-dot closed"></span> Closed Now • Opens 11 AM';
+        ? '<span class="status-pulse-dot"></span> <span class="status-text">Open • 11am-11pm</span>'
+        : '<span class="status-pulse-dot closed"></span> <span class="status-text">Closed • Opens 11am</span>';
       headerPill.className = `live-status-pill ${isOpen ? 'is-open' : 'is-closed'}`;
     }
     if (contactPill) {
       contactPill.innerHTML = isOpen
-        ? '<span class="status-dot open"></span> Open Today (11:00 AM – 11:00 PM)'
-        : '<span class="status-dot closed"></span> Closed (Opens 11:00 AM)';
+        ? '<span class="status-pulse-dot"></span> Open Today (11:00 AM – 11:00 PM)'
+        : '<span class="status-pulse-dot closed"></span> Closed (Opens 11:00 AM)';
       contactPill.className = `live-status-pill ${isOpen ? 'is-open' : 'is-closed'}`;
     }
   }
@@ -431,7 +438,8 @@
       document.getElementById('openBookingBtn'),
       document.getElementById('openBookingBtn2'),
       document.getElementById('heroReserveBtn'),
-      document.getElementById('mobileReserveBtn')
+      document.getElementById('mobileReserveBtn'),
+      document.getElementById('mobileBottomBookBtn')
     ].filter(Boolean);
 
     // Default booking date to tomorrow

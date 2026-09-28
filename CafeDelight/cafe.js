@@ -409,31 +409,60 @@
   }
 
   // ════════════════════════════════════════════════════════
-  // MODULE 9 — MENU CATEGORY TABS FILTER
+  // MODULE 9 — MENU CATEGORY TABS & LIVE SEARCH FILTER
   // ════════════════════════════════════════════════════════
   function initMenuTabs() {
     const tabBtns = document.querySelectorAll('.menu-tab-btn');
     const menuCards = document.querySelectorAll('.menu-item-card');
-    if (!tabBtns.length) return;
+    const searchInput = document.getElementById('menuSearchInput');
+    const searchClear = document.getElementById('menuSearchClear');
+    if (!tabBtns.length && !searchInput) return;
+
+    let activeCategory = 'all';
+
+    function filterMenu() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      if (searchClear) {
+        searchClear.style.display = query ? 'inline-flex' : 'none';
+      }
+
+      menuCards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        const matchesCategory = (activeCategory === 'all' || cardCat === activeCategory);
+        const titleText = card.querySelector('h4')?.textContent.toLowerCase() || '';
+        const descText = card.querySelector('p')?.textContent.toLowerCase() || '';
+        const priceText = card.querySelector('.m-price')?.textContent.toLowerCase() || '';
+        const matchesSearch = !query || titleText.includes(query) || descText.includes(query) || priceText.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
 
     tabBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         tabBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const targetCategory = btn.getAttribute('data-category');
-
-        menuCards.forEach(card => {
-          const cardCat = card.getAttribute('data-category');
-          if (targetCategory === 'all' || cardCat === targetCategory) {
-            card.style.display = 'flex';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        activeCategory = btn.getAttribute('data-category');
+        filterMenu();
       });
     });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterMenu);
+    }
+    if (searchClear) {
+      searchClear.addEventListener('click', () => {
+        searchInput.value = '';
+        filterMenu();
+        searchInput.focus();
+      });
+    }
   }
 
 

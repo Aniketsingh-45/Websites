@@ -426,8 +426,9 @@
         searchClear.style.display = query ? 'inline-flex' : 'none';
       }
 
+      let visibleCount = 0;
       menuCards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
+        const cardCat = card.getAttribute('data-category') || '';
         const matchesCategory = (activeCategory === 'all' || cardCat === activeCategory);
         const titleText = card.querySelector('h4')?.textContent.toLowerCase() || '';
         const descText = card.querySelector('p')?.textContent.toLowerCase() || '';
@@ -435,20 +436,29 @@
         const matchesSearch = !query || titleText.includes(query) || descText.includes(query) || priceText.includes(query);
 
         if (matchesCategory && matchesSearch) {
+          card.classList.remove('is-hidden');
           card.style.display = 'flex';
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
+          visibleCount++;
         } else {
+          card.classList.add('is-hidden');
           card.style.display = 'none';
         }
       });
+
+      const noResults = document.getElementById('menuNoResults');
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
     }
 
     tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         tabBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        activeCategory = btn.getAttribute('data-category');
+        activeCategory = btn.getAttribute('data-category') || 'all';
         filterMenu();
       });
     });
@@ -463,6 +473,19 @@
         searchInput.focus();
       });
     }
+
+    const resetBtn = document.getElementById('menuResetBtn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        activeCategory = 'all';
+        tabBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-category') === 'all'));
+        filterMenu();
+      });
+    }
+
+    // Initial pass to ensure consistent visibility
+    filterMenu();
   }
 
 

@@ -13265,37 +13265,33 @@ a.btn-outline:hover {
 /* ─── 3. Signature Specialties (Interactive 3D Flip Cards) ─── */
 #specialties {
   background: #F3ECE1 !important;
-  padding: 36px 0 !important;
-}
-#specialties .container {
-  max-width: 1060px !important;
+  padding: 48px 0 !important;
 }
 #specialties .section-header {
-  margin-bottom: 18px !important;
+  margin-bottom: 24px !important;
 }
 #specialties .section-header h2 {
-  font-size: 1.65rem !important;
-  margin-bottom: 2px !important;
+  font-size: 1.85rem !important;
+  margin-bottom: 4px !important;
 }
 #specialties .section-header p {
-  font-size: 0.82rem !important;
+  font-size: 0.88rem !important;
   margin-bottom: 0 !important;
 }
 .flip-cards-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 250px)) !important;
-  justify-content: center !important;
-  gap: 16px !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
 }
 .flip-card {
   position: relative !important;
   perspective: 1200px !important;
-  height: 335px !important;
-  min-height: 335px !important;
-  max-height: 335px !important;
+  height: 430px !important;
+  min-height: 430px !important;
   width: 100% !important;
   outline: none;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
 }
 .flip-card-inner {
   position: relative !important;
@@ -13303,7 +13299,7 @@ a.btn-outline:hover {
   height: 100% !important;
   transition: transform 0.6s cubic-bezier(0.25, 0.9, 0.3, 1.02) !important;
   transform-style: preserve-3d !important;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
 }
 .flip-card-front,
 .flip-card-back {
@@ -13316,8 +13312,8 @@ a.btn-outline:hover {
   box-sizing: border-box !important;
   background: #FFFFFF !important;
   border: 1.5px solid rgba(44, 36, 27, 0.09) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 6px 20px rgba(44, 36, 27, 0.05) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 24px rgba(44, 36, 27, 0.06) !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
@@ -13332,19 +13328,15 @@ a.btn-outline:hover {
 .flip-card-back {
   transform: rotateY(180deg) !important;
   z-index: 1 !important;
-  padding: 11px 13px !important;
-  overflow-y: auto !important;
-  scrollbar-width: none !important;
-}
-.flip-card-back::-webkit-scrollbar {
-  display: none !important;
+  padding: 16px 18px 14px !important;
+  overflow: hidden !important;
 }
 @media (hover: hover) and (pointer: fine) {
   .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg) !important;
   }
   .flip-card:hover {
-    transform: translateY(-4px) !important;
+    transform: translateY(-5px) !important;
   }
 }
 .flip-card.is-flipped .flip-card-inner {
@@ -13353,8 +13345,7 @@ a.btn-outline:hover {
 .food-card-img {
   position: relative !important;
   width: 100% !important;
-  height: 125px !important;
-  aspect-ratio: unset !important;
+  height: 48% !important;
   overflow: hidden !important;
   flex-shrink: 0 !important;
 }
@@ -13369,13 +13360,13 @@ a.btn-outline:hover {
 }
 .food-tag {
   position: absolute !important;
-  top: 8px !important;
-  left: 8px !important;
+  top: 10px !important;
+  left: 10px !important;
   color: #FFFFFF !important;
   font-family: 'Jost', sans-serif !important;
-  font-size: 0.65rem !important;
+  font-size: 0.68rem !important;
   font-weight: 700 !important;
-  padding: 3px 8px !important;
+  padding: 4px 10px !important;
   border-radius: 100px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   text-transform: uppercase !important;
@@ -13392,45 +13383,48 @@ a.btn-outline:hover {
 }
 .flip-hint-badge {
   position: absolute !important;
-  bottom: 6px !important;
-  right: 6px !important;
+  bottom: 8px !important;
+  right: 8px !important;
   background: rgba(255, 255, 255, 0.94) !important;
   backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(184, 93, 67, 0.3) !important;
   border-radius: 100px !important;
-  padding: 2px 7px !important;
+  padding: 3px 8px !important;
   display: flex !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 5px !important;
 }
 .flip-hint-badge span {
   color: #9C4A32 !important;
   font-family: 'Jost', sans-serif !important;
-  font-size: 0.64rem !important;
+  font-size: 0.68rem !important;
   font-weight: 700 !important;
 }
 .food-card-info {
   background: #FFFFFF !important;
-  padding: 8px 12px 10px !important;
+  padding: 14px 18px 12px !important;
+  height: 52% !important;
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 .food-card-info h4 {
   color: #17100B !important;
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: 1.05rem !important;
+  font-size: 1.22rem !important;
   font-weight: 700 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 2px !important;
+  line-height: 1.22 !important;
+  margin-bottom: 4px !important;
 }
 .food-card-info p {
   color: #4E3F35 !important;
   font-family: 'Jost', sans-serif !important;
-  font-size: 0.74rem !important;
-  line-height: 1.35 !important;
-  margin-bottom: 4px !important;
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+  margin-bottom: 6px !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
@@ -13440,7 +13434,7 @@ a.btn-outline:hover {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  padding-top: 5px !important;
+  padding-top: 8px !important;
   border-top: 1px solid rgba(44, 36, 27, 0.08) !important;
   margin-top: auto !important;
 }
@@ -13448,27 +13442,28 @@ a.btn-outline:hover {
   color: #B85D43 !important;
   font-family: 'Cormorant Garamond', serif !important;
   font-weight: 700 !important;
-  font-size: 1.15rem !important;
+  font-size: 1.35rem !important;
 }
 .food-rating {
   background: rgba(201, 148, 59, 0.12) !important;
   color: #8C6418 !important;
   border: 1px solid rgba(201, 148, 59, 0.3) !important;
   border-radius: 100px !important;
-  padding: 2px 7px !important;
+  padding: 3px 9px !important;
   font-family: 'Jost', sans-serif !important;
-  font-size: 0.68rem !important;
+  font-size: 0.72rem !important;
   font-weight: 700 !important;
 }
 .flip-back-top {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  margin-bottom: 3px !important;
+  margin-bottom: 4px !important;
+  flex-shrink: 0 !important;
 }
 .flip-back-btn {
-  padding: 2px 7px !important;
-  font-size: 0.66rem !important;
+  padding: 3px 9px !important;
+  font-size: 0.7rem !important;
   border-radius: 999px !important;
   background: rgba(44, 36, 27, 0.08) !important;
   border: none !important;
@@ -13476,38 +13471,40 @@ a.btn-outline:hover {
   cursor: pointer !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 3px !important;
+  gap: 4px !important;
 }
 .flip-card-back h4 {
   color: #17100B !important;
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: 0.98rem !important;
+  font-size: 1.15rem !important;
   font-weight: 700 !important;
-  line-height: 1.2 !important;
-  margin: 1px 0 3px !important;
+  line-height: 1.25 !important;
+  margin: 2px 0 6px !important;
+  flex-shrink: 0 !important;
 }
 .flip-back-tag {
   color: #B85D43 !important;
   font-family: 'Jost', sans-serif !important;
   font-weight: 700 !important;
-  font-size: 0.66rem !important;
+  font-size: 0.72rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
 }
 .flip-section-label {
-  font-size: 0.64rem !important;
+  font-size: 0.68rem !important;
   font-weight: 700 !important;
   color: #8F523E !important;
   text-transform: uppercase !important;
-  margin-bottom: 2px !important;
+  margin-bottom: 4px !important;
 }
 .flip-ingredients {
-  margin-bottom: 3px !important;
+  margin-bottom: 6px !important;
+  flex-shrink: 0 !important;
 }
 .ingredient-pills {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 3px !important;
+  gap: 4px !important;
 }
 .ingredient-pills span {
   background: #FAF7F2 !important;
@@ -13516,23 +13513,24 @@ a.btn-outline:hover {
   border-radius: 100px !important;
   font-family: 'Jost', sans-serif !important;
   font-weight: 600 !important;
-  font-size: 0.65rem !important;
-  padding: 2px 6px !important;
+  font-size: 0.72rem !important;
+  padding: 3px 9px !important;
 }
 .flip-info {
   background: #FAF7F2 !important;
   border: 1px solid rgba(44, 36, 27, 0.08) !important;
-  border-radius: 8px !important;
-  padding: 5px 8px !important;
-  margin: 3px 0 6px !important;
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  margin: 4px 0 8px !important;
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
-  gap: 3px 6px !important;
+  gap: 6px 12px !important;
+  flex-shrink: 0 !important;
 }
 .flip-info div, .flip-info span {
   color: #382B21 !important;
   font-family: 'Jost', sans-serif !important;
-  font-size: 0.68rem !important;
+  font-size: 0.76rem !important;
 }
 .flip-info strong {
   color: #17100B !important;
@@ -13543,20 +13541,21 @@ a.btn-outline:hover {
   color: #FFFFFF !important;
   border: none !important;
   border-radius: 100px !important;
-  padding: 6px 12px !important;
+  padding: 10px 16px !important;
   font-family: 'Jost', sans-serif !important;
   font-weight: 700 !important;
-  font-size: 0.72rem !important;
+  font-size: 0.78rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.5px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 6px !important;
-  box-shadow: 0 3px 12px rgba(184, 93, 67, 0.25) !important;
+  gap: 7px !important;
+  box-shadow: 0 4px 14px rgba(184, 93, 67, 0.28) !important;
   transition: all 0.25s ease !important;
   text-decoration: none !important;
   margin-top: auto !important;
+  flex-shrink: 0 !important;
 }
 .flip-order-btn:hover {
   background: #9E4A32 !important;
@@ -14986,48 +14985,47 @@ a.btn-outline:hover {
     line-height: 1.45 !important;
   }
 
-  /* 9. Signature Delicacies (3D Flip Cards on Mobile) — Minimized & Minimal */
+  /* 9. Signature Delicacies (3D Flip Cards on Mobile) — Natural Width & Perfect Content Fit */
   #specialties {
-    padding: 22px 0 !important;
+    padding: 30px 0 !important;
   }
 
   #specialties .section-header {
-    margin-bottom: 12px !important;
+    margin-bottom: 16px !important;
   }
 
   #specialties .section-header h2 {
-    font-size: 1.35rem !important;
-    margin-bottom: 2px !important;
+    font-size: 1.45rem !important;
+    margin-bottom: 3px !important;
   }
 
   #specialties .section-header p {
-    font-size: 0.76rem !important;
+    font-size: 0.8rem !important;
     margin-bottom: 0 !important;
   }
 
   .flip-cards-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    justify-items: center !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
 
   .flip-card {
-    height: 295px !important;
-    min-height: 295px !important;
-    max-height: 295px !important;
+    height: 390px !important;
+    min-height: 390px !important;
     width: 100% !important;
-    max-width: 290px !important;
-    margin: 0 auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     perspective: 1200px !important;
-    border-radius: 16px !important;
+    border-radius: 18px !important;
   }
 
   .flip-card-inner {
     position: relative !important;
     width: 100% !important;
     height: 100% !important;
-    border-radius: 16px !important;
+    border-radius: 18px !important;
   }
 
   .flip-card-front,
@@ -15038,7 +15036,7 @@ a.btn-outline:hover {
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    border-radius: 16px !important;
+    border-radius: 18px !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
     display: flex !important;
@@ -15046,11 +15044,11 @@ a.btn-outline:hover {
     justify-content: space-between !important;
     background: #FFFFFF !important;
     border: 1.5px solid rgba(44, 36, 27, 0.08) !important;
-    box-shadow: 0 4px 14px rgba(44, 36, 27, 0.04) !important;
+    box-shadow: 0 4px 16px rgba(44, 36, 27, 0.05) !important;
   }
 
   .flip-card-front .food-card-img {
-    height: 110px !important;
+    height: 48% !important;
     width: 100% !important;
     flex-shrink: 0 !important;
     overflow: hidden !important;
@@ -15063,22 +15061,25 @@ a.btn-outline:hover {
   }
 
   .flip-card-front .food-card-info {
-    padding: 8px 10px !important;
+    padding: 12px 14px 10px !important;
+    height: 52% !important;
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .flip-card-front .food-card-info h4 {
-    font-size: 0.96rem !important;
-    margin-bottom: 1px !important;
-    line-height: 1.2 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.25 !important;
   }
 
   .flip-card-front .food-card-info p {
-    font-size: 0.72rem !important;
-    line-height: 1.3 !important;
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
     margin-bottom: 4px !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
@@ -15087,47 +15088,47 @@ a.btn-outline:hover {
   }
 
   .flip-card-front .food-meta {
-    padding-top: 4px !important;
+    padding-top: 6px !important;
     border-top: 1px solid rgba(44, 36, 27, 0.06) !important;
     margin-top: auto !important;
   }
 
   .flip-card-front .food-price {
-    font-size: 1.05rem !important;
+    font-size: 1.2rem !important;
   }
 
   .flip-card-front .food-rating {
-    font-size: 0.64rem !important;
-    padding: 1px 6px !important;
+    font-size: 0.7rem !important;
+    padding: 2px 7px !important;
   }
 
-  /* Back Face — Minimized, Compact, Beautiful and 100% Fitting */
+  /* Back Face — 100% Content Fit Without Scroll */
   .flip-card-back {
-    padding: 8px 10px !important;
-    overflow-y: auto !important;
-    scrollbar-width: none !important;
-  }
-
-  .flip-card-back::-webkit-scrollbar {
-    display: none !important;
+    padding: 14px 16px 12px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
   }
 
   .flip-back-top {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 3px !important;
+    flex-shrink: 0 !important;
   }
 
   .flip-back-tag {
-    font-size: 0.64rem !important;
+    font-size: 0.68rem !important;
     font-weight: 700 !important;
     color: #B85D43 !important;
   }
 
   .flip-back-btn {
-    padding: 2px 6px !important;
-    font-size: 0.65rem !important;
+    padding: 3px 8px !important;
+    font-size: 0.68rem !important;
     border-radius: 999px !important;
     background: rgba(44, 36, 27, 0.08) !important;
     border: none !important;
@@ -15135,37 +15136,39 @@ a.btn-outline:hover {
     cursor: pointer !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 3px !important;
+    gap: 4px !important;
   }
 
   .flip-card-back h4 {
-    font-size: 0.92rem !important;
-    margin: 1px 0 2px !important;
+    font-size: 1.05rem !important;
+    margin: 1px 0 4px !important;
     color: #17100B !important;
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
+    flex-shrink: 0 !important;
   }
 
   .flip-ingredients {
-    margin-bottom: 3px !important;
+    margin-bottom: 4px !important;
+    flex-shrink: 0 !important;
   }
 
   .flip-section-label {
-    font-size: 0.6rem !important;
+    font-size: 0.65rem !important;
     font-weight: 700 !important;
     color: #8F523E !important;
     text-transform: uppercase !important;
-    margin-bottom: 2px !important;
+    margin-bottom: 3px !important;
   }
 
   .ingredient-pills {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 2px !important;
+    gap: 3px !important;
   }
 
   .ingredient-pills span {
-    padding: 1px 5px !important;
-    font-size: 0.62rem !important;
+    padding: 2px 7px !important;
+    font-size: 0.68rem !important;
     border-radius: 999px !important;
     background: #FAF7F2 !important;
     border: 1px solid rgba(44, 36, 27, 0.08) !important;
@@ -15174,20 +15177,22 @@ a.btn-outline:hover {
   .flip-info {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 2px 4px !important;
-    padding: 4px 6px !important;
-    margin: 3px 0 5px !important;
+    gap: 4px 8px !important;
+    padding: 6px 10px !important;
+    margin: 4px 0 8px !important;
     background: #FAF7F2 !important;
-    border-radius: 6px !important;
-    font-size: 0.65rem !important;
+    border-radius: 10px !important;
+    font-size: 0.72rem !important;
+    flex-shrink: 0 !important;
   }
 
   .flip-order-btn {
-    padding: 6px 10px !important;
-    font-size: 0.72rem !important;
+    padding: 8px 14px !important;
+    font-size: 0.76rem !important;
     border-radius: 999px !important;
     justify-content: center !important;
     margin-top: auto !important;
+    flex-shrink: 0 !important;
   }
 
   /* 10. Menu Section — Swipeable Filter Pills & 1-Column Bento Cards */

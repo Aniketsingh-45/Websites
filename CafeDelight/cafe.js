@@ -182,6 +182,40 @@
       toggleMobile(false);
     });
     if (backdrop) backdrop.addEventListener('click', () => toggleMobile(false));
+
+    // Close mobile drawer when any link or button inside is clicked
+    if (mobileDrawer) {
+      mobileDrawer.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', () => {
+          if (el.id !== 'closeDrawer') toggleMobile(false);
+        });
+      });
+    }
+
+    // Synchronize active dock item in mobile bottom app bar on scroll
+    const mbItems = document.querySelectorAll('.mobile-bottom-appbar .mb-item');
+    function updateActiveMobileNav() {
+      const scrollY = window.scrollY;
+      const navTargets = ['home', 'menu', 'gallery'];
+      for (const id of navTargets) {
+        const sec = document.getElementById(id);
+        if (sec) {
+          const top = sec.offsetTop - 140;
+          const height = sec.offsetHeight;
+          if (scrollY >= top && scrollY < top + height) {
+            mbItems.forEach(item => {
+              if (item.getAttribute('href') === `#${id}`) {
+                item.classList.add('active');
+              } else if (item.getAttribute('href')?.startsWith('#')) {
+                item.classList.remove('active');
+              }
+            });
+            break;
+          }
+        }
+      }
+    }
+    window.addEventListener('scroll', updateActiveMobileNav, { passive: true });
   }
 
   // ════════════════════════════════════════════════════════

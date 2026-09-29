@@ -790,18 +790,21 @@
 
     function openChat() {
       isOpen = true;
-      window_.style.display = 'block';
+      window_.style.display = 'flex';
+      toggle.classList.add('is-open');
       if (chatIcon) chatIcon.style.display = 'none';
-      if (closeIcon) closeIcon.style.display = 'block';
-      if (badge) badge.style.display = 'none';
-      if (input) input.focus();
+      if (closeIcon) closeIcon.style.display = 'flex';
+      if (badge) badge.style.opacity = '0';
+      if (input) setTimeout(() => input.focus(), 60);
     }
 
     function closeChat() {
       isOpen = false;
+      toggle.classList.remove('is-open');
       window_.style.display = 'none';
-      if (chatIcon) chatIcon.style.display = 'block';
+      if (chatIcon) chatIcon.style.display = 'flex';
       if (closeIcon) closeIcon.style.display = 'none';
+      if (badge) badge.style.opacity = '1';
     }
 
     toggle.addEventListener('click', () => {
@@ -859,7 +862,7 @@
       setTimeout(() => {
         typingDiv.remove();
         addMessage(findResponse(text), 'bot');
-      }, 700 + Math.random() * 400);
+      }, 220 + Math.random() * 100);
     }
 
     if (sendBtn) sendBtn.addEventListener('click', () => handleSend());
@@ -868,6 +871,11 @@
         if (e.key === 'Enter') handleSend();
       });
     }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) closeChat();
+    });
 
     quickReplies.forEach(qr => {
       qr.addEventListener('click', () => {

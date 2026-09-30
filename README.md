@@ -2,13 +2,13 @@
 
 # 🌐 Websites Workspace & Monorepo
 
-> **A curated ecosystem of 9 modern web applications, interactive digital portals, and creative front-end experiences engineered by [Aniket Singh](https://aniketsingh-portfolio-ruby.vercel.app/).** 🚀
+> **A curated ecosystem of 10 modern web applications, interactive digital portals, and creative front-end experiences engineered by [Aniket Singh](https://aniketsingh-portfolio-ruby.vercel.app/).** 🚀
 
 <br/>
 
 [![GitHub Monorepo](https://img.shields.io/badge/Repository-Websites%20Monorepo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aniketsingh-45/Websites)
 [![Deployed with Vercel](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
-[![Status: All Systems Live](https://img.shields.io/badge/Production-9%20Apps%20Live-10b981?style=for-the-badge&logo=statuspage&logoColor=white)](https://github.com/Aniketsingh-45/Websites)
+[![Status: All Systems Live](https://img.shields.io/badge/Production-10%20Apps%20Live-10b981?style=for-the-badge&logo=statuspage&logoColor=white)](https://github.com/Aniketsingh-45/Websites)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Aniket%20Singh-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aniketsingh45/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
@@ -35,9 +35,10 @@ Every application in this monorepo is deployed live on **Vercel** with global An
 | **7** | **💄 Bella Beauty Makeup Studio** | [**bellybeauty-salon.vercel.app**](https://bellybeauty-salon.vercel.app/) | [`/Parlour`](./Parlour) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://bellybeauty-salon.vercel.app/) | `Three.js` `WebGL` `CSS3` `Vanilla JS` `PWA` |
 | **8** | **🎁 Kiara Birthday Surprise** | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | [`/gift`](./gift) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://wishing-birthday-ecru.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Audio API` `Confetti` |
 | **9** | **⚡ AuraRoutine Daily Mastery** | [**aura-routine-todo-eight.vercel.app**](https://aura-routine-todo-eight.vercel.app/) | [`/todo-website`](./todo-website) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://aura-routine-todo-eight.vercel.app/) | `HTML5` `CSS3` `JavaScript` `Web Audio` `PDF.js` `PWA` |
+| **10** | **🌟 Cafe De-Light Danapur** | [**cafe-delight-pi.vercel.app**](https://cafe-delight-pi.vercel.app/) | [`/CafeDelight`](./CafeDelight) | [![Live](https://img.shields.io/badge/Status-Live-success?style=flat-square&logo=vercel)](https://cafe-delight-pi.vercel.app/) | `HTML5` `CSS3` `JavaScript` `GSAP` `Confetti` |
 
 > [!TIP]
-> **Experience the Master Launchpad**: The interactive project showcase ([`/showcase`](./showcase)) serves as a unified launchpad showcasing all 9 applications with real-time category filtering and live preview links!
+> **Experience the Master Launchpad**: The interactive project showcase ([`/showcase`](./showcase)) serves as a unified launchpad showcasing all 10 applications with real-time category filtering and live preview links!
 
 ---
 
@@ -168,6 +169,19 @@ Explore in-depth specifications, key feature breakdowns, and tech architectures 
 
 ---
 
+### 10. 🌟 Cafe De-Light — Danapur & Saguna More
+* **Status**: 🟢 **Live on Vercel** &bull; [**Visit Website ↗**](https://cafe-delight-pi.vercel.app/)
+* **Directory**: [`/CafeDelight`](./CafeDelight)
+* **Tech Stack**: [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML) [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=flat-square&logo=greensock&logoColor=white)](https://gsap.com/)
+* **Description**: An authentic, high-converting digital web portal built for Patna’s beloved dining and hangout destination.
+* **Key Features**:
+  - 🌓 **Dual-Mood Ambience (Dark & Light Mode)**: Smooth dynamic transitions for day and evening vibes.
+  - 📹 **HD Video Tour Player**: Custom embedded real video tour with custom playback controls.
+  - 🥟 **Interactive Culinary Menu**: Category filter tabs and 1-click WhatsApp instant order integration.
+  - 📅 **Smart Table Reservation**: Interactive booking form synced directly with the restaurant's WhatsApp.
+
+---
+
 ## 📊 Complete Projects Summary Matrix
 
 | # | Project Name | Directory | Category | Live Production Link | Build Stack |
@@ -181,6 +195,7 @@ Explore in-depth specifications, key feature breakdowns, and tech architectures 
 | 7 | **💄 Bella Beauty Studio** | [`/Parlour`](./Parlour) | Beauty / Luxury Salon | [**bellybeauty-salon.vercel.app**](https://bellybeauty-salon.vercel.app/) | Three.js WebGL, CSS3, JS, PWA |
 | 8 | **🎁 Birthday Surprise** | [`/gift`](./gift) | Interactive / Celebration | [**wishing-birthday-ecru.vercel.app**](https://wishing-birthday-ecru.vercel.app/) | HTML5, CSS3, JS, Audio API |
 | 9 | **⚡ AuraRoutine** | [`/todo-website`](./todo-website) | Productivity / Self-Mastery | [**aura-routine-todo-eight.vercel.app**](https://aura-routine-todo-eight.vercel.app/) | HTML5, CSS3, JS, Web Audio, PDF.js |
+| 10 | **🌟 Cafe De-Light** | [`/CafeDelight`](./CafeDelight) | Hospitality / Dining | [**cafe-delight-pi.vercel.app**](https://cafe-delight-pi.vercel.app/) | HTML5, CSS3, JS, GSAP |
 
 ---
 
@@ -226,11 +241,11 @@ Every project in this repository is configured with dedicated production `vercel
 1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
 2. Under **Root Directory**, click **Edit** and select `showcase`.
 3. Framework Preset: **Other** (zero build required).
-4. Click **Deploy**. Vercel will deploy the master showcase hub (`showcase/index.html` and `showcase/vercel.json`), providing unified access to all 9 web applications!
+4. Click **Deploy**. Vercel will deploy the master showcase hub (`showcase/index.html` and `showcase/vercel.json`), providing unified access to all 10 web applications!
 
 ### Option B: Deploy Individual Subprojects (Standalone Apps)
 1. In Vercel, click **Add New...** → **Project** and select `Aniketsingh-45/Websites`.
-2. Under **Root Directory**, click **Edit** and select the folder you want to deploy (e.g. `todo-website`, `cafe`, `clinic`, `gift`, `shopping`, `portfolio`, `Parlour`, or `movie-website`).
+2. Under **Root Directory**, click **Edit** and select the folder you want to deploy (e.g. `todo-website`, `cafe`, `CafeDelight`, `clinic`, `gift`, `shopping`, `portfolio`, `Parlour`, or `movie-website`).
 3. For static projects, leave **Build Command** empty. For `dadan-handi`, Vercel auto-detects Vite (`npm run build` → `dist`).
 4. Click **Deploy**!
 

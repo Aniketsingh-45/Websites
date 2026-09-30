@@ -11,6 +11,13 @@
 
 <br/>
 
+## 🌐 Cafe Delight Live
+
+Experience the digital web portal for Cafe De-Light here:
+👉 **[Visit Cafe Delight Live](https://cafe-delight-pi.vercel.app/)**
+
+<br/>
+
 [![Justdial Rating](https://img.shields.io/badge/Justdial-3.9%20%E2%98%85%20(250%2B%20Ratings)-F59E0B?style=for-the-badge&logo=google-maps&logoColor=white)](https://www.justdial.com/Patna/Cafe-De-Light-Saguna-More/0612PX612-X612-220330201538-K7H7_BZDET)
 [![Google Rating](https://img.shields.io/badge/Google-3.8%20%E2%98%85%20(218%2B%20Reviews)-4285F4?style=for-the-badge&logo=google&logoColor=white)](#-location--operating-hours)
 [![EazyDiner](https://img.shields.io/badge/EazyDiner-Verified%20Partner-7075C3?style=for-the-badge)](https://www.eazydiner.com/patna/cafe-de-light-danapur-patna-689708)

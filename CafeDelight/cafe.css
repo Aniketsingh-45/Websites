@@ -13427,6 +13427,7 @@ a.btn-outline:hover {
   margin-bottom: 6px !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
 }
@@ -15083,6 +15084,7 @@ a.btn-outline:hover {
     margin-bottom: 4px !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
   }
@@ -15791,3 +15793,4 @@ a.btn-outline:hover {
     font-size: 1.2rem !important;
   }
 }
+
